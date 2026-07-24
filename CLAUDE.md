@@ -78,6 +78,22 @@ from a file, never committed:
 Variable names must match character for character. A silent auth failure is
 the most common way one of these runs dies.
 
+## How to notify
+
+Every notification — the daily close summary, the weekly review, and any
+urgent escalation — goes through the notify script, which reads
+`NOTIFY_WEBHOOK_URL` from the environment:
+
+```
+python3 scripts/notify.py "BODY TEXT" --title "TITLE" --urgency normal|warn|urgent
+```
+
+Body can also be piped: `echo "..." | python3 scripts/notify.py --title "..."`.
+Use `urgent` only for the escalation cases below, `warn` for the circuit
+breaker, `normal` for routine summaries. If `NOTIFY_WEBHOOK_URL` is unset the
+script prints instead of sending — treat that as a failed notification and say
+so in the run, do not assume the human saw it.
+
 ## Escalate to a human
 
 Send an urgent notification and take no action if:
