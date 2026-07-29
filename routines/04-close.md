@@ -25,9 +25,10 @@ Markets are closed. **Place no orders in this routine.**
 4. Write the day's entry in `memory/portfolio.md` and, if anything was
    actually learned, `memory/lessons.md`.
 
-5. Commit and push to `main`. Confirm the push succeeded in your notification
-   — a silent push failure means tomorrow's Bull starts blind, and this is the
-   single most common way this system breaks.
+5. **Land your changes on `main`** — see "Persisting a run" in `CLAUDE.md`.
+   Confirm `main` actually advanced in your notification — a silent push/merge
+   failure means tomorrow's Bull starts blind, and this is the single most
+   common way this system breaks.
 
 6. Send the daily summary:
    - Equity, day change in dollars and percent

@@ -94,6 +94,22 @@ breaker, `normal` for routine summaries. If `NOTIFY_WEBHOOK_URL` is unset the
 script prints instead of sending — treat that as a failed notification and say
 so in the run, do not assume the human saw it.
 
+## Persisting a run — land on `main`
+
+Every scheduled run starts from a **fresh checkout of `main`**. Work that does
+not reach `main` before the run ends is invisible to the next run: the
+pre-market → execution handoff breaks and memory never accumulates. Finishing a
+run therefore means getting your commit **onto `main`**, not just committing
+locally.
+
+- Push directly to `main` if the environment permits it.
+- If direct pushes are blocked and your work landed on a `claude/…` branch,
+  open a PR and merge it yourself:
+  `gh pr create --fill && gh pr merge --merge --delete-branch`
+- Then confirm `main` actually advanced. **An un-merged, un-pushed run did not
+  happen** — say so loudly in your notification instead of reporting success.
+  A 403 on push means a permission/policy block; do not try to route around it.
+
 ## Escalate to a human
 
 Send an urgent notification and take no action if:

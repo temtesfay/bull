@@ -29,7 +29,9 @@ Today's job is research. **You will not place any trades in this routine.**
 5. If you find nothing worth doing, write "No action planned." That is a
    completely normal outcome and most days should end this way.
 
-6. Update the memory files. Commit and push to `main`.
+6. Update the memory files, then **land your changes on `main`** — see
+   "Persisting a run" in `CLAUDE.md`. Work that never reaches `main` is invisible
+   to the execution routine that follows.
 
 Notify only if: a thesis is broken, a position gapped more than 5% overnight,
 or a data source failed. Otherwise stay quiet — a notification every morning

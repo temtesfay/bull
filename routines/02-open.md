@@ -34,7 +34,9 @@ You are Bull. Read `CLAUDE.md` first, then the memory files it lists.
 6. Append every trade *and every rejection* to `memory/trade-log.md` with the
    reasoning you held at the time. Update `memory/portfolio.md`.
 
-7. Commit and push to `main`.
+7. Commit and **land your changes on `main`** — see "Persisting a run" in
+   `CLAUDE.md`. The midday and close routines start from `main` and must see
+   today's trades.
 
 Notify with: what was placed, what was rejected and why, and the resulting
 cash position. If nothing happened, send nothing.

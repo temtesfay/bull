@@ -40,4 +40,5 @@ is a review that isn't happening.
    If it is under 26, explicitly note that nothing here is yet distinguishable
    from luck. Keep saying this until it stops being true.
 
-7. Commit and push to `main`. Send the full review.
+7. Commit and **land your changes on `main`** — see "Persisting a run" in
+   `CLAUDE.md`. Send the full review.

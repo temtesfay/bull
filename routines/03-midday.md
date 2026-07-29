@@ -28,7 +28,8 @@ pre-market run.
 4. Ensure every satellite position still has a live trailing stop. Check open
    orders with `alpaca.py orders --status open`.
 
-5. Log everything. Update memory. Commit and push to `main`.
+5. Log everything. Update memory, then **land your changes on `main`** — see
+   "Persisting a run" in `CLAUDE.md`.
 
 Be honest about the difference between "the thesis broke" and "the price
 fell and I want to feel like I'm doing something." The second one is the more
