@@ -1,6 +1,6 @@
 # Portfolio
 
-Last updated: [never — first run should populate this from Alpaca]
+Last updated: 2026-07-29 (first run, populated from Alpaca)
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -11,8 +11,8 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | — |
-| Cash | — |
+| Equity | $100,000.00 |
+| Cash | $100,000.00 |
 | Open positions | 0 |
 | New positions this week | 0 |
 
