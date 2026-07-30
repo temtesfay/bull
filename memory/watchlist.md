@@ -78,3 +78,21 @@ gaps need to close before it clears the buy criteria in `strategy.md`. Next
 routine (market open) should re-check MSFT's price against its 5-year
 multiple range now that `quote` actually works, and pull the FQ3 FY26 Azure
 number for comparison, before considering a starter position.
+
+---
+
+## Intraday risk-reduction check — 2026-07-30 13:09 ET
+
+This routine only reduces risk (no new positions permitted here regardless
+of what looked attractive). Ground truth via Alpaca: equity $100,000, cash
+$100,000, 0 open positions, day change 0.0%, `trading_blocked: false`,
+`orders --status open` → none, market `is_open: true`. No circuit breaker
+trip (day change well under 3%).
+
+With zero open positions there was nothing for the sell rules (thesis-break,
+-7%, -15%, >5% trim) or the trailing-stop check to act on — all four are
+no-ops on an empty book. No action taken. MSFT remains the only watchlist
+item, unchanged since this morning's pre-market run; still waiting on
+post-open valuation check and the FQ3 FY26 Azure comparison before it can
+clear buy criteria — that work belongs to a run that's allowed to open
+positions, not this one.
