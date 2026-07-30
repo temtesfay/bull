@@ -1,6 +1,6 @@
 # Portfolio
 
-Last updated: 2026-07-30 (research-only run, ground truth reconfirmed via Alpaca — no change)
+Last updated: 2026-07-30 (market-open run, ground truth reconfirmed via Alpaca — no change; MSFT watchlist entry skipped, gapped ~15% past the 3% re-check threshold)
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,

@@ -78,3 +78,32 @@ gaps need to close before it clears the buy criteria in `strategy.md`. Next
 routine (market open) should re-check MSFT's price against its 5-year
 multiple range now that `quote` actually works, and pull the FQ3 FY26 Azure
 number for comparison, before considering a starter position.
+
+---
+
+## Market-open check — 2026-07-30 09:46 ET
+
+Ran the market-open routine. `clock`: `is_open: true`. Ground truth
+reconfirmed: $100,000 cash, 0 open positions, `trading_blocked: false`,
+`day_change_pct: 0.0`. Plan above is dated today, so it applied.
+
+Re-verified MSFT price per the routine's 3%-move rule: `quote` now shows
+MSFT last $448.77 vs. prior close $391 (+14.77% same-day), and further above
+the $426.41 extended-hours print noted in the pre-market plan (roughly
+another +5.2% since that snapshot). This is far past the 3% threshold —
+**skipped, no order placed.** A stock up ~15% on the day is exactly the kind
+of move `strategy.md`'s "no reacting to noise" posture warns against buying
+into, and it makes the still-open valuation gap (criterion 3) harder to
+clear, not easier — the multiple has re-rated on the same news, not settled.
+Did not pull the FQ3 FY26 Azure comparison number this run since the price
+move alone was disqualifying; that research still needs doing before MSFT
+can be reconsidered.
+
+No other watchlist candidates existed to check. No open positions, so no
+thesis-invalidation or stop checks applied. **No trades, no rejections, no
+action taken this run** — cash remains $100,000, 0 positions.
+
+**Review by 2026-08-13 stands.** Before re-considering MSFT: let the
+post-earnings move settle for a few sessions, then check P/E against MSFT's
+own 5-year range at whatever price it's trading, and pull FQ3 FY26 Azure
+growth for a real two-quarter trend comparison.
