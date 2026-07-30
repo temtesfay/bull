@@ -48,3 +48,46 @@ already anticipated. That is not a lesson, that is variance.
   read the real numbers, or don't write the thesis yet. If Perplexity's
   citations aren't primary sources (EDGAR, IR, official press release), treat
   the answer as a lead to verify, not a fact to log.
+
+### 2026-07-30 — SEC EDGAR is unreachable from this environment; go to the company's own IR site instead
+- **What happened:** Tried to apply yesterday's lesson by going straight to a
+  primary source instead of trusting Perplexity's summary. Both the web
+  fetch tool and a direct `curl` (with a proper `User-Agent`) to
+  `www.sec.gov` and `data.sec.gov` failed — the fetch tool got HTTP 403 from
+  SEC's own server, and `curl` never even reached SEC because the
+  environment's outbound network policy rejected the CONNECT to
+  `data.sec.gov:443` before it left the container.
+- **What I believed at the time:** That EDGAR would be the most reliable
+  primary source since it's the regulator's own filing archive.
+- **What was actually true:** EDGAR is not reachable from this environment,
+  full stop, for either tool. It's not a rate limit or a bad URL problem —
+  it's blocked at the network layer for `curl` and returns 403 for the fetch
+  tool. Company IR sites (e.g. `microsoft.com/en-us/investor/...`) worked
+  fine and are still a legitimate primary source under the research diet
+  rule (it's the company's own press release, not sell-side commentary).
+- **What changes:** Stop trying EDGAR first. Go directly to the company's
+  own investor-relations site for earnings releases and filings indexes.
+  Only reach for EDGAR mirrors/aggregators as a last resort, and treat them
+  as leads to verify (per the 2026-07-29 lesson), not as the source itself.
+
+### 2026-07-30 — `alpaca.py quote` was silently broken since day one
+- **What happened:** Tried to pull a current price for MSFT to check
+  valuation. `python3 scripts/alpaca.py quote MSFT` returned `{}` — looked
+  like no data was available (plausible pre-market).
+- **What I believed at the time:** That the empty result meant Alpaca's data
+  feed had nothing for that symbol at that time of day, or that this run's
+  paper account had a data-plan limitation.
+- **What was actually true:** Calling the underlying snapshots function
+  directly showed Alpaca returns the requested symbols at the top level of
+  the JSON response with no `snapshots` wrapper key. The CLI's `quote`
+  command did `get_snapshots(args.symbols).get("snapshots", {})`, which
+  always evaluated to `{}` — a code bug, not a data problem. This means
+  every past and hypothetical use of `quote` would have silently returned
+  nothing and could have been misread as "no data available" rather than
+  "the parser is wrong."
+- **What changes:** Fixed `scripts/alpaca.py` (`quote` now falls back to the
+  raw response when there's no `snapshots` wrapper) and verified it returns
+  real prices. General takeaway: when a script returns suspiciously empty
+  output, check the raw API response before concluding the data doesn't
+  exist — an empty result and a parsing bug look identical from the output
+  alone.

@@ -265,7 +265,8 @@ def main():
     elif args.cmd == "clock":
         print(json.dumps(get_clock(), indent=2))
     elif args.cmd == "quote":
-        snaps = get_snapshots(args.symbols).get("snapshots", {})
+        resp = get_snapshots(args.symbols)
+        snaps = resp.get("snapshots", resp)
         out = {}
         for sym, s in snaps.items():
             bar = s.get("dailyBar") or {}
