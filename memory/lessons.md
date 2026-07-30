@@ -91,3 +91,34 @@ already anticipated. That is not a lesson, that is variance.
   output, check the raw API response before concluding the data doesn't
   exist — an empty result and a parsing bug look identical from the output
   alone.
+
+### 2026-07-30 — Three straight runs have landed on a branch, not `main`
+- **What happened:** `CLAUDE.md` and every file in `routines/` are explicit:
+  work must land on `main` because midday/close/weekly-review start from a
+  fresh checkout of `main`, and `SETUP.md` says the environment "must have
+  'push to `main`' enabled." This run (and, per `git log`, the two before
+  it — bootstrap and the MSFT research run) instead ran inside a session
+  whose harness-level instructions designated a fixed working branch
+  (`claude/magical-rubin-e1byxh`) and explicitly forbade pushing anywhere
+  else without permission. `origin/main` is still sitting at `1af572d`
+  ("SETUP.md" doc commit) — none of the actual trading memory (bootstrap,
+  MSFT watchlist entry, this run's skip) has ever reached it.
+- **What I believed at the time:** That committing and pushing to the
+  branch I was placed on satisfied "land on main," since the prior two runs
+  in this same chain did the same thing and I could still read their memory
+  updates on wake.
+- **What was actually true:** I could read the prior runs' memory only
+  because I started from the *same persistent branch*, not from `main`. If
+  a routine (e.g. the midday or close check) is ever scheduled to start from
+  a fresh `main` checkout as the docs describe, it would see none of this —
+  no positions history, no watchlist, no lessons past `1af572d`. The
+  handoff between routines is currently working by accident (same branch
+  reused) rather than by design (main advancing).
+- **What changes:** Flagging this to the human via notification rather than
+  trying to force a push to `main` against the explicit session-level branch
+  restriction — that restriction is a harder constraint than `CLAUDE.md`'s
+  general guidance and isn't mine to override. Future runs: if you find
+  yourself pinned to a non-`main` branch again, check `git log origin/main`
+  vs. your branch before assuming continuity is intact, and say so if they've
+  diverged. This needs a human fix (either enable direct main pushes per
+  `SETUP.md`, or point the scheduler at `main` instead of a fixed branch).
