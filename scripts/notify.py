@@ -36,7 +36,11 @@ def send(title, body, urgency="normal"):
 
     req = urllib.request.Request(
         url, data=json.dumps(payload).encode(),
-        headers={"Content-Type": "application/json"}, method="POST",
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "Mozilla/5.0 (compatible; BullBot/1.0)",
+        },
+        method="POST",
     )
     try:
         with urllib.request.urlopen(req, timeout=20) as r:

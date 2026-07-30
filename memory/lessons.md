@@ -91,3 +91,26 @@ already anticipated. That is not a lesson, that is variance.
   output, check the raw API response before concluding the data doesn't
   exist — an empty result and a parsing bug look identical from the output
   alone.
+
+### 2026-07-30 — `notify.py` was silently blocked by the webhook host's bot filter
+- **What happened:** End-of-day routine. `python3 scripts/notify.py` (with
+  `NOTIFY_WEBHOOK_URL` set) failed with `ERROR: webhook returned 403: error
+  code: 1010`.
+- **What I believed at the time:** That this might be another instance of
+  the network policy blocking the request outright (like the SEC EDGAR
+  case), or a genuinely dead/misconfigured webhook URL — either way, an
+  unfixable environment problem to report and move past.
+- **What was actually true:** Error code 1010 is Cloudflare's bot-signature
+  block, and the specific, well-known trigger is Python's default
+  `urllib` User-Agent header (`Python-urllib/3.x`), which many Cloudflare
+  configs flag as a bot regardless of the request's legitimacy. The script
+  sent no `User-Agent` at all. Adding a normal browser-like one
+  (`Mozilla/5.0 (compatible; BullBot/1.0)`) fixed it immediately — verified
+  with a real test notification that returned 204.
+- **What changes:** Fixed `scripts/notify.py` to send a `User-Agent` header
+  on every request. General takeaway: a 403 from a webhook/API host is not
+  automatically "environment network policy" or "dead URL" — check the
+  response body for a specific error code (Cloudflare 1010, 1015, etc.)
+  before concluding it's unfixable. This one was a one-line fix, and without
+  it, notifications — including future `urgent` escalations — would have
+  been silently failing every single run.
