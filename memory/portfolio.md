@@ -1,6 +1,6 @@
 # Portfolio
 
-Last updated: 2026-07-30 (end-of-day close, ground truth reconfirmed via Alpaca — no change)
+Last updated: 2026-07-31 (pre-market research routine, ground truth reconfirmed via Alpaca — no change: still $100,000 equity, $100,000 cash, 0 open positions)
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,

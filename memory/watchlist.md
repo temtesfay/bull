@@ -37,6 +37,34 @@ stale watchlist is worse than an empty one because it invites lazy buying.
   one quarter's Azure number (43% YoY). Before calling this "acceleration" I
   need to pull the FQ3 FY26 Azure growth number for comparison — one data
   point is not a trend.
+- **Update, 2026-07-31 (pre-market research):** Both gaps are now closed.
+  (1) Trend: Microsoft's own FQ3 FY26 metrics page
+  (microsoft.com/en-us/investor/earnings/fy-2026-q3/metrics, confirmed
+  directly via fetch, not just Perplexity's summary) shows Azure and other
+  cloud services revenue growth of 40% YoY (39% cc) for the quarter ended
+  2026-03-31. 40% → 43% across two consecutive quarters is a real
+  acceleration, not a one-point read. (2) Valuation: Alpaca's own daily bar
+  shows MSFT closed 2026-07-30 at $451.545 (dailyBar), up from a
+  prevDailyBar close of $391.00 on 2026-07-29 — a +15.48% one-day move,
+  which I did not take at face value given the size (verified against
+  general news search before trusting it; see lessons.md 2026-07-31 entry).
+  Microsoft's own FY26 Q4 release (fetched directly) gives full-year GAAP
+  diluted EPS of $17.95. At $451.545, that's a trailing P/E of ~25.2x.
+  MSFT's own 5-year TTM P/E range (per Perplexity, cross-referenced across
+  VCPScanner/Macrotrends/TradingView — not a primary-source figure since
+  P/E history isn't published in a filing, but a computed ratio using
+  Microsoft's own reported EPS) is roughly 25.1x–37.8x. So despite the
+  stock being up ~15% post-earnings, it is sitting near the *bottom* of its
+  own historical multiple range — EPS grew faster than price. Valuation is
+  defensible, not stretched.
+- **Buy criteria check:** (1) falsifiable thesis — yes, cloud/AI revenue
+  acceleration, stated above. (2) catalyst — already happened and is
+  confirmed with real numbers (FQ4 print). (3) valuation vs 5-year range —
+  defensible, see above. (4) not a macro call — yes, company-specific. (5)
+  liquidity — mega-cap, trivial. That's 5 of 5; criteria only require 3.
+  The one thing criteria don't capture: the stock already ran +15% in a
+  single day, which is chase risk regardless of how cheap the multiple
+  looks on paper. See the plan below for how that's handled in sizing.
 - **Added:** 2026-07-30
 - **Review by:** 2026-08-13
 
@@ -78,6 +106,56 @@ gaps need to close before it clears the buy criteria in `strategy.md`. Next
 routine (market open) should re-check MSFT's price against its 5-year
 multiple range now that `quote` actually works, and pull the FQ3 FY26 Azure
 number for comparison, before considering a starter position.
+
+---
+
+## Plan for today — 2026-07-31
+
+Ground truth (pre-market): equity $100,000, cash $100,000, 0 open
+positions, `trading_blocked: false`, day change 0.0%. Market not a
+holiday — `clock` shows `is_open: false` pre-open, `next_open` today
+09:30 ET, `next_close` today 16:00 ET.
+
+No open positions, so no thesis-break checks were needed or possible.
+One watchlist candidate, MSFT — trigger check above. Both gating items
+from yesterday (trend confirmation, valuation after the earnings pop)
+are now resolved and MSFT clears the buy criteria in `strategy.md` (5 of
+5, only 3 required).
+
+**Draft proposal for the market-open routine (NOT executed by this
+run — this is a research routine only):**
+
+- **Ticker:** MSFT
+- **Direction:** BUY (starter position)
+- **Size:** $1,000 (1% of equity)
+- **Reasoning:** Azure revenue growth accelerated 40% → 43% YoY across
+  FQ3 and FQ4 FY26 (both confirmed from Microsoft's own IR site, not
+  Perplexity's summary) — a real trend, not a one-quarter data point.
+  Despite the stock already running +15.48% the day after earnings to
+  $451.545, trailing P/E (~25.2x on FY26 GAAP diluted EPS of $17.95) is
+  near the bottom of MSFT's own 5-year P/E range (~25.1x–37.8x): EPS
+  growth is outrunning the price move, not the other way around.
+- **Why a 1% starter and not the 3% standard size:** conviction alone
+  (5/5 criteria, clean valuation math) would support a standard 3%
+  entry. Sizing down one notch for two reasons the buy criteria don't
+  capture: (a) it's a higher-beta growth name — `strategy.md` says size
+  down a notch on those regardless — and (b) the stock already moved
+  15% in a single session before this routine could act on it, which is
+  chase risk even when the multiple still looks reasonable. A 1% starter
+  earns the position without betting size on a single hot day.
+- **Invalidation (write this down now, before any fill exists):** Azure
+  YoY growth decelerates back below ~35% in the FQ1 FY27 print, or
+  commercial RPO growth reverses meaningfully, or capex guidance is cut
+  in a way that reads as AI-monetization doubt rather than discipline.
+- **Guardrails for the market-open routine specifically:** do not buy in
+  the first 15 minutes after the open (`strategy.md` rule). Re-pull the
+  quote before acting — if MSFT has gapped meaningfully further from
+  $451.545 by market open, that changes the valuation math above and the
+  entry should be reconsidered, not assumed still valid. No earnings
+  blackout applies (the print already happened).
+
+This is a plan, not an order. The market-open routine should re-verify
+ground truth and the price above before acting, per its own instructions.
 
 ---
 

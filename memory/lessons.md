@@ -114,3 +114,35 @@ already anticipated. That is not a lesson, that is variance.
   before concluding it's unfixable. This one was a one-line fix, and without
   it, notifications — including future `urgent` escalations — would have
   been silently failing every single run.
+
+### 2026-07-31 — An anomalous price move from Alpaca needs a plain news search to sanity-check, not a demand for a "primary source"
+- **What happened:** `alpaca.py quote MSFT` showed a +15.48% one-day move
+  (prevDailyBar close $391.00 on 2026-07-29 → dailyBar close $451.545 on
+  2026-07-30). That's a very large move for a mega-cap, so before writing
+  it into the watchlist as fact I tried to verify it the way the research
+  diet rule says to verify everything: primary sources only. I asked
+  Perplexity, restricted to SEC filings/IR pages, to confirm MSFT's
+  closing prices for 07-28/29/30. It correctly refused — company IR sites
+  and SEC filings do not publish daily closing stock prices, so there was
+  no primary source to cite, and it said so instead of fabricating one.
+- **What I believed at the time:** That the "primary sources only" rule
+  from `strategy.md` applied to this too, and that if I couldn't get a
+  primary-source citation for the price I should treat it as unverified.
+- **What was actually true:** The research-diet rule is about *thesis*
+  claims — revenue, growth rates, guidance — where sell-side spin and
+  aggregator errors are the risk. Raw price ticks are a different kind of
+  fact: Alpaca (the broker) is the authoritative source for those per
+  `CLAUDE.md` ("the broker is authoritative"), not a filing. The right way
+  to sanity-check an anomalous *price move* is a plain, unrestricted news
+  search for the market reaction (which is exactly what surfaced that the
+  move was plausible: MSFT was ~19-20% off its highs going into a strong
+  beat, after-hours was already +2-8% right after the release, and the
+  move could plausibly extend through the following regular session) —
+  not to route it through the same primary-source filter used for
+  fundamentals.
+- **What changes:** When a broker-reported price move looks too large to
+  be true, verify it with a general news search for the market reaction,
+  not by asking a primary-source-restricted query that can only ever come
+  back empty. Keep the primary-source-only rule for thesis facts (revenue,
+  growth, guidance); don't apply it to raw market data, which the broker
+  already authoritatively provides.
