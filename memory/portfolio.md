@@ -1,8 +1,7 @@
 # Portfolio
 
-Last updated: 2026-07-31 (intraday risk-reduction routine) — reconciled
-against Alpaca, which showed a MSFT position this file did not have on
-record. See `lessons.md` 2026-07-31 entry for why.
+Last updated: 2026-07-31 (daily close routine) — reconciled against Alpaca,
+no discrepancy this run (single MSFT position, matches record).
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -13,14 +12,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,010.86 |
+| Equity | $100,015.70 |
 | Cash | $99,000.01 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`; MSFT buy filled 2026-07-31, same week) |
 
 ## Holdings
 
-### MSFT — 1.01% of equity
+### MSFT — 1.02% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
 - **Thesis:** Azure/cloud revenue growth is accelerating (40% -> 43% YoY,
   FQ3 -> FQ4 FY26) on real reported numbers, not capex narrative; EPS
@@ -33,12 +32,14 @@ trust Alpaca, fix this file, and log why they drifted.
   discipline.
 - **Catalyst:** already happened (FY26 Q4 earnings, reported 2026-07-29);
   next checkpoint is the FQ1 FY27 print.
-- **Stop:** 10% trailing stop live as of 2026-07-31 intraday run (covers 2
-  of 2.19 whole shares; Alpaca does not accept trailing stops on the
-  fractional remainder). Order id `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`.
-- **Status:** on track — up 1.09% unrealized, no news since entry that
-  challenges the thesis (FY26 Q4 beat on both EPS and revenue, guidance
-  raised; see trade-log for sourcing).
+- **Stop:** 10% trailing stop live, order id
+  `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
+  (Alpaca does not accept trailing stops on the fractional remainder).
+  Confirmed still open as of this close: status `new`, hwm $466.84, stop
+  price $420.156.
+- **Status:** on track — up 1.57% unrealized ($463.87 vs $456.70 entry), no
+  news since entry that challenges the thesis (FY26 Q4 beat on both EPS and
+  revenue, guidance raised; see trade-log for sourcing). Not underwater.
 
 Format for each position, one block:
 
@@ -55,12 +56,14 @@ Format for each position, one block:
 | Date | Portfolio | SPY | Delta |
 |------|-----------|-----|-------|
 | 2026-07-30 | 0.00% | +1.65% | -1.65% |
+| 2026-07-31 | +0.02% | +0.70% | -0.68% |
 
 Since-inception delta (2026-07-29 close baseline, when the account was first
-funded at $100,000 with 0 positions): portfolio +0.00%, SPY +1.65%, delta
--1.65%. Identical to today's row because the account has never traded — only
-one trading day has elapsed since inception, so "today" and "since inception"
-are the same figure right now. They will diverge once either a trade happens
-or another day passes. SPY figures come from `alpaca.py quote SPY`
-(`prev_close` 729.57 → `last` 741.63); no SPY baseline price was captured on
-day one itself, so this table starts today rather than retroactively.
+funded at $100,000 with 0 positions, SPY `prev_close` 729.57): portfolio
++0.02% ($100,000 → $100,015.70), SPY +2.36% (729.57 → 746.79 per
+`alpaca.py quote SPY` at this close), delta **-2.34%**. The one MSFT
+position (bought 2026-07-31) is up on its own terms (+1.57% since entry),
+but the account has been mostly cash (99%+) through a period where SPY ran
+up meaningfully — the delta is a cash-drag story so far, not a stock-picking
+loss. Nothing here says slow the buy criteria down; it's one data point over
+two trading days.

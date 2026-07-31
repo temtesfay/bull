@@ -182,3 +182,28 @@ already anticipated. That is not a lesson, that is variance.
   run ends early — an order that fills but is never logged or protected
   with a stop is a worse outcome than not trading at all, because it's
   invisible until a later run stumbles onto it by chance.
+
+### 2026-07-31 — a bare `git log origin/main` can read a stale ref; always `git fetch` first when checking whether main actually advanced
+- **What happened:** At the start of this daily-close routine, `git log
+  origin/main` (no prior fetch this session) showed `main` four commits
+  *behind* the local checked-out branch — as if a prior PR had merged into
+  the feature branch instead of into `main`. That would have been a serious
+  process failure worth an urgent flag. Before writing it down, checked the
+  GitHub API directly (`list_branches`) and it showed `main` at the exact
+  same commit as local HEAD. An explicit `git fetch origin main` then
+  updated the local remote-tracking ref and `git log origin/main` matched
+  reality.
+- **What I believed at the time:** That `git log origin/main` without an
+  explicit fetch reflects current remote state, since the working tree had
+  just been freshly checked out for this run.
+- **What was actually true:** The local `origin/main` ref can be stale
+  relative to the actual remote even at the start of a fresh session-scoped
+  checkout, apparently because the initial clone/checkout only fetches the
+  branch being worked on, not `main`. Reading it without fetching first
+  produces a plausible-looking but wrong diff.
+- **What changes:** Before drawing any conclusion about whether `main` has
+  advanced, diverged, or received a prior run's push (the check `CLAUDE.md`
+  explicitly asks for), always run `git fetch origin main` first, or
+  cross-check against the GitHub API. Do not trust a same-session
+  `git log origin/main` that hasn't been preceded by an explicit fetch of
+  `main` specifically.
