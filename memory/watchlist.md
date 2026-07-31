@@ -174,3 +174,31 @@ item, unchanged since this morning's pre-market run; still waiting on
 post-open valuation check and the FQ3 FY26 Azure comparison before it can
 clear buy criteria — that work belongs to a run that's allowed to open
 positions, not this one.
+
+## Intraday risk-reduction check — 2026-07-31 13:xx ET
+
+Ground truth via Alpaca: equity $100,010.86, cash $99,000.01, day change
++0.01% (`trading_blocked: false`) — nowhere near the 3% circuit breaker.
+**MSFT is no longer a watchlist candidate — the market-open routine bought
+it** (filled 2026-07-31 13:46:11 UTC, $456.70 avg, $1,000 notional per the
+plan drafted here yesterday). It's promoted to a position; full detail is
+in `portfolio.md` and `trade-log.md`.
+
+That trade had not been written to `trade-log.md`/`portfolio.md` or pushed
+to `main` — this run found it only by checking Alpaca directly, exactly as
+`CLAUDE.md` warns can happen. Backfilled both files this run; see
+`lessons.md` for the process fix.
+
+Sell-rule check on the one open position: MSFT is up 1.09% unrealized, well
+inside normal noise, no thesis-break indication (checked general news —
+FY26 Q4 beat on both lines, guidance raised, no red flags), position is
+1.01% of equity (nowhere near the 5% trim trigger). No sell action taken.
+
+Trailing-stop check: `orders --status open` was empty — MSFT had no stop.
+Set a 10% trailing stop this run (`alpaca.py protect MSFT --trail-percent
+10`), covering 2 of its 2.19 shares (fractional remainder can't carry a
+broker-side trailing stop).
+
+Watchlist is now empty. No new candidates sourced this run — this routine's
+scope is risk reduction only, not origination; next candidate sourcing
+belongs to a pre-market or research run.
