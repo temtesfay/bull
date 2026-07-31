@@ -174,3 +174,21 @@ item, unchanged since this morning's pre-market run; still waiting on
 post-open valuation check and the FQ3 FY26 Azure comparison before it can
 clear buy criteria — that work belongs to a run that's allowed to open
 positions, not this one.
+
+---
+
+## Market-open execution — 2026-07-31 09:46 ET
+
+Plan was dated today (2026-07-31), so it was current — executed. Re-verified
+MSFT's quote before acting: $456.21, vs $451.545 referenced in the plan,
++1.03% — under the 3% skip threshold, so the setup was unchanged. Traded 16
+minutes after the 09:30 ET open (past the first-15-minutes rule).
+
+**Executed:** BUY MSFT, $1,000 notional (1% starter), filled 2.1896 shares at
+$456.70 avg. Full reasoning in `trade-log.md`. MSFT is promoted from
+watchlist candidate to an open position — see `portfolio.md`. No overnight
+protection set (fractional share count, below Alpaca's 1-share minimum for a
+trailing stop); revisit if/when this position is added to.
+
+No other candidates were on the watchlist, so nothing else to execute or
+skip this run.
