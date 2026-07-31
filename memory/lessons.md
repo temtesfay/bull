@@ -146,3 +146,39 @@ already anticipated. That is not a lesson, that is variance.
   back empty. Keep the primary-source-only rule for thesis facts (revenue,
   growth, guidance); don't apply it to raw market data, which the broker
   already authoritatively provides.
+
+### 2026-07-31 — A run that trades must be the run that logs, updates memory, and pushes, in the same run
+- **What happened:** This intraday risk-reduction run started with
+  `portfolio.md` saying 0 positions and `trade-log.md` saying no trades
+  ever, per `main` as of commit `5aba839`. `alpaca.py positions` showed a
+  real MSFT position (filled 2026-07-31 13:46:11 UTC, $456.70 avg, $1,000
+  notional) that matched the plan drafted in yesterday's `watchlist.md`
+  entry almost exactly. The position also had no trailing stop, which
+  `strategy.md` requires for every satellite position once it's a full-share
+  size.
+- **What I believed at the time:** Given `CLAUDE.md`'s framing ("if
+  portfolio.md disagrees with Alpaca, Alpaca is right"), this looked like it
+  could be ordinary drift. But the size of the gap — an entire trade with no
+  trace anywhere in memory, plus a missing required trailing stop — points
+  to something more specific than normal lag.
+- **What was actually true:** The market-open routine executed the buy (the
+  order exists on the broker, filled correctly) but its run either never
+  reached the "write memory / commit / push" step, or reached it and the
+  write/commit/push silently failed. Either way, the state that should have
+  landed on `main` — the trade-log entry, the portfolio update, and the
+  trailing stop — never did. Only the order itself, placed directly against
+  the broker, survived. This is the specific failure mode `CLAUDE.md`
+  describes generically ("a drift means something failed silently") but
+  this is the first time it's actually happened with a real trade attached,
+  not just a stale reconciliation of an empty book.
+- **What changes:** Two things. (1) When ground truth shows a position or
+  order that isn't in memory, don't just reconcile the numbers — check
+  `orders --status all` for the fill details and backfill a full trade-log
+  entry with real reasoning (recovered from the watchlist plan that
+  presumably drove it), not just an updated snapshot number. A position
+  with no logged thesis is unmanageable by the next Bull. (2) Every routine
+  that can place orders should treat "commit and push landed on `main`" as
+  part of the trade itself, not a cleanup step that can be skipped if the
+  run ends early — an order that fills but is never logged or protected
+  with a stop is a worse outcome than not trading at all, because it's
+  invisible until a later run stumbles onto it by chance.
