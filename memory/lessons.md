@@ -207,3 +207,41 @@ already anticipated. That is not a lesson, that is variance.
   cross-check against the GitHub API. Do not trust a same-session
   `git log origin/main` that hasn't been preceded by an explicit fetch of
   `main` specifically.
+
+### 2026-07-31 — First weekly review: the failures are operational, not analytical, and self-discipline alone won't catch the next one
+- **What happened:** First-ever weekly review (routine 5). Account is 2
+  calendar days old (funded 2026-07-29), so "this week" and "since inception"
+  are almost the same number — see the full review sent via notify for the
+  numbers. Process audit turned up that in those 2 days, three separate
+  silent failures occurred and were each caught only by a *later* run
+  stumbling onto the discrepancy by chance, not by any check designed to
+  catch it: `alpaca.py quote` silently returned `{}` from a parsing bug,
+  `notify.py` was silently dropped by a Cloudflare bot filter, and — most
+  seriously — the market-open run that placed the account's only real trade
+  (MSFT buy) never wrote it to `trade-log.md`/`portfolio.md`, never pushed to
+  `main`, and never set the required trailing stop, leaving a live,
+  unprotected position invisible to memory for hours until an intraday run
+  happened to check the broker directly.
+- **What I believed at the time:** That "read this first, write this last"
+  plus each run's own diligence would be enough discipline to keep memory
+  and the broker in sync, since every run *intends* to complete the
+  write-commit-push sequence.
+- **What was actually true:** Intent isn't a control. Each of these three
+  failures happened inside a run that believed it was following the rules
+  correctly; the gap was only visible from the *next* run's outside view.
+  A stateless agent that reasons well on any single wake but has no
+  cross-run enforcement will keep having exactly this failure mode — good
+  decisions with silently-lost side effects — no matter how carefully any
+  one run's reasoning is graded.
+- **What changes:** Proposing (not implementing — this is a tooling/process
+  change, not a `strategy.md` rule, but flagging it here since it's the one
+  concrete lever this review found): add a mechanical check, not a reminder,
+  that a run cannot end "successfully" after placing an order unless (a) a
+  matching `trade-log.md` entry exists, (b) `portfolio.md` reflects the new
+  position, (c) a required trailing stop order exists on the broker for any
+  full-share satellite position, and (d) the commit actually landed on
+  `main` (fetch-and-compare, not a local assumption) — e.g. a `scripts/`
+  post-trade verification step that fails loudly instead of trusting the
+  next run to notice. Until something enforces this mechanically, treat
+  every "the trade went fine" self-report with skepticism and keep
+  re-verifying against the broker directly, per `CLAUDE.md`'s own framing.
