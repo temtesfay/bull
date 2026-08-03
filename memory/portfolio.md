@@ -1,9 +1,10 @@
 # Portfolio
 
-Last updated: 2026-08-03 (pre-market research routine) — reconciled against
-Alpaca, no discrepancy this run (single MSFT position, matches record).
-Research-only run: no trades placed, snapshot/status refreshed but benchmark
-table below is last updated by the daily-close routine.
+Last updated: 2026-08-03 (intraday risk-reduction routine, ~13:14 ET) —
+reconciled against Alpaca, no discrepancy this run (single MSFT position,
+matches record). Risk-reduction-only run: no trades placed, snapshot/status
+refreshed but benchmark table below is last updated by the daily-close
+routine.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -14,14 +15,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,039.44 |
+| Equity | $100,068.85 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
 
 ## Holdings
 
-### MSFT — 1.04% of equity
+### MSFT — 1.07% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
 - **Thesis:** Azure/cloud revenue growth is accelerating (40% -> 43% YoY,
   FQ3 -> FQ4 FY26) on real reported numbers, not capex narrative; EPS
@@ -37,16 +38,17 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-03 pre-market: status `new`, hwm
-  $466.84, stop price $420.156. (hwm hasn't moved past Friday's close yet —
-  expected pre-open, trailing stops mark to trade ticks during market hours.)
-- **Status:** on track — up 3.94% unrealized ($474.72 vs $456.70 entry) as of
-  2026-08-03 pre-market check. Checked Microsoft's own SEC filings/IR page via
-  Perplexity (restricted to primary sources) for anything dated after the
-  2026-07-29 FY26 Q4 print through today: no new 8-K, no new Azure guidance,
-  no commercial RPO update, no capex commentary — the only filings on record
-  in the window are the 2026-07-29 10-K/8-K already priced into the thesis.
-  Thesis unchanged and intact. Not underwater.
+  Confirmed still open as of 2026-08-03 intraday check (~13:14 ET): status
+  `new`, hwm $491.35, stop price $442.215.
+- **Status:** on track — up 6.88% unrealized ($488.12 vs $456.70 entry) as of
+  2026-08-03 intraday risk-reduction check. Checked for thesis-breaking news
+  via Perplexity (unrestricted query, since this is a same-day news
+  sanity-check rather than a fundamentals claim) for anything new since the
+  2026-07-29 FY26 Q4 print through today: no new 8-K, no new IR release, no
+  lawsuit, no regulatory action, no executive change — today's coverage is
+  recap of the known earnings beat, not new information. Thesis unchanged and
+  intact. Well inside the -7%/-15% sell triggers and the 5%-of-equity trim
+  threshold (~1.07% of equity).
 
 Format for each position, one block:
 
