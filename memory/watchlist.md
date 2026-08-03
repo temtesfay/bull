@@ -16,57 +16,10 @@ stale watchlist is worse than an empty one because it invites lazy buying.
 
 ---
 
-### MSFT
-- **Thesis forming:** Cloud/AI capacity buildout is translating into real
-  revenue acceleration, not just capex narrative. FQ4 FY26 (quarter ended
-  2026-06-30, reported 2026-07-29): total revenue $90.0B (+18% YoY, +17% cc),
-  Microsoft Cloud revenue $59.3B (+27% YoY), Azure and other cloud services
-  +43% YoY, operating margin 45.1%, commercial RPO $678B (+84% YoY). Source:
-  Microsoft's own IR press release,
-  https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast
-  — headline "Microsoft Cloud and AI Strength Fuels Fourth Quarter Results,"
-  fetched twice independently and cross-checked for consistency (numbers and
-  headline matched both times).
-- **What you're waiting for:** Two things before this clears buy criteria.
-  (1) Valuation: the stock already moved on this news before I could check
-  it — prevDailyBar close (2026-07-28) $393.44 vs latest extended-hours trade
-  $426.41 as of 2026-07-30 08:34 ET, roughly +8.4%. Need to see where it
-  settles after the open and check P/E against MSFT's own 5-year range before
-  claiming valuation is defensible (criterion 3) — did not have this data
-  during this research-only run. (2) Trend confirmation: I only pulled this
-  one quarter's Azure number (43% YoY). Before calling this "acceleration" I
-  need to pull the FQ3 FY26 Azure growth number for comparison — one data
-  point is not a trend.
-- **Update, 2026-07-31 (pre-market research):** Both gaps are now closed.
-  (1) Trend: Microsoft's own FQ3 FY26 metrics page
-  (microsoft.com/en-us/investor/earnings/fy-2026-q3/metrics, confirmed
-  directly via fetch, not just Perplexity's summary) shows Azure and other
-  cloud services revenue growth of 40% YoY (39% cc) for the quarter ended
-  2026-03-31. 40% → 43% across two consecutive quarters is a real
-  acceleration, not a one-point read. (2) Valuation: Alpaca's own daily bar
-  shows MSFT closed 2026-07-30 at $451.545 (dailyBar), up from a
-  prevDailyBar close of $391.00 on 2026-07-29 — a +15.48% one-day move,
-  which I did not take at face value given the size (verified against
-  general news search before trusting it; see lessons.md 2026-07-31 entry).
-  Microsoft's own FY26 Q4 release (fetched directly) gives full-year GAAP
-  diluted EPS of $17.95. At $451.545, that's a trailing P/E of ~25.2x.
-  MSFT's own 5-year TTM P/E range (per Perplexity, cross-referenced across
-  VCPScanner/Macrotrends/TradingView — not a primary-source figure since
-  P/E history isn't published in a filing, but a computed ratio using
-  Microsoft's own reported EPS) is roughly 25.1x–37.8x. So despite the
-  stock being up ~15% post-earnings, it is sitting near the *bottom* of its
-  own historical multiple range — EPS grew faster than price. Valuation is
-  defensible, not stretched.
-- **Buy criteria check:** (1) falsifiable thesis — yes, cloud/AI revenue
-  acceleration, stated above. (2) catalyst — already happened and is
-  confirmed with real numbers (FQ4 print). (3) valuation vs 5-year range —
-  defensible, see above. (4) not a macro call — yes, company-specific. (5)
-  liquidity — mega-cap, trivial. That's 5 of 5; criteria only require 3.
-  The one thing criteria don't capture: the stock already ran +15% in a
-  single day, which is chase risk regardless of how cheap the multiple
-  looks on paper. See the plan below for how that's handled in sizing.
-- **Added:** 2026-07-30
-- **Review by:** 2026-08-13
+*(No open candidates. MSFT was researched here 2026-07-30/31, cleared buy
+criteria, and was promoted to a position on 2026-07-31 — see `portfolio.md`
+and `trade-log.md` for the live thesis. Full research trail for that
+promotion is preserved in git history rather than repeated here.)*
 
 ---
 
@@ -202,3 +155,32 @@ broker-side trailing stop).
 Watchlist is now empty. No new candidates sourced this run — this routine's
 scope is risk reduction only, not origination; next candidate sourcing
 belongs to a pre-market or research run.
+
+---
+
+## Plan for today — 2026-08-03
+
+Ground truth via Alpaca: equity $100,039.44, cash $99,000.00, day change
++0.02%, `trading_blocked: false`. `clock` shows `is_open: false` pre-open,
+`next_open` today 09:30 ET — not a holiday, normal Monday session.
+
+**Position thesis check (MSFT, the only open position):** queried Perplexity,
+restricted to SEC filings / official Microsoft IR / official corporate
+statements, for anything dated between the 2026-07-29 FY26 Q4 print and
+today (2026-08-03) touching Azure guidance, commercial RPO, or AI capex.
+Result: no new 8-K, no new IR release, no new guidance of any kind in that
+window — the only official filings on record are the 2026-07-29 10-K/8-K
+that the thesis is already built on (SEC EDGAR filing index, accession
+0001193125-26-323632, cross-checked against Microsoft's own IR SEC-filings
+page). **Thesis intact, unchanged.** Price: $474.72 vs $456.70 entry, +3.94%
+unrealized — a continuation of the post-earnings move, not an overnight gap,
+and nowhere near the -7%/-15% sell triggers. No gap >5% overnight to flag.
+
+**Watchlist candidates:** none open (see promoted-MSFT note above), so no
+trigger checks were possible or needed. This routine's scope (per today's
+instructions) was checking existing positions/candidates, not originating a
+new one — no new name was sourced this run.
+
+**No action planned.** Nothing broken, nothing gapped, no data source
+failed, no trigger fired. Not notifying — routine, quiet day, exactly the
+outcome `CLAUDE.md` says should be the default.
