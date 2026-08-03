@@ -184,3 +184,26 @@ new one — no new name was sourced this run.
 **No action planned.** Nothing broken, nothing gapped, no data source
 failed, no trigger fired. Not notifying — routine, quiet day, exactly the
 outcome `CLAUDE.md` says should be the default.
+
+---
+
+## Market-open execution check — 2026-08-03
+
+Ran the market-open routine. `clock` confirms `is_open: true`. This plan
+(above, dated 2026-08-03) contains no drafted buy — it explicitly says "No
+action planned" — so there was nothing to re-verify against a 3% price-move
+threshold and nothing to execute. Steps 3-5 of the market-open routine were
+no-ops by design, not a skip.
+
+Ground truth via Alpaca: equity $100,069.73, cash $99,000.00 (unchanged),
+day change +0.05%, `trading_blocked: false`. Matches `portfolio.md`, no
+discrepancy. MSFT is the only position, now +7.07% unrealized ($489.00 vs
+$456.70 entry) — a continuation of the same post-earnings move noted in
+this morning's pre-market check, not a new gap. Nowhere near the -7%/-15%
+sell triggers and well under the 5%-of-equity trim threshold (~1.1% of
+equity). Trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) confirmed
+still live: status `new`, hwm marked up to $490.80, stop price $441.72.
+
+No trades placed, no orders rejected, no memory drift found. Per the
+routine's own instructions ("If nothing happened, send nothing"), no
+notification sent.
