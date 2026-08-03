@@ -207,3 +207,37 @@ still live: status `new`, hwm marked up to $490.80, stop price $441.72.
 No trades placed, no orders rejected, no memory drift found. Per the
 routine's own instructions ("If nothing happened, send nothing"), no
 notification sent.
+
+---
+
+## Intraday risk-reduction check — 2026-08-03 ~13:14 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,068.85, cash
+$99,000.00, day change +0.05% (`trading_blocked: false`), `clock` shows
+`is_open: true`. Nowhere near the 3% circuit breaker — no halt, orders
+proceed as normal (none needed).
+
+**Sell-rule check on MSFT (only open position):** market value $1,068.79 vs
+$100,068.85 equity = ~1.07% of equity, unrealized +6.88% ($488.12 vs $456.70
+entry). Checked for thesis-breaking news via Perplexity (unrestricted query
+this time, per the 2026-07-31 lesson that price/news sanity-checks don't
+need the primary-source-only filter) covering today specifically: no new
+8-K, no new IR release, no lawsuit, no regulatory action, no executive
+change, no capex or guidance revision beyond what's already priced in from
+the 2026-07-29 print. Today's coverage is recap of the known earnings beat,
+not new information. Thesis intact.
+
+None of the four sell triggers fire: not thesis-broken, not down 7%, not
+down 15%, not above 5% of equity (it's ~1.07%). No trim, no exit.
+
+**Trailing-stop check:** `orders --status open` shows the existing 10%
+trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live — status
+`new`, hwm marked up to $491.35 (from $490.80 at market-open check), stop
+price $442.215. Covers 2 of 2.19 whole shares, as before (fractional
+remainder still can't carry a broker-side stop). No action needed.
+
+Watchlist remains empty — this routine's scope is risk reduction only, not
+origination, so no new candidate was sourced. No trades placed, nothing to
+log in `trade-log.md`. No notification sent (nothing broke, nothing
+triggered, per `CLAUDE.md`'s "default to doing nothing").
