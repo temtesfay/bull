@@ -1,10 +1,8 @@
 # Portfolio
 
-Last updated: 2026-08-03 (intraday risk-reduction routine, ~13:14 ET) —
-reconciled against Alpaca, no discrepancy this run (single MSFT position,
-matches record). Risk-reduction-only run: no trades placed, snapshot/status
-refreshed but benchmark table below is last updated by the daily-close
-routine.
+Last updated: 2026-08-03 (daily-close routine) — reconciled against Alpaca,
+no discrepancy this run (single MSFT position, qty and entry match; equity
+and cash match). Markets closed; no orders placed or rejected this run.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -15,7 +13,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,068.85 |
+| Equity | $100,066.33 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
@@ -40,15 +38,11 @@ trust Alpaca, fix this file, and log why they drifted.
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-08-03 intraday check (~13:14 ET): status
   `new`, hwm $491.35, stop price $442.215.
-- **Status:** on track — up 6.88% unrealized ($488.12 vs $456.70 entry) as of
-  2026-08-03 intraday risk-reduction check. Checked for thesis-breaking news
-  via Perplexity (unrestricted query, since this is a same-day news
-  sanity-check rather than a fundamentals claim) for anything new since the
-  2026-07-29 FY26 Q4 print through today: no new 8-K, no new IR release, no
-  lawsuit, no regulatory action, no executive change — today's coverage is
-  recap of the known earnings beat, not new information. Thesis unchanged and
-  intact. Well inside the -7%/-15% sell triggers and the 5%-of-equity trim
-  threshold (~1.07% of equity).
+- **Status:** on track — up 6.64% unrealized ($487.00 vs $456.70 entry) as of
+  2026-08-03 daily-close reconciliation (market value $1,066.33, ~1.07% of
+  equity). Thesis checked earlier today (pre-market and intraday routines,
+  see history below) — nothing new since. Well inside the -7%/-15% sell
+  triggers and the 5%-of-equity trim threshold.
 
 Format for each position, one block:
 
@@ -66,13 +60,47 @@ Format for each position, one block:
 |------|-----------|-----|-------|
 | 2026-07-30 | 0.00% | +1.65% | -1.65% |
 | 2026-07-31 | +0.02% | +0.70% | -0.68% |
+| 2026-08-03 | +0.05% | +1.46% | -1.41% |
 
 Since-inception delta (2026-07-29 close baseline, when the account was first
 funded at $100,000 with 0 positions, SPY `prev_close` 729.57): portfolio
-+0.02% ($100,000 → $100,015.70), SPY +2.36% (729.57 → 746.79 per
-`alpaca.py quote SPY` at this close), delta **-2.34%**. The one MSFT
-position (bought 2026-07-31) is up on its own terms (+1.57% since entry),
-but the account has been mostly cash (99%+) through a period where SPY ran
-up meaningfully — the delta is a cash-drag story so far, not a stock-picking
-loss. Nothing here says slow the buy criteria down; it's one data point over
-two trading days.
++0.07% ($100,000 → $100,066.33), SPY +3.86% (729.57 → 757.72 per
+`alpaca.py quote SPY` at 2026-08-03 close), delta **-3.79%**. The one MSFT
+position (bought 2026-07-31) is up nicely on its own terms (+6.64% since
+entry), but the account has been ~99% cash through a period where SPY ran up
+meaningfully — the delta is still a cash-drag story, not a stock-picking
+loss: the one position taken is beating the benchmark by a wide margin, the
+account just hasn't deployed enough capital yet to matter. Not a reason to
+force new buys — `strategy.md`'s buy criteria are still the gate, not the
+scoreboard.
+
+---
+
+## Daily-close entry — 2026-08-03
+
+Markets closed. Per this routine's scope, no orders were placed or
+evaluated — reconciliation and record-keeping only.
+
+**Reconciliation:** `alpaca.py account` and `positions` checked against this
+file. Equity $100,066.33, cash $99,000.00, one open position (MSFT, qty
+2.189599299, avg entry $456.70) — all match what was on record from the
+day's earlier routines. No discrepancy, nothing to log in `lessons.md`.
+
+**Benchmark:** today's portfolio return +0.05% vs SPY +1.46% (SPY
+`prev_close` $746.79 → `last` $757.72), delta -1.41%. Since inception,
+portfolio +0.07% vs SPY +3.86%, delta -3.79%. See table and discussion
+above — this remains a cash-drag story (account is ~99% cash by design,
+single 1%-sized MSFT position), not evidence the stock-picking itself is
+off; the one position held is comfortably ahead of the benchmark on its own
+entry.
+
+**Trades:** none placed, none rejected — market was closed for this
+routine's entire scope.
+
+**Positions >5% underwater from entry:** none. MSFT is up 6.64%, nowhere
+near a sell trigger.
+
+**Watching tomorrow:** nothing new — MSFT thesis unchanged (Azure YoY
+growth trend, next checkpoint the FQ1 FY27 print, still months out). No
+watchlist candidates open; sourcing a new one is out of scope for this
+routine.
