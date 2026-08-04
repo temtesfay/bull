@@ -241,3 +241,43 @@ Watchlist remains empty — this routine's scope is risk reduction only, not
 origination, so no new candidate was sourced. No trades placed, nothing to
 log in `trade-log.md`. No notification sent (nothing broke, nothing
 triggered, per `CLAUDE.md`'s "default to doing nothing").
+
+---
+
+## Plan for today — 2026-08-04
+
+Ground truth via Alpaca: equity $100,047.24, cash $99,000.00, day change
+-0.02%, `trading_blocked: false`. `clock` shows `is_open: false` pre-open
+(checked ~08:37 ET), `next_open` today 09:30 ET, `next_close` today 16:00
+ET — not a holiday, normal Tuesday session.
+
+**Position thesis check (MSFT, the only open position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated between 2026-08-03 and today
+touching Azure guidance, commercial RPO, or AI capex. Result: no new 8-K,
+no new IR release, no new guidance of any kind — the most recent filing on
+record is still the 2026-07-29 8-K (accession 0001193125-26-323632) the
+thesis is already built on. **Thesis intact, unchanged.**
+
+**Overnight price check:** Alpaca's own position mark shows MSFT
+`current_price` $478.19 vs `lastday_price` $487.65 (change_today -1.94%),
+i.e. a pre-market dip of under 2% with no corresponding news — this is
+noise, not a gap, and well short of the 5% overnight-gap notification
+threshold. (Note for the next Bull: the free/IEX snapshot feed's
+`latestTrade` was still showing Monday's 16:00 ET close, $487.575, with no
+newer print — Alpaca's position `current_price` field is the more current
+mark pre-market and is what was used for this check, consistent with
+`CLAUDE.md`'s "the broker is authoritative.") Still up 4.72% unrealized
+from the $456.70 entry, nowhere near the -7%/-15% sell triggers.
+
+**Trailing stop:** `orders --status open` confirms the 10% trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$491.63, stop price $442.467. No action needed.
+
+**Watchlist candidates:** none open — nothing to check triggers on. Per
+today's routine scope (checking existing positions/candidates, not
+originating new ones), no new name was sourced this run.
+
+**No action planned.** Nothing broken, nothing gapped past threshold, no
+data source failed, no thesis invalidated. Not notifying — routine, quiet
+day, exactly the outcome `CLAUDE.md` says should be the default.

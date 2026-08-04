@@ -1,8 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-03 (daily-close routine) — reconciled against Alpaca,
-no discrepancy this run (single MSFT position, qty and entry match; equity
-and cash match). Markets closed; no orders placed or rejected this run.
+Last updated: 2026-08-04 (pre-market research routine) — reconciled against
+Alpaca, no discrepancy this run (single MSFT position, matches record).
+Research-only run: no trades placed, snapshot/status refreshed but benchmark
+table below is last updated by the daily-close routine.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -13,14 +14,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,066.33 |
+| Equity | $100,047.24 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
 
 ## Holdings
 
-### MSFT — 1.07% of equity
+### MSFT — 1.05% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
 - **Thesis:** Azure/cloud revenue growth is accelerating (40% -> 43% YoY,
   FQ3 -> FQ4 FY26) on real reported numbers, not capex narrative; EPS
@@ -36,13 +37,16 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-03 intraday check (~13:14 ET): status
-  `new`, hwm $491.35, stop price $442.215.
-- **Status:** on track — up 6.64% unrealized ($487.00 vs $456.70 entry) as of
-  2026-08-03 daily-close reconciliation (market value $1,066.33, ~1.07% of
-  equity). Thesis checked earlier today (pre-market and intraday routines,
-  see history below) — nothing new since. Well inside the -7%/-15% sell
-  triggers and the 5%-of-equity trim threshold.
+  Confirmed still open as of 2026-08-04 pre-market check: status `new`, hwm
+  $491.63, stop price $442.467.
+- **Status:** on track — up 4.72% unrealized ($478.19 vs $456.70 entry,
+  Alpaca's own position mark) as of 2026-08-04 pre-market check. Overnight
+  dip from Monday's $487.65 close is under 2%, no news behind it — noise,
+  not a gap. Checked Microsoft's own SEC filings/IR page via Perplexity
+  (restricted to primary sources) for anything since the 2026-07-29 FY26 Q4
+  print: no new 8-K, no new Azure guidance, no commercial RPO update, no
+  capex commentary. Thesis unchanged and intact. Well inside the -7%/-15%
+  sell triggers and the 5%-of-equity trim threshold.
 
 Format for each position, one block:
 

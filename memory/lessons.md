@@ -245,3 +245,29 @@ already anticipated. That is not a lesson, that is variance.
   next run to notice. Until something enforces this mechanically, treat
   every "the trade went fine" self-report with skepticism and keep
   re-verifying against the broker directly, per `CLAUDE.md`'s own framing.
+
+### 2026-08-04 — `alpaca.py quote`'s snapshot feed lags pre-market; `positions[].current_price` is the fresher mark
+- **What happened:** Pre-market research routine. `alpaca.py quote MSFT`
+  showed `last: 487.575` (a Monday 2026-08-03 16:00 ET close print, per the
+  raw snapshot's `latestTrade.t`), which would have implied MSFT hadn't
+  moved at all overnight. But `alpaca.py positions` reported
+  `current_price: 478.19` against `lastday_price: 487.65` — a real ~2%
+  pre-market move the `quote` command's snapshot data didn't reflect at all.
+- **What I believed at the time:** That `quote` and `positions` would agree
+  on "current price" since both ultimately come from Alpaca, and that a
+  flat `quote` reading meant nothing had moved pre-market.
+- **What was actually true:** `quote`'s snapshot endpoint (IEX/free feed)
+  simply had no newer trade to report pre-market — its `latestTrade` and
+  `latestQuote` were both still timestamped at Monday's regular-session
+  close. Alpaca's own position `current_price` field, used for
+  `unrealized_pl`, is marked more currently (evidently from a feed that
+  does see pre-market activity) and is the one that actually moved. Using
+  `quote` alone pre-market would have under-reported an overnight move —
+  in this case a small, non-thesis-breaking dip, but the same gap could
+  hide a real gap-down on a day it mattered.
+- **What changes:** For overnight-gap checks specifically (not general spot
+  quotes), prefer `positions[].current_price` vs `lastday_price` over
+  `quote`'s snapshot fields when checking pre-market — it's the field that
+  actually updates before the open. If `quote` and `positions` disagree,
+  treat `positions` (closer to the broker's own P&L calc) as the more
+  current one, consistent with `CLAUDE.md`'s "the broker is authoritative."
