@@ -281,3 +281,31 @@ originating new ones), no new name was sourced this run.
 **No action planned.** Nothing broken, nothing gapped past threshold, no
 data source failed, no thesis invalidated. Not notifying — routine, quiet
 day, exactly the outcome `CLAUDE.md` says should be the default.
+
+---
+
+## Market-open execution check — 2026-08-04
+
+Ran the market-open routine. `clock` confirms `is_open: true`. Today's plan
+(above, dated 2026-08-04) contains no drafted buy — it explicitly says "No
+action planned" — so there was nothing to re-verify against the 3%
+price-move threshold and nothing to execute. Steps 3-5 of the market-open
+routine were no-ops by design, not a skip.
+
+Ground truth via Alpaca: equity $100,067.21, cash $99,000.00 (unchanged),
+day change -0.0% (`trading_blocked: false`). Matches `portfolio.md`/this
+file, no discrepancy — also cross-checked `origin/main` via an explicit
+`git fetch origin main` (not a bare `git log origin/main`, per the
+2026-07-31 lesson) and confirmed local HEAD matches `origin/main` exactly
+at `e5b7563`, so no drift there either. MSFT is the only position, now
++6.69% unrealized ($487.27 vs $456.70 entry per `positions`; `quote MSFT`
+agrees at $488.37) — a continuation of the same post-earnings move, not a
+new gap. Nowhere near the -7%/-15% sell triggers and well under the
+5%-of-equity trim threshold (~1.07% of equity). Trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) confirmed still live: status
+`new`, hwm marked up to $491.63, stop price $442.467 — unchanged from the
+pre-market check.
+
+No trades placed, no orders rejected, no memory drift found. Per the
+routine's own instructions ("If nothing happened, send nothing"), no
+notification sent.

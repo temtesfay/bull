@@ -1,8 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-04 (pre-market research routine) — reconciled against
+Last updated: 2026-08-04 (market-open execution check) — reconciled against
 Alpaca, no discrepancy this run (single MSFT position, matches record).
-Research-only run: no trades placed, snapshot/status refreshed but benchmark
+Market was open but today's plan had no drafted buy, so this was a no-op
+execution check: no trades placed, snapshot/status refreshed but benchmark
 table below is last updated by the daily-close routine.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
@@ -14,7 +15,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,047.24 |
+| Equity | $100,067.21 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
@@ -39,14 +40,14 @@ trust Alpaca, fix this file, and log why they drifted.
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-08-04 pre-market check: status `new`, hwm
   $491.63, stop price $442.467.
-- **Status:** on track — up 4.72% unrealized ($478.19 vs $456.70 entry,
-  Alpaca's own position mark) as of 2026-08-04 pre-market check. Overnight
-  dip from Monday's $487.65 close is under 2%, no news behind it — noise,
-  not a gap. Checked Microsoft's own SEC filings/IR page via Perplexity
-  (restricted to primary sources) for anything since the 2026-07-29 FY26 Q4
-  print: no new 8-K, no new Azure guidance, no commercial RPO update, no
-  capex commentary. Thesis unchanged and intact. Well inside the -7%/-15%
-  sell triggers and the 5%-of-equity trim threshold.
+- **Status:** on track — up 6.69% unrealized ($487.27 vs $456.70 entry,
+  Alpaca's own position mark) as of 2026-08-04 market-open check (`quote`
+  agrees at $488.37). Continuation of the post-earnings move, not a new gap.
+  Checked Microsoft's own SEC filings/IR page via Perplexity (restricted to
+  primary sources) for anything since the 2026-07-29 FY26 Q4 print: no new
+  8-K, no new Azure guidance, no commercial RPO update, no capex commentary.
+  Thesis unchanged and intact. Well inside the -7%/-15% sell triggers and
+  the 5%-of-equity trim threshold.
 
 Format for each position, one block:
 
