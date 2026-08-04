@@ -1,10 +1,10 @@
 # Portfolio
 
-Last updated: 2026-08-04 (market-open execution check) — reconciled against
-Alpaca, no discrepancy this run (single MSFT position, matches record).
-Market was open but today's plan had no drafted buy, so this was a no-op
-execution check: no trades placed, snapshot/status refreshed but benchmark
-table below is last updated by the daily-close routine.
+Last updated: 2026-08-04 (intraday risk-reduction check, ~15:30 ET) —
+reconciled against Alpaca, no discrepancy this run (single MSFT position,
+matches record). This routine only reduces risk (no new positions), so no
+trades placed; benchmark table below is last updated by the daily-close
+routine.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -15,7 +15,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,067.21 |
+| Equity | $100,084.07 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
@@ -38,16 +38,16 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-04 pre-market check: status `new`, hwm
-  $491.63, stop price $442.467.
-- **Status:** on track — up 6.69% unrealized ($487.27 vs $456.70 entry,
-  Alpaca's own position mark) as of 2026-08-04 market-open check (`quote`
-  agrees at $488.37). Continuation of the post-earnings move, not a new gap.
-  Checked Microsoft's own SEC filings/IR page via Perplexity (restricted to
-  primary sources) for anything since the 2026-07-29 FY26 Q4 print: no new
-  8-K, no new Azure guidance, no commercial RPO update, no capex commentary.
-  Thesis unchanged and intact. Well inside the -7%/-15% sell triggers and
-  the 5%-of-equity trim threshold.
+  Confirmed still open as of 2026-08-04 ~15:30 ET check: status `new`, hwm
+  $499.34, stop price $449.406.
+- **Status:** on track — up 8.42% unrealized ($495.17 vs $456.70 entry,
+  Alpaca's own position mark) as of 2026-08-04 ~15:30 ET intraday
+  risk-reduction check. Continuation of the post-earnings move, not a new
+  gap. Checked Microsoft's own SEC filings/IR page via Perplexity
+  (restricted to primary sources) for anything since the 2026-07-29 FY26 Q4
+  print: no new 8-K, no new Azure guidance, no commercial RPO update, no
+  capex commentary. Thesis unchanged and intact. Well inside the -7%/-15%
+  sell triggers and the 5%-of-equity trim threshold (~1.08% of equity).
 
 Format for each position, one block:
 

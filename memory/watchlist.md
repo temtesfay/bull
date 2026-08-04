@@ -309,3 +309,36 @@ pre-market check.
 No trades placed, no orders rejected, no memory drift found. Per the
 routine's own instructions ("If nothing happened, send nothing"), no
 notification sent.
+
+---
+
+## Intraday risk-reduction check — 2026-08-04 ~15:30 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,084.07, cash
+$99,000.00, day change +0.02% (`trading_blocked: false`). Nowhere near the
+3% circuit breaker — no halt, sell rules proceed as normal.
+
+**Sell-rule check on MSFT (only open position):** market value $1,084.22 vs
+$100,084.07 equity = ~1.08% of equity, unrealized +8.42% ($495.17 vs
+$456.70 entry). Checked for thesis-breaking news via Perplexity (restricted
+to SEC filings / Microsoft IR / official corporate statements) covering
+2026-08-03 through today: no new 8-K, no new IR release, no new guidance —
+the most recent primary-source item is still the 2026-07-29 FY26 Q4 print
+(43% Azure YoY growth, commercial RPO +84% to $678B) that the thesis is
+already built on. Thesis intact, unchanged.
+
+None of the four sell triggers fire: not thesis-broken, not down 7% (it's
+up), not down 15%, not above 5% of equity (~1.08%). No trim, no exit.
+
+**Trailing-stop check:** `orders --status open` shows the existing 10%
+trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live — status
+`new`, hwm marked up to $499.34 (from $491.63 at this morning's check),
+stop price $449.406. Covers 2 of 2.19 whole shares, as before. No action
+needed.
+
+Watchlist remains empty — this routine's scope is risk reduction only, not
+origination, so no new candidate was sourced even though nothing here
+looked attractive enough to flag anyway. No trades placed, nothing to log
+in `trade-log.md`. No notification sent (nothing broke, nothing triggered,
+per `CLAUDE.md`'s "default to doing nothing").
