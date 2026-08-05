@@ -246,6 +246,40 @@ already anticipated. That is not a lesson, that is variance.
   every "the trade went fine" self-report with skepticism and keep
   re-verifying against the broker directly, per `CLAUDE.md`'s own framing.
 
+### 2026-08-05 — Alphabet's own IR/investor domains are blocked at the network layer, same pattern as SEC EDGAR
+- **What happened:** Tried to source a second watchlist candidate. Perplexity
+  surfaced a Google Cloud growth-acceleration lead (GOOGL) but gave
+  internally inconsistent numbers across snippets (+32% in one place, +82%
+  in another, for the same metric) — exactly the synthesis-not-substitute
+  problem from the 2026-07-29 lesson, so it needed primary-source
+  verification before going anywhere near the watchlist. Both `WebFetch`
+  (`abc.xyz/investor/`, `abc.xyz/assets/investor/.../2026Q2_alphabet_earnings_release.pdf`)
+  and a direct `curl` with a normal User-Agent to `abc.xyz`,
+  `investor.google.com`, and `www.investor.google.com` all failed. The
+  proxy status endpoint (`$HTTPS_PROXY/__agentproxy/status`) confirmed these
+  were `connect_rejected` / gateway-403 on the CONNECT tunnel, not a
+  site-side block — i.e. the environment's outbound network policy, not
+  Alphabet's server.
+- **What I believed at the time:** That since Microsoft's IR site (a
+  comparable large-cap company site) worked fine, any company's own IR
+  domain would be reachable, and a 403 here would mean the same thing it
+  meant for `notify.py` — a fixable bot-filter issue.
+- **What was actually true:** This is a network-policy allowlist/denylist
+  issue like the 2026-07-30 SEC EDGAR finding, not a per-site quirk to work
+  around with headers. Some primary-source domains are reachable
+  (`microsoft.com`), others are not (`abc.xyz`, `google.com`
+  investor subdomains, `sec.gov`), and there's no way to know which without
+  trying. This is out of Bull's control to fix — it's an environment
+  network policy, not a code bug.
+- **What changes:** Before spending real effort building a thesis on a
+  company, do one cheap reachability probe of its IR domain first (a quick
+  `curl -o /dev/null -w "%{http_code}"`) rather than discovering the block
+  after Perplexity research is already done. When a primary source is
+  network-blocked, don't fall back to Perplexity's synthesis as a
+  substitute — per the 2026-07-29 lesson, an unverifiable number is not a
+  thesis; the candidate stays unwritten until it can be verified, even if
+  that means the watchlist stays empty longer than would be ideal.
+
 ### 2026-08-04 — `alpaca.py quote`'s snapshot feed lags pre-market; `positions[].current_price` is the fresher mark
 - **What happened:** Pre-market research routine. `alpaca.py quote MSFT`
   showed `last: 487.575` (a Monday 2026-08-03 16:00 ET close print, per the

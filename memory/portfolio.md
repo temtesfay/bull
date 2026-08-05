@@ -1,8 +1,8 @@
 # Portfolio
 
-Last updated: 2026-08-04 (daily-close routine) — reconciled against Alpaca,
-no discrepancy this run (single MSFT position, matches record). Markets
-closed; no orders placed or evaluated this run, per scope.
+Last updated: 2026-08-05 (pre-market research routine) — reconciled against
+Alpaca, no discrepancy this run (single MSFT position, matches record).
+Research-only scope; no orders placed or evaluated this run.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -38,14 +38,15 @@ trust Alpaca, fix this file, and log why they drifted.
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-08-04 ~15:30 ET check: status `new`, hwm
   $499.34, stop price $449.406.
-- **Status:** on track — up 8.32% unrealized ($494.68 vs $456.70 entry,
-  Alpaca's own position mark) as of 2026-08-04 daily-close check. Continuation
-  of the post-earnings move, not a new gap. Last thesis-invalidation check
-  (2026-08-04 ~15:30 ET intraday run) found no new 8-K, no new Azure
-  guidance, no commercial RPO update, no capex commentary since the
-  2026-07-29 FY26 Q4 print. Thesis unchanged and intact. Well inside the
-  -7%/-15% sell triggers and the 5%-of-equity trim threshold (~1.08% of
-  equity).
+- **Status:** on track — up 8.71% unrealized ($496.50 vs $456.70 entry,
+  Alpaca's own position mark) as of 2026-08-05 pre-market check. Small
+  continuation of the post-earnings move, not a gap. Latest
+  thesis-invalidation check (2026-08-05 pre-market, Perplexity restricted to
+  primary sources) found no new 8-K, no new Azure guidance, no commercial
+  RPO update, no capex commentary since the 2026-07-29 FY26 Q4 print — only
+  new item was an unrelated, months-old Reid Hoffman board-departure 8-K.
+  Thesis unchanged and intact. Well inside the -7%/-15% sell triggers and
+  the 5%-of-equity trim threshold (~1.09% of equity).
 
 Format for each position, one block:
 

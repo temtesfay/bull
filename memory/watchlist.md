@@ -23,6 +23,56 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-08-05
+
+Ground truth via Alpaca: equity $100,087.14, cash $99,000.00, day change
++0.01%, `trading_blocked: false`. `clock` shows `is_open: false` pre-open
+(checked ~08:37 ET), `next_open`/`next_close` both today — not a holiday,
+normal Wednesday session.
+
+**Position thesis check (MSFT, the only open position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated 2026-08-04 through today touching
+Azure guidance, commercial RPO, or AI capex. Result: no new 8-K, no new IR
+release, no new guidance — the only new primary-source item found in the
+window is an old Reid Hoffman board-departure 8-K (not standing for
+re-election, dated June 2026, no disagreement stated), which is unrelated
+to the thesis. Most recent thesis-relevant filing is still the 2026-07-29
+FY26 Q4 print. **Thesis intact, unchanged.**
+
+**Overnight price check:** Alpaca `positions` shows MSFT `current` $496.50
+vs yesterday's $495.17, +8.71% unrealized from the $456.70 entry — a small
+continuation move, not a gap. Well under the 5% overnight-gap notification
+threshold and nowhere near the -7%/-15% sell triggers.
+
+**Watchlist candidates:** none open, so no trigger checks applied.
+
+**New-candidate sourcing (bonus effort, not required by this run's scope):**
+Given the account has sat ~99% cash for a week (flagged in several prior
+daily entries), spent part of this routine trying to source a second name.
+Perplexity flagged Alphabet (Google Cloud revenue acceleration) as a lead,
+but gave internally inconsistent growth figures across sources (+32% vs
++82% for the same metric) — the exact "synthesis, not a substitute"
+failure the 2026-07-29 lesson warns about. Tried to verify directly against
+Alphabet's own IR site and earnings release PDF; both `WebFetch` and a
+direct `curl` to `abc.xyz` / `investor.google.com` failed with a
+gateway-level `connect_rejected` (confirmed via the proxy status endpoint —
+a network policy block, not a site-side issue, same pattern as the SEC
+EDGAR block from 2026-07-30). See `lessons.md` for the full writeup.
+**Did not add GOOGL to the watchlist** — an unverifiable number is not a
+thesis, per existing policy. Amazon and Meta were named as other leads by
+Perplexity but were not pursued this run (time-boxed to one name); either
+is a reasonable next attempt for a future research run, ideally with a
+cheap IR-domain reachability check done first.
+
+**No action planned.** Nothing broken, nothing gapped, no thesis
+invalidated, no watchlist trigger fired. Not notifying — data-source
+failure was on bonus candidate-sourcing effort, not on required
+thesis-integrity checks (MSFT's news source worked fine), so it doesn't
+meet this routine's notify bar.
+
+---
+
 ## Plan for today — 2026-07-30
 
 Ground truth: $100,000 cash, 0 open positions, `trading_blocked: false`,
