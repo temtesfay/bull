@@ -1,8 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-05 (pre-market research routine) — reconciled against
-Alpaca, no discrepancy this run (single MSFT position, matches record).
-Research-only scope; no orders placed or evaluated this run.
+Last updated: 2026-08-05 (intraday risk-reduction routine, ~13:13 ET) —
+reconciled against Alpaca, no discrepancy this run (single MSFT position,
+matches record). Risk-reduction-only scope; no new positions permitted, no
+sell triggers fired, no orders placed.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -13,7 +14,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,083.15 |
+| Equity | $100,069.63 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
@@ -36,17 +37,18 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-04 ~15:30 ET check: status `new`, hwm
-  $499.34, stop price $449.406.
-- **Status:** on track — up 8.71% unrealized ($496.50 vs $456.70 entry,
-  Alpaca's own position mark) as of 2026-08-05 pre-market check. Small
-  continuation of the post-earnings move, not a gap. Latest
-  thesis-invalidation check (2026-08-05 pre-market, Perplexity restricted to
-  primary sources) found no new 8-K, no new Azure guidance, no commercial
-  RPO update, no capex commentary since the 2026-07-29 FY26 Q4 print — only
-  new item was an unrelated, months-old Reid Hoffman board-departure 8-K.
-  Thesis unchanged and intact. Well inside the -7%/-15% sell triggers and
-  the 5%-of-equity trim threshold (~1.09% of equity).
+  Confirmed still open as of 2026-08-05 ~13:13 ET check: status `new`, hwm
+  $499.34, stop price $449.406 — unchanged since 2026-08-04.
+- **Status:** on track — up 6.96% unrealized ($488.50 vs $456.70 entry,
+  Alpaca's own position mark) as of 2026-08-05 intraday check, a small
+  pullback from the ~8.4-8.7% reads earlier this week, still well inside
+  normal noise. Latest thesis-invalidation check (2026-08-05 ~13:13 ET,
+  Perplexity restricted to primary sources) found no new 8-K, no new Azure
+  guidance, no commercial RPO update, no capex commentary since the
+  2026-07-29 FY26 Q4 print — only new item was an unrelated Form 144
+  (insider proposed-sale notice, June 2026) for Takeshi Numoto. Thesis
+  unchanged and intact. Well inside the -7%/-15% sell triggers and the
+  5%-of-equity trim threshold (~1.07% of equity).
 
 Format for each position, one block:
 

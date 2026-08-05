@@ -417,3 +417,39 @@ checks.
 No trades placed, no orders rejected, no memory drift found. Per the
 routine's own instructions ("If nothing happened, send nothing"), no
 notification sent.
+
+---
+
+## Intraday risk-reduction check — 2026-08-05 ~13:13 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,069.63, cash
+$99,000.00, day change -0.01% (`trading_blocked: false`). Nowhere near the
+3% circuit breaker — no halt, sell rules proceed as normal.
+
+**Sell-rule check on MSFT (only open position):** market value $1,069.63 vs
+$100,069.63 equity = ~1.07% of equity, unrealized +6.96% ($488.50 vs
+$456.70 entry, per `positions`; `quote MSFT` agrees at $488.365). Checked
+for thesis-breaking news via Perplexity (restricted to SEC filings /
+Microsoft IR / official corporate statements) covering 2026-08-04 through
+today: no new 8-K, no new IR release, no new guidance on Azure, commercial
+RPO, or AI capex — the only executive-related item surfaced was an old
+Form 144 (proposed insider sale notice, June 2026, not a departure
+disclosure) for Takeshi Numoto, unrelated to the thesis. Most recent
+thesis-relevant filing remains the 2026-07-29 FY26 Q4 print. Thesis intact,
+unchanged.
+
+None of the four sell triggers fire: not thesis-broken, not down 7% (it's
+up), not down 15%, not above 5% of equity (~1.07%). No trim, no exit.
+
+**Trailing-stop check:** `orders --status open` shows the existing 10%
+trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live — status
+`new`, hwm $499.34, stop price $449.406, unchanged since the 2026-08-04
+~15:30 ET check (price has pulled back slightly from the high-water mark
+since then, not set a new one). Covers 2 of 2.19 whole shares, as before.
+No action needed.
+
+Watchlist remains empty — this routine's scope is risk reduction only, not
+origination, so no new candidate was sourced. No trades placed, nothing to
+log in `trade-log.md`. No notification sent (nothing broke, nothing
+triggered, per `CLAUDE.md`'s "default to doing nothing").
