@@ -392,3 +392,28 @@ origination, so no new candidate was sourced even though nothing here
 looked attractive enough to flag anyway. No trades placed, nothing to log
 in `trade-log.md`. No notification sent (nothing broke, nothing triggered,
 per `CLAUDE.md`'s "default to doing nothing").
+
+---
+
+## Market-open execution check — 2026-08-05
+
+Ran the market-open routine. `clock` confirms `is_open: true`
+(`next_close` today 16:00 ET). Today's plan (above, dated 2026-08-05) is
+dated today, so it's not stale — but it contains no drafted buy, explicitly
+stating "No action planned," so there was nothing to re-verify against the
+3% price-move threshold and nothing to execute. Steps 3-5 of the
+market-open routine were no-ops by design, not a skip.
+
+Ground truth via Alpaca: equity $100,075.17, cash $99,000.00 (unchanged),
+day change -0.0% (`trading_blocked: false`). Matches `portfolio.md`/this
+file, no discrepancy. MSFT is the only position, now +7.51% unrealized
+($491.01 vs $456.70 entry) — a small pullback from yesterday's +8.71%/8.42%
+reads, still well inside normal noise and nowhere near the -7%/-15% sell
+triggers or the 5%-of-equity trim threshold (~1.07% of equity). Trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) confirmed still live: status
+`new`, hwm $499.34, stop price $449.406 — unchanged from yesterday's
+checks.
+
+No trades placed, no orders rejected, no memory drift found. Per the
+routine's own instructions ("If nothing happened, send nothing"), no
+notification sent.
