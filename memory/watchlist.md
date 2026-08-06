@@ -515,3 +515,30 @@ thesis-integrity checks (the required part of this routine) all worked
 fine; the network limitation only affects bonus candidate-sourcing effort,
 which doesn't meet this routine's notify bar per the same reasoning as
 2026-08-05.
+
+---
+
+## Market-open execution check — 2026-08-06
+
+Ran the market-open routine. `clock` confirms `is_open: true` (`next_close`
+today 16:00 ET). Today's plan (above, dated 2026-08-06) is dated today, so
+it's not stale — but it contains no drafted buy, explicitly stating "No
+action planned," so there was nothing to re-verify against the 3%
+price-move threshold and nothing to execute. Steps 3-5 of the market-open
+routine were no-ops by design, not a skip.
+
+Ground truth via Alpaca: equity $100,076.89, cash $99,000.00 (unchanged),
+day change +0.01% (`trading_blocked: false`). Matches `portfolio.md`/this
+file, no discrepancy — also cross-checked `origin/main` via an explicit
+`git fetch origin main`: local HEAD matches `origin/main` exactly at
+`bfaa211`, so no drift there either. MSFT is the only position, now +7.69%
+unrealized ($491.84 vs $456.70 entry) — a continuation of the same
+post-earnings move, not a new gap. Nowhere near the -7%/-15% sell triggers
+and well under the 5%-of-equity trim threshold (~1.08% of equity).
+Trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) confirmed still
+live: status `new`, hwm $499.34, stop price $449.406 — unchanged from
+pre-market.
+
+No trades placed, no orders rejected, no memory drift found. Per the
+routine's own instructions ("If nothing happened, send nothing"), no
+notification sent.
