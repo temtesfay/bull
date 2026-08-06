@@ -39,14 +39,14 @@ trust Alpaca, fix this file, and log why they drifted.
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-08-05 ~13:13 ET check: status `new`, hwm
   $499.34, stop price $449.406 — unchanged since 2026-08-04.
-- **Status:** on track — up 6.0% unrealized ($484.12 vs $456.70 entry,
-  Alpaca's own position mark) as of 2026-08-06 pre-market research-routine
-  check, a small pullback from 2026-08-05's +6.75% read (overnight change
-  -1.09% per `quote`, not a gap). Perplexity check (primary sources only)
-  found no new Microsoft filing or IR release since the 2026-07-29 FY26 Q4
-  print — thesis intact, unchanged. Well inside the -7%/-15% sell triggers
-  and the 5%-of-equity trim threshold (~1.06% of equity). 10% trailing stop
-  confirmed still live (order `cee441de-...`, hwm $499.34, stop $449.406).
+- **Status:** on track — up 8.61% unrealized ($496.02 vs $456.70 entry,
+  Alpaca's own position mark) as of 2026-08-06 ~13:xx ET intraday
+  risk-reduction check, a continuation from the morning's +6.0%/+7.69%
+  reads. Perplexity check (primary sources only) found no new Microsoft
+  filing or IR release since the 2026-07-29 FY26 Q4 print — thesis intact,
+  unchanged. Well inside the -7%/-15% sell triggers and the 5%-of-equity
+  trim threshold (~1.09% of equity). 10% trailing stop confirmed still live
+  (order `cee441de-...`, hwm $499.34, stop $449.406).
 
 Format for each position, one block:
 
