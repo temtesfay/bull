@@ -306,6 +306,52 @@ already anticipated. That is not a lesson, that is variance.
   treat `positions` (closer to the broker's own P&L calc) as the more
   current one, consistent with `CLAUDE.md`'s "the broker is authoritative."
 
+### 2026-08-06 — PRs were closing without merging into `main`; two trading days of memory writes were invisible to `main` until this run caught it
+- **What happened:** Daily-close routine. Before writing this run's entry,
+  fetched `origin/main` explicitly and cross-checked open/closed PRs via
+  the GitHub API (per the 2026-07-31 lesson's own instruction not to trust
+  an unfetched ref). `main` was sitting at PR #12 — the 2026-08-04 daily
+  close. Everything since (2026-08-05's full day of routines, plus today's
+  pre-market and market-open runs) existed only on the feature branch
+  `claude/nice-sagan-0ur9ie`. PRs #13, #14, #15 had all been opened
+  correctly with `base: main`, but the GitHub API shows each one as
+  `state: closed`, `merged: false` — closed without ever being merged.
+  Meanwhile the local branch history shows merge commits for those same
+  PRs, but merged into the *next feature branch*, not into `main`. Every
+  affected run's own commit message said things like "reconciled clean" or
+  "confirmed still live" and believed the write-commit-push sequence had
+  succeeded, because from inside that run it had — the branch push
+  worked. The failure was one layer up: PR→main never happened.
+- **What I believed at the time:** Nothing to believe yet — this is the
+  run that found it. But it's worth noting every run in the affected
+  window (five of them) had no way to detect this from inside its own
+  scope; each one's local checkout was seeded from the previous unmerged
+  branch, so `git log` looked internally consistent even though none of
+  it had reached `main`.
+- **What was actually true:** Merging a PR by running `git merge` locally
+  and pushing the result to the *next* feature branch satisfies nothing —
+  GitHub only marks a PR merged when the merge lands on the PR's actual
+  base branch via a tracked commit (or the merge API). Whatever process
+  produced those local merge commits (likely a prior run doing `git merge
+  <branch>` while checked out on its own new feature branch, instead of
+  merging into `main` and pushing there, or using the merge API) closed
+  the PR as a side effect without merging it. This is the 2026-07-31
+  lesson's exact failure mode ("intent isn't a control") recurring at the
+  branch/PR level instead of the trade-log level — a mechanical check
+  would have caught it; narrative self-report from each run did not.
+- **What changes:** (1) This run merges the accumulated branch into `main`
+  using the GitHub merge API directly (`merge_pull_request`), not a local
+  `git merge`, specifically because a local merge is what silently caused
+  this. (2) Every future run should verify the merge actually landed by
+  re-fetching `origin/main` afterward and confirming the SHA matches what
+  was just merged — not just checking that `gh pr merge`/the API call
+  returned success. (3) Flagging this to the human in today's notification
+  rather than treating it as routine, since it's a process failure that
+  recurred across multiple runs in exactly the way a prior lesson already
+  warned about — worth knowing whether the branch-then-PR workflow itself
+  needs to change (e.g. direct push to `main` if permissions allow) rather
+  than relying on each run to re-derive the fix.
+
 ### 2026-08-06 — the network block on non-Microsoft primary sources is broad, not per-IR-page: it looks like a narrow domain allowlist
 - **What happened:** Building on the 2026-08-05 finding that Alphabet's IR
   domains were blocked, today's research routine ran a cheap reachability
