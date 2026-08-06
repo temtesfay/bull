@@ -305,3 +305,45 @@ already anticipated. That is not a lesson, that is variance.
   actually updates before the open. If `quote` and `positions` disagree,
   treat `positions` (closer to the broker's own P&L calc) as the more
   current one, consistent with `CLAUDE.md`'s "the broker is authoritative."
+
+### 2026-08-06 — the network block on non-Microsoft primary sources is broad, not per-IR-page: it looks like a narrow domain allowlist
+- **What happened:** Building on the 2026-08-05 finding that Alphabet's IR
+  domains were blocked, today's research routine ran a cheap reachability
+  probe (per that lesson's own recommendation) across five other candidate
+  IR domains before spending any Perplexity effort: `ir.aboutamazon.com`,
+  `investor.atmeta.com`, `investor.nvidia.com`, `investors.broadcom.com`,
+  `www.apple.com`. All five failed to connect. Widened the probe further to
+  test whether this was specific to "investor relations" subdomains —
+  `ir.tesla.com`, `investor.visa.com`, and even a plain general corporate
+  site, `www.costco.com`, were blocked too. `microsoft.com` remained
+  reachable throughout (confirmed via `curl`, HTTP 301).
+- **What I believed at the time:** That the 2026-08-05 block was specific
+  to Alphabet's domains, or maybe to "investor relations" subdomains as a
+  category, and that other companies' IR pages would likely work like
+  Microsoft's did.
+- **What was actually true:** The proxy status endpoint
+  (`$HTTPS_PROXY/__agentproxy/status`) confirmed every one of these was a
+  `connect_rejected` / gateway-403 on the CONNECT tunnel — a network-policy
+  denial, identical in kind to the SEC EDGAR and Alphabet blocks, not a
+  site-specific quirk. With eight domains now tested across very different
+  companies and even a non-IR general site (Costco) also blocked, this
+  reads like a narrow outbound allowlist that happens to include
+  `microsoft.com` rather than a blocklist targeting specific "problem"
+  sites. In practice, MSFT may currently be the only name in the circle of
+  competence whose primary sources are reachable at all from this
+  environment.
+- **What changes:** Stop treating each new company's IR block as a
+  one-off surprise to rediscover — assume, until told otherwise, that only
+  `microsoft.com` (and whatever else has been separately confirmed
+  reachable, e.g. `sec.gov` is confirmed *unreachable*) is available for
+  primary-source verification. This makes new-candidate origination via
+  the required "read the real filing, not Perplexity's summary" process
+  effectively blocked for now — not a Bull process failure, an environment
+  constraint outside Bull's control to fix. Worth surfacing to the human
+  directly (this is exactly the kind of thing `CLAUDE.md`'s escalation
+  list doesn't explicitly cover but should probably know about) rather
+  than quietly absorbing it as "no candidate sourced again today." Do not
+  spend a full Perplexity research pass on a new name before confirming
+  its primary-source domain is reachable first — the reachability probe
+  costs one `curl` call; a full research pass that turns out unverifiable
+  costs much more and still can't be written down per existing policy.

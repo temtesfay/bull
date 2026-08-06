@@ -453,3 +453,65 @@ Watchlist remains empty — this routine's scope is risk reduction only, not
 origination, so no new candidate was sourced. No trades placed, nothing to
 log in `trade-log.md`. No notification sent (nothing broke, nothing
 triggered, per `CLAUDE.md`'s "default to doing nothing").
+
+---
+
+## Plan for today — 2026-08-06
+
+Ground truth via Alpaca: equity $100,060.03, cash $99,000.00, day change
+-0.01%, `trading_blocked: false`. `clock` shows `is_open: false` pre-open
+(checked ~08:40 ET), `next_open`/`next_close` both today — not a holiday,
+normal Thursday session.
+
+**Position thesis check (MSFT, the only open position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated 2026-08-05 through today touching
+Azure guidance, commercial RPO, or AI capex. Result: no new 8-K, no new IR
+release, no new guidance — Microsoft's own IR SEC-filings page and EDGAR
+still show the 2026-07-29 10-K/8-K as the latest filing. **Thesis intact,
+unchanged.**
+
+**Overnight price check:** `alpaca.py quote MSFT` shows `prev_close`
+$492.83 -> `last` $487.46, change -1.09%; `positions` shows `current`
+$484.12 vs $456.70 entry, +6.0% unrealized. A small pullback, not a gap —
+well under the 5% overnight-gap notification threshold and nowhere near
+the -7%/-15% sell triggers. Position is ~1.06% of equity, nowhere near the
+5% trim threshold.
+
+**Trailing stop:** `orders --status open` confirms the 10% trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$499.34, stop price $449.406 — unchanged since 2026-08-04. No action
+needed.
+
+**Watchlist candidates:** none open, so no trigger checks applied.
+
+**New-candidate sourcing (bonus effort, given today's routine is explicitly
+research-scoped and the account has sat ~99% cash for eight trading days):**
+Before spending Perplexity effort, ran the cheap IR-domain reachability
+probe the 2026-08-05 lesson recommended, this time across five other
+large-cap candidates: `ir.aboutamazon.com`, `investor.atmeta.com`,
+`investor.nvidia.com`, `investors.broadcom.com`, `www.apple.com` — all five
+returned connection failures. Checked the proxy status endpoint directly:
+every one was `connect_rejected` / gateway-403 on the CONNECT tunnel (same
+network-policy pattern as the SEC EDGAR and Alphabet blocks), not a
+site-side issue. Widened the probe to confirm this isn't just an
+"IR-subdomain" pattern: `ir.tesla.com`, `investor.visa.com`, and even the
+general corporate domain `www.costco.com` were blocked too, while
+`microsoft.com` remains reachable (confirmed again this run, HTTP 301).
+This looks less like a per-company IR block and more like a narrow domain
+allowlist that happens to include Microsoft and not much else in the
+primary-source universe Bull needs. Given that, did not pursue Perplexity
+research on any new name this run — per the 2026-07-29 and 2026-08-05
+lessons, an unverifiable number is not a thesis, and there is no primary
+source reachable to verify one against for any candidate other than
+Microsoft right now. Logged as a lesson (see `lessons.md`) since this
+changes the realistic scope of candidate origination until/unless the
+network policy changes, and is worth flagging to the human rather than
+just re-discovering it name by name.
+
+**No action planned.** Nothing broken, nothing gapped, no thesis
+invalidated, no watchlist trigger fired. Not notifying — the MSFT
+thesis-integrity checks (the required part of this routine) all worked
+fine; the network limitation only affects bonus candidate-sourcing effort,
+which doesn't meet this routine's notify bar per the same reasoning as
+2026-08-05.

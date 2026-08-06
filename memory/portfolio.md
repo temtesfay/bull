@@ -1,8 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-05 (daily-close routine) — reconciled against Alpaca,
-no discrepancy this run (single MSFT position, matches record). Markets
-closed; no orders permitted or placed this run.
+Last updated: 2026-08-06 (research routine, pre-market) — reconciled against
+Alpaca, no discrepancy this run (single MSFT position, matches record). No
+orders permitted or placed this run (research-only scope, not the
+market-open routine).
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -38,13 +39,14 @@ trust Alpaca, fix this file, and log why they drifted.
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-08-05 ~13:13 ET check: status `new`, hwm
   $499.34, stop price $449.406 — unchanged since 2026-08-04.
-- **Status:** on track — up 6.75% unrealized ($487.51 vs $456.70 entry,
-  Alpaca's own position mark) as of 2026-08-05 daily-close check, essentially
-  flat from the intraday ~13:13 ET read (+6.96%), still well inside normal
-  noise. No new thesis-relevant news this run (markets closed, no new checks
-  performed beyond the 13:13 ET intraday check already logged today). Well
-  inside the -7%/-15% sell triggers and the 5%-of-equity trim threshold
-  (~1.07% of equity).
+- **Status:** on track — up 6.0% unrealized ($484.12 vs $456.70 entry,
+  Alpaca's own position mark) as of 2026-08-06 pre-market research-routine
+  check, a small pullback from 2026-08-05's +6.75% read (overnight change
+  -1.09% per `quote`, not a gap). Perplexity check (primary sources only)
+  found no new Microsoft filing or IR release since the 2026-07-29 FY26 Q4
+  print — thesis intact, unchanged. Well inside the -7%/-15% sell triggers
+  and the 5%-of-equity trim threshold (~1.06% of equity). 10% trailing stop
+  confirmed still live (order `cee441de-...`, hwm $499.34, stop $449.406).
 
 Format for each position, one block:
 
