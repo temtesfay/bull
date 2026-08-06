@@ -1,9 +1,11 @@
 # Portfolio
 
-Last updated: 2026-08-06 (research routine, pre-market) — reconciled against
-Alpaca, no discrepancy this run (single MSFT position, matches record). No
-orders permitted or placed this run (research-only scope, not the
-market-open routine).
+Last updated: 2026-08-06 (daily-close routine, post-market) — reconciled
+against Alpaca, no discrepancy in holdings (single MSFT position, matches
+record). No orders permitted this run (market closed). See the
+daily-close entry below for a material process finding: `main` had not
+actually advanced since 2026-08-04 despite five days of routines
+believing they'd landed — fixed this run, see `lessons.md`.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -14,7 +16,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,067.45 |
+| Equity | $100,094.01 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
@@ -37,16 +39,15 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-05 ~13:13 ET check: status `new`, hwm
-  $499.34, stop price $449.406 — unchanged since 2026-08-04.
-- **Status:** on track — up 8.61% unrealized ($496.02 vs $456.70 entry,
-  Alpaca's own position mark) as of 2026-08-06 ~13:xx ET intraday
-  risk-reduction check, a continuation from the morning's +6.0%/+7.69%
-  reads. Perplexity check (primary sources only) found no new Microsoft
-  filing or IR release since the 2026-07-29 FY26 Q4 print — thesis intact,
-  unchanged. Well inside the -7%/-15% sell triggers and the 5%-of-equity
-  trim threshold (~1.09% of equity). 10% trailing stop confirmed still live
-  (order `cee441de-...`, hwm $499.34, stop $449.406).
+  Confirmed still open as of 2026-08-06 daily-close check: status `new`,
+  hwm $501.55, stop price $451.395 — hwm advanced from $499.34 during
+  today's session.
+- **Status:** on track — up 9.4% unrealized ($499.64 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-08-06 daily-close (post-market). Market
+  value $1,094.01 = ~1.09% of equity, well inside the -7%/-15% sell
+  triggers and the 5%-of-equity trim threshold. No new Microsoft filing or
+  IR release found earlier today (see intraday check); no further news
+  check run this routine (reconciliation-only scope, market closed).
 
 Format for each position, one block:
 
@@ -67,21 +68,23 @@ Format for each position, one block:
 | 2026-08-03 | +0.05% | +1.46% | -1.41% |
 | 2026-08-04 | +0.02% | +1.77% | -1.75% |
 | 2026-08-05 | -0.01% | -0.17% | +0.16% |
+| 2026-08-06 | +0.03% | -0.15% | +0.18% |
 
 Since-inception delta (2026-07-29 close baseline, when the account was first
 funded at $100,000 with 0 positions, SPY `prev_close` 729.57): portfolio
-+0.07% ($100,000 → $100,067.45), SPY +5.51% (729.57 → 769.79 per
-`alpaca.py quote SPY` at 2026-08-05 close), delta **-5.44%**. The one MSFT
-position (bought 2026-07-31) is up nicely on its own terms (+6.75% since
++0.09% ($100,000 → $100,094.01), SPY +5.36% (729.57 → 768.64 per
+`alpaca.py quote SPY` at 2026-08-06 close), delta **-5.26%**. The one MSFT
+position (bought 2026-07-31) is up nicely on its own terms (+9.4% since
 entry), but the account has been ~99% cash through a period where SPY ran up
 meaningfully — the delta is still a cash-drag story, not a stock-picking
 loss: the one position taken is beating the benchmark by a wide margin, the
 account just hasn't deployed enough capital yet to matter. Today is the
-first day the gap narrowed rather than widened (-5.61% → -5.44%), purely
-because SPY pulled back (-0.17%) while the portfolio held roughly flat
-(-0.01%) — one day of SPY weakness doesn't undo a week of cash drag, and
-this is not a reason to change posture. Not a reason to force new buys —
-`strategy.md`'s buy criteria are still the gate, not the scoreboard.
+second consecutive day the portfolio beat SPY on a daily basis (+0.18%
+today, +0.16% yesterday), narrowing the since-inception gap slightly
+(-5.44% → -5.26%) — two days of SPY softness don't undo a week and a half
+of cash drag, and this is not a reason to change posture. Not a reason to
+force new buys — `strategy.md`'s buy criteria are still the gate, not the
+scoreboard.
 
 ---
 
@@ -190,3 +193,68 @@ watchlist candidates open; sourcing a new one remains out of scope for this
 routine. The account is now seven trading days in at ~99% cash — worth a
 future pre-market/research run actively sourcing a second candidate, not
 urgent enough to act on tonight.
+
+---
+
+## Daily-close entry — 2026-08-06
+
+Markets closed (`clock`: `is_open: false`, `next_open` 2026-08-07 09:30 ET).
+Per this routine's scope, no orders were placed or evaluated —
+reconciliation and record-keeping only.
+
+**Reconciliation:** `alpaca.py account` and `positions` checked against
+this file. Equity $100,094.01, cash $99,000.00, one open position (MSFT,
+qty 2.189599299, avg entry $456.70, current $499.64, market value
+$1,094.01) — holdings match what was on record, no discrepancy in
+position count, quantity, or avg entry. `orders --status all` shows only
+the two orders that have ever existed on this account (the original MSFT
+buy and its trailing stop); trailing stop `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`
+confirmed still live: status `new`, hwm $501.55 (up from $499.34), stop
+price $451.395.
+
+**Process discrepancy found and fixed — main was stale, not the holdings:**
+Before writing this entry, checked whether `origin/main` actually reflects
+recent work (per the 2026-07-31 lesson on not trusting an unfetched ref).
+`git fetch origin main` plus a GitHub PR-list check showed `main` sitting
+at PR #12 (2026-08-04 daily close) — five commits and two full trading
+days of work (2026-08-05's daily-close/market-open/intraday routines, and
+today's pre-market and market-open routines) existed only on
+`claude/nice-sagan-0ur9ie` and had never landed on `main`. PRs #13, #14,
+and #15 (all targeting `main`) were opened correctly but show
+`state: closed`, `merged: false` on GitHub — they were closed without an
+actual GitHub merge, while the underlying commits were merged locally into
+the next feature branch instead of into `main`. Net effect: every routine
+since 2026-08-04 believed it had "landed on main" (per its own commit
+message) but hadn't — a silent failure of exactly the kind
+`CLAUDE.md`/`lessons.md` (2026-07-31) already warn about, just one level
+up the stack (branch→main instead of broker→file). This run opens a fresh
+PR from `claude/nice-sagan-0ur9ie` to `main` and merges it via the GitHub
+API directly (not a local git merge) to actually close the gap. See
+`lessons.md` for the full writeup and what changes. **This is not a
+holdings/broker discrepancy** — Alpaca and this file agree on every
+number above; the gap was purely in which commits the next Bull would
+have been able to see.
+
+**Benchmark:** today's portfolio return +0.03% vs SPY -0.15% (SPY
+`prev_close` $769.79 → `last` $768.64), delta **+0.18%** — the second
+consecutive day the portfolio has beaten SPY daily. Since inception,
+portfolio +0.09% vs SPY +5.36%, delta -5.26%, narrowing slightly from
+-5.44% yesterday. Still fundamentally a cash-drag story (account ~99%
+cash, single ~1.09%-sized MSFT position up 9.4% on its own entry), not
+evidence of stock-picking skill either way.
+
+**Trades:** none placed, none rejected — market was closed for this
+routine's entire scope, and none were placed by any routine earlier today
+either (confirmed via `orders --status all`: still only the original two
+orders from 2026-07-31).
+
+**Positions >5% underwater from entry:** none. MSFT is up 9.4%, nowhere
+near a sell trigger.
+
+**Watching tomorrow:** nothing new on the MSFT thesis. Confirm the
+`main`-merge fix actually stuck (i.e. tomorrow's first routine finds
+`main` already containing today's work without needing another rescue).
+Watchlist remains empty; sourcing a second candidate is still blocked by
+the network-policy allowlist issue in the 2026-08-06 `lessons.md` entry,
+not something to re-attempt until that changes or is explicitly
+addressed.
