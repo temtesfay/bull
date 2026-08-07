@@ -1,11 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-06 (daily-close routine, post-market) — reconciled
+Last updated: 2026-08-07 (market-open execution check) — reconciled
 against Alpaca, no discrepancy in holdings (single MSFT position, matches
-record). No orders permitted this run (market closed). See the
-daily-close entry below for a material process finding: `main` had not
-actually advanced since 2026-08-04 despite five days of routines
-believing they'd landed — fixed this run, see `lessons.md`.
+record). Plan for today called for no action; none taken. See
+`watchlist.md` for the full check.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -16,14 +14,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,094.01 |
+| Equity | $100,104.16 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
 
 ## Holdings
 
-### MSFT — 1.05% of equity
+### MSFT — 1.10% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
 - **Thesis:** Azure/cloud revenue growth is accelerating (40% -> 43% YoY,
   FQ3 -> FQ4 FY26) on real reported numbers, not capex narrative; EPS
@@ -39,15 +37,13 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-06 daily-close check: status `new`,
-  hwm $501.55, stop price $451.395 — hwm advanced from $499.34 during
-  today's session.
-- **Status:** on track — up 9.4% unrealized ($499.64 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-08-06 daily-close (post-market). Market
-  value $1,094.01 = ~1.09% of equity, well inside the -7%/-15% sell
-  triggers and the 5%-of-equity trim threshold. No new Microsoft filing or
-  IR release found earlier today (see intraday check); no further news
-  check run this routine (reconciliation-only scope, market closed).
+  Confirmed still open as of 2026-08-07 market-open check: status `new`,
+  hwm $504.97, stop price $454.473 — hwm advanced from $501.55 pre-market.
+- **Status:** on track — up 10.42% unrealized ($504.27 vs $456.70 entry,
+  per Alpaca `positions`) as of 2026-08-07 market-open check. Market value
+  $1,104.16 = ~1.10% of equity, well inside the -7%/-15% sell triggers and
+  the 5%-of-equity trim threshold. No new Microsoft filing or IR release
+  found this morning's pre-market check; thesis intact, unchanged.
 
 Format for each position, one block:
 
