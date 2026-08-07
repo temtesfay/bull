@@ -1,9 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-07 (market-open execution check) — reconciled
-against Alpaca, no discrepancy in holdings (single MSFT position, matches
-record). Plan for today called for no action; none taken. See
-`watchlist.md` for the full check.
+Last updated: 2026-08-07 (intraday risk-reduction check, ~13:13 ET) —
+reconciled against Alpaca, no discrepancy in holdings (single MSFT
+position, matches record). No sell trigger fired, trailing stop confirmed
+live. See `watchlist.md` for the full check.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -14,7 +14,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,104.16 |
+| Equity | $100,095.66 |
 | Cash | $99,000.00 |
 | Open positions | 1 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`) |
@@ -37,13 +37,15 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-07 market-open check: status `new`,
-  hwm $504.97, stop price $454.473 — hwm advanced from $501.55 pre-market.
-- **Status:** on track — up 10.42% unrealized ($504.27 vs $456.70 entry,
-  per Alpaca `positions`) as of 2026-08-07 market-open check. Market value
-  $1,104.16 = ~1.10% of equity, well inside the -7%/-15% sell triggers and
-  the 5%-of-equity trim threshold. No new Microsoft filing or IR release
-  found this morning's pre-market check; thesis intact, unchanged.
+  Confirmed still open as of 2026-08-07 ~13:13 ET intraday check: status
+  `new`, hwm $505.18, stop price $454.662 — hwm advanced from $504.97 at
+  this morning's market-open check.
+- **Status:** on track — up 9.57% unrealized ($500.39 vs $456.70 entry,
+  per Alpaca `positions`) as of 2026-08-07 ~13:13 ET intraday check. Market
+  value $1,095.66 = ~1.09% of equity, well inside the -7%/-15% sell
+  triggers and the 5%-of-equity trim threshold. No new Microsoft filing or
+  IR release found (Perplexity, primary-source restricted, 2026-08-06
+  through today); thesis intact, unchanged.
 
 Format for each position, one block:
 
