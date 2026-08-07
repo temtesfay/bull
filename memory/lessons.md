@@ -352,6 +352,57 @@ already anticipated. That is not a lesson, that is variance.
   needs to change (e.g. direct push to `main` if permissions allow) rather
   than relying on each run to re-derive the fix.
 
+### 2026-08-07 — Second weekly review: the core ETF sleeve has never been funded, and that gap is not explained by the network block
+- **What happened:** Second weekly review (first was 2026-07-31). Sat down to
+  grade process, not P&L. This week: portfolio +0.07% vs SPY +5.24% (07-31
+  close to today); since inception (2026-07-29): portfolio +0.09% vs SPY
+  +5.97%, delta -5.88%. Zero trades, zero guardrail rejections, zero
+  watchlist candidates added this week — the book is unchanged from a week
+  ago: one MSFT position (~1.1% of equity), ~99% cash. Went looking for a
+  process failure to name honestly (per this routine's own instruction not
+  to grade every week "fine") and found one that isn't just "network policy
+  blocked candidate sourcing again": `strategy.md` calls for a **10–40% core
+  in broad index ETFs** (SPY, VTI, or similar), independent of the satellite
+  circle-of-competence sourcing that's been network-blocked since
+  2026-08-05. Buying SPY or VTI needs no company-specific primary-source
+  filing at all — it needs a price, which Alpaca (the broker, already
+  authoritative per `CLAUDE.md`) provides directly. Nine trading days in,
+  no run has ever evaluated or attempted a core ETF buy. Every daily entry
+  frames the ~99% cash position purely as "cash-drag from the satellite
+  side being blocked," which is true but incomplete — it quietly excuses a
+  sleeve of the strategy that was never blocked in the first place.
+- **What I believed at the time (implicit, across every daily run this
+  week):** That "no watchlist candidates, network policy blocks sourcing"
+  fully accounts for the account sitting almost entirely in cash.
+- **What was actually true:** The satellite-sourcing block and the
+  core-ETF gap are two different problems with two different causes. One is
+  an environment constraint outside Bull's control. The other is a plan
+  that was never executed — no run treated "build the core sleeve" as a
+  task with its own criteria to check, so it fell through by default rather
+  than by decision. A strategy with a 10–40% core target and a 12-month
+  horizon that reaches day 9 at 0% core is not "cautious," it's an
+  unexecuted allocation.
+- **What changes:** Proposing to the human (not editing `strategy.md`
+  myself): (1) clarify whether the core ETF sleeve is meant to be
+  established promptly and independently of satellite timing — if so, a
+  future pre-market or market-open run should treat "is the core funded to
+  at least its 10% floor" as an explicit check alongside the existing
+  thesis/trigger checks, the same way the trailing-stop check is a standing
+  item every run. (2) The buy criteria in `strategy.md` (falsifiable
+  thesis, catalyst, valuation-vs-range, no macro call, liquidity) read as
+  written for satellite stock-picks; it's not clear they're meant to gate a
+  core index buy at all, and no run has ever tried to apply them to one.
+  Worth the human saying explicitly whether core ETF buys are exempt from
+  those five criteria (a broad index isn't a stock thesis) or whether a
+  different, simpler bar applies. Until that's answered, this stays a
+  proposal, not a trade — no core position was opened by this review.
+  Sample size: 2 weekly reviews completed since inception (2026-07-29);
+  under any read of "week," this is nowhere near the 26-week bar for
+  distinguishing process from luck, and neither is the MSFT position's
+  9.48% vs. SPY's 5.24% over the same holding window (a single name, five
+  trading days) — noted as a data point, not evidence of stock-picking
+  skill.
+
 ### 2026-08-06 — the network block on non-Microsoft primary sources is broad, not per-IR-page: it looks like a narrow domain allowlist
 - **What happened:** Building on the 2026-08-05 finding that Alphabet's IR
   domains were blocked, today's research routine ran a cheap reachability
