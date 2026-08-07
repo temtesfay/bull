@@ -574,3 +574,52 @@ Watchlist remains empty — this routine's scope is risk reduction only, not
 origination, so no new candidate was sourced. No trades placed, nothing to
 log in `trade-log.md`. No notification sent (nothing broke, nothing
 triggered, per `CLAUDE.md`'s "default to doing nothing").
+
+---
+
+## Plan for today — 2026-08-07
+
+Ground truth via Alpaca: equity $100,091.52, cash $99,000.00, day change
+-0.0% (-$2.97), `trading_blocked: false`. `clock` shows `is_open: false`
+pre-open (checked ~08:40 ET), `next_open`/`next_close` both today — not a
+holiday, normal Friday session.
+
+**Position thesis check (MSFT, the only open position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated 2026-08-06 through today touching
+Azure guidance, commercial RPO, or AI capex. Result: no new 8-K, no new IR
+release, no new guidance — most recent primary-source item remains the
+2026-07-29 FY26 Q4 print (Microsoft Cloud revenue $59.3B, commercial RPO
+$678B, Azure annual revenue above $100B). **Thesis intact, unchanged.**
+
+**Overnight price check:** `alpaca.py quote MSFT` shows `prev_close`
+$487.46 -> `last` $500.035, change +2.58%; `positions` shows `current`
+$498.50 vs $456.70 entry, +9.15% unrealized. A continuation of the
+post-earnings uptrend, not a gap — well under the 5% overnight-gap
+notification threshold and nowhere near the -7%/-15% sell triggers.
+Position is ~1.09% of equity, nowhere near the 5% trim threshold.
+
+**Trailing stop:** `orders --status open` confirms the 10% trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$501.55, stop price $451.395 — hwm advanced slightly from $499.34 as of
+the 2026-08-06 check. No action needed.
+
+**Watchlist candidates:** none open, so no trigger checks applied.
+
+**New-candidate sourcing (bonus effort):** re-ran the cheap reachability
+probe from the 2026-08-05/08-06 lessons against four previously-blocked IR
+domains (`ir.aboutamazon.com`, `investor.atmeta.com`, `abc.xyz`,
+`investor.nvidia.com`) before spending any Perplexity effort. All four
+still fail to connect (`curl` returns HTTP 000 / connection failure) — the
+network-policy block identified in those lessons has not changed. Per
+existing policy, did not pursue Perplexity research on any new name this
+run — no primary source is reachable to verify one against besides
+Microsoft. No new lesson written since this just reconfirms the prior
+finding rather than surfacing anything new.
+
+**No action planned.** Nothing broken, nothing gapped, no thesis
+invalidated, no watchlist trigger fired. Not notifying — the MSFT
+thesis-integrity checks (the required part of this routine) all worked
+fine; the network limitation only affects bonus candidate-sourcing effort,
+already known and previously flagged to the human, so it doesn't meet
+this routine's notify bar again today.
