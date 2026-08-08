@@ -110,6 +110,26 @@ locally.
   happen** — say so loudly in your notification instead of reporting success.
   A 403 on push means a permission/policy block; do not try to route around it.
 
+## After placing any order — mandatory post-trade checklist
+
+An order is **not done** the moment it fills. The run has only succeeded when
+**all** of the following are true in the same run. If any step fails, the run
+failed: say so loudly at `warn` urgency and do **not** report the trade as
+complete.
+
+1. The fill is appended to `memory/trade-log.md` with the reasoning held at entry.
+2. `memory/portfolio.md` reflects the new position and the new cash balance.
+3. A 10% trailing stop is **live** for the position, once it is a full-share
+   position — verify with `alpaca.py orders --status open`; do not assume the
+   `protect` call succeeded.
+4. The commit is confirmed on `main` (see "Persisting a run").
+
+A trade that is filled but unlogged, unprotected, or unpushed is the single most
+dangerous state this system can enter: the next run starts from `main`, cannot
+see the position, and may act as if it doesn't exist. This has already happened
+(2026-07-31: a live position sat unprotected and invisible for ~90 minutes).
+Treat this checklist as part of the trade itself, not a follow-up chore.
+
 ## Escalate to a human
 
 Send an urgent notification and take no action if:

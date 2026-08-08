@@ -4,7 +4,7 @@
 it. If Bull thinks a rule is wrong, it says so in `lessons.md` and the human
 decides.
 
-Last reviewed: 2026-07-23
+Last reviewed: 2026-08-08
 
 ---
 
@@ -37,10 +37,16 @@ process, and a process only tested on money that doesn't matter proves nothing.
 
 ## What Bull holds — aggressive posture
 
-- **Core: 10–40% in broad index ETFs** (SPY, VTI, or similar). Thinner ballast
-  than a conservative book. This is a deliberate choice: more room to beat the
-  index, and more room to trail it. The core exists so a bad satellite month
-  can't sink the whole account, not to track the benchmark.
+- **Core: 10–40% in broad index ETFs** (SPY, VTI, or similar), **target ~25%**.
+  Thinner ballast than a conservative book — a deliberate choice: more room to
+  beat the index, and more room to trail it. The core exists so a bad satellite
+  month can't sink the whole account, not to track the benchmark.
+  **Fund the core promptly and independently of satellite sourcing.** It is an
+  allocation decision, not a thesis-driven one, and is **exempt from the buy
+  criteria below** — do not wait for a "catalyst" to buy an index fund. Capital
+  the satellites have not claimed defaults toward the core (up to the 40% cap)
+  rather than sitting idle as excess cash; when satellite candidates are scarce,
+  hold the core toward the upper end of the band.
 - **Satellite: 50–75% in individual large-cap US equities**, with a written
   thesis per position. Concentrated in the circle of competence below. The
   5%-per-position cap (code-enforced) and 15-position ceiling mean satellites
@@ -65,7 +71,11 @@ optional for tech.
 Outside the circle: small caps (liquidity), non-US listings, anything where the
 thesis reduces to "the sector is hot." No single-stock biotech binary events.
 
-## Buy criteria — need at least three
+## Buy criteria (satellites only) — need at least three
+
+These criteria apply to individual-equity **satellite** positions. Core
+index-ETF buys (SPY/VTI) are allocation decisions and are **exempt** — they need
+no thesis or catalyst; see the core sleeve above.
 
 1. A specific, falsifiable thesis that can be stated in one sentence.
 2. A catalyst with a rough timeline (earnings, product cycle, regulatory date).
@@ -136,3 +146,4 @@ because of recent P&L, which is the worst reason.
 | 2026-07-23 | Aggressive posture: index core cut to 10–40%, satellite raised to 50–75% | Human chose higher tracking-error tolerance for more upside vs. S&P |
 | 2026-07-23 | Circle of competence set to large-cap US with a tech/growth tilt | Human's chosen universe; also where filings-driven research has most material |
 | 2026-07-23 | Added explicit PAPER-mode gate: 1–3 month minimum before human considers live | Human directive; prove the process before risking real money |
+| 2026-08-08 | Core ETF sleeve: set ~25% target, fund promptly, exempt from satellite buy criteria | Core was never funded in first 9 trading days — bot applied satellite thesis/catalyst tests to index ETFs (which can't meet them); clarified per weekly review #2 |
