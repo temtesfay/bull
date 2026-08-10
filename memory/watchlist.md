@@ -23,6 +23,47 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-08-10 ~14:40 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,111.71, cash
+$97,000.01, day change +0.02% (+$16.93), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal.
+Positions match `portfolio.md` exactly (SPY qty 2.586974518 @ $773.10 avg,
+MSFT qty 2.189599299 @ $456.70 avg) — no discrepancy.
+
+**Sell-rule check on both positions:**
+- **MSFT** (satellite, ~1.11% of equity): market value $1,111.81, unrealized
+  +11.18% ($507.77 vs $456.70 entry). Checked for thesis-breaking news via
+  Perplexity (restricted to SEC filings / Microsoft IR / official corporate
+  statements) covering 2026-08-07 through today, specifically on Azure
+  growth, commercial RPO, and AI capex: no new 8-K, no new IR release, no
+  new guidance — the only primary-source item found is the same 2026-07-29
+  FY26 Q4 print already priced into the thesis (Azure +43% YoY, commercial
+  RPO +84% to $678B). Thesis intact, unchanged. None of the four sell
+  triggers fire: not thesis-broken, not down 7% (it's up), not down 15%,
+  not above 5% of equity (~1.11%). No trim, no exit.
+- **SPY** (core, ~2.0% of equity): unrealized -0.01% ($773.06 vs $773.10
+  entry), essentially flat since this morning's buy. Core holdings are
+  exempt from the satellite sell criteria (no thesis to break) and are only
+  trimmed if the sleeve drifts outside the 10-40% band — it's well under
+  that band (funding it further, not trimming it, is the open question).
+  No action.
+
+**Trailing-stop check:** `orders --status open` shows the existing 10%
+trailing stop on MSFT (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live —
+status `new`, hwm advanced to $513.73 (from $505.18 at the last recorded
+check), stop price $462.357. Covers 2 of 2.19 whole shares, as before. SPY
+carries no stop by design (core index-ETF exemption in `strategy.md`). No
+action needed.
+
+Watchlist remains empty — this routine's scope is risk reduction only, not
+origination, so no new candidate was sourced or evaluated. No trades
+placed, nothing to log in `trade-log.md`. No notification sent (nothing
+broke, nothing triggered, per `CLAUDE.md`'s "default to doing nothing").
+
+---
+
 ## Plan for today — 2026-08-10
 
 Ground truth via Alpaca: equity $100,094.36, cash $99,000.00, day change
