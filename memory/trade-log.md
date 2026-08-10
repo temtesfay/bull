@@ -61,3 +61,35 @@ rejections is a signal the strategy and the limits are out of sync.
   — the market-open routine bought MSFT but never set the stop. Fixed
   immediately; this is the intraday routine's explicit job.
 - Confidence: n/a (mechanical, not a thesis decision)
+
+### 2026-08-10 09:54 ET — BUY SPY
+- Size: $2,000 notional (~2.0% of equity at fill)
+- Fill: $773.10 avg, qty 2.586974518 (fractional, notional order)
+- Reason: Core index sleeve, first tranche. `strategy.md`'s 2026-08-08
+  change-log clarification says the core ETF sleeve (target ~25%, 10-40%
+  range) should be funded promptly and independently of satellite sourcing,
+  and is exempt from the satellite buy criteria (thesis/catalyst/valuation)
+  — it's an allocation decision, not a stock pick. This is the first core
+  buy since inception (2026-07-29); the account had sat ~99% cash for 9+
+  trading days while satellite candidate-sourcing stayed blocked by the
+  network-policy issue logged 2026-08-05/06/07. Sized to the $2,000
+  per-order guardrail cap (`max_order_notional`), not to any price-timing
+  view — plan drafted pre-market today in `watchlist.md`, price re-verified
+  immediately before the order ($773.20 last vs $773.16 plan reference,
+  effectively unchanged) and the trade executed outside the first-15-minute
+  window (market opened 09:30 ET, order placed ~09:54 ET).
+- Thesis / invalidation: none required (core allocation buy, exempt per
+  strategy.md). Not a thesis position — no catalyst or invalidation
+  condition; it stays sized per the core-sleeve band, trimmed only if it
+  drifts outside that band or the human changes the strategy.
+- Confidence: n/a (allocation decision, not a stock thesis)
+- Source: `strategy.md` 2026-08-08 change-log entry; price from
+  `alpaca.py quote SPY` immediately pre-order.
+- **Note on sizing:** this single $2,000 tranche is ~2% of equity — it does
+  not by itself reach the 25% core target, and per the 2026-08-10
+  `lessons.md` entry, a single ticker is hard-capped at 5% of equity by
+  `guardrails.py` regardless of tranche count. Reaching 25% requires either
+  many more tranches over time or the human resolving the multi-ticker
+  question raised in that lesson. No trailing stop set — `strategy.md`'s
+  "Overnight protection" section explicitly exempts index-ETF core holdings
+  from stops.
