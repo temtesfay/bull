@@ -1,9 +1,8 @@
 # Portfolio
 
-Last updated: 2026-08-07 (daily-close routine) — reconciled against
-Alpaca, no discrepancy in holdings (single MSFT position, matches
-record). No sell trigger fired, trailing stop confirmed live. See
-`watchlist.md` for the full day's checks.
+Last updated: 2026-08-10 (market-open routine) — bought SPY, first core
+ETF sleeve tranche. See `watchlist.md` and `trade-log.md` for the full
+day's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -14,14 +13,31 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,094.95 |
-| Cash | $99,000.00 |
-| Open positions | 1 |
-| New positions this week | 0 (per Alpaca `new_positions_this_week`) |
+| Equity | $100,109.53 |
+| Cash | $97,000.01 |
+| Open positions | 2 |
+| New positions this week | 1 (per Alpaca `new_positions_this_week`) |
 
 ## Holdings
 
-### MSFT — 1.10% of equity
+### SPY — 2.00% of equity
+- **Entry:** 2026-08-10, $773.10 avg, $2,000 notional (2.586974518 sh)
+- **Thesis:** none — core index sleeve allocation buy, exempt from
+  satellite thesis/catalyst/valuation criteria per `strategy.md`'s
+  2026-08-08 clarification. First tranche toward the 10-40% (target ~25%)
+  core band; account had been ~99% cash for 9+ trading days.
+- **Invalidation:** n/a (not a thesis position; trimmed only if it drifts
+  outside the core band or the human changes strategy).
+- **Catalyst:** n/a.
+- **Stop:** none — `strategy.md` explicitly exempts core index-ETF
+  holdings from trailing stops ("the whole point of ballast is that it
+  doesn't get shaken out").
+- **Status:** on track. Single ticker is hard-capped at 5% of equity by
+  `guardrails.py`; reaching the ~25% core target requires more tranches
+  over time and/or human guidance on spreading across multiple index
+  tickers (see `lessons.md` 2026-08-10).
+
+### MSFT — 1.11% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
 - **Thesis:** Azure/cloud revenue growth is accelerating (40% -> 43% YoY,
   FQ3 -> FQ4 FY26) on real reported numbers, not capex narrative; EPS
@@ -37,15 +53,14 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-07 daily-close check: status `new`,
-  hwm $505.18, stop price $454.662 — unchanged from the ~13:13 ET intraday
-  check (no new high since then).
-- **Status:** on track — up 9.5% unrealized ($500.07 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-08-07 daily-close check. Market value
-  $1,094.95 = ~1.09% of equity, well inside the -7%/-15% sell triggers and
-  the 5%-of-equity trim threshold. No new Microsoft filing or IR release
-  found (Perplexity, primary-source restricted, 2026-08-06 through today);
-  thesis intact, unchanged.
+  Confirmed still open as of 2026-08-10 market-open check: status `new`,
+  hwm $508.88, stop price $457.992.
+- **Status:** on track — up 10.9% unrealized ($506.51 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-08-10 market-open check. Market value
+  $1,109.05 = ~1.11% of equity, well inside the -7%/-15% sell triggers and
+  the 5%-of-equity trim threshold. Thesis check (Perplexity, primary-source
+  restricted) done pre-market today per `watchlist.md`: no new filing/IR
+  release, thesis intact, unchanged.
 
 Format for each position, one block:
 

@@ -112,6 +112,39 @@ failure on required checks — not notifying, per this routine's scope.**
 
 ---
 
+## Market-open execution check — 2026-08-10
+
+Ran the market-open routine. `clock` confirms `is_open: true` (`next_close`
+today 16:00 ET, checked ~09:54 ET, well past the first-15-minute no-trade
+window). Today's plan (above, dated 2026-08-10) is dated today, so it's not
+stale, and it did contain a drafted buy this time — the SPY core-sleeve
+tranche.
+
+Re-verified ground truth via Alpaca: equity $100,108.42, cash $99,000.00
+(pre-trade), MSFT +10.84% unrealized ($506.22 vs $456.70 entry), matches
+`portfolio.md`, no discrepancy. Re-pulled `quote SPY`: `last` $773.20 vs the
+plan's $773.16 reference — 0.01% move, nowhere near the 3% threshold that
+would have invalidated the setup.
+
+**Executed:** `alpaca.py buy SPY --notional 2000` — filled immediately,
+$773.10 avg, qty 2.586974518, no guardrail rejection (new-position count
+was 0/3 this week, resulting position ~2.0% of equity, cash reserve stays
+at ~97% of equity, all well inside limits). Full reasoning in
+`trade-log.md`. No trailing stop set — `strategy.md` exempts core
+index-ETF holdings from stops. Post-trade checklist: trade logged
+(`trade-log.md`), `portfolio.md` updated with new position and cash
+balance, no stop required (exempt), commit/push pending as the last step
+of this run.
+
+No orders rejected. MSFT untouched — no sell trigger fired (up 10.84%,
+nowhere near -7%/-15%, ~1.1% of equity).
+
+**Notifying:** per the scheduled task's own instruction ("what was placed,
+what was rejected and why, and the resulting cash position"), since a
+trade was placed this run.
+
+---
+
 ## Plan for today — 2026-08-05
 
 Ground truth via Alpaca: equity $100,087.14, cash $99,000.00, day change
