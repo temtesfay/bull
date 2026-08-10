@@ -23,6 +23,95 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-08-10
+
+Ground truth via Alpaca: equity $100,094.36, cash $99,000.00, day change
+-0.0% ($-0.42), `trading_blocked: false`. `clock` shows `is_open: false`
+pre-open (checked ~08:41 ET), `next_open`/`next_close` both today
+(2026-08-10, Monday) — not a holiday, normal session. No discrepancy
+against `portfolio.md`/last known state (MSFT qty 2.189599299, avg entry
+$456.70, matches exactly).
+
+**Position thesis check (MSFT, the only open position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated 2026-08-07 through today touching
+Azure guidance, commercial RPO, or AI capex. Result: no new 8-K, no new IR
+release, no new guidance — most recent primary-source item remains the
+2026-07-29 FY26 Q4 print (Microsoft Cloud revenue $59.3B +27% YoY, Azure
++43% YoY, commercial RPO $678B +84% YoY). **Thesis intact, unchanged.**
+
+**Overnight/weekend price check:** `quote MSFT` shows `prev_close` $500.035
+-> `last` $499.875, essentially flat (-0.03%) — no gap. `positions` shows
+current $499.80 vs $456.70 entry, +9.4% unrealized, nowhere near the
+-7%/-15% sell triggers. Position is ~1.09% of equity.
+
+**Trailing stop:** `orders --status open` confirms the 10% trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$505.18, stop price $454.662 — unchanged since 2026-08-07. No action
+needed.
+
+**Watchlist candidates:** none open. Re-ran the reachability probe on five
+previously-blocked primary-source domains (`ir.aboutamazon.com`,
+`investor.atmeta.com`, `investor.nvidia.com`, `abc.xyz`, `sec.gov`) — all
+five still fail to connect (`curl` HTTP code `000`). The network-policy
+block identified in the 2026-08-05/08-06 lessons has not changed. Did not
+pursue Perplexity research on a new satellite name this run for the same
+reason as every prior run: no primary source reachable to verify one
+against besides Microsoft.
+
+**Core ETF sleeve — new finding, first run since the 2026-08-08 strategy
+clarification:** `strategy.md`'s change log (2026-08-08) now says the core
+sleeve (10–40%, target ~25%, SPY/VTI/similar) should be "funded promptly
+and independently of satellite sourcing" and is exempt from the satellite
+buy criteria. No run has acted on this yet — the last portfolio update
+(2026-08-07) predates the clarification, and the account is still 0% core,
+~99% cash outside the one MSFT position. Before drafting a size, checked
+`scripts/guardrails.py`: `max_position_pct` is a flat 5% cap applied
+identically to every symbol, with no carve-out for core index ETFs, and
+`max_order_notional` caps any single order at $2,000. **A single ticker
+cannot reach the ~25% target under the current code-enforced guardrail** —
+5% of equity (~$5,000 today) is the hard ceiling for SPY or VTI alone, and
+even that would take three $2,000-ish orders across separate weeks (the
+$2,000 per-order cap and 3-new-positions-per-week cap both bind). Reaching
+25% at all would require diversifying across multiple broad-market index
+tickers (e.g. SPY + VTI + IVV + ITOT + SCHB), several of which are
+near-duplicate S&P 500 exposure — not a decision this run should make
+unilaterally, since it's a policy/config question in the same category
+`CLAUDE.md` reserves for the human on `strategy.md` itself. See
+`lessons.md` for the full writeup.
+
+**Draft proposal for the market-open routine (NOT executed by this run —
+this is a research routine only):**
+
+- **Ticker:** SPY
+- **Direction:** BUY (core index sleeve, first tranche)
+- **Size:** $2,000 (~2.0% of equity — sized to the per-order cap, not a
+  view on timing)
+- **Reasoning:** `strategy.md`'s 2026-08-08 clarification makes core ETF
+  buys exempt from thesis/catalyst criteria and says to fund the sleeve
+  promptly; this is a first, guardrail-clean step (new-position count 0/3
+  this week, resulting position ~2% of equity, well under the 5% cap,
+  cash reserve stays well above the 10% floor) that moves the account off
+  9+ trading days of near-total cash without waiting on the multi-ETF
+  diversification question above to be resolved. It does **not** by itself
+  close the gap to 25% — that requires either repeated tranches over
+  several weeks or human guidance on spreading the sleeve across more than
+  one ticker.
+- **Guardrails for the market-open routine specifically:** do not buy in
+  the first 15 minutes after the open. Re-pull the quote before acting —
+  if SPY has moved meaningfully from $773.16 (Friday's close) by market
+  open, that's still fine for an allocation-driven index buy (no
+  valuation math to invalidate, unlike a satellite thesis), but confirm
+  the resulting position stays under 5% of equity at the executed price.
+
+This is a plan, not an order. The market-open routine should re-verify
+ground truth per its own instructions before acting.
+
+**No trade executed today; no thesis broken, no gap, no data-source
+failure on required checks — not notifying, per this routine's scope.**
+
+---
+
 ## Plan for today — 2026-08-05
 
 Ground truth via Alpaca: equity $100,087.14, cash $99,000.00, day change
