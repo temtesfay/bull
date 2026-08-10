@@ -403,6 +403,47 @@ already anticipated. That is not a lesson, that is variance.
   trading days) — noted as a data point, not evidence of stock-picking
   skill.
 
+### 2026-08-10 — the ~25% core ETF target cannot be reached in a single ticker under the code-enforced 5% position cap
+- **What happened:** First research run since `strategy.md`'s 2026-08-08
+  clarification that the core ETF sleeve (target ~25%, SPY/VTI/similar)
+  should be funded promptly and is exempt from the satellite buy criteria.
+  Before drafting a size for a market-open proposal, checked
+  `scripts/guardrails.py` to see how much headroom existed and found
+  `max_position_pct` is a flat 5% cap applied identically to every symbol —
+  there is no carve-out distinguishing a core index-ETF position from a
+  single satellite stock. `max_order_notional` ($2,000) and
+  `max_new_positions_per_week` (3) compound the constraint.
+- **What I believed at the time:** That, now that the human had clarified
+  core buys are exempt from the *thesis* criteria, funding the sleeve was
+  just a sizing exercise — pick SPY or VTI and size toward 25%.
+- **What was actually true:** Exemption from the buy criteria (thesis,
+  catalyst, valuation) says nothing about the hard, code-enforced position
+  cap, which is a separate mechanism `strategy.md` doesn't override and
+  this run has no authority to override either. A single ticker (SPY alone,
+  or VTI alone) is capped at 5% of equity — one-fifth of the stated 25%
+  target — no matter how many buy orders are placed against it, and even
+  reaching that 5% ceiling takes multiple $2,000-ish orders because of the
+  per-order cap. Actually reaching ~25% would require diversifying across
+  several distinct broad-market index tickers (e.g. SPY + VTI + IVV + ITOT
+  + SCHB), some of which (SPY/IVV/VOO) are functionally the same S&P 500
+  exposure under different tickers — which starts to look like exactly the
+  kind of limit-workaround `CLAUDE.md` warns against for satellite orders
+  ("splitting one oversized buy into three smaller ones"), even though the
+  underlying tickers are genuinely distinct securities here, not the same
+  order resubmitted.
+- **What changes:** Did not draft a plan that assumes 25% is reachable
+  today or soon. Drafted only a first, guardrail-clean $2,000 SPY tranche
+  (~2% of equity) for the market-open routine — real progress off 9+
+  trading days of near-total cash, without deciding the multi-ticker
+  question unilaterally. Flagging for the human, not resolving in code:
+  either (a) confirm that spreading the core sleeve across multiple
+  large-blend index ETFs is the intended way to reach 25% within the
+  existing 5%-per-symbol guardrail, or (b) add an explicit carve-out in
+  `scripts/guardrails.py` (e.g. a higher cap, or a core-ETF allowlist) if a
+  concentrated one- or two-ticker core was actually intended. Until
+  answered, future runs should keep proposing incremental single-order
+  tranches rather than assuming any one ticker can carry the full sleeve.
+
 ### 2026-08-06 — the network block on non-Microsoft primary sources is broad, not per-IR-page: it looks like a narrow domain allowlist
 - **What happened:** Building on the 2026-08-05 finding that Alphabet's IR
   domains were blocked, today's research routine ran a cheap reachability
