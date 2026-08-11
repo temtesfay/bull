@@ -23,6 +23,83 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-08-11
+
+Ground truth via Alpaca: equity $100,107.32, cash $97,000.00, day change
+-0.0% (-$0.56), `trading_blocked: false`. `clock` shows `is_open: false`
+pre-open (checked ~08:43 ET), `next_open`/`next_close` both today
+(2026-08-11, Tuesday) — not a holiday, normal session. Positions match
+`portfolio.md` exactly: SPY qty 2.586974518 @ $773.10 avg (current $774.28,
++0.15%), MSFT qty 2.189599299 @ $456.70 avg (current $504.33, +10.43%). No
+discrepancy.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated 2026-08-07 through today touching
+Azure guidance, commercial RPO, or AI capex. Result: no new 8-K, no new IR
+release, no new guidance — the most recent primary-source item remains the
+2026-07-29 FY26 Q4 print (Azure +43% YoY, commercial RPO +84% to $678B,
+FQ1 FY27 Azure guide ~45% constant-currency, given on the same call).
+**Thesis intact, unchanged.**
+
+**Overnight price check:** `quote MSFT` shows `prev_close` $499.875 ->
+`last` $506.15, +1.26% — a continuation move, not a gap, well under the 5%
+overnight-gap notification threshold and nowhere near the -7%/-15% sell
+triggers. `quote SPY` shows `prev_close` $773.16 -> `last` $773.02,
+essentially flat (-0.02%).
+
+**Trailing stop:** `orders --status open` should be reconfirmed at
+market-open (not re-pulled this run beyond the reconciliation above) —
+last confirmed live 2026-08-10 at hwm $513.73 / stop $462.357, covering 2
+of 2.19 whole shares. No indication anything changed overnight.
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Held
+flat since the 2026-08-10 first tranche at ~2.0% of equity — still far
+below the ~25% target and the open multi-ticker-diversification question
+(`lessons.md` 2026-08-07/08-10) remains unanswered by the human.
+
+**Watchlist candidates:** none open, so no trigger checks applied.
+Re-ran the cheap reachability probe on six previously-blocked
+primary-source domains (`ir.aboutamazon.com`, `investor.atmeta.com`,
+`investor.nvidia.com`, `abc.xyz`, `www.sec.gov`, `investors.broadcom.com`)
+before spending any Perplexity effort — all six still fail
+(`ir.aboutamazon.com`/`investor.atmeta.com`/`investor.nvidia.com`/`abc.xyz`/
+`investors.broadcom.com` return `curl` HTTP code `000`; `www.sec.gov`
+returns `403`). No change from the 2026-08-06/08-07/08-10 findings. Per
+existing policy, did not pursue Perplexity research on a new satellite
+name this run — no primary source reachable to verify one against besides
+Microsoft. No new lesson written; this just reconfirms the standing one.
+
+**Draft proposal for the market-open routine (NOT executed by this run —
+this is a research routine only):**
+
+- **Ticker:** SPY
+- **Direction:** BUY (core index sleeve, second tranche)
+- **Size:** $2,000 (~2.0% of equity — sized to the per-order cap)
+- **Reasoning:** continues funding the core sleeve per `strategy.md`'s
+  "fund the core promptly" directive; resulting position would be ~4.0% of
+  equity, still under the 5%-per-symbol guardrail, and adding to an
+  existing position does not consume the weekly new-position count
+  (`guardrails.py`'s `record_new_position()` only fires on opening a
+  symbol the account didn't already hold, confirmed by reading the code
+  this run) — so this doesn't touch the `new_positions_this_week: 1` cap
+  already used this week. This is a single-ticker continuation, not a
+  resolution of the open multi-ticker diversification question — that
+  still needs human input before the sleeve can realistically approach the
+  25% target under the flat 5%-per-symbol cap.
+- **Guardrails for the market-open routine specifically:** do not buy in
+  the first 15 minutes after the open. Re-pull the quote before acting and
+  confirm the resulting position stays under 5% of equity at the executed
+  price (allocation buy, no valuation math to invalidate).
+
+This is a plan, not an order. The market-open routine should re-verify
+ground truth per its own instructions before acting.
+
+**No trade executed today; no thesis broken, no gap, no data-source
+failure on required checks — not notifying, per this routine's scope.**
+
+---
+
 ## Intraday risk-reduction check — 2026-08-10 ~14:40 ET
 
 This routine only reduces risk — no new positions permitted regardless of

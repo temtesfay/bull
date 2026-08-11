@@ -1,8 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-10 (daily-close routine) — reconciled, no trades
-placed (markets closed, no orders permitted this routine). See
-`watchlist.md` and `trade-log.md` for the full day's checks and reasoning.
+Last updated: 2026-08-11 (pre-market research routine) — reconciled, no
+trades placed (research-only routine, no orders permitted). MSFT thesis
+re-checked, intact. See `watchlist.md` and `trade-log.md` for the full
+day's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -32,12 +33,14 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** none — `strategy.md` explicitly exempts core index-ETF
   holdings from trailing stops ("the whole point of ballast is that it
   doesn't get shaken out").
-- **Status:** on track. Market value $1,999.50 (current $772.91 vs $773.10
-  entry, -0.03% unrealized) as of 2026-08-10 daily-close check — essentially
+- **Status:** on track. Market value $2,003.04 (current $774.28 vs $773.10
+  entry, +0.15% unrealized) as of 2026-08-11 pre-market check — essentially
   flat, no action expected on a core holding regardless. Single ticker is
   hard-capped at 5% of equity by `guardrails.py`; reaching the ~25% core
   target requires more tranches over time and/or human guidance on
-  spreading across multiple index tickers (see `lessons.md` 2026-08-10).
+  spreading across multiple index tickers (see `lessons.md` 2026-08-10). A
+  second $2,000 tranche is drafted in `watchlist.md`'s 2026-08-11 plan for
+  the market-open routine to execute, not this one.
 
 ### MSFT — 1.11% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
@@ -57,14 +60,14 @@ trust Alpaca, fix this file, and log why they drifted.
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-08-10 daily-close check: status `new`,
   hwm $513.73, stop price $462.357.
-- **Status:** on track — up 10.64% unrealized ($505.30 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-08-10 daily-close check. Market value
-  $1,106.40 = ~1.11% of equity, well inside the -7%/-15% sell triggers and
+- **Status:** on track — up 10.43% unrealized ($504.33 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-08-11 pre-market check. Market value
+  $1,104.28 = ~1.10% of equity, well inside the -7%/-15% sell triggers and
   the 5%-of-equity trim threshold. Thesis check (Perplexity, primary-source
-  restricted) done pre-market today per `watchlist.md`: no new filing/IR
-  release, thesis intact, unchanged. No new checkpoint since; nothing
-  re-checked this routine beyond price and the trailing stop (markets
-  closed, no orders permitted).
+  restricted, window 2026-08-07 through today) done this routine: no new
+  filing/IR release, thesis intact, unchanged — latest primary-source item
+  remains the 2026-07-29 FY26 Q4 print. Overnight move +1.26% (`quote`
+  prev_close $499.875 -> last $506.15), not a gap.
 
 Format for each position, one block:
 
