@@ -1,9 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-11 (pre-market research routine) — reconciled, no
-trades placed (research-only routine, no orders permitted). MSFT thesis
-re-checked, intact. See `watchlist.md` and `trade-log.md` for the full
-day's checks and reasoning.
+Last updated: 2026-08-11 (market-open routine) — second SPY core-sleeve
+tranche executed, portfolio.md and trade-log.md updated, main caught up
+after an eight-commit backlog was found unmerged (see `lessons.md`). See
+`watchlist.md` and `trade-log.md` for the full day's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -14,33 +14,36 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,105.91 |
-| Cash | $97,000.01 |
+| Equity | $100,094.91 |
+| Cash | $95,000.01 |
 | Open positions | 2 |
 | New positions this week | 1 (per Alpaca `new_positions_this_week`) |
 
 ## Holdings
 
-### SPY — 2.00% of equity
-- **Entry:** 2026-08-10, $773.10 avg, $2,000 notional (2.586974518 sh)
+### SPY — ~4.00% of equity
+- **Entry:** two tranches — 2026-08-10 $773.10 avg (2.586974518 sh, $2,000
+  notional) and 2026-08-11 $772.92 avg (2.58757698 sh, $2,000 notional).
+  Blended: 5.174551498 sh @ $773.01 avg.
 - **Thesis:** none — core index sleeve allocation buy, exempt from
   satellite thesis/catalyst/valuation criteria per `strategy.md`'s
-  2026-08-08 clarification. First tranche toward the 10-40% (target ~25%)
-  core band; account had been ~99% cash for 9+ trading days.
+  2026-08-08 clarification. Second tranche toward the 10-40% (target ~25%)
+  core band.
 - **Invalidation:** n/a (not a thesis position; trimmed only if it drifts
   outside the core band or the human changes strategy).
 - **Catalyst:** n/a.
 - **Stop:** none — `strategy.md` explicitly exempts core index-ETF
   holdings from trailing stops ("the whole point of ballast is that it
   doesn't get shaken out").
-- **Status:** on track. Market value $2,003.04 (current $774.28 vs $773.10
-  entry, +0.15% unrealized) as of 2026-08-11 pre-market check — essentially
-  flat, no action expected on a core holding regardless. Single ticker is
-  hard-capped at 5% of equity by `guardrails.py`; reaching the ~25% core
-  target requires more tranches over time and/or human guidance on
-  spreading across multiple index tickers (see `lessons.md` 2026-08-10). A
-  second $2,000 tranche is drafted in `watchlist.md`'s 2026-08-11 plan for
-  the market-open routine to execute, not this one.
+- **Status:** on track. Market value $3,999.31 (current $772.88 vs $773.01
+  blended entry, -0.02% unrealized) as of 2026-08-11 post-fill check —
+  essentially flat, no action expected on a core holding regardless.
+  Single ticker is hard-capped at 5% of equity by `guardrails.py` — at
+  ~4.0% there's roughly one more $2,000-ish tranche of headroom before
+  hitting that ceiling on SPY alone. Reaching the ~25% core target still
+  requires either many more tranches over time (each bound by the per-order
+  cap) or human guidance on spreading across multiple index tickers (open
+  question, see `lessons.md` 2026-08-10 — still unanswered).
 
 ### MSFT — 1.11% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)

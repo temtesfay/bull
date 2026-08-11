@@ -485,3 +485,43 @@ already anticipated. That is not a lesson, that is variance.
   its primary-source domain is reachable first — the reachability probe
   costs one `curl` call; a full research pass that turns out unverifiable
   costs much more and still can't be written down per existing policy.
+
+### 2026-08-11 — main drifted 8 commits / 2 trading days stale, again, at a larger scale
+- **What happened:** This run started on `claude/magical-rubin-60586a`
+  already 8 commits ahead of `origin/main`, dating back to the
+  2026-08-08 strategy-clarification commit. Two full trading days of work
+  — including both live SPY buys — existed only on the feature branch, with
+  no open PR against `main`. `main` had been silently stale since
+  2026-08-08 despite every one of those intervening runs presumably
+  believing (per their own commit messages, going by the pattern from the
+  2026-08-06 lesson) that they'd landed on `main`.
+- **What I believed at the time:** `CLAUDE.md` says every scheduled run
+  starts from "a fresh checkout of `main`." Under that assumption, drift
+  like this shouldn't be able to accumulate silently for two days straight
+  — the very next run would start from `main` and immediately notice its
+  own memory files were stale/missing recent trades.
+- **What was actually true:** the actual harness configuration for this
+  repo pins scheduled runs to the same persistent branch
+  (`claude/magical-rubin-60586a`) across invocations, not a fresh
+  `main`-based checkout each time. That branch carried forward correctly
+  from run to run, so no individual run's memory was actually broken — but
+  it also meant nothing forced a merge back to `main`, so the two never
+  reconciled until this run checked explicitly. This is a *repeat* of the
+  2026-08-06 branch/main gap, but that time it was caught same-day; this
+  time it had compounded across a weekend-adjacent stretch, and is exactly
+  the invisible-position risk `CLAUDE.md`'s post-trade checklist warns
+  about, just discovered before it caused a duplicate/conflicting order
+  rather than after.
+- **What changes:** Every run should verify `origin/main` matches the
+  working branch (`git fetch origin main` + compare HEAD) as part of the
+  ground-truth check at the very top of the routine, not just trust that
+  the last run's "pushed to main" claim was accurate — this run did that
+  check and found the gap. Pushed the branch straight onto `main` this run
+  to close it (`git push origin <branch>:main`), confirmed via a second
+  fetch. This is a structural mismatch between `CLAUDE.md`'s "fresh
+  checkout of main" assumption and how this repo's scheduled trigger is
+  actually configured (fixed persistent branch) — worth the human
+  reconciling directly, either by configuring the harness to open/merge a
+  PR automatically each run, or by updating `CLAUDE.md` to match how
+  branches actually work here, rather than leaving each run to rediscover
+  and manually patch the gap.

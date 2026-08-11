@@ -100,6 +100,59 @@ failure on required checks — not notifying, per this routine's scope.**
 
 ---
 
+## Market-open execution check — 2026-08-11
+
+**Before running the routine itself, found and fixed a branch/main gap:**
+this session's git branch (`claude/magical-rubin-60586a`) started 8 commits
+ahead of `origin/main` — `origin/main` was still sitting at the
+2026-08-08 strategy commit (`0be5ee2`), while the branch had two full
+trading days of work on top of it, including both SPY buys logged in
+`trade-log.md` (2026-08-10 and today's draft). No open PR existed for the
+gap. This is the same failure class flagged in the 2026-08-06 lesson (a
+run believing it landed on `main` when it hadn't), just recurring: `main`
+had drifted stale again while the harness kept extending the same feature
+branch across runs instead of starting fresh from `main` each time as
+`CLAUDE.md` assumes. Pushed the branch directly onto `main`
+(`git push origin claude/magical-rubin-60586a:main`) and confirmed via
+`git fetch origin main` that it landed — `origin/main` now matches this
+branch exactly. See `lessons.md` for the process writeup; this is a
+standing risk until the harness/branch setup and `CLAUDE.md`'s
+fresh-checkout assumption are reconciled by the human.
+
+Ran the market-open routine itself after that. `clock` confirms
+`is_open: true` (`next_close` today 16:00 ET, checked ~09:54 ET, well past
+the first-15-minute no-trade window). Today's plan (above, dated
+2026-08-11) is dated today, so it's not stale, and it contained a drafted
+buy — the second SPY core-sleeve tranche.
+
+Re-verified ground truth via Alpaca: equity $100,094.80, cash $97,000.00
+(pre-trade), matches `portfolio.md`, no discrepancy. Re-pulled `quote SPY`:
+`last` $773.065 vs the plan's ~$773-774 pre-market reference — well under
+the 3% threshold that would have invalidated the setup.
+
+**Executed:** `alpaca.py buy SPY --notional 2000` — filled immediately,
+$772.92 avg, qty 2.58757698, no guardrail rejection (new-position count
+still 0/3 opened this week since this adds to an existing symbol,
+resulting position ~4.0% of equity, cash reserve ~95% of equity, all well
+inside limits). Resulting blended position: 5.174551498 sh @ $773.01 avg.
+Full reasoning in `trade-log.md`. No trailing stop set — `strategy.md`
+exempts core index-ETF holdings from stops. Post-trade checklist: trade
+logged (`trade-log.md`), `portfolio.md` updated with new position and cash
+balance, no stop required (exempt), MSFT's existing trailing stop
+reconfirmed still live via `orders --status open` (unchanged, hwm $513.73,
+stop $462.357), commit/push to `main` pending as the last step of this run.
+
+No orders rejected. MSFT untouched — no sell trigger fired (up ~9.6%,
+nowhere near -7%/-15%, ~1.1% of equity, last $500.36).
+
+**Notifying:** per the scheduled task's own instruction ("what was placed,
+what was rejected and why, and the resulting cash position"), since a
+trade was placed this run — and separately flagging the branch/main gap
+found and fixed at the start of this run, since it's a process issue the
+human should know about even though it was resolved before any harm.
+
+---
+
 ## Intraday risk-reduction check — 2026-08-10 ~14:40 ET
 
 This routine only reduces risk — no new positions permitted regardless of

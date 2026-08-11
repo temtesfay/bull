@@ -93,3 +93,26 @@ rejections is a signal the strategy and the limits are out of sync.
   question raised in that lesson. No trailing stop set — `strategy.md`'s
   "Overnight protection" section explicitly exempts index-ETF core holdings
   from stops.
+
+### 2026-08-11 09:54 ET — BUY SPY
+- Size: $2,000 notional (~2.0% of equity at fill)
+- Fill: $772.92 avg, qty 2.58757698 (fractional, notional order), resulting
+  position 5.174551498 sh @ $773.01 avg, ~4.0% of equity
+- Reason: second tranche of the core ETF sleeve per `strategy.md`'s
+  2026-08-08 clarification (allocation decision, exempt from satellite
+  buy criteria). Drafted in yesterday's pre-market plan
+  (`watchlist.md` 2026-08-11). Re-verified `quote SPY` before executing:
+  $773.065 last vs the plan's ~$773-774 reference, well under the 3%
+  invalidation threshold. Adding to an existing position does not consume
+  `new_positions_this_week` (confirmed against `guardrails.py` in
+  yesterday's research run) — still 1/3 used. Resulting position (~4.0% of
+  equity) stays under the 5%-per-symbol cap; cash reserve after the buy is
+  ~95% of equity, far above the 10% floor.
+- Thesis / invalidation: none — core sleeve, no thesis to invalidate; only
+  trimmed if the sleeve drifts outside the 10-40% band or the human changes
+  strategy.
+- Confidence: n/a (allocation buy, not a conviction call)
+- Source: `alpaca.py quote SPY` at time of trade; `strategy.md` core-sleeve
+  policy; `guardrails.py` read directly for the new-position-count logic.
+- No trailing stop set — `strategy.md` exempts index-ETF core holdings from
+  stops.
