@@ -23,6 +23,94 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-08-12
+
+Ground truth via Alpaca: equity $100,101.73, cash $95,000.00, day change
++0.01% (+$11.29), `trading_blocked: false`, `new_positions_this_week: 1`.
+`clock` shows `is_open: false` pre-open (checked ~08:40 ET), `next_open`/
+`next_close` both today (2026-08-12, Wednesday) — not a holiday, normal
+session. Positions match `portfolio.md` exactly: SPY qty 5.174551498 @
+$773.01 avg (current $773.95, +0.12%), MSFT qty 2.189599299 @ $456.70 avg
+(current $501.00, +9.7%). No discrepancy. `git fetch origin main` showed
+this branch already contains today's `main` HEAD (`d4789b9`) — no
+branch/main drift this run.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated 2026-08-11 through today (08-12)
+touching Azure growth, commercial RPO, or AI capex. Result: no new 8-K, no
+new IR release, no new guidance — the most recent primary-source item
+remains the 2026-07-29 FY26 Q4 print (accession 0001193125-26-323632).
+**Thesis intact, unchanged.**
+
+**Overnight price check:** `quote MSFT` shows `prev_close` $506.15 ->
+`last` $503.77, -0.47%; `quote SPY` shows `prev_close` $773.02 -> `last`
+$770.52, -0.32%. Both noise, well under the 5% overnight-gap notification
+threshold and nowhere near MSFT's -7%/-15% sell triggers.
+
+**Trailing stop:** `orders --status open` confirms the 10% trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) on MSFT still live: status `new`,
+hwm $513.73, stop price $462.357 — unchanged since 2026-08-10 (no new high
+since then). Covers 2 of 2.19 whole shares. SPY carries no stop by design
+(core index-ETF exemption).
+
+**Watchlist candidates:** none open, so no trigger checks applied. Re-ran
+the reachability probe on nine previously-blocked primary-source domains
+(`ir.aboutamazon.com`, `investor.atmeta.com`, `investor.nvidia.com`,
+`abc.xyz`, `investors.broadcom.com`, `www.sec.gov`, `ir.tesla.com`,
+`investor.visa.com`, `www.apple.com`) before spending any Perplexity
+effort — all still fail (`000` connection failure, except `www.sec.gov`
+which returns `403`). No change from every prior check since 2026-08-05.
+Per existing policy, did not pursue Perplexity research on a new satellite
+name this run — no primary source reachable to verify one against besides
+Microsoft. No new lesson written; this just reconfirms the standing one.
+
+**SPY core sleeve — headroom is nearly exhausted at current size:** SPY
+market value $4,004.84 = 4.00% of equity. The code-enforced 5% single-symbol
+cap in dollars is $5,005.09 at today's equity, leaving only **~$1,000.25**
+of room before `guardrails.py` would reject any further SPY order outright
+(a further $2,000 tranche, the size every prior tranche used, would now be
+rejected — it would push the resulting position to ~6.0%, over the cap).
+This sharpens the open question already flagged in `lessons.md`
+(2026-08-07, 2026-08-10): the ~25% core target cannot be reached in SPY
+alone, and SPY specifically is now close enough to its own ceiling that the
+next core purchase, if any, either has to be sized down to fit the
+remaining room or has to be a *different* index ticker (VTI, IVV, etc.) —
+the multi-ticker diversification question the human has not yet answered.
+
+**Draft proposal for the market-open routine (NOT executed by this run —
+this is a research routine only):**
+
+- **Ticker:** SPY
+- **Direction:** BUY (core index sleeve, third and likely final SPY-only
+  tranche until the multi-ticker question is resolved)
+- **Size:** $900 (sized under the ~$1,000.25 remaining room to the 5% cap,
+  leaving a buffer for intraday price movement between now and execution)
+- **Reasoning:** continues `strategy.md`'s "fund the core promptly"
+  directive with the last guardrail-clean room available in SPY alone;
+  resulting position would land at roughly 4.9% of equity, just under the
+  5% cap, and does not consume the weekly new-position count (adding to an
+  existing symbol). This is explicitly a stopgap, not a resolution — after
+  this tranche, SPY will have no further room, and reaching anywhere near
+  the ~25% core target requires either a second, distinct index ticker or
+  explicit human guidance to raise/carve out the per-symbol cap for core
+  holdings. Recommend the human weigh in on this before the next research
+  routine, since without it the core sleeve is about to stall at ~4.9% of
+  equity indefinitely.
+- **Guardrails for the market-open routine specifically:** do not buy in
+  the first 15 minutes after the open. Re-pull the quote and recompute
+  headroom to the 5% cap before acting (SPY's price and the account's
+  equity will have moved since this check) — if the room has shrunk below
+  $900, size down further rather than risk a rejection.
+
+This is a plan, not an order. The market-open routine should re-verify
+ground truth per its own instructions before acting.
+
+**No trade executed today; no thesis broken, no gap, no data-source
+failure on required checks — not notifying, per this routine's scope.**
+
+---
+
 ## Intraday risk-reduction check — 2026-08-11 ~13:14 ET
 
 This routine only reduces risk — no new positions permitted regardless of
