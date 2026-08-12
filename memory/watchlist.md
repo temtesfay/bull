@@ -111,6 +111,49 @@ failure on required checks — not notifying, per this routine's scope.**
 
 ---
 
+## Market-open execution check — 2026-08-12
+
+Ran the market-open routine. `clock` confirmed `is_open: true` (checked
+~09:46 ET, well past the first-15-minute no-trade window). Today's plan
+(above, dated 2026-08-12) is dated today, so it's not stale, and it
+contained a drafted buy — the third SPY core-sleeve tranche.
+
+Re-verified ground truth via Alpaca: equity $100,087.03, cash $95,000.00
+(pre-trade), matches `portfolio.md`, no discrepancy. Re-pulled `quote SPY`:
+`last` $772.75 vs the plan's $773.95 pre-market reference, -0.15% move —
+well under the 3% threshold that would have invalidated the setup.
+Recomputed headroom to the 5% cap at current equity: ~$1,006, still above
+the planned $900 size, so no downsizing needed.
+
+**Executed:** `alpaca.py buy SPY --notional 900` — filled immediately,
+$772.476 avg, qty 1.165071795, no guardrail rejection (new-position count
+still 1/3 this week since this adds to an existing symbol, resulting
+position ~4.89% of equity — just under the 5% cap — cash reserve ~94.0% of
+equity, all well inside limits). Resulting blended position: 6.339623293
+sh @ $772.91 avg. Full reasoning in `trade-log.md`. No trailing stop set —
+`strategy.md` exempts core index-ETF holdings from stops. Post-trade
+checklist: trade logged (`trade-log.md`), `portfolio.md` updated with new
+position and cash balance, no stop required (exempt), MSFT's existing
+trailing stop reconfirmed still live via `orders --status open`
+(unchanged, status `new`, hwm $513.73, stop $462.357), commit/push to
+`main` pending as the last step of this run.
+
+No orders rejected. MSFT untouched — no sell trigger fired (up 8.76%,
+nowhere near -7%/-15%, ~1.09% of equity, last $496.73).
+
+**This exhausts SPY's headroom to the 5%-per-symbol cap** (~$108 of room
+left at today's equity). No further SPY core buy should be attempted until
+the human resolves the standing multi-ticker diversification question
+(`lessons.md` 2026-08-07, 2026-08-10) — flagging this explicitly for the
+next research/market-open run so it doesn't retry the same trade and get
+rejected.
+
+**Notifying:** per the scheduled task's own instruction ("what was placed,
+what was rejected and why, and the resulting cash position"), since a
+trade was placed this run.
+
+---
+
 ## Intraday risk-reduction check — 2026-08-11 ~13:14 ET
 
 This routine only reduces risk — no new positions permitted regardless of

@@ -116,3 +116,38 @@ rejections is a signal the strategy and the limits are out of sync.
   policy; `guardrails.py` read directly for the new-position-count logic.
 - No trailing stop set — `strategy.md` exempts index-ETF core holdings from
   stops.
+
+### 2026-08-12 09:46 ET — BUY SPY
+- Size: $900 notional (~0.9% of equity at fill)
+- Fill: $772.476 avg, qty 1.165071795 (fractional, notional order),
+  resulting position 6.339623293 sh @ $772.91 avg, ~4.89% of equity
+- Reason: third tranche of the core ETF sleeve per `strategy.md`'s
+  2026-08-08 clarification (allocation decision, exempt from satellite
+  buy criteria). Drafted in this morning's pre-market plan
+  (`watchlist.md` 2026-08-12), sized to $900 specifically because the
+  prior two $2,000 tranches had brought SPY to ~4.00% of equity, leaving
+  only ~$1,000 of headroom to the code-enforced 5%-per-symbol cap before
+  `guardrails.py` would reject a further order outright — $900 was chosen
+  to fit inside that room with a buffer for intraday price movement.
+  Re-verified `quote SPY` before executing: $772.75 last vs the plan's
+  $773.95 pre-market reference, -0.15% move, well under the 3%
+  invalidation threshold. Adding to an existing position does not consume
+  `new_positions_this_week` (still 1/3 used, confirmed via `account`
+  before and after the order). Resulting position (~4.89% of equity)
+  stays just under the 5%-per-symbol cap; cash reserve after the buy is
+  ~94.0% of equity, far above the 10% floor.
+- Thesis / invalidation: none — core sleeve, no thesis to invalidate; only
+  trimmed if the sleeve drifts outside the 10-40% band or the human changes
+  strategy.
+- Confidence: n/a (allocation buy, not a conviction call)
+- Source: `alpaca.py quote SPY` at time of trade; `strategy.md` core-sleeve
+  policy; `watchlist.md` 2026-08-12 pre-market headroom calculation.
+- No trailing stop set — `strategy.md` exempts index-ETF core holdings from
+  stops.
+- **Note:** this exhausts SPY's own headroom to the 5% cap (~4.89% now,
+  ~$108 of room left at today's equity). Per the standing open question in
+  `lessons.md` (2026-08-07, 2026-08-10), reaching anywhere near the ~25%
+  core target from here requires either a distinct second index ticker
+  (VTI, IVV, etc.) or explicit human guidance — not something this run
+  decides unilaterally. No further SPY core buy should be attempted until
+  that's resolved.
