@@ -1208,3 +1208,85 @@ Watchlist remains empty — this routine's scope is risk reduction only, not
 origination, so no new candidate was sourced. No trades placed, nothing to
 log in `trade-log.md`. No notification sent (nothing broke, nothing
 triggered, per `CLAUDE.md`'s "default to doing nothing").
+
+---
+
+## Plan for today — 2026-08-13
+
+Ground truth via Alpaca: equity $100,090.55, cash $94,100.00, day change
++0.02% (+$15.03), `trading_blocked: false`, `new_positions_this_week: 1`.
+`clock` shows `is_open: false` pre-open (checked ~08:42 ET), `next_open`/
+`next_close` both today (2026-08-13, Thursday) — not a holiday, normal
+session. Positions match `portfolio.md` exactly: SPY qty 6.339623293 @
+$772.91 blended avg (current $774.18, +0.16%), MSFT qty 2.189599299 @
+$456.70 avg (current $494.40, +8.25%). No discrepancy.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for any 8-K, IR release, or official statement dated
+2026-08-12 or 2026-08-13 touching Azure growth, commercial RPO, AI capex,
+executive departures, or litigation. Result: none found — the most recent
+primary-source item remains the 2026-07-29 FY26 Q4 print (accession
+0001193125-26-323632). **Thesis intact, unchanged.**
+
+**Overnight price check — the largest MSFT move logged so far:** `quote
+MSFT` shows `prev_close` $503.77 -> `last` $492.45, **-2.25%** (`quote SPY`
+shows $770.52 -> $772.54, +0.26%, normal). -2.25% is still well under the
+5% overnight-gap notification threshold and nowhere near MSFT's -7%/-15%
+sell triggers (position is +8.25% unrealized from the $456.70 entry, so
+this move doesn't even bring it back to breakeven), but it's large enough
+relative to prior days' sub-1% moves to warrant a market-reaction check
+per the 2026-07-31 lesson (broker price moves get a plain, unrestricted
+news search, not a primary-source-restricted one). Perplexity's
+unrestricted search surfaced a plausible, non-thesis-breaking explanation:
+profit-taking after the post-earnings rally, sector rotation out of
+software into semiconductors, and renewed investor scrutiny of AI capex/
+margin trajectory — sentiment and positioning, not a specific new company
+event. **See the new lessons.md entry** for a separate, important finding
+from this same search: several of the citations it surfaced (MarketBeat
+headlines claiming MSFT is "down 23%," in a "bear market," at a "52-week
+low") are directly contradicted by Alpaca's own -2.25% figure and the
+position still being up 8.25% from entry — treated as unreliable clickbait
+per `strategy.md`'s research-diet exclusions, not evidence of anything.
+No sell trigger fires; thesis intact; noise, not a gap.
+
+**Trailing stop:** `orders --status open` confirms the 10% trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) on MSFT still live: status `new`,
+hwm $513.73, stop price $462.357 — unchanged since 2026-08-10 (no new high
+since then; today's move is a pullback, not a new high). Covers 2 of 2.19
+whole shares. SPY carries no stop by design (core index-ETF exemption).
+
+**Watchlist candidates:** none open, so no trigger checks applied. Re-ran
+the reachability probe on the same nine previously-blocked primary-source
+domains (`ir.aboutamazon.com`, `investor.atmeta.com`, `investor.nvidia.com`,
+`abc.xyz`, `investors.broadcom.com`, `www.sec.gov`, `ir.tesla.com`,
+`investor.visa.com`, `www.apple.com`) before spending any Perplexity
+effort — all still fail (`000` connection failure, except `www.sec.gov`
+which returns `403`). No change from every prior check since 2026-08-05.
+Per existing policy, did not pursue Perplexity research on a new satellite
+name this run — no primary source reachable to verify one against besides
+Microsoft.
+
+**SPY core sleeve — headroom is now effectively zero:** SPY market value
+$4,908.01 = ~4.905% of equity. The code-enforced 5% single-symbol cap in
+dollars is $5,004.53 at today's equity, leaving only **~$96.52** of room —
+not enough to place any order that would clear `guardrails.py`'s minimum
+order size in practice, let alone move the needle toward the ~25% core
+target. This reconfirms the standing conclusion (`lessons.md` 2026-08-07,
+2026-08-10): **no further SPY buy should be attempted** until the human
+resolves the open multi-ticker-diversification question. No new SPY
+tranche is proposed today.
+
+**Draft proposal for the market-open routine: none.** No trade clears the
+bar today — MSFT's thesis is intact with no new catalyst to act on, and
+SPY has essentially no headroom left under the single-symbol cap. **No
+action planned.** This is the normal, expected outcome per `CLAUDE.md`'s
+"default to doing nothing."
+
+**No trade executed today; no thesis broken, no gap past threshold (the
+largest move seen, -2.25% MSFT, is still under the 5% notification bar and
+was explained by ordinary sentiment/rotation, not a specific negative
+event), no required data-source failure (MSFT primary-source check and
+both quotes worked fine; only the bonus new-candidate reachability probe
+came back blocked, same as every prior day) — not notifying, per this
+routine's scope.**

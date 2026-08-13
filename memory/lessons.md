@@ -525,3 +525,39 @@ already anticipated. That is not a lesson, that is variance.
   PR automatically each run, or by updating `CLAUDE.md` to match how
   branches actually work here, rather than leaving each run to rediscover
   and manually patch the gap.
+
+### 2026-08-13 — a general market-reaction search can surface clickbait headlines that directly contradict the broker's own numbers
+- **What happened:** MSFT was down -2.25% overnight (`quote MSFT`:
+  `prev_close` $503.77 -> `last` $492.45) — the largest single move logged
+  for the position so far, though still well under the 5% notification
+  threshold. Per the 2026-07-31 lesson, ran an unrestricted (not
+  primary-source-only) Perplexity search to sanity-check the market
+  reaction. Among the citations returned were MarketBeat headlines titled
+  "Microsoft (NASDAQ:MSFT) Shares Down 23% – Should You Sell" and an
+  article describing MSFT as entering a "bear market" and hitting a
+  "52-week low."
+- **What I believed at the time:** That an unrestricted news search, per
+  the 2026-07-31 lesson, was the right tool for sanity-checking a broker
+  price move, and that its results — even from secondary sources — would
+  at least be internally consistent with the actual price action.
+- **What was actually true:** Those specific headline claims are flatly
+  contradicted by Alpaca's own numbers: the actual move was -2.25%
+  overnight, not -23%, and the position is still +8.25% unrealized from
+  its $456.70 entry — nowhere near a 52-week low or bear-market territory
+  for the stock overall. These are exactly the "top 5 stocks"/countdown-
+  timer-style engagement headlines `strategy.md`'s research diet already
+  tells Bull to ignore, just encountered inside a search that was
+  otherwise being used correctly (unrestricted, for market-reaction
+  context rather than fundamentals). The 2026-07-31 lesson said to use a
+  plain news search instead of a primary-source-restricted one for price
+  moves; it didn't say to trust every number that search surfaces.
+- **What changes:** When using an unrestricted news search to sanity-check
+  a broker-reported price move (per the 2026-07-31 lesson), treat any
+  specific percentage or superlative claim ("down X%," "52-week low,"
+  "bear market") in the results as unverified until cross-checked against
+  Alpaca's own price data — Alpaca is authoritative for price
+  (`CLAUDE.md`), sensational secondary-source headlines are not, even when
+  they show up inside a search step that's otherwise legitimate. Do not
+  let a clickbait headline's number leak into `watchlist.md` or
+  `portfolio.md` without noting it was contradicted by the broker's own
+  figure, as was done in today's entry.
