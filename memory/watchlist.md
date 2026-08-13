@@ -1290,3 +1290,29 @@ event), no required data-source failure (MSFT primary-source check and
 both quotes worked fine; only the bonus new-candidate reachability probe
 came back blocked, same as every prior day) — not notifying, per this
 routine's scope.**
+
+---
+
+## Market-open execution check — 2026-08-13
+
+Ran the market-open routine. `clock` confirms `is_open: true` (`next_close`
+today 16:00 ET). Today's plan (above, dated 2026-08-13) is dated today, so
+it's not stale — but it explicitly proposes **no trade** ("No draft
+proposal... no action planned"), so there was nothing to re-verify against
+the 3% price-move threshold and nothing to execute. Steps 3-5 of the
+market-open routine were no-ops by design, not a skip.
+
+Ground truth via Alpaca: equity $100,113.63, cash $94,100.00 (unchanged),
+day change +0.04% (+$38.11), `trading_blocked: false`. Matches
+`portfolio.md`/this file exactly — SPY qty 6.339623293 @ $772.91 avg
+(current $776.54, +0.47%), MSFT qty 2.189599299 @ $456.70 avg (current
+$498.21, +9.09%). No discrepancy. Trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) confirmed still live via
+`orders --status open`: status `new`, hwm $513.73, stop price $462.357 —
+unchanged since 2026-08-10 (no new high since then; MSFT's current $498.21
+is still below the $513.73 hwm). SPY carries no stop by design (core
+index-ETF exemption).
+
+No trades placed, no orders rejected, no memory drift found. Per the
+scheduled task's own instruction ("If nothing happened, send nothing"), no
+notification sent.
