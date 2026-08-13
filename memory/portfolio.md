@@ -1,7 +1,8 @@
 # Portfolio
 
-Last updated: 2026-08-12 (daily-close routine) — markets closed, no orders
-placed this routine, reconciled clean against Alpaca, no discrepancy. See
+Last updated: 2026-08-13 (intraday risk-reduction routine, ~13:30 ET) —
+market open, no orders placed or permitted this routine (risk-reduction
+scope only), reconciled clean against Alpaca, no discrepancy. See
 `watchlist.md` and `trade-log.md` for the full day's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
@@ -13,8 +14,8 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,076.09 |
-| Cash | $94,100.01 |
+| Equity | $100,109.10 |
+| Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 1 (per Alpaca `new_positions_this_week`) |
 
@@ -36,9 +37,9 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** none — `strategy.md` explicitly exempts core index-ETF
   holdings from trailing stops ("the whole point of ballast is that it
   doesn't get shaken out").
-- **Status:** on track. Market value $4,899.25 (current $772.80 vs $772.91
-  blended entry, -0.01% unrealized) as of 2026-08-12 daily-close check.
-  **Headroom to the 5%-per-symbol cap remains exhausted** (~4.89% of
+- **Status:** on track. Market value $4,926.97 (current $777.17 vs $772.91
+  blended entry, +0.55% unrealized) as of 2026-08-13 intraday check.
+  **Headroom to the 5%-per-symbol cap remains exhausted** (~4.92% of
   equity) — no further SPY buy should be attempted until the human resolves
   the open multi-ticker question (see `lessons.md` 2026-08-07, 2026-08-10).
   Reaching the ~25% core target from here requires a distinct second index
@@ -63,14 +64,14 @@ trust Alpaca, fix this file, and log why they drifted.
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-08-10 daily-close check: status `new`,
   hwm $513.73, stop price $462.357.
-- **Status:** on track — up 7.68% unrealized ($491.79 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-08-12 daily-close check. Market value
-  $1,076.82 = ~1.08% of equity, well inside the -7%/-15% sell triggers and
-  the 5%-of-equity trim threshold. Pullback from yesterday's +10.06% read is
-  normal noise, not a thesis-breaking move — no news check was run this
-  routine (markets-closed reconciliation scope; today's pre-market routine
-  already confirmed the thesis intact against primary sources through
-  2026-08-12).
+- **Status:** on track — up 8.26% unrealized ($494.44 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-08-13 intraday check. Market value
+  $1,082.63 = ~1.08% of equity, well inside the -7%/-15% sell triggers and
+  the 5%-of-equity trim threshold. Primary-source news check run this
+  routine found no genuine new filing/guidance (an initial Perplexity claim
+  of a "new 8-K filed 2026-08-13" was verified and found to actually be an
+  old 2026-06-05 director/officer 8-K — see `lessons.md` 2026-08-13 for the
+  process note); thesis intact, unchanged.
 
 Format for each position, one block:
 

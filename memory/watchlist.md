@@ -23,6 +23,73 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-08-13 ~13:30 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,109.10, cash
+$94,100.00, day change +0.03% (+$33.58), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal. `clock`
+confirms `is_open: true` (`next_close` today 16:00 ET, checked ~13:30 ET).
+Positions match `portfolio.md` exactly: SPY qty 6.339623293 @ $772.91
+blended avg (current $777.17, +0.55% unrealized, market value $4,926.97 =
+~4.92% of equity), MSFT qty 2.189599299 @ $456.70 avg (current $494.44,
++8.26% unrealized, market value $1,082.63 = ~1.08% of equity). No
+discrepancy. `git fetch origin main` confirmed local branch already matched
+`origin/main` exactly at `9eeec67` (this morning's market-open no-trade
+commit) before this run made any changes — no branch/main drift.
+
+**Sell-rule check on both positions:**
+- **MSFT** (satellite, ~1.08% of equity): checked for thesis-breaking news
+  via a primary-source-restricted Perplexity query (SEC filings / Microsoft
+  IR / official corporate statements only) covering 2026-08-12 through
+  today. The response initially claimed a **new Microsoft 8-K "filed with
+  the SEC on 2026-08-13"** — flagged for direct verification given the
+  standing lesson (2026-08-13 entry, clickbait headline vs. broker price)
+  about not trusting a Perplexity claim at face value. `sec.gov` is still
+  network-blocked (403, consistent with every prior check since 2026-07-30)
+  and Microsoft's own IR SEC-filings page is a JS-rendered app that doesn't
+  expose filing dates to a raw `curl`, so ran a targeted follow-up
+  Perplexity query asking specifically for the filing date and Item type of
+  the cited accession number (0001193125-26-258667). Result: that filing
+  was actually **filed 2026-06-05, Item 5.02 (director/officer departure or
+  appointment)** — a different, older filing than the 2026-07-29 FY26 Q4
+  earnings 8-K (accession 0001193125-26-323632), and predates the MSFT
+  position entry (2026-07-31) entirely. The "filed 2026-08-13" claim in the
+  first response was wrong — almost certainly the same
+  webpage-cache-date-vs-filing-date conflation the 2026-08-13 lesson already
+  named for a different symptom (clickbait % moves). **No actual new
+  primary-source item in the 2026-08-12 to 2026-08-13 window** — thesis
+  intact, unchanged. `quote MSFT`/`positions` price is a continuation of the
+  existing move, not a gap. None of the four sell triggers fire: not
+  thesis-broken, not down 7% (it's up 8.26%), not down 15%, not above 5% of
+  equity (~1.08%). No trim, no exit. See `lessons.md` for the process note.
+- **SPY** (core, ~4.92% of equity): unrealized +0.55% ($777.17 vs $772.91
+  blended entry). Core holdings are exempt from the satellite sell criteria
+  (no thesis to break) and are only trimmed if the sleeve drifts outside the
+  10-40% band or above the 5%-of-equity single-symbol cap — at ~4.92% it's
+  still under the cap (headroom nearly exhausted, as already flagged
+  repeatedly, but no trim is triggered by being under the cap). No action.
+
+**Trailing-stop check:** `orders --status open` shows the existing 10%
+trailing stop on MSFT (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live —
+status `new`, hwm $513.73, stop price $462.357, unchanged since 2026-08-10
+(current price $494.44 is below the hwm, so no new high to ratchet the stop
+up on). Covers 2 of 2.19 whole shares, as before. SPY carries no stop by
+design (core index-ETF exemption in `strategy.md`). No action needed.
+
+Watchlist remains empty — this routine's scope is risk reduction only, not
+origination, so no new candidate was sourced or evaluated (per this
+routine's own instructions, an attractive-looking candidate would only be
+added here for tomorrow's pre-market run, not bought). No trades placed,
+nothing to log in `trade-log.md`, no change to `portfolio.md`'s position
+numbers (current as of this morning's market-open entry, nothing here moved
+them meaningfully — status line refreshed for the record). No notification
+sent (nothing broke, nothing triggered, per `CLAUDE.md`'s "default to doing
+nothing"; the Perplexity date-attribution issue was caught and resolved
+within this run, not an unresolved data-source failure).
+
+---
+
 ## Plan for today — 2026-08-12
 
 Ground truth via Alpaca: equity $100,101.73, cash $95,000.00, day change

@@ -561,3 +561,44 @@ already anticipated. That is not a lesson, that is variance.
   let a clickbait headline's number leak into `watchlist.md` or
   `portfolio.md` without noting it was contradicted by the broker's own
   figure, as was done in today's entry.
+
+### 2026-08-13 — Perplexity misattributed an old SEC filing's date as "today," even in a primary-source-restricted query
+- **What happened:** Intraday risk-reduction check, same day as the lesson
+  above. A primary-source-restricted Perplexity query for MSFT news in the
+  2026-08-12/13 window claimed there was a **new 8-K "filed with the SEC on
+  2026-08-13"** and cited a specific SEC EDGAR URL/accession number
+  (0001193125-26-258667) as support. Before treating that as thesis-relevant
+  news, ran a targeted follow-up query asking specifically for that
+  accession number's actual filing date and Item type. The real answer: the
+  filing was **filed 2026-06-05**, Item 5.02 (a director/officer
+  departure/appointment), a completely different and much older filing than
+  the one Perplexity had just implied was breaking today — it predates the
+  MSFT position (opened 2026-07-31) entirely.
+- **What I believed at the time:** That restricting the query to primary
+  sources (SEC filings / IR pages / official statements) was sufficient to
+  trust a specific factual claim like a filing date, since the
+  2026-07-29 lesson's concern was about *unrestricted* search picking up
+  clickbait, and this query wasn't that.
+- **What was actually true:** The primary-source restriction controls which
+  *domains* get cited, not whether the model correctly reads metadata off
+  those domains. One of the citations returned had a `last_updated`/cache
+  date of 2026-08-13 (a secondary aggregator's crawl date, per the raw
+  search-result metadata) attached to an old filing, and the model's
+  synthesis conflated "this source was last crawled/updated 2026-08-13" with
+  "this event happened 2026-08-13" — the same underlying failure mode as
+  the clickbait-headline lesson above (search metadata leaking into a
+  factual claim as if it were the claim's own timestamp), just surfacing
+  inside a restricted query instead of an unrestricted one.
+- **What changes:** Restricting a Perplexity query to primary-source domains
+  does not make its claims about *when* something happened trustworthy by
+  itself — a specific date/recency claim ("filed today," "announced this
+  week") tied to a filing or event still needs a second, targeted check
+  (ask directly for the filing date and Item type of the specific accession
+  number/document cited) before being treated as new information that could
+  move a thesis. This is cheap (one follow-up query) relative to the cost of
+  logging a false "new filing" as if it were live news. General takeaway
+  building on both of today's lessons: never let a single Perplexity
+  response's claimed recency stand on its own — cross-check the specific
+  fact (price move against Alpaca, filing date against a targeted
+  re-query) before it enters `watchlist.md`, `portfolio.md`, or a sell/buy
+  decision.
