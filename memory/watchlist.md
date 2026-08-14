@@ -23,6 +23,72 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-08-14
+
+Research-only routine (no trades permitted this run). Ground truth via
+Alpaca: equity $100,127.68, cash $94,100.00, day change +0.01% (+$8.25),
+`trading_blocked: false`, `new_positions_this_week: 1`. `clock` shows
+`is_open: false` pre-open (checked ~08:52 ET), `next_open`/`next_close`
+both today (2026-08-14, Friday) — not a holiday, normal session. Positions
+match `portfolio.md` exactly: SPY qty 6.339623293 @ $772.91 avg (current
+$778.79, +0.76% unrealized, market value $4,937.24 = ~4.93% of equity),
+MSFT qty 2.189599299 @ $456.70 avg (current $498.01, +9.04% unrealized,
+market value $1,090.44 = ~1.09% of equity). No discrepancy — nothing to
+log in `lessons.md`. `git fetch origin main` confirmed local HEAD already
+matched `origin/main` exactly at `0e83e2c` before this run made any
+changes — no branch/main drift.
+
+**Overnight gap check (both positions):** per the 2026-08-04 lesson,
+checked `positions[].current_price` vs `lastday_price` directly (more
+current pre-market than `quote`'s snapshot feed) — MSFT $497.95 vs
+$496.88 (+0.22%), SPY $778.79 vs $777.88 (+0.12%). Both flat, nowhere near
+the 5% overnight-gap notification threshold.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated 2026-08-13 through today touching
+Azure/cloud growth, commercial RPO, AI capex, executive changes, or
+litigation. Result: no new 8-K, no new IR release, no new guidance — the
+only primary-source items in the surrounding window are routine Form 4/144
+insider filings (2026-08-05/06), unrelated to the thesis. Most recent
+thesis-relevant filing remains the 2026-07-29 FY26 Q4 earnings 8-K
+(accession 0001193125-26-323632). **Thesis intact, unchanged.**
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.93% of equity — headroom to the 5%-per-symbol cap is now only ~$69,
+functionally exhausted. No further SPY buy should be attempted. The
+standing multi-ticker-diversification question (`lessons.md` 2026-08-07,
+2026-08-10) — whether the human wants a second, distinct index ticker
+(VTI, IVV, etc.) to keep funding the core sleeve toward the ~25% target, or
+a code-level carve-out to `guardrails.py`'s flat 5% cap — remains
+unresolved. Per repeated prior lessons, this is a policy question for the
+human, not something a routine should decide unilaterally by just picking
+a second ticker; not resolved by this run either.
+
+**Watchlist candidates:** none open, so no trigger checks applied. Re-ran
+the reachability probe on ten previously-blocked primary-source domains
+(`ir.aboutamazon.com`, `investor.atmeta.com`, `investor.nvidia.com`,
+`abc.xyz`, `investors.broadcom.com`, `www.sec.gov`, `ir.tesla.com`,
+`investor.visa.com`, `www.apple.com`, `investors.costco.com`) before
+spending any Perplexity effort — all still fail (`000` connection failure,
+except `www.sec.gov` which returns `403`); `microsoft.com` remains the only
+reachable primary-source domain (`301`). No change from every prior check
+since 2026-08-05. Per existing policy, did not pursue Perplexity research
+on a new satellite name this run — no primary source reachable to verify
+one against besides Microsoft. No new lesson written; this just reconfirms
+the standing one.
+
+**Draft proposal for the market-open routine:** none. SPY has no
+meaningful headroom left to buy more of, MSFT's thesis is unchanged with
+no new catalyst to act on, and no new satellite candidate cleared
+sourcing. **No action planned.** This is a completely normal outcome.
+
+**No trade to draft, no thesis broken, no gap, no data-source failure on
+required checks — not notifying, per this routine's own instruction ("if
+you find nothing worth doing... most days should end this way").**
+
+---
+
 ## Intraday risk-reduction check — 2026-08-13 ~13:30 ET
 
 This routine only reduces risk — no new positions permitted regardless of
