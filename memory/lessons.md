@@ -602,3 +602,66 @@ already anticipated. That is not a lesson, that is variance.
   fact (price move against Alpaca, filing date against a targeted
   re-query) before it enters `watchlist.md`, `portfolio.md`, or a sell/buy
   decision.
+
+### 2026-08-14 — Third weekly review: mechanics are clean, but a week-old blocking question was flagged repeatedly and escalated to no one
+- **What happened:** Third weekly review (prior: 2026-07-31, 2026-08-07).
+  This week (2026-08-07 close -> 2026-08-14 close): portfolio +0.01% vs SPY
+  +0.41%, delta -0.40%. Since inception (2026-07-29): portfolio +0.10%
+  ($100,000 -> $100,103.93) vs SPY +6.41% ($729.57 -> $776.30), delta
+  **-6.30%**. Zero guardrail rejections this account's entire life (5 of 5
+  orders filled clean). Three trades this week, all SPY core-sleeve
+  tranches (8/10, 8/11, 8/12) — one counts as a new position, two are adds
+  — each correctly sized to remaining headroom under the 5%-per-symbol cap,
+  and buying stopped cleanly once that cap was reached (~4.89-4.92%) rather
+  than reaching for a workaround (e.g. a second ticker) unilaterally. No
+  position held past invalidation; MSFT thesis re-verified against primary
+  sources nearly every wake. Went looking for a real process failure (per
+  this routine's own instruction not to grade every week "fine") and found
+  one: the multi-ticker core-diversification question (raised 2026-08-07,
+  elaborated 2026-08-10 — a single index ticker structurally cannot reach
+  the ~25% core target under the flat 5%-per-symbol guardrail) has now sat
+  unanswered for a full week. Every daily/pre-market entry since has
+  dutifully re-noted "still open, not this routine's to resolve" — which is
+  honest, but it is not the same thing as making sure a human actually sees
+  and acts on the question. No dedicated notification was ever sent asking
+  for it specifically; it has only ever appeared buried inside routine
+  file diffs and daily-summary text.
+- **What I believed at the time (implicit, across the week's runs):** That
+  repeating an open question faithfully in `lessons.md`/`watchlist.md` each
+  day satisfies the obligation to surface it, since the human can read the
+  files at any time.
+- **What was actually true:** Documentation is not escalation. A question
+  that blocks ~20 percentage points of the core sleeve's target range for a
+  full week, and that no run has authority to resolve unilaterally, is
+  exactly the kind of thing that should generate a distinct, attention-
+  seeking notification rather than relying on someone reading git history.
+  `CLAUDE.md`'s escalation list doesn't currently name "blocked on a
+  strategy decision for N consecutive trading days" as a trigger, so
+  technically no rule was broken — but the spirit of "state your
+  uncertainty honestly" is weaker if the uncertainty only ever shows up
+  where it's easy to miss.
+- **What changes:** Proposing to the human (not editing `strategy.md` or
+  `CLAUDE.md` myself): (1) either resolve the multi-ticker core-
+  diversification question directly, or explicitly say "leave the core
+  sleeve capped at ~5% in SPY alone, don't diversify" so this stops
+  recurring; (2) consider adding "a strategy-level question has blocked a
+  material allocation decision for N+ consecutive trading days" to
+  `CLAUDE.md`'s escalation list, so it becomes a `normal`-urgency
+  notification on its own rather than something that only ever rides along
+  inside other summaries. Lower priority: the satellite-sourcing network
+  block has now been reconfirmed against ~10 distinct primary-source
+  domains (SEC EDGAR, Alphabet, Amazon, Meta, Nvidia, Broadcom, Apple,
+  Tesla, Visa, Costco) across two weeks, all blocked, `microsoft.com` the
+  only one that works — the "narrow allowlist" theory is well-supported by
+  now, but a handful of untested circle-of-competence names (Oracle,
+  Salesforce, ServiceNow, Adobe, AMD, Cisco, IBM, Intuit) remain untried;
+  worth one more cheap reachability pass before treating the block as fully
+  exhausted, though expected value is low given the pattern so far.
+  **Grade this week: B-** — mechanically disciplined (no guardrail
+  violations, no unforced trading errors, correctly deferred an ambiguous
+  decision instead of guessing), but too passive about getting a blocking
+  question actually answered. Sample size: 3 weekly reviews completed since
+  inception (2026-07-29), roughly 2.5 weeks — nowhere near the 26-week bar
+  for distinguishing process from luck. This includes MSFT's own
+  +8.39%/+4.44pp-vs-SPY-since-entry figure, which is one name over two and
+  a half weeks, not evidence of repeatable stock-picking skill yet.
