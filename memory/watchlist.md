@@ -89,6 +89,39 @@ you find nothing worth doing... most days should end this way").**
 
 ---
 
+## Market-open execution check — 2026-08-14
+
+Ran the market-open routine. `clock` confirms `is_open: true` (`next_close`
+today 16:00 ET, checked ~09:49 ET, well past the first-15-minute no-trade
+window). Today's plan (above, dated 2026-08-14) is dated today, so it's not
+stale — and it explicitly says "No action planned," so there was nothing to
+re-verify against the 3% price-move-invalidation check and nothing to
+execute. Steps 3-5 of the market-open routine were no-ops by design, not a
+skip.
+
+Re-verified ground truth via Alpaca: equity $100,120.65, cash $94,100.00,
+`trading_blocked: false`, `new_positions_this_week: 1`. Positions match
+`portfolio.md` exactly: SPY qty 6.339623293 @ $772.91 avg (current $778.10,
++0.67% unrealized, market value $4,932.86 = ~4.93% of equity, still at its
+practical ceiling under the 5%-per-symbol cap), MSFT qty 2.189599299 @
+$456.70 avg (current $496.80, +8.78% unrealized, market value $1,087.79 =
+~1.09% of equity). No discrepancy. `orders --status open` confirms the MSFT
+trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status
+`new`, hwm $513.73, stop price $462.357 — unchanged since 2026-08-10 (no new
+high since then). SPY carries no stop by design (core index-ETF exemption).
+
+No trades placed, no orders rejected. Same two open questions as every
+recent run remain outstanding and unresolved by this run: the
+multi-ticker-diversification question for the core sleeve (`lessons.md`
+2026-08-07, 2026-08-10) and whether the non-Microsoft IR network block is
+temporary or standing.
+
+Per the scheduled task's own instruction ("If nothing happened, send
+nothing"), not notifying — no trade placed, no rejection, nothing to
+report.
+
+---
+
 ## Intraday risk-reduction check — 2026-08-13 ~13:30 ET
 
 This routine only reduces risk — no new positions permitted regardless of
