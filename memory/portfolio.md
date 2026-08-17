@@ -1,9 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-14 (intraday risk-reduction check, ~13:14 ET) — no
+Last updated: 2026-08-17 (pre-market research routine, ~08:50 ET) — no
 sell triggers fired on either position, MSFT thesis intact, trailing stop
-confirmed live, no trades placed. See `watchlist.md` and `trade-log.md` for
-the full day's checks and reasoning.
+confirmed live, no trades placed (research-only routine). See
+`watchlist.md` and `trade-log.md` for the full day's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -14,10 +14,10 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,106.09 |
+| Equity | $100,099.02 |
 | Cash | $94,100.00 |
 | Open positions | 2 |
-| New positions this week | 1 (per Alpaca `new_positions_this_week`) |
+| New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
 
 ## Holdings
 
@@ -37,15 +37,15 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** none — `strategy.md` explicitly exempts core index-ETF
   holdings from trailing stops ("the whole point of ballast is that it
   doesn't get shaken out").
-- **Status:** on track. Market value $4,919.74 (current $776.03 vs $772.91
-  blended entry, +0.40% unrealized) as of 2026-08-14 intraday risk-reduction
-  check (~13:14 ET). **Headroom to the 5%-per-symbol cap remains exhausted**
-  (~4.91% of equity) — no further SPY buy should be attempted until
+- **Status:** on track. Market value $4,921.01 (current $776.23 vs $772.91
+  blended entry, +0.43% unrealized) as of 2026-08-17 pre-market research
+  routine. **Headroom to the 5%-per-symbol cap remains exhausted**
+  (~4.92% of equity) — no further SPY buy should be attempted until
   the human resolves the open multi-ticker question (see `lessons.md`
   2026-08-07, 2026-08-10). Reaching the ~25% core target from here requires
   a distinct second index ticker (VTI, IVV, etc.) or explicit human
   guidance to raise/carve out the per-symbol cap for core holdings — still
-  unanswered.
+  unanswered, now unresolved for 5+ consecutive trading days.
 
 ### MSFT — 1.09% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
@@ -66,16 +66,18 @@ trust Alpaca, fix this file, and log why they drifted.
   Confirmed still open as of 2026-08-14 pre-market check via
   `orders --status open`: status `new`, hwm $513.73, stop price $462.357 —
   unchanged since 2026-08-10 (no new high since then).
-- **Status:** on track — up 8.64% unrealized ($496.14 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-08-14 intraday risk-reduction check
-  (~13:14 ET). Market value $1,086.35 = ~1.09% of equity, well inside the
-  -7%/-15% sell triggers and the 5%-of-equity trim threshold. Primary-source
-  check re-run this routine (Perplexity, restricted to SEC filings/Microsoft
-  IR/official statements, window 2026-08-13 through today): no new 8-K, no
-  new IR release, no new guidance — thesis intact, unchanged. (Citations
-  surfaced pre-existing shareholder litigation from June 2026 alleging Azure
-  growth was overstated; predates this position's entry and is not new
-  information — noted, not treated as thesis-breaking.) Trailing stop
+- **Status:** on track — up 7.8% unrealized ($492.33 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-08-17 pre-market research routine. Pulled
+  back slightly from Friday's +8.64% but nowhere near the -7%/-15% sell
+  triggers. Market value $1,078.01 = ~1.08% of equity, well inside the
+  5%-of-equity trim threshold. Overnight/weekend gap check (`positions`
+  `current_price` $492.29 vs `lastday_price` $495.40, -0.63%): noise, not a
+  gap, well under the 5% notification threshold. Primary-source check
+  re-run this routine (Perplexity, restricted to SEC filings/Microsoft
+  IR/official statements, window 2026-08-14 through today): no new 8-K, no
+  new IR release, no new guidance — thesis intact, unchanged; most recent
+  primary-source item remains the 2026-07-29 FY26 Q4 earnings 8-K
+  (accession 0001193125-26-323632). Trailing stop
   (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) reconfirmed live: status `new`,
   hwm $513.73, stop price $462.357, unchanged since 2026-08-10.
 
