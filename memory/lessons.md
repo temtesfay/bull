@@ -687,3 +687,35 @@ already anticipated. That is not a lesson, that is variance.
   MSFT stays blocked until the human changes the environment's network
   policy; future routines shouldn't need to re-verify this via probe unless
   something about the environment changes.
+
+### 2026-08-17 — the daily-close (markets-closed reconciliation) routine didn't fire on 2026-08-14, leaving a gap in the benchmark table
+- **What happened:** Running this daily-close routine and checking `git log`
+  before writing the entry (per the 2026-08-06/08-11 lessons on not trusting
+  assumptions about what landed), found no commit for a 2026-08-14
+  daily-close/reconciliation entry — the history goes straight from
+  `0e83e2c` (2026-08-13 daily-close) to `f48d56d` (2026-08-14 intraday
+  risk-reduction check) to the weekly review and 08-17 runs. Pre-market,
+  market-open, and intraday routines all ran and committed on 08-14, but the
+  specific markets-closed reconciliation/benchmark-table routine never did.
+  No end-of-day equity or SPY-close figure for 08-14 exists anywhere in
+  memory, only intraday snapshots.
+- **What I believed at the time:** That every scheduled routine type fires
+  every day it's supposed to, and a missing entry would mean either a push
+  failure (per the 2026-07-31/08-06 lessons) or a genuine broker
+  discrepancy — both of which this run checked for and ruled out (Alpaca
+  and the file agree cleanly today, no drift).
+- **What was actually true:** This wasn't a push failure or a broker
+  mismatch — the routine itself appears not to have been triggered that
+  day at all (a scheduling gap, not a memory-write gap). Every other run
+  type fired normally on 08-14, so it looks isolated to this one routine on
+  this one day rather than a broader outage.
+- **What changes:** Left the 2026-08-14 row in `portfolio.md`'s benchmark
+  table explicitly blank rather than reconstruct a fake closing figure from
+  intraday numbers (per `CLAUDE.md`'s "never fabricate a number") — an
+  intraday equity snapshot is not an end-of-day close and using one would
+  quietly misstate the benchmark series. Flagging this to the human in
+  today's notification: worth checking whether the daily-close trigger is
+  configured to fire every trading day, since a repeat would leave more
+  permanent holes in the only performance record this system keeps. If it
+  recurs, that's a pattern worth escalating more forcefully than a single
+  lessons.md entry.
