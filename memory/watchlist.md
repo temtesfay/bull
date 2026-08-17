@@ -23,6 +23,68 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-08-17 ~13:11 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,060.22, cash
+$94,100.00, day change -0.05% (-$46.21), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal. `clock`
+confirms `is_open: true` (`next_close` today 16:00 ET, checked ~13:11 ET).
+`git fetch origin main` confirmed local branch already matched
+`origin/main` exactly at `fb92f81` (this morning's market-open no-action
+commit) before this run made any changes — no branch/main drift. Positions
+match `portfolio.md` exactly: SPY qty 6.339623293 @ $772.91 avg (current
+$774.49, +0.20% unrealized, market value $4,909.97 = ~4.91% of equity),
+MSFT qty 2.189599299 @ $456.70 avg (current $479.70, +5.04% unrealized,
+market value $1,050.35 = ~1.05% of equity). No discrepancy — nothing to
+log in `lessons.md`.
+
+**Sell-rule check on both positions:**
+- **MSFT** (satellite, ~1.05% of equity): `quote MSFT` showed a notably
+  large intraday move — prev_close $495.35 -> last $479.58, -3.18% today —
+  bigger than the routine daily noise this position usually shows, so
+  checked it properly rather than waving it through as normal drift. Ran a
+  primary-source-restricted Perplexity query (SEC filings/Microsoft
+  IR/official statements, window 2026-08-14 through today) on Azure/cloud
+  growth, commercial RPO, AI capex, executive changes, and litigation: no
+  new 8-K, no new IR release, no new guidance — most recent item remains
+  the 2026-07-29 FY26 Q4 earnings 8-K (accession 0001193125-26-323632).
+  Followed up per the 2026-07-31/08-13 lessons with an unrestricted news
+  search specifically asking what was driving today's move: no dated
+  Microsoft-specific negative headline this week; the read is a broad
+  tech/valuation pullback and profit-taking after the post-earnings rally,
+  not a company-specific catalyst. **Thesis intact, unchanged.** None of
+  the four sell triggers fire: not thesis-broken, not down 7% from entry
+  (still up 5.04%), not down 15%, not above 5% of equity (~1.05%). No trim,
+  no exit — this is "the price fell and I want to feel like I'm doing
+  something" territory if I invented a reason to act; the thesis-check
+  came back clean, so holding is the correct call, not an evasion of one.
+- **SPY** (core, ~4.91% of equity): unrealized +0.20% ($774.49 vs $772.91
+  blended entry). Core holdings are exempt from the satellite sell criteria
+  (no thesis to break) and are only trimmed if the sleeve drifts outside
+  the 10-40% band or above the 5%-of-equity single-symbol cap — at ~4.91%
+  it's still under the cap. No trim, no action.
+
+**Trailing-stop check:** `orders --status open` shows the existing 10%
+trailing stop on MSFT (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live —
+status `new`, hwm $513.73, stop price $462.357, unchanged since 2026-08-10
+(current price $479.70 is well below the hwm, so no new high to ratchet
+the stop up on). Covers 2 of 2.19 whole shares, as before. SPY carries no
+stop by design (core index-ETF exemption in `strategy.md`). No action
+needed.
+
+No new positions permitted or considered this run (risk-reduction scope
+only, per the scheduled task's own instruction — nothing attractive was
+evaluated for a buy anyway). Watchlist remains empty. No trades placed,
+nothing to log in `trade-log.md` beyond this entry, no change to
+`portfolio.md`'s position numbers beyond a status-line refresh. No
+notification sent (nothing broke, nothing triggered, no thesis broken, no
+guardrail tested, no data-source failure on required checks — per
+`CLAUDE.md`'s "default to doing nothing"; the larger-than-usual intraday
+move was investigated properly rather than ignored, and came back clean).
+
+---
+
 ## Market-open execution check — 2026-08-17
 
 Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
