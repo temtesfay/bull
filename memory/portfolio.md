@@ -1,8 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-17 (pre-market research routine, ~08:50 ET) — no
-sell triggers fired on either position, MSFT thesis intact, trailing stop
-confirmed live, no trades placed (research-only routine). See
+Last updated: 2026-08-17 (market-open execution check, ~09:47 ET) — today's
+pre-market plan said "No action planned" (SPY at 5% cap headroom exhausted,
+MSFT thesis unchanged, no new candidate); re-verified against Alpaca, no
+discrepancy, no trades placed, trailing stop confirmed live. See
 `watchlist.md` and `trade-log.md` for the full day's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with

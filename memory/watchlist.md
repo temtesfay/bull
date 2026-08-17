@@ -23,6 +23,43 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Market-open execution check — 2026-08-17
+
+Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
+today 16:00 ET, checked ~09:47 ET, past the first-15-minute no-trade
+window). Today's plan (below, dated 2026-08-17) is dated today, so it's not
+stale — and it explicitly says "No action planned": SPY has no headroom
+left under the 5%-per-symbol cap, MSFT's thesis is unchanged with no new
+catalyst, and no new satellite candidate cleared sourcing (network block
+confirmed exhaustive as of this morning's pre-market run). Steps 3-5 of the
+market-open routine were no-ops by design, not a skip.
+
+Re-verified ground truth via Alpaca: equity $100,080.44, cash $94,100.00,
+`trading_blocked: false`, `new_positions_this_week: 0`. Positions match
+`portfolio.md` exactly: SPY qty 6.339623293 @ $772.91 avg (current $775.46,
++0.33% unrealized, market value $4,916.12 = ~4.91% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $486.08, +6.43% unrealized, market value
+$1,064.32 = ~1.06% of equity). No discrepancy. `orders --status open`
+confirms the MSFT trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`)
+still live: status `new`, hwm $513.73, stop price $462.357 — unchanged
+since 2026-08-10 (no new high today). SPY carries no stop by design (core
+index-ETF exemption). `git fetch origin main` confirmed local HEAD already
+matched `origin/main` exactly at `d27590c` (this morning's pre-market
+commit) before this run made any changes — no branch/main drift.
+
+No trades placed, no orders rejected. Same two open questions as every
+recent run remain outstanding: the multi-ticker-diversification question
+for the core sleeve (`lessons.md` 2026-08-07, 2026-08-10, escalated
+2026-08-14) and whether the non-Microsoft IR network block is temporary or
+standing (now considered settled per this morning's 18/18 lesson, pending
+any environment change).
+
+Per the scheduled task's own instruction ("If nothing happened, send
+nothing"), not notifying — no trade placed, no rejection, nothing to
+report.
+
+---
+
 ## Plan for today — 2026-08-17
 
 Research-only routine (no trades permitted this run). Ground truth via
