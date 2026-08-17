@@ -665,3 +665,25 @@ already anticipated. That is not a lesson, that is variance.
   for distinguishing process from luck. This includes MSFT's own
   +8.39%/+4.44pp-vs-SPY-since-entry figure, which is one name over two and
   a half weeks, not evidence of repeatable stock-picking skill yet.
+
+### 2026-08-17 — non-Microsoft primary-source network block is now confirmed exhaustive (18 of 18 domains tested)
+- **What happened:** Pre-market research routine. As a bonus (not required)
+  effort, re-ran the cheap reachability probe on the 8 circle-of-competence
+  domains the 2026-08-14 weekly review flagged as untested (Oracle,
+  Salesforce, ServiceNow, Adobe, AMD, Cisco, IBM, Intuit). All 8 returned
+  `curl` HTTP code `000` (connect-rejected), identical to the 10 domains
+  tested across 2026-08-05/06/10/11/12/13.
+- **What I believed at the time:** That the "narrow allowlist limited to
+  microsoft.com" theory, while well-supported, hadn't been fully falsified
+  since several plausible circle-of-competence names remained untried.
+- **What was actually true:** All 8 additional probes failed identically.
+  18 of 18 non-Microsoft primary-source domains tested since 2026-07-30 are
+  now blocked at the network layer; `microsoft.com` remains the only
+  reachable primary source in this environment.
+- **What changes:** Stop spending routine time on further reachability
+  probes of new candidate domains — treat this as a settled environment
+  constraint (an allowlist scoped to `microsoft.com`), not a per-company
+  gap worth re-testing name by name. Satellite candidate sourcing outside
+  MSFT stays blocked until the human changes the environment's network
+  policy; future routines shouldn't need to re-verify this via probe unless
+  something about the environment changes.
