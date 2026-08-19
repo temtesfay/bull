@@ -23,6 +23,63 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-08-19
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,039.93, cash
+$94,100.00, day change +0.02% (+$20.01), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal. `git
+fetch origin main` confirmed local HEAD already matched `origin/main`
+exactly at `168261d` (this morning's market-open commit) before this run
+made any changes — no branch/main drift. Positions: SPY qty 6.339623293 @
+$772.91 avg (current $769.67, -0.42% unrealized, market value $4,879.42 =
+~4.88% of equity), MSFT qty 2.189599299 @ $456.70 avg (current $484.34,
++6.05% unrealized, market value $1,060.51 = ~1.06% of equity). No
+discrepancy vs `portfolio.md` — nothing to log in `lessons.md`.
+
+**Sell-rule check on both positions:**
+- **MSFT** (satellite, ~1.06% of equity): `quote MSFT` shows prev_close
+  $481.82 -> last $484.31, +0.52% — a small up move, not anomalous, but
+  checked the thesis anyway per this routine's standing instruction (a
+  price move is not by itself evidence either way). Ran a primary-source-
+  restricted Perplexity query (SEC filings / Microsoft IR / official
+  statements only) covering 2026-08-18 through today: no new 8-K, no new IR
+  release, no new guidance on Azure, commercial RPO, AI capex, litigation,
+  or executive changes. The query did surface Microsoft's FY26 Q4 IR page
+  with a "last_updated 2026-08-19" stamp — recognized this as the same
+  page-crawl-date-vs-event-date conflation named in the 2026-08-13 lesson
+  (the page still covers the 2026-07-29 release for the quarter ended
+  2026-06-30, not a new disclosure) and did not treat it as new information.
+  **Thesis intact, unchanged.** None of the four sell triggers fire: not
+  thesis-broken, not down 7% (it's up 6.05%), not down 15%, not above 5% of
+  equity (~1.06%). No trim, no exit.
+- **SPY** (core, ~4.88% of equity): unrealized -0.42% ($769.67 vs $772.91
+  blended entry). Core holdings are exempt from the satellite sell criteria
+  (no thesis to break) and are only trimmed if the sleeve drifts outside
+  the 10-40% band or above the 5%-of-equity single-symbol cap — at ~4.88%
+  it's still under the cap. No trim, no action.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$513.73, stop price $462.357 — unchanged since 2026-08-10 (current price
+$484.34 is well below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption in `strategy.md`). No action needed.
+
+No new positions permitted or considered this run (risk-reduction scope
+only, per the scheduled task's own instruction). Watchlist remains empty.
+No trades placed, nothing to log in `trade-log.md`, no change to
+`portfolio.md`'s position numbers beyond a status-line refresh. No
+notification sent — nothing broke, nothing triggered, no thesis broken, no
+guardrail tested, no data-source failure on any required check, per
+`CLAUDE.md`'s "default to doing nothing." Same two standing open questions
+carried forward: the multi-ticker-diversification question for the core
+sleeve (`lessons.md` 2026-08-07, 2026-08-10, escalated 2026-08-14, now over
+a week and a half unresolved) and the (settled per 2026-08-17) non-Microsoft
+IR network block.
+
+---
+
 ## Plan for today — 2026-08-19
 
 Research-only routine (no trades permitted this run). Ground truth via
