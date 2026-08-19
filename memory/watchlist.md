@@ -23,6 +23,79 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-08-19
+
+Research-only routine (no trades permitted this run). Ground truth via
+Alpaca: equity $100,020.75, cash $94,100.00, day change +$0.83 (~0.00%),
+`trading_blocked: false`, `new_positions_this_week: 0`. `clock` shows
+`is_open: false` pre-open (checked ~08:36 ET), `next_open`/`next_close`
+both today (2026-08-19, Wednesday) — not a holiday, normal session. `git
+fetch origin main` confirmed local HEAD already matched `origin/main`
+exactly at `2e29c40` (yesterday's daily-close commit) before this run made
+any changes — no branch/main drift. Positions match `portfolio.md`
+exactly: SPY qty 6.339623293 @ $772.91 avg (current $768.70, -0.55%
+unrealized, market value $4,873.27 = ~4.87% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $478.39, +4.75% unrealized, market
+value $1,047.48 = ~1.05% of equity). No discrepancy — nothing to log in
+`lessons.md`.
+
+**Overnight gap check (both positions):** per the 2026-08-04 lesson,
+checked `positions[].current_price` vs `lastday_price` directly (raw API,
+since the CLI's `positions` command doesn't expose `lastday_price`) — MSFT
+$478.00 vs $481.63 (-0.75%), SPY $768.70 vs $767.45 (+0.16%). Both flat,
+nowhere near the 5% overnight-gap notification threshold.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR / official
+corporate statements, for anything dated 2026-08-18 through today touching
+Azure/cloud growth, commercial RPO, AI capex, executive changes, or
+litigation. First response claimed a "FY26 Q4 investor-relations press
+release dated 2026-08-19" reporting Microsoft Cloud revenue $59.3B (+27%)
+and commercial RPO +84% to $678B — but those are the *exact same figures*
+already on record from the 2026-07-29 FY26 Q4 earnings 8-K (accession
+0001193125-26-323632) that the MSFT thesis is already built on. This is
+the same failure mode named in the 2026-08-13 lesson (Perplexity
+conflating a page's crawl/index date with the event date), so ran a
+targeted follow-up query asking directly whether the FY26 Q4 press-release
+page is the same release or a newer one, and whether any release exists
+after it. Confirmed: it is the **same** 2026-07-29 release (the page
+itself states "July 29, 2026"), no FY27 Q1 release has been filed, and the
+next expected earnings date is **2026-10-28**. **No genuinely new
+primary-source item in the window. Thesis intact, unchanged.**
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.87% of equity, still under the 5%-per-symbol cap but with no
+meaningful headroom left, per the standing note since 2026-08-12. The
+multi-ticker-diversification question (`lessons.md` 2026-08-07, 2026-08-10,
+escalated 2026-08-14) remains unresolved — now over a week and a half
+outstanding, already escalated once; not re-escalating again today absent
+a new development. No further SPY buy proposed.
+
+**Watchlist candidates:** none open, so no trigger checks applied. Per the
+2026-08-17 lesson, the non-Microsoft primary-source network block is
+considered a settled environment constraint (18/18 domains tested and
+blocked) — not re-probing today; no new candidate sourced.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`,
+hwm $513.73, stop price $462.357 — unchanged since 2026-08-10 (no new high
+since then; current price $478.39 is well below the hwm). Covers 2 of 2.19
+whole shares, as before. SPY carries no stop by design (core index-ETF
+exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no
+meaningful headroom left to buy more of, MSFT's thesis is unchanged with
+no new catalyst, and no new satellite candidate cleared sourcing.
+**No action planned.** This is a completely normal outcome.
+
+**No trade to draft, no thesis broken, no gap >5%, no data-source failure
+on any required check (the Perplexity date-misattribution was caught and
+resolved within this run, per the 2026-08-13 lesson's playbook, not an
+unresolved failure) — not notifying, per this routine's own instruction
+("if you find nothing worth doing... most days should end this way").**
+
+---
+
 ## Intraday risk-reduction check — 2026-08-18 ~13:11 ET
 
 This routine only reduces risk — no new positions permitted regardless of
