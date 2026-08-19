@@ -1,10 +1,10 @@
 # Portfolio
 
-Last updated: 2026-08-18 (daily-close reconciliation, markets closed) —
-no discrepancy vs Alpaca, no trades today, portfolio -0.03% vs SPY -0.68%
-today (delta +0.65%), since-inception delta -5.16%. Trailing stop
-confirmed live, no position underwater. See `watchlist.md` and
-`trade-log.md` for the full day's checks and reasoning.
+Last updated: 2026-08-19 (intraday risk-reduction check) — no discrepancy
+vs Alpaca, no trades this run, no thesis broken (MSFT re-verified against
+primary sources), no sell trigger fires on either position. Trailing stop
+confirmed live, no position underwater. See `watchlist.md` for the full
+run's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
