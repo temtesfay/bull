@@ -96,6 +96,47 @@ unresolved failure) — not notifying, per this routine's own instruction
 
 ---
 
+## Market-open execution check — 2026-08-19
+
+Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
+today 16:00 ET, checked ~09:46 ET). Today's plan (below, dated 2026-08-19) is
+dated today, so it's not stale — and it explicitly says "No action planned":
+SPY has no headroom left under the 5%-per-symbol cap, MSFT's thesis is
+unchanged with no new catalyst, and no new satellite candidate cleared
+sourcing. Steps 3-6 of the market-open routine were no-ops by design, not a
+skip.
+
+Re-verified ground truth via Alpaca: equity $100,037.64, cash $94,100.00,
+`trading_blocked: false`, `new_positions_this_week: 0`. Positions: SPY qty
+6.339623293 @ $772.91 avg (current $770.41, -0.32% unrealized, market value
+$4,884.11 = ~4.88% of equity), MSFT qty 2.189599299 @ $456.70 avg (current
+$481.02, +5.33% unrealized, market value $1,053.24 = ~1.05% of equity). No
+discrepancy vs `portfolio.md`. `orders --status open` confirms the MSFT
+trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status
+`new`, hwm $513.73, stop price $462.357 — unchanged since 2026-08-10 (no new
+high today). SPY carries no stop by design (core index-ETF exemption).
+`git fetch origin main` confirmed local HEAD already matched `origin/main`
+exactly at `184bbd7` (this morning's pre-market commit, merged via PR #25)
+before this run made any changes — no branch/main drift.
+
+**Re-verified prices vs. the plan's setup (step 3 of the market-open
+routine):** `quote SPY` prev_close $767.365 -> last $770.32 (+0.39% vs
+yesterday's close, +0.22% vs the plan's pre-market reference of $768.70).
+`quote MSFT` prev_close $481.82 -> last $480.595 (-0.25% vs yesterday's
+close, +0.55% vs the plan's pre-market reference of $478.39). Both nowhere
+near the 3% invalidation threshold — moot anyway since the plan proposed no
+entry to invalidate.
+
+No trades placed, no orders rejected. Same two open questions as every
+recent run remain outstanding: the multi-ticker-diversification question for
+the core sleeve (`lessons.md` 2026-08-07, 2026-08-10, escalated 2026-08-14)
+and the (settled per 2026-08-17) non-Microsoft IR network block.
+
+Per the scheduled task's own instruction ("If nothing happened, send
+nothing"), not notifying — no trade placed, no rejection, nothing to report.
+
+---
+
 ## Intraday risk-reduction check — 2026-08-18 ~13:11 ET
 
 This routine only reduces risk — no new positions permitted regardless of
