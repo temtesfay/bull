@@ -1,10 +1,11 @@
 # Portfolio
 
-Last updated: 2026-08-20 market close (daily-close reconciliation) — no
-discrepancy vs Alpaca, no trades this run (markets closed, reconciliation
-only), no sell trigger fires on either position. Trailing stop confirmed
-live, no position underwater. See `watchlist.md` for the full run's checks
-and reasoning.
+Last updated: 2026-08-21 market-open execution check — no discrepancy vs
+Alpaca, no trades this run (today's plan called for no action: SPY has no
+headroom under the 5% cap, MSFT thesis unchanged, no new candidate), no
+sell trigger fires on either position. Trailing stop confirmed live, no
+position underwater. See `watchlist.md` for the full run's checks and
+reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -15,7 +16,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $99,986.47 |
+| Equity | $100,007.19 |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
