@@ -719,3 +719,72 @@ already anticipated. That is not a lesson, that is variance.
   permanent holes in the only performance record this system keeps. If it
   recurs, that's a pattern worth escalating more forcefully than a single
   lessons.md entry.
+
+### 2026-08-21 — Fourth weekly review: a proposed fix (escalate the core-sleeve question) was written down and then not done
+- **What happened:** Fourth weekly review (prior: 2026-07-31, 2026-08-07,
+  2026-08-14). This week (2026-08-14 review point $100,103.93/SPY $776.30 ->
+  2026-08-21 close $100,009.75/SPY $765.64): portfolio -0.09% vs SPY -1.37%,
+  delta **+1.28pp** — the portfolio "won" this week only because SPY sold
+  off (-0.47%, -0.68%, -0.84% on three separate days) and ~94% of the book
+  is cash that can't fall with it; this is not stock-picking skill, it's the
+  mirror image of the cash-drag story on up days. Since inception
+  (2026-07-29): portfolio +0.01% ($100,000 -> $100,009.75) vs SPY +4.94%
+  ($729.57 -> $765.64), delta **-4.93%** — reported more prominently than
+  the weekly number because one week of a mostly-cash book beating a falling
+  index is noise, not signal. Zero trades and zero guardrail rejections this
+  week (none attempted); zero guardrail rejections in the account's life (5
+  filled orders total, all clean). No position held past invalidation — MSFT
+  thesis re-checked against primary sources on nearly every wake this week,
+  intact each time; SPY has no thesis to break. Went looking for a real
+  process failure and found the same one as last week, worse: the 2026-08-14
+  review explicitly proposed sending a **distinct notification** about the
+  multi-ticker core-diversification question (open since 2026-08-07) rather
+  than letting it ride along inside routine file diffs — and no run this
+  week actually sent one. Every daily/pre-market entry since 08-14 still
+  just repeats "still open, not this routine's to resolve" in prose. The
+  core sleeve remains parked at ~4.85% of equity, below even `strategy.md`'s
+  stated 10-40% core *band floor* (not just short of the ~25% target), for
+  its entire life, and adding a second index ticker to clear that floor
+  requires exactly one human decision that has now been asked for, in some
+  form, in three consecutive weekly reviews.
+- **What I believed at the time (implicit, across the week's daily runs):**
+  That last week's proposal ("consider adding this to `CLAUDE.md`'s
+  escalation list") was itself the fix, and that continuing to note the
+  open question in each day's file diff satisfied it in the meantime.
+- **What was actually true:** Writing down a proposed fix in `lessons.md`
+  is not the same as doing the smaller, immediately-available version of it
+  — nothing stopped any run this week from sending one `notify.py` call at
+  `normal` urgency specifically about the blocked decision, independent of
+  whether `CLAUDE.md` gets formally updated to require it. Nobody did. This
+  is the same "documentation is not escalation" failure named 2026-08-14,
+  recurring because the named fix was aspirational (a future `CLAUDE.md`
+  change) rather than something this week's runs actually executed.
+- **What changes:** This review's own notification explicitly puts the
+  question to the human directly (not just logs it) rather than deferring
+  again. Restating the two still-live proposals from 2026-08-07/08-10/08-14,
+  now more bluntly: (1) either say "add a second core-sleeve ticker (VTI,
+  IVV, etc.)" or say "leave the core capped at ~5% in SPY alone, accept
+  that the 10-40% band is aspirational under the current guardrails" — either
+  answer unblocks this, silence keeps it stuck; (2) a code-level carve-out
+  in `guardrails.py` for core index-ETF symbols is the other way to resolve
+  it without adding tickers, if that's the human's preference instead.
+  Concrete behavior change starting now: any run that finds a
+  human-decision question still open after its **second** consecutive
+  weekly review sends its own dedicated `notify.py` call that same day
+  (not just a mention inside a bigger summary), separate from waiting for
+  a `CLAUDE.md` rule to formalize it — don't let "propose a process fix"
+  substitute for "do the cheap version of the fix now."
+  **Grade this week: C** — mechanically the trading discipline stayed
+  clean (no guardrail violations, no forced trades across seven straight
+  no-op trading days, correct thesis re-verification, correct handling of
+  SPY's roughest stretch since inception without inventing a reason to
+  act), but the grade is capped below last week's B- because a specific,
+  low-cost, self-identified fix from the last review was not carried out —
+  that is a worse failure than the original gap, since it means the
+  self-correction loop itself didn't close this time. Sample size: 4
+  weekly reviews completed since inception (2026-07-29), roughly 3.5 weeks
+  — nowhere near the 26-week bar for distinguishing process from luck, and
+  neither is MSFT's own +5.71%/+0.77pp-vs-SPY-since-entry figure (one name,
+  three weeks), nor this week's +1.28pp benchmark "win" (mechanically a
+  cash-cushion effect on a down week for the index, not evidence of
+  anything). Keep saying this until it stops being true.
