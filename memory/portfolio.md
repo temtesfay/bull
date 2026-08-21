@@ -1,11 +1,12 @@
 # Portfolio
 
-Last updated: 2026-08-21 market-open execution check — no discrepancy vs
-Alpaca, no trades this run (today's plan called for no action: SPY has no
-headroom under the 5% cap, MSFT thesis unchanged, no new candidate), no
-sell trigger fires on either position. Trailing stop confirmed live, no
-position underwater. See `watchlist.md` for the full run's checks and
-reasoning.
+Last updated: 2026-08-21 intraday risk-reduction check (~13:10 ET) — no
+discrepancy vs Alpaca, no trades this run (risk-reduction scope only, no
+new positions permitted). MSFT thesis re-verified via primary sources (a
+Perplexity fiscal-quarter misattribution was caught and resolved, not a
+new lesson — see `watchlist.md`), no sell trigger fires on either
+position. Trailing stop confirmed live, no position underwater. See
+`watchlist.md` for the full run's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -16,7 +17,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,007.19 |
+| Equity | $100,019.19 |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -39,10 +40,10 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** none — `strategy.md` explicitly exempts core index-ETF
   holdings from trailing stops ("the whole point of ballast is that it
   doesn't get shaken out").
-- **Status:** on track. Market value $4,833.01 (current $762.35 vs $772.91
-  blended entry, -1.37% unrealized) as of 2026-08-20 market close. **Headroom
-  to the 5%-per-symbol cap remains exhausted**
-  (~4.83% of equity, under the cap so no trim triggered) — no further SPY
+- **Status:** on track. Market value $4,858.50 (current $766.37 vs $772.91
+  blended entry, -0.85% unrealized) as of 2026-08-21 ~13:10 ET intraday
+  check. **Headroom to the 5%-per-symbol cap remains exhausted**
+  (~4.86% of equity, under the cap so no trim triggered) — no further SPY
   buy should be attempted until the human resolves the open multi-ticker
   question (see `lessons.md` 2026-08-07, 2026-08-10). Reaching the ~25%
   core target from here requires a distinct second index ticker (VTI, IVV,
@@ -69,15 +70,16 @@ trust Alpaca, fix this file, and log why they drifted.
   Confirmed still open as of 2026-08-14 pre-market check via
   `orders --status open`: status `new`, hwm $513.73, stop price $462.357 —
   unchanged since 2026-08-10 (no new high since then).
-- **Status:** on track — up 5.35% unrealized ($481.12 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-08-20 market close. Market value
-  $1,053.46 = ~1.05% of equity, well inside the 5%-of-equity trim threshold.
-  No sell trigger fires: not thesis-broken (no new primary-source check run
-  this markets-closed routine — last check was today's ~13:10 ET intraday
-  run, unchanged), not down 7% (up 5.35%), not down 15%, not above 5% of
-  equity. Trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) reconfirmed
-  live via `orders --status open`: status `new`, hwm $513.73, stop price
-  $462.357, unchanged since 2026-08-10.
+- **Status:** on track — up 6.07% unrealized ($484.43 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-08-21 ~13:10 ET intraday check. Market
+  value $1,060.70 = ~1.06% of equity, well inside the 5%-of-equity trim
+  threshold. No sell trigger fires: not thesis-broken (primary-source check
+  run this routine — see `watchlist.md` 2026-08-21 intraday entry; a
+  Perplexity fiscal-quarter misattribution was caught and resolved, thesis
+  confirmed unchanged), not down 7% (up 6.07%), not down 15%, not above 5%
+  of equity. Trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`)
+  reconfirmed live via `orders --status open`: status `new`, hwm $513.73,
+  stop price $462.357, unchanged since 2026-08-10.
 
 Format for each position, one block:
 

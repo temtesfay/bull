@@ -23,6 +23,72 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-08-21 ~13:10 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,019.19, cash
+$94,100.00, day change +0.03% (+$31.07), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal. `clock`
+confirms `is_open: true` (`next_close` today 16:00 ET, `next_open`
+2026-08-24, checked ~13:10 ET). Positions match `portfolio.md` exactly: SPY
+qty 6.339623293 @ $772.91 avg (current $766.37, -0.85% unrealized, market
+value $4,858.50 = ~4.86% of equity), MSFT qty 2.189599299 @ $456.70 avg
+(current $484.43, +6.07% unrealized, market value $1,060.70 = ~1.06% of
+equity). No discrepancy vs `portfolio.md` — nothing to log in `lessons.md`
+on the broker-vs-file front.
+
+**Sell-rule check on both positions:**
+- **MSFT** (satellite, ~1.06% of equity): up 6.07% from entry, no anomalous
+  move, but checked the thesis anyway per this routine's standing
+  instruction (a price move is not by itself evidence either way). Queried
+  Perplexity, restricted to SEC filings / official Microsoft IR / official
+  corporate statements, for anything dated 2026-08-21 (today) touching
+  Azure/cloud growth, commercial RPO, AI capex, executive changes, or
+  litigation. First response claimed a "FY26 Q3 earnings press release...
+  dated 2026-08-21" with Cloud revenue $54.5B (+29%) and commercial RPO
+  +99% to $627B — immediately implausible on its face, since fiscal Q3
+  cannot chronologically follow the already-reported FY26 Q4 release
+  (2026-07-29). Ran a targeted follow-up per the 2026-08-13 lesson's
+  playbook, asking directly for the actual publication date and fiscal
+  period of that specific release. Confirmed: those figures belong to the
+  FY26 Q3 press release (period ended 2026-03-31, an old release), and
+  there is no Microsoft earnings release, 8-K, or IR press release with an
+  actual publication date of 2026-08-21 — the single most recent real
+  release remains FY26 Q4, published 2026-07-29. This is the same
+  page-update/crawl-date-vs-event-date conflation named in the 2026-08-13
+  lesson, caught and resolved within this run via the same playbook — not
+  a new failure mode, not writing a new lesson for it. **Thesis intact,
+  unchanged.** None of the four sell triggers fire: not thesis-broken, not
+  down 7% (up 6.07%), not down 15%, not above 5% of equity (~1.06%). No
+  trim, no exit.
+- **SPY** (core, ~4.86% of equity): unrealized -0.85% ($766.37 vs $772.91
+  blended entry). Core holdings are exempt from the satellite sell criteria
+  (no thesis to break) and are only trimmed if the sleeve drifts outside
+  the 10-40% band or above the 5%-of-equity single-symbol cap — at ~4.86%
+  it's still under the cap. No trim, no action.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$513.73, stop price $462.357 — unchanged since 2026-08-10 (current price
+$484.43 is well below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption in `strategy.md`). No action needed.
+
+No new positions permitted or considered this run (risk-reduction scope
+only, per the scheduled task's own instruction). Watchlist remains empty.
+No trades placed, nothing to log in `trade-log.md`, no change to
+`portfolio.md`'s position numbers beyond a status-line refresh. No
+notification sent — nothing broke, nothing triggered, no thesis broken, no
+guardrail tested, no data-source failure on any required check (the
+Perplexity fiscal-quarter misattribution was caught and resolved within
+this run, per the 2026-08-13 lesson's playbook, not an unresolved failure),
+per `CLAUDE.md`'s "default to doing nothing." Same standing open question
+carried forward: the multi-ticker-diversification question for the core
+sleeve (`lessons.md` 2026-08-07, 2026-08-10, escalated 2026-08-14, now
+unresolved for well over two weeks).
+
+---
+
 ## Market-open execution check — 2026-08-21
 
 Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
