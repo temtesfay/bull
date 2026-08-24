@@ -23,6 +23,48 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Market-open execution check — 2026-08-24
+
+Ran the market-open routine. `clock` confirmed `is_open: true` (checked
+~09:46 ET, `next_close` today 16:00 ET). Today's plan (below, dated
+2026-08-24) is dated today, so it's not stale — and it explicitly says "No
+action planned": SPY has no headroom left under the 5%-per-symbol cap,
+MSFT's thesis is unchanged with no new catalyst, and no new satellite
+candidate cleared sourcing. Steps 3-6 of the market-open routine were
+no-ops by design, not a skip.
+
+Re-verified ground truth via Alpaca: equity $99,995.32, cash $94,100.00,
+day change -0.02% (-$17.16), `trading_blocked: false`,
+`new_positions_this_week: 0`. Positions: SPY qty 6.339623293 @ $772.91 avg
+(current $762.54, -1.34% unrealized, market value $4,834.22 = ~4.83% of
+equity), MSFT qty 2.189599299 @ $456.70 avg (current $484.47, +6.08%
+unrealized, market value $1,060.80 = ~1.06% of equity). No discrepancy vs
+`portfolio.md`. `orders --status open` confirms the MSFT trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$513.73, stop price $462.357 — unchanged since 2026-08-10 (no new high
+today). SPY carries no stop by design (core index-ETF exemption). `git
+fetch origin main` confirmed local HEAD already matched `origin/main`
+exactly at `fd5382e` (this morning's pre-market commit) before this run
+made any changes — no branch/main drift.
+
+**Re-verified prices vs. the plan's setup (step 3 of the market-open
+routine):** `quote SPY` prev_close $765.64 -> last $762.39 (-0.42%).
+`quote MSFT` prev_close $483.33 -> last $483.925 (+0.12%). Both nowhere
+near the 3% invalidation threshold — moot anyway since the plan proposed no
+entry to invalidate.
+
+No trades placed, no orders rejected. Same standing open question as every
+recent run remains outstanding: the multi-ticker-diversification question
+for the core sleeve (`lessons.md` 2026-08-07, 2026-08-10, escalated
+2026-08-14, put directly to the human 2026-08-21) — still unresolved as of
+this run.
+
+Per the scheduled task's own instruction ("If nothing happened, send
+nothing"), not notifying — no trade placed, no rejection, nothing to
+report.
+
+---
+
 ## Plan for today — 2026-08-24
 
 Research-only routine (no trades permitted this run). First routine since
