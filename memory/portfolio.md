@@ -1,11 +1,10 @@
 # Portfolio
 
-Last updated: 2026-08-24 (pre-market research routine, ~08:37 ET) — no
-sell triggers fired on either position, MSFT thesis re-verified intact
-(despite a Perplexity date-misattribution caught and resolved within the
-run), trailing stop confirmed live, no trades placed (research-only
-routine). See `watchlist.md` and `trade-log.md` for the full day's checks
-and reasoning.
+Last updated: 2026-08-24 (market-open execution check, ~09:46 ET) — plan
+for today called for no action (SPY at cap headroom, MSFT thesis
+unchanged, no new candidate); re-verified prices confirmed the setup
+hadn't moved, no trades placed, trailing stop confirmed live. See
+`watchlist.md` and `trade-log.md` for the full day's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
