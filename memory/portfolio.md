@@ -1,10 +1,12 @@
 # Portfolio
 
-Last updated: 2026-08-25 (pre-market research routine, no trades
-permitted) — no discrepancy vs Alpaca, MSFT thesis re-verified intact
-(no genuinely new primary-source item), MSFT trailing stop confirmed
-live, no trades placed. See `watchlist.md`'s 2026-08-25 "Plan for today"
-entry for the full run's checks and reasoning.
+Last updated: 2026-08-25 (intraday risk-reduction routine, ~13:11 ET, no
+new positions permitted) — no discrepancy vs Alpaca, no circuit-breaker
+trip (day change +0.02%), MSFT thesis re-verified intact (no genuinely new
+primary-source item), no sell triggers fired on either position, MSFT
+trailing stop confirmed live, no trades placed. See `watchlist.md`'s
+2026-08-25 "Intraday risk-reduction check" entry for the full run's checks
+and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
