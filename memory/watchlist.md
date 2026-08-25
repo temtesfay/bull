@@ -23,6 +23,18 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Daily-close reconciliation — 2026-08-25
+
+Markets closed for the day. Reconciliation only, no trades — see
+`portfolio.md`'s 2026-08-25 daily-close entry for the full writeup. No
+discrepancy vs Alpaca, no new candidates sourced (non-Microsoft primary
+sources remain network-blocked per the 2026-08-17 lesson), watchlist stays
+empty. Standing open question (core-sleeve multi-ticker diversification,
+escalated to the human 2026-08-21) remains unresolved, now well over four
+weeks outstanding.
+
+---
+
 ## Intraday risk-reduction check — 2026-08-25 ~13:11 ET
 
 This routine only reduces risk — no new positions permitted regardless of
