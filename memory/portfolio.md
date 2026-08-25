@@ -1,10 +1,10 @@
 # Portfolio
 
-Last updated: 2026-08-24 (daily-close reconciliation, markets closed) —
-no discrepancy vs Alpaca, no trades placed by any routine today, MSFT
-trailing stop confirmed live, portfolio -0.00% vs SPY -0.28% today (delta
-+0.28%), since-inception delta -4.64%. See `watchlist.md` and
-`trade-log.md` for the full day's checks and reasoning.
+Last updated: 2026-08-25 (pre-market research routine, no trades
+permitted) — no discrepancy vs Alpaca, MSFT thesis re-verified intact
+(no genuinely new primary-source item), MSFT trailing stop confirmed
+live, no trades placed. See `watchlist.md`'s 2026-08-25 "Plan for today"
+entry for the full run's checks and reasoning.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
