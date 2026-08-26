@@ -23,6 +23,83 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-08-26
+
+Research-only routine (no trades permitted this run). Ground truth via
+Alpaca: equity $100,020.78, cash $94,100.00, day change -0.01% (-$11.45),
+`trading_blocked: false`, `new_positions_this_week: 0`. `clock` shows
+`is_open: false` pre-open (checked ~08:38 ET), `next_open`/`next_close`
+both today (2026-08-26, Wednesday) — not a holiday, normal session. `git
+fetch origin main` confirmed local HEAD already matched `origin/main`
+exactly at `58ff33f` (yesterday's daily-close merge, PR #33) before this
+run made any changes — no branch/main drift. Positions match
+`portfolio.md` closely (normal pre-market drift from yesterday's close):
+SPY qty 6.339623293 @ $772.91 avg (current $765.04, -1.02% unrealized,
+market value $4,850.07 = ~4.85% of equity), MSFT qty 2.189599299 @
+$456.70 avg (current $489.00, +7.07% unrealized, market value $1,070.71 =
+~1.07% of equity). No discrepancy — nothing to log in `lessons.md`.
+
+**Overnight gap check (both positions):** per the 2026-08-04 lesson,
+checked `positions[].current_price` vs `lastday_price` directly (raw
+API) — MSFT $489.00 vs $491.71 (-0.55%), SPY $765.04 vs $765.91 (-0.11%).
+Both flat, nowhere near the 5% overnight-gap notification threshold.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity directly via the API (`PERPLEXITY_API_KEY`), restricted to SEC
+filings / official Microsoft IR / official corporate statements, for
+anything dated 2026-08-25 through today touching Azure/cloud growth,
+commercial RPO, AI capex, executive changes, or litigation. Response: no
+primary-source filing, IR press release, or official statement in that
+window was identified for any of those topics — the most recent items
+surfaced remain the FY26 Q4 earnings press release and matching 8-K, both
+dated 2026-07-29 (the same release already on file), just re-crawled with
+`last_updated` stamps in the 2026-08-22/26 range — the same recurring
+page-crawl-date-vs-event-date pattern named in the 2026-08-13 lesson and
+caught on nearly every wake since. Not treated as new, not a new failure
+mode. **No genuinely new primary-source item today. Thesis intact,
+unchanged.** Next earnings date: sources vary on the exact date (third-
+party estimates range 2026-10-27 to 2026-11-04, one calendar service
+explicitly flags it as "UNCONFIRMED"); no company-issued announcement for
+the next quarter has been published yet, consistent with the pattern from
+prior quarters (Microsoft's own release-date announcements have
+historically come roughly 3 weeks ahead of the release itself). Treating
+2026-10-28 as the working estimate already on record, not as confirmed.
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits
+at ~4.85% of equity, still under the 5%-per-symbol cap but with no
+meaningful headroom, per the standing note since 2026-08-12. The
+multi-ticker-diversification question (`lessons.md` 2026-08-07, 2026-08-10,
+escalated 2026-08-14, put directly to the human 2026-08-21) remains
+unresolved — now well over four weeks outstanding. Today is a Wednesday,
+not a weekly-review day, so per the 2026-08-21 lesson's concrete rule
+(re-escalate after the *second consecutive* weekly review still finds it
+open) this is not this routine's trigger to re-escalate; that check
+belongs to the next weekly review (due 2026-08-28). No further SPY buy
+proposed.
+
+**Watchlist candidates:** none open, so no trigger checks applied. Per the
+2026-08-17 lesson, the non-Microsoft primary-source network block is
+considered a settled environment constraint (18/18 domains tested and
+blocked) — not re-probing today; no new candidate sourced.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`,
+hwm $513.73, stop price $462.357 — unchanged since 2026-08-10 (no new high
+since then; current price $489.00 is well below the hwm). Covers 2 of
+2.19 whole shares, as before. SPY carries no stop by design (core
+index-ETF exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no
+meaningful headroom left to buy more of, MSFT's thesis is unchanged with
+no new catalyst, and no new satellite candidate cleared sourcing.
+**No action planned.** This is a completely normal outcome.
+
+**No trade to draft, no thesis broken, no gap >5%, no data-source failure
+on any required check — not notifying, per this routine's own instruction
+("if you find nothing worth doing... most days should end this way").**
+
+---
+
 ## Daily-close reconciliation — 2026-08-25
 
 Markets closed for the day. Reconciliation only, no trades — see
