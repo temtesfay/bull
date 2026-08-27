@@ -23,6 +23,64 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-08-27 ~13:11 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,100.60, cash
+$94,100.00, day change +0.06% (+$57.09), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal. `clock`
+confirms `is_open: true` (`next_close` today 16:00 ET, `next_open`
+2026-08-28, checked ~13:11 ET). `git fetch origin main` confirmed local HEAD
+already matched `origin/main` exactly at `cd6c688` (this morning's
+market-open commit) before this run made any changes — no branch/main
+drift. Positions: SPY qty 6.339623293 @ $772.91 avg (current $772.23,
+-0.09% unrealized, market value $4,895.65 = ~4.89% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $504.64, +10.5% unrealized, market value
+$1,104.95 = ~1.10% of equity). No discrepancy vs `portfolio.md` — nothing
+to log in `lessons.md` on the broker-vs-file front.
+
+**Sell-rule check on both positions:**
+- **MSFT** (satellite, ~1.10% of equity): up 10.5% from entry, no anomalous
+  or concerning move, but checked the thesis anyway per this routine's
+  standing instruction (a price move is not by itself evidence the thesis
+  broke either way). Ran an unrestricted `WebSearch` scoped to
+  `microsoft.com`/`news.microsoft.com` for Azure/cloud news. Results
+  surfaced routine partner-program and certification updates (Partner
+  Center announcements, AZ-500 cert retirement, Azure Databricks RBAC/
+  Lakebase region expansion) — no new 8-K/10-Q/10-K, no guidance change, no
+  executive departure, no litigation item, nothing touching Azure/cloud
+  revenue growth or commercial RPO. **No genuinely new primary-source item
+  today. Thesis intact, unchanged.** None of the four sell triggers fire:
+  not thesis-broken, not down 7% (up 10.5%), not down 15%, not above 5% of
+  equity (~1.10%). No trim, no exit.
+- **SPY** (core, ~4.89% of equity): unrealized -0.09% ($772.23 vs $772.91
+  blended entry). Core holdings are exempt from the satellite sell criteria
+  (no thesis to break) and are only trimmed if the sleeve drifts outside
+  the 10-40% band or above the 5%-of-equity single-symbol cap — at ~4.89%
+  it's still under the cap. No trim, no action.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`,
+hwm $513.73, stop price $462.357 — unchanged since 2026-08-10 (current
+price $504.64 is still below the hwm, so no new high to ratchet the stop
+up on). Covers 2 of 2.19 whole shares, as before. SPY carries no stop by
+design (core index-ETF exemption in `strategy.md`).
+
+No new positions permitted or considered this run (risk-reduction scope
+only, per the scheduled task's own instruction). Watchlist remains empty.
+No trades placed, nothing to log in `trade-log.md`, no change to
+`portfolio.md`'s position numbers beyond a status-line refresh. No
+notification sent — nothing broke, nothing triggered, no thesis broken,
+no guardrail tested, no data-source failure on any required check, per
+`CLAUDE.md`'s "default to doing nothing." Same standing open question
+carried forward: the multi-ticker-diversification question for the core
+sleeve (`lessons.md` 2026-08-07, 2026-08-10, escalated 2026-08-14, put
+directly to the human 2026-08-21), still unresolved, now well over five
+weeks outstanding — re-escalating it is the weekly review's job, not this
+intraday routine's.
+
+---
+
 ## Market-open execution check — 2026-08-27
 
 Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
