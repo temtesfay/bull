@@ -23,6 +23,72 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-08-28
+
+Research-only routine (no trades permitted this run, per this routine's own
+scope). Ground truth via Alpaca: equity $100,099.50, cash $94,100.00, day
+change +0.01% ($5.14), `trading_blocked: false`, `new_positions_this_week: 0`.
+`clock` shows `is_open: false` pre-open (checked ~08:37 ET),
+`next_open`/`next_close` both today (2026-08-28, Friday) — not a holiday,
+normal session. `git pull origin main` confirmed local HEAD already matched
+`origin/main` before this run made any changes — no branch/main drift.
+Positions match `portfolio.md` exactly: SPY qty 6.339623293 @ $772.91 avg
+(current $771.69, -0.16% unrealized, market value $4,892.22 = ~4.89% of
+equity), MSFT qty 2.189599299 @ $456.70 avg (current $505.70, +10.73%
+unrealized, market value $1,107.28 = ~1.11% of equity). No discrepancy —
+nothing to log in `lessons.md` on the broker-vs-file front.
+
+**Overnight gap check (both positions):** per the 2026-08-04 lesson, checked
+`positions[].current_price` vs `lastday_price` directly (raw API) — MSFT
+$505.80 vs $505.06 (+0.15%), SPY $771.66 vs $771.10 (+0.07%). Both flat,
+nowhere near the 5% overnight-gap notification threshold.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity directly via the API, restricted to SEC filings / official
+Microsoft IR / official corporate statements, for anything dated 2026-08-27
+through today touching Azure/cloud growth, commercial RPO, AI capex,
+executive changes, or litigation. Response: no new 8-K/10-Q/10-K, no new IR
+press release, no new guidance identified in that window — the most recent
+primary-source item remains the FY26 Q4 earnings release/8-K dated
+2026-07-29, already on file. The only genuinely dated 2026-08-27 item
+surfaced (Microsoft Source news page) was an unrelated partnership
+announcement (AI tools for teachers in the Philippines) — not a thesis-
+relevant topic. **No genuinely new primary-source item today. Thesis
+intact, unchanged.** Next expected earnings date remains the working
+estimate of 2026-10-28 (unconfirmed by any company announcement as of this
+run).
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.89% of equity, still under the 5%-per-symbol cap but with no meaningful
+headroom, per the standing note since 2026-08-12. The
+multi-ticker-diversification question (`lessons.md` 2026-08-07, 2026-08-10,
+escalated 2026-08-14, put directly to the human 2026-08-21) remains
+unresolved — now well over five weeks outstanding. Re-escalating it is the
+weekly review's job (per the 2026-08-21 lesson's concrete rule), not this
+daily research routine's. No further SPY buy proposed.
+
+**Watchlist candidates:** none open, so no trigger checks applied. Per the
+2026-08-17 lesson, the non-Microsoft primary-source network block is
+considered a settled environment constraint (18/18 domains tested and
+blocked) — not re-probing today; no new candidate sourced.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$513.73, stop price $462.357 — unchanged since 2026-08-10 (no new high since
+then; current price $505.80 is still below the hwm). Covers 2 of 2.19 whole
+shares, as before. SPY carries no stop by design (core index-ETF exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no meaningful
+headroom left to buy more of, MSFT's thesis is unchanged with no new
+catalyst, and no new satellite candidate cleared sourcing. **No action
+planned.** This is a completely normal outcome.
+
+**No trade to draft, no thesis broken, no gap >5%, no data-source failure on
+any required check — not notifying, per this routine's own instruction ("if
+you find nothing worth doing... most days should end this way").**
+
+---
+
 ## Intraday risk-reduction check — 2026-08-27 ~13:11 ET
 
 This routine only reduces risk — no new positions permitted regardless of
