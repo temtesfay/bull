@@ -23,6 +23,57 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-08-28 ~13:11 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. Ground truth via Alpaca: equity $100,106.38, cash
+$94,100.00, day change +0.01% (+$12.02), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal. `clock`
+confirms `is_open: true` (`next_close` today 16:00 ET, `next_open`
+2026-08-31, checked ~13:11 ET). `git fetch origin main` confirmed local HEAD
+already matched `origin/main` exactly at `3b0eede` (this morning's
+market-open commit) before this run made any changes — no branch/main
+drift. Positions: SPY qty 6.339623293 @ $772.91 avg (current $768.81,
+-0.53% unrealized, market value $4,873.94 = ~4.87% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $517.19, +13.25% unrealized, market
+value $1,132.44 = ~1.13% of equity). No discrepancy vs `portfolio.md` —
+nothing to log in `lessons.md` on the broker-vs-file front.
+
+**Sell-rule check on both positions:**
+- **MSFT** (satellite, ~1.13% of equity): up 13.25% from entry, no
+  anomalous or concerning move, but checked the thesis anyway per this
+  routine's standing instruction (a price move is not by itself evidence
+  the thesis broke either way). Ran an unrestricted `WebSearch` scoped to
+  `microsoft.com`/`azure.microsoft.com`/`news.microsoft.com` for
+  Azure/cloud news. Results surfaced routine items only — an India South
+  Central region GA, Azure Databricks RBAC/Lakebase regional expansion,
+  OpenSharing SecureConnect GA, Partner Center commerce updates — no new
+  8-K/10-Q/10-K, no guidance change, no executive departure, no litigation
+  item, nothing touching Azure/cloud revenue growth or commercial RPO.
+  **No genuinely new primary-source item today. Thesis intact, unchanged.**
+  None of the four sell triggers fire: not thesis-broken, not down 7% (up
+  13.25%), not down 15%, not above 5% of equity (~1.13%). No trim, no exit.
+- **SPY** (core, ~4.87% of equity): unrealized -0.53% ($768.81 vs $772.91
+  blended entry). Core holdings are exempt from the satellite sell
+  criteria (no thesis to break) and are only trimmed if the sleeve drifts
+  outside the 10-40% band or above the 5%-of-equity single-symbol cap — at
+  ~4.87% it's still under the cap. No trim, no action.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+ratcheted up to $517.78 (new high since the last check, tracking the price
+rise), stop price $466.002 — up from $462.357 at the last check, as
+expected from the trailing mechanism. Covers 2 of 2.19 whole shares, as
+before. SPY carries no stop by design (core index-ETF exemption in
+`strategy.md`).
+
+**Outcome: no trades, no changes to the watchlist, no new lessons.** Both
+positions remain within all sell-rule bounds and the MSFT stop is
+confirmed live and correctly ratcheting upward with price. This routine
+does not source new candidates (out of scope), so nothing added here.
+
+---
+
 ## Market-open execution check — 2026-08-28
 
 Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`

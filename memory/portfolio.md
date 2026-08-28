@@ -1,9 +1,9 @@
 # Portfolio
 
-Last updated: 2026-08-27 (daily-close reconciliation, markets closed) — no
-discrepancy vs Alpaca, no trades placed by any routine today, benchmark
-table updated through today's close. See this file's 2026-08-27
-"Daily-close entry" below for the full writeup.
+Last updated: 2026-08-28 ~13:11 ET (intraday risk-reduction check, market
+open) — no discrepancy vs Alpaca, no trades placed by any routine today. See
+`watchlist.md`'s 2026-08-28 "Intraday risk-reduction check" entry for the
+full writeup.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -14,7 +14,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,089.02 |
+| Equity | $100,106.38 |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -37,10 +37,10 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** none — `strategy.md` explicitly exempts core index-ETF
   holdings from trailing stops ("the whole point of ballast is that it
   doesn't get shaken out").
-- **Status:** on track. Market value $4,884.36 (current $770.45 vs $772.91
-  blended entry, -0.32% unrealized) as of 2026-08-27 market close. **Headroom
-  to the 5%-per-symbol cap remains exhausted**
-  (~4.84% of equity, under the cap so no trim triggered) — no further SPY
+- **Status:** on track. Market value $4,873.94 (current $768.81 vs $772.91
+  blended entry, -0.53% unrealized) as of 2026-08-28 ~13:11 ET intraday
+  check. **Headroom to the 5%-per-symbol cap remains exhausted**
+  (~4.87% of equity, under the cap so no trim triggered) — no further SPY
   buy should be attempted until the human resolves the open multi-ticker
   question (see `lessons.md` 2026-08-07, 2026-08-10, escalated 2026-08-14,
   put directly to the human 2026-08-21). Reaching the ~25% core target from
@@ -48,7 +48,7 @@ trust Alpaca, fix this file, and log why they drifted.
   human guidance to raise/carve out the per-symbol cap for core holdings —
   still unanswered, now unresolved for well over two weeks.
 
-### MSFT — 1.07% of equity
+### MSFT — 1.13% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
 - **Thesis:** Azure/cloud revenue growth is accelerating (40% -> 43% YoY,
   FQ3 -> FQ4 FY26) on real reported numbers, not capex narrative; EPS
@@ -64,18 +64,18 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-08-14 pre-market check via
-  `orders --status open`: status `new`, hwm $513.73, stop price $462.357 —
-  unchanged since 2026-08-10 (no new high since then).
-- **Status:** on track — up 10.47% unrealized ($504.50 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-08-27 market close. Market value $1,104.65 =
-  ~1.10% of equity, well inside the 5%-of-equity trim threshold. No sell
-  trigger fires: not thesis-broken (re-verified intact earlier today via the
-  intraday risk-reduction check, see `watchlist.md`), not down 7% (up
-  10.47%), not down 15%, not above 5% of equity. Trailing stop
+  Confirmed still open as of 2026-08-28 ~13:11 ET intraday check via
+  `orders --status open`: status `new`, hwm ratcheted up to $517.78, stop
+  price up to $466.002 — tracking the price rise as expected from the
+  trailing mechanism.
+- **Status:** on track — up 13.25% unrealized ($517.19 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-08-28 ~13:11 ET intraday check. Market
+  value $1,132.44 = ~1.13% of equity, well inside the 5%-of-equity trim
+  threshold. No sell trigger fires: not thesis-broken (re-verified intact
+  this run via `WebSearch`, see `watchlist.md`), not down 7% (up 13.25%),
+  not down 15%, not above 5% of equity. Trailing stop
   (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) reconfirmed live via
-  `orders --status open`: status `new`, hwm $513.73, stop price $462.357,
-  unchanged since 2026-08-10.
+  `orders --status open`: status `new`, hwm $517.78, stop price $466.002.
 
 Format for each position, one block:
 
