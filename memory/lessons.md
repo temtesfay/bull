@@ -844,3 +844,88 @@ already anticipated. That is not a lesson, that is variance.
   check, an explicit step in "Read this first") but per this file's own
   standing rule (2026-08-21), proposing it here is not sufficient by
   itself — flagging it plainly in tonight's notification as well.
+
+### 2026-08-28 — Fifth weekly review: trading discipline stayed clean, but the branch-drift failure is now a three-time repeat offender and the core-sleeve question has gone four straight reviews unanswered
+- **What happened:** Fifth weekly review (prior: 2026-07-31, 2026-08-07,
+  2026-08-14, 2026-08-21). This week (2026-08-21 close $100,009.75/SPY
+  $765.64 -> 2026-08-28 close $100,099.79/SPY $769.28): portfolio **+0.09%**
+  vs SPY **+0.48%**, delta **-0.39pp** — the portfolio underperformed the
+  index this week because it is ~94% cash; this is the mirror image of the
+  cushioning seen on down weeks, not a stock-picking failure. Since inception
+  (2026-07-29, $100,000 / SPY $729.57), reported more prominently per this
+  routine's own instruction because one week is noise: portfolio **+0.10%**
+  ($100,000 -> $100,099.79) vs SPY **+5.44%** (729.57 -> 769.28), delta
+  **-5.34pp**, essentially unchanged from -4.93pp four reviews ago — still a
+  cash-drag story, not a verdict on the stock-picking.
+- **Attribution:** Backing out contribution by weight (SPY sleeve ~4.87% of
+  equity, MSFT ~1.12%, cash ~94%, using this week's snapshot weights): SPY's
+  +0.48% weekly move contributed ~+0.02pp to the portfolio; MSFT's own
+  +6.32% weekly move (482.60 -> 513.10) contributed ~+0.07pp — roughly
+  three-quarters of this week's total +0.09pp gain came from the one
+  satellite pick, not from being long a rising index. Per this routine's own
+  test ("if SPY rose 2% and you rose 2.2%, you did not pick well, you were
+  long"): SPY rose 0.48% and the portfolio rose only 0.09% — the portfolio
+  did *not* track the market, it is structurally underweight it, and within
+  the capital that *is* deployed, MSFT beat SPY's weekly move by ~5.8pp on
+  its own price action. MSFT remains up +12.35% since its 2026-07-31 entry
+  against a roughly 3% SPY move over the same window (SPY's since-inception
+  +5.44% less its own 2026-07-29->07-31 move) — a real, single-name
+  outperformance, not market beta, though still one name over four weeks.
+- **Process audit:** Strategy was followed, not improvised — zero trades
+  this week (none since 2026-08-12), zero guardrail rejections this week and
+  zero in the account's entire life (5 of 5 orders filled clean, confirmed
+  via `trade-log.md`). No trade was forced to look busy; the book has sat
+  correctly idle for three-plus weeks because SPY has no headroom left under
+  the 5%-per-symbol cap and no new satellite candidate has cleared sourcing
+  (network-blocked, per the settled 2026-08-17 finding). No position held
+  past invalidation — MSFT's thesis was re-verified against Microsoft's own
+  primary sources on nearly every wake this week and stayed intact each
+  time; SPY has no thesis to break. The one real process failure, and it's a
+  repeat: today's earlier daily-close routine found `origin/main` five
+  trading days and 24 commits stale (see the entry immediately above this
+  one) — the third occurrence of this exact failure mode (2026-08-06,
+  2026-08-11, now 2026-08-28), and each occurrence has been *larger* than
+  the last (roughly 2 days, then 2 days, now 5 days / 24 commits). The fixes
+  applied after the first two occurrences did not hold; this time the check
+  itself was diagnosed as structurally blind, not just unlucky. No
+  holdings/broker discrepancy resulted from it — Alpaca and the memory files
+  agreed throughout — but it is exactly the invisible-position risk
+  `CLAUDE.md` names as the system's single most dangerous failure mode, and
+  the fact that it keeps recurring at growing scale despite two prior
+  "fixes" means per-run vigilance is not an adequate control by itself.
+  Separately: the multi-ticker core-diversification question (first raised
+  2026-08-07, flagged 2026-08-14, escalated directly to the human
+  2026-08-21) is now unresolved across **four consecutive weekly reviews**
+  and a full week since the direct ask — no response evident in any file.
+- **Honest grade — B:** graded on process, not P&L. Full marks on trading
+  discipline: no guardrail violations, no unforced trades, correct
+  thesis-invalidation checks, correct refusal to route around the SPY
+  headroom cap with a workaround ticker. The grade is held below an A by the
+  branch-drift recurrence — a real, worsening operational risk that was
+  self-caught and self-fixed this run with no actual portfolio harm, but
+  that has now escaped three separate "fixes" and needs a structural,
+  harness-level solution rather than a fourth lessons.md entry hoping the
+  next run catches it faster. Not graded down further than last week's C,
+  because unlike the 2026-08-21 failure (a self-identified fix that Bull
+  itself simply didn't execute), this is a tooling/environment mismatch
+  Bull has diagnosed correctly each time and has no unilateral way to fix
+  permanently.
+- **Proposed changes (not made — human decides):** (1) Same standing ask as
+  the last three reviews: either say "add a second core-sleeve ticker (VTI,
+  IVV, etc.)" or say "leave the core capped at ~5% in SPY alone, accept the
+  10-40% band is aspirational under the current guardrails." Silence keeps
+  it stuck; this review's notification puts it directly again. (2) The
+  branch/main drift needs a structural fix, not another per-run check: either
+  configure the scheduled trigger so each run actually starts from a fresh
+  `origin/main` checkout (what `CLAUDE.md` already claims happens), or add an
+  automated guard (e.g., a CI/harness check that fails when a feature branch
+  outpaces `origin/main` by more than a small commit count) rather than
+  relying on the routine that happens to notice. Three occurrences of the
+  same failure, each larger than the last, is a pattern a human should see
+  directly rather than infer from a fourth `lessons.md` entry.
+- **Sample size:** 5 weekly reviews completed since inception (2026-07-29),
+  about 4.5 weeks. Nowhere near the 26-week bar for distinguishing process
+  from luck. MSFT's +12.35%/well-ahead-of-SPY figure is one name over four
+  weeks; this week's attribution split (MSFT driving ~3/4 of the gain) is
+  one data point, not a repeatable pattern yet. Keep saying this until it
+  stops being true.
