@@ -788,3 +788,59 @@ already anticipated. That is not a lesson, that is variance.
   three weeks), nor this week's +1.28pp benchmark "win" (mechanically a
   cash-cushion effect on a down week for the index, not evidence of
   anything). Keep saying this until it stops being true.
+
+### 2026-08-28 — `main` was five trading days stale; the branch-drift check every recent routine ran was structurally blind to it
+- **What happened:** Running today's daily-close (markets-closed
+  reconciliation) routine, checked `origin/main` explicitly before writing
+  this entry (the habit established by the 2026-08-06 lesson). `git fetch
+  origin main` plus `git log origin/main..HEAD` showed **24 commits** —
+  every routine since 2026-08-24's pre-market run, across five trading
+  days, ending with today's own daily-close commit — sitting on local
+  feature branches that had never reached `main`. `origin/main`'s tip was
+  still the 2026-08-21 weekly-review merge (PR #29). Checking GitHub
+  directly confirmed the exact 2026-08-06 failure mode recurring: PRs #30
+  through #33 (2026-08-24 through 2026-08-25 routines) were all opened
+  correctly against `main`, then show `state: closed`, `merged: false` —
+  closed without an actual GitHub merge, while their commits were carried
+  forward locally into each next session's branch instead. Fixed this run
+  by pushing the current branch and opening PR #34 from
+  `claude/nice-sagan-u709h8` against `main`, merged via the GitHub API
+  (`mcp__github__merge_pull_request`, not a local merge) — confirmed
+  afterward via a fresh `git fetch origin main` that `origin/main`'s tip
+  now contains today's daily-close commit as an ancestor.
+- **What I believed at the time:** That the per-routine "no branch/main
+  drift" check logged in nearly every entry since 2026-08-06 (`git fetch
+  origin main confirmed local HEAD already matched origin/main exactly at
+  <sha>`) was actually verifying that prior work had reached `main`.
+- **What was actually true:** That check only ever compared the current
+  session's starting `HEAD` against `origin/main` **at the moment the
+  session started** — and because each new session's branch is created
+  from the *previous session's branch tip*, not from a fresh pull of
+  `main` (despite `CLAUDE.md`'s "every scheduled run starts from a fresh
+  checkout of main"), the comparison was structurally guaranteed to "pass"
+  even while both sides silently drifted further and further behind the
+  real `main`. Every one of those "no drift" log lines from 2026-08-24
+  onward was true and simultaneously useless — it proved local continuity
+  between consecutive sessions, not that any of that continuity had ever
+  landed on `main`. Five days of reconciliation, benchmark-table, and
+  thesis-check work existed nowhere `main`-based tooling (or the next
+  fresh-`main` session) could see it. No holdings/broker discrepancy
+  resulted — Alpaca and the files agreed throughout — but the *record* of
+  five trading days would have been invisible to any session that actually
+  did start from a fresh `main` pull, which is exactly the failure mode
+  `CLAUDE.md` calls "the single most common way this system breaks."
+- **What changes:** The existing "no drift" check is necessary but not
+  sufficient — it must be paired with checking that the branch's *own*
+  merge-base commits are actually reachable from `origin/main`
+  (`git merge-base --is-ancestor <old-known-sha> origin/main`, or
+  equivalently `git log origin/main..HEAD` being empty), not just that
+  `HEAD` equals `origin/main` at session start. Going forward, any routine
+  that finds `git log origin/main..HEAD` non-empty at the *start* of its
+  run (before making its own changes) should treat that as the same class
+  of finding as a broker/file discrepancy: open and merge a catch-up PR
+  immediately, before doing anything else, rather than adding one more
+  commit onto an already-stranded branch. This is a candidate for a
+  `CLAUDE.md` change (make the ancestor check, not just the equality
+  check, an explicit step in "Read this first") but per this file's own
+  standing rule (2026-08-21), proposing it here is not sufficient by
+  itself — flagging it plainly in tonight's notification as well.
