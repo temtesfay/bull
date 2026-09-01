@@ -23,6 +23,60 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-09-01 ~13:10 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. `clock` confirms `is_open: true` (`next_close` today
+16:00 ET, `timestamp` ~13:10 ET). Ground truth via Alpaca: equity
+$100,024.51, cash $94,100.00, day change -0.05% (-$49.06), `trading_blocked:
+false`. Nowhere near the 3% circuit breaker — no halt, sell rules proceed as
+normal. `git fetch origin main` plus `git merge-base --is-ancestor HEAD
+origin/main` confirmed this branch's HEAD is already an ancestor of
+`origin/main` (both at `7bf3821`, this morning's market-open commit) — no
+branch/main drift.
+
+Positions: SPY qty 6.339623293 @ $772.91 avg (current $761.72, -1.45%
+unrealized, market value $4,829.02 = ~4.83% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $500.33, +9.55% unrealized, market value
+$1,095.52 = ~1.10% of equity). No discrepancy vs `portfolio.md`.
+
+**Sell-rule check, in order, on both positions:**
+- **Thesis broken?** MSFT is the only thesis-bearing position. Today's
+  pre-market routine (see "Plan for today — 2026-09-01" below) already ran
+  a primary-source check via Perplexity restricted to SEC filings/official
+  MS IR for anything dated 2026-08-31 through today — found no new filing,
+  press release, or guidance touching Azure growth, RPO, capex, or
+  leadership. Re-checked qualitatively this run: no news justifying a
+  fresh primary-source pull has crossed since that check ~4.5 hours ago
+  (MSFT is up on the day, not down, which is itself evidence against a
+  broken thesis, not for one). Thesis intact, unchanged. SPY has no thesis
+  to break (core sleeve, exempt).
+- **Down 7% with no explanation → trim half?** Neither position is down at
+  all from entry — SPY -1.45%, MSFT +9.55% (both from blended/avg entry).
+  No trigger.
+- **Down 15% → exit fully?** No trigger, same reason.
+- **Above 5% of equity → trim to 5%?** SPY ~4.83%, MSFT ~1.10%. Neither
+  exceeds the cap. No trigger.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$500.33 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before (fractional remainder is not
+stop-eligible per `alpaca.py`'s own guard). SPY carries no stop by design
+(core index-ETF exemption, per `strategy.md`'s "Overnight protection"
+section).
+
+**No orders placed — this routine may not open new positions, and no sell
+rule fired on either existing position.** No rejections, no drift, nothing
+new on the standing multi-ticker-diversification question (still the weekly
+review's job to re-escalate, not this routine's). Per the scheduled task's
+own scope (risk-reduction only, log everything), logging this as a clean
+no-action check; not sending a notification since nothing changed, no rule
+fired, and no data call failed.
+
+---
+
 ## Market-open execution check — 2026-09-01
 
 Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
