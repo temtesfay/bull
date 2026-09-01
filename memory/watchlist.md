@@ -23,6 +23,41 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Market-open execution check — 2026-09-01
+
+Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
+today 16:00 ET, `timestamp` ~09:45:37 ET, past the first-15-minute no-trade
+window). Today's plan (below, dated 2026-09-01) is dated today, so it's not
+stale — and it explicitly says "No action planned": SPY has no headroom left
+under the 5%-per-symbol cap, MSFT's thesis is unchanged with no new catalyst,
+and no new satellite candidate cleared sourcing. Steps 3-6 of the market-open
+routine were no-ops by design, not a skip — there was no planned entry to
+re-verify prices against.
+
+Re-verified ground truth via Alpaca: equity $100,037.79, cash $94,100.00, day
+change -0.04% (-$35.78), `trading_blocked: false`, `new_positions_this_week:
+0`. Positions: SPY qty 6.339623293 @ $772.91 avg (current $762.09, -1.40%
+unrealized, market value $4,831.36 = ~4.83% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $505.31, +10.64% unrealized, market value
+$1,106.43 = ~1.11% of equity). No discrepancy vs `portfolio.md`. `orders
+--status open` confirms the MSFT trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`)
+still live: status `new`, hwm $517.78, stop price $466.002 — unchanged since
+2026-08-28 (current price $505.31 is still below the hwm, so no new high to
+ratchet the stop up on). SPY carries no stop by design (core index-ETF
+exemption).
+
+No trades placed, no orders rejected. Same standing open question as every
+recent run remains outstanding: the multi-ticker-diversification question
+for the core sleeve (`lessons.md` 2026-08-07, 2026-08-10, escalated
+2026-08-14, put directly to the human 2026-08-21, reiterated in the
+2026-08-28 weekly review), now unresolved for well over six weeks — 
+re-escalating it is the weekly review's job, not this market-open routine's.
+
+Per the scheduled task's own instruction ("If nothing happened, send
+nothing"), not notifying — no trade placed, no rejection, nothing to report.
+
+---
+
 ## Plan for today — 2026-09-01
 
 Research-only routine (no trades permitted this run, per this routine's own
