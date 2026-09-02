@@ -1,8 +1,9 @@
 # Portfolio
 
-Last updated: 2026-09-01 daily-close (markets-closed reconciliation) — no
-discrepancy vs Alpaca, no trades placed by any routine today. See this
-file's "Daily-close entry — 2026-09-01" below for the full writeup.
+Last updated: 2026-09-02 market-open execution check — no discrepancy vs
+Alpaca, no trades placed (today's pre-market plan called for no action). See
+`watchlist.md`'s "Market-open execution check — 2026-09-02" for the full
+writeup.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -13,7 +14,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,026.25 |
+| Equity | $100,020.27 |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
