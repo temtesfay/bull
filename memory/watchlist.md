@@ -137,6 +137,19 @@ nothing"), not notifying — no trade placed, no rejection, nothing to report.
 
 ---
 
+## Daily-close reconciliation — 2026-09-02
+
+Markets closed for the day. Reconciliation only, no trades — see
+`portfolio.md`'s 2026-09-02 daily-close entry for the full writeup. No
+discrepancy vs Alpaca, no new candidates sourced (non-Microsoft primary
+sources remain network-blocked per the 2026-08-17 lesson), watchlist stays
+empty. `git fetch origin main` plus the ancestor check confirmed no
+branch/main drift. Standing open question (core-sleeve multi-ticker
+diversification, escalated to the human 2026-08-21) remains unresolved, now
+well over seven weeks outstanding.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-02 ~13:09 ET
 
 This routine only reduces risk — no new positions permitted regardless of

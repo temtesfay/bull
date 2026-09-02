@@ -1,9 +1,7 @@
 # Portfolio
 
-Last updated: 2026-09-02 market-open execution check — no discrepancy vs
-Alpaca, no trades placed (today's pre-market plan called for no action). See
-`watchlist.md`'s "Market-open execution check — 2026-09-02" for the full
-writeup.
+Last updated: 2026-09-02 daily-close reconciliation — markets closed, no
+discrepancy vs Alpaca, no trades placed by any routine today.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -14,7 +12,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,020.27 |
+| Equity | $100,037.51 |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -37,8 +35,8 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** none — `strategy.md` explicitly exempts core index-ETF
   holdings from trailing stops ("the whole point of ballast is that it
   doesn't get shaken out").
-- **Status:** on track. Market value $4,829.26 (current $761.76 vs $772.91
-  blended entry, -1.44% unrealized) as of 2026-09-01 daily-close.
+- **Status:** on track. Market value $4,848.73 (current $764.83 vs $772.91
+  blended entry, -1.05% unrealized) as of 2026-09-02 daily-close.
   **Headroom to the 5%-per-symbol cap remains exhausted**
   (~4.87% of equity, under the cap so no trim triggered) — no further SPY
   buy should be attempted until the human resolves the open multi-ticker
@@ -64,13 +62,13 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
-  Confirmed still open as of 2026-09-01 daily-close via `orders --status
+  Confirmed still open as of 2026-09-02 daily-close via `orders --status
   open`: status `new`, hwm $517.78, stop price $466.002 — unchanged since
-  2026-08-28 (current price $501.00 remains below the hwm, so no new high
+  2026-08-28 (current price $497.25 remains below the hwm, so no new high
   to ratchet the stop up on).
-- **Status:** on track — up 9.70% unrealized ($501.00 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-09-01 daily-close. Market value
-  $1,096.99 = ~1.10% of equity, well inside the 5%-of-equity trim
+- **Status:** on track — up 8.88% unrealized ($497.25 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-09-02 daily-close. Market value
+  $1,088.78 = ~1.09% of equity, well inside the 5%-of-equity trim
   threshold. No sell trigger fires: not thesis-broken, not down 7%, not
   down 15%, not above 5% of equity. Trailing stop
   (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) reconfirmed live via
@@ -114,6 +112,7 @@ Format for each position, one block:
 | 2026-08-28 | +0.01% | -0.25% | +0.26% |
 | 2026-08-31 | -0.03% | -0.31% | +0.28% |
 | 2026-09-01 | -0.05% | -0.68% | +0.63% |
+| 2026-09-02 | +0.01% | +0.46% | -0.45% |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
@@ -129,13 +128,86 @@ schedule coverage, not a broker/file discrepancy.
 
 Since-inception delta (2026-07-29 close baseline, when the account was first
 funded at $100,000 with 0 positions, SPY `prev_close` 729.57): portfolio
-+0.03% ($100,000 → $100,026.25), SPY +4.40% (729.57 → 761.63 per
-`alpaca.py quote SPY` at 2026-09-01 close), delta **-4.36%**, narrowing from
--5.04% on 2026-08-31 — both the portfolio and SPY pulled back today, but
-SPY's pullback (-0.68%) was larger than the portfolio's (-0.05%), the same
-mechanical cushioning effect seen on every prior red day. Mechanical, not a
-new development: no thesis broke, no guardrail was tested, nothing needed a
-decision today.
++0.04% ($100,000 → $100,037.51), SPY +4.88% (729.57 → 765.13 per
+`alpaca.py quote SPY` at 2026-09-02 close), delta **-4.84%**, widening from
+-4.36% on 2026-09-01 — SPY rallied today (+0.46%) while the portfolio's
+~94%-cash construction only barely participated (+0.01%), the same
+mechanical cushioning effect seen on every prior up day, just working in
+reverse. Mechanical, not a new development: no thesis broke, no guardrail
+was tested, nothing needed a decision today.
+
+---
+
+## Daily-close entry — 2026-09-02
+
+Markets closed (`clock`: `is_open: false`, `timestamp` ~16:15 ET,
+`next_open`/`next_close` both 2026-09-03, a normal next trading day).
+Per this routine's scope, no orders were placed or evaluated this run —
+reconciliation and record-keeping only. No trades were placed by any
+routine today — this morning's pre-market, market-open, and intraday
+risk-reduction checks all logged "no action" in `watchlist.md`.
+
+**Reconciliation:** `git fetch origin main` plus `git merge-base
+--is-ancestor HEAD origin/main` confirmed this branch's HEAD is an
+ancestor of `origin/main` (origin/main at `beed906`, this afternoon's
+intraday-check commit, already contained on this branch) — no branch/main
+drift. `alpaca.py account` and `positions` checked against this file.
+Equity $100,037.51, cash $94,100.00, day change +0.01% (+$11.08),
+`trading_blocked: false`, two open positions — SPY (qty 6.339623293, avg
+entry $772.91, current $764.83, market value $4,848.73, -1.05% unrealized)
+and MSFT (qty 2.189599299, avg entry $456.70, current $497.25, market
+value $1,088.78, +8.88% unrealized). Both match this file's snapshot from
+2026-09-01's daily-close exactly on quantity, avg entry, and position
+count — only normal end-of-day price drift. **No discrepancy found,
+nothing to log in `lessons.md` on the broker-vs-file front.** `orders
+--status open` confirms the MSFT trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) is still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (no new high
+since then; current price $497.25 remains below the hwm). SPY carries no
+stop by design (core index-ETF exemption).
+
+**Benchmark:** today's portfolio return +0.01% (per Alpaca's own
+`day_change`/`day_change_pct`, +$11.08 on ~$100,026.43 prior equity) vs
+SPY +0.46% (`quote SPY` `prev_close` $761.63 → `last` $765.13), delta
+**-0.45%** — a modest up day for SPY that the portfolio's ~94%-cash
+construction only barely participated in via its SPY sleeve, the same
+mechanical cushioning pattern seen on every prior up day, working against
+the portfolio today instead of for it. Since inception (2026-07-29
+baseline, $100,000 / SPY $729.57), portfolio +0.04% ($100,000 →
+$100,037.51) vs SPY +4.88% (729.57 → 765.13), delta **-4.84%**, widening
+from -4.36% on 2026-09-01 for the same mechanical reason — most of the
+account isn't deployed, so it moves less than SPY in either direction,
+including on SPY's up days. Not evidence the stock-picking itself
+changed; MSFT alone remains up 8.88% since its own entry.
+
+**Trades:** none placed by this routine, none rejected. No trades placed by
+any routine today — the reconciliation above confirms the only order
+activity on this account remains the original MSFT buy, its trailing
+stop, and the three SPY core-sleeve tranches, all already logged.
+
+**Positions >5% underwater from entry:** none. SPY is down 1.05% from
+blended entry (nowhere near the 5%/7% thresholds); MSFT is up 8.88%.
+
+**Watching tomorrow:** nothing new on the MSFT thesis (Azure YoY growth
+trend, next checkpoint the FQ1 FY27 print; last primary-source check was
+this morning's pre-market routine, unchanged). SPY's core sleeve sits at
+~4.85% of equity with headroom to the 5%-per-symbol cap exhausted — no
+further SPY buy should be attempted until the human resolves the open
+multi-ticker question (see `lessons.md` 2026-08-07, 2026-08-10, escalated
+2026-08-14, put directly to the human 2026-08-21), still unresolved for
+well over seven weeks now. Per the 2026-08-21 lesson, re-escalating this is
+the weekly review's job, not this daily-close routine's — flagging again
+here rather than re-raising it as a standalone notification tonight. The
+non-Microsoft IR network block remains considered settled (18/18 domains
+tested, see `lessons.md` 2026-08-17) — no further probing planned unless
+the environment changes.
+
+**Uncertain about:** the same standing open question carried forward from
+every prior daily close — core sleeve concentration/diversification, now
+unresolved for well over seven weeks and still awaiting a direct human
+answer since the 2026-08-21 escalation. Nothing else uncertain this run —
+reconciliation was clean, no data call failed, no number in this entry is
+estimated or fabricated.
 
 ---
 
