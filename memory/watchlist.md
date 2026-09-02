@@ -23,6 +23,74 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-09-02
+
+Research-only routine (no trades permitted this run). First run since
+Tuesday 2026-09-01's daily-close. `clock` confirmed `is_open: false`
+pre-open (checked ~08:37 ET), `next_open`/`next_close` both today
+(2026-09-02, Wednesday) — not a holiday, normal session. `git fetch origin
+main` plus `git merge-base --is-ancestor HEAD origin/main` confirmed this
+branch's HEAD is an ancestor of `origin/main` (both exactly at `7636842`,
+Monday's daily-close merge, PR #39) — no branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,024.04, cash $94,100.00, day change
+-0.00% (-$2.39), `trading_blocked: false`, `new_positions_this_week: 0`.
+Positions match `portfolio.md`'s last snapshot closely (normal overnight
+drift from Monday's close): SPY qty 6.339623293 @ $772.91 avg (current
+$762.08, -1.40% unrealized, market value $4,831.30 = ~4.83% of equity),
+MSFT qty 2.189599299 @ $456.70 avg (current $499.06, +9.28% unrealized,
+market value $1,092.74 = ~1.09% of equity). No discrepancy — nothing to
+log in `lessons.md` on the broker-vs-file front.
+
+**Overnight gap check (both positions):** per the 2026-08-04 lesson, checked
+`positions[].current_price` vs `lastday_price` directly (raw API) — MSFT
+$499.06 vs $501.02 (-0.39%), SPY $762.04 vs $761.78 (+0.03%). Both flat,
+nowhere near the 5% overnight-gap notification threshold.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity directly via the API, restricted to SEC filings / official
+Microsoft IR / official corporate statements, for anything dated 2026-09-01
+through today touching Azure/cloud growth, commercial RPO, AI capex,
+executive changes, or litigation. Response: no new 8-K/10-Q/10-K, no new IR
+press release, no new guidance in that window — the primary-source pages
+returned were all the existing FY26 Q4 earnings materials and the July 29,
+2026 8-K/10-K, already on file. **No genuinely new primary-source item
+today. Thesis intact, unchanged.** Next expected earnings date remains the
+working estimate of 2026-10-28 (unconfirmed by any company announcement as
+of this run).
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.83% of equity, still under the 5%-per-symbol cap but with essentially no
+headroom left, consistent with the standing note since 2026-08-12. The
+multi-ticker-diversification question (`lessons.md` 2026-08-07, 2026-08-10,
+escalated 2026-08-14, put directly to the human 2026-08-21, reiterated in
+the 2026-08-28 weekly review) remains unresolved — now well over eight weeks
+outstanding with no response evident in any file. Re-escalating it with a
+fresh notification is the weekly review's job, not this daily research
+routine's — flagging again here rather than re-raising it as a standalone
+notification tonight. The non-Microsoft IR network block remains considered
+settled (18/18 domains tested, see `lessons.md` 2026-08-17) — no further
+probing planned unless the environment changes.
+
+**Watchlist candidates:** none open, so no trigger checks applied.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (no new high since
+then; current price $499.06 remains below the hwm). Covers 2 of 2.19 whole
+shares, as before. SPY carries no stop by design (core index-ETF exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no meaningful
+headroom left to buy more of, MSFT's thesis is unchanged with no new
+catalyst, and no new satellite candidate cleared sourcing. **No action
+planned.** This is a completely normal outcome.
+
+**No trade to draft, no thesis broken, no gap >5%, no data-source failure on
+any required check — not notifying, per this routine's own instruction ("if
+you find nothing worth doing... most days should end this way").**
+
+---
+
 ## Intraday risk-reduction check — 2026-09-01 ~13:10 ET
 
 This routine only reduces risk — no new positions permitted regardless of
