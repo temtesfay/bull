@@ -23,6 +23,62 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-09-03 ~13:09 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. `clock` confirms `is_open: true` (`next_close` today
+16:00 ET, `next_open` 2026-09-04, `timestamp` ~13:09:14 ET). `git fetch
+origin main` plus `git merge-base --is-ancestor HEAD origin/main` confirmed
+this branch's HEAD is an ancestor of `origin/main` (`origin/main` advanced
+from `3b6f7f1` to `c24e1dd`, already contained on this branch) — no
+branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,116.01, cash $94,100.00, day change
++0.08% (+$77.35), `trading_blocked: false`. Nowhere near the 3% circuit
+breaker — no halt, sell rules proceed as normal. Positions: SPY qty
+6.339623293 @ $772.91 avg (current $772.52, -0.05% unrealized, market value
+$4,897.49 = ~4.89% of equity), MSFT qty 2.189599299 @ $456.70 avg (current
+$510.83, +11.85% unrealized, market value $1,118.52 = ~1.12% of equity). No
+discrepancy vs `portfolio.md`.
+
+**Sell-rule check, in order, on both positions:**
+- **Thesis broken?** MSFT is the only thesis-bearing position (SPY is a core
+  allocation buy, exempt). Ran an unrestricted `WebSearch` scoped to
+  `microsoft.com`/`news.microsoft.com`/`azure.microsoft.com` for Azure/cloud
+  news. Results surfaced only routine items — responsible-AI/healthcare blog
+  posts (2026-09-01), Entra security-role rollout notes, partner-center
+  flex-spend sandbox updates, a Frontier Accelerate for Marketplace
+  announcement, and routine Windows 11 September security-update previews —
+  no new 8-K/10-Q/10-K, no guidance change, no executive departure, no
+  litigation item, nothing touching Azure/cloud revenue growth or commercial
+  RPO. **No genuinely new primary-source item today. Thesis intact,
+  unchanged.**
+- **Down 7% with no thesis-consistent explanation?** No — MSFT is up 11.85%
+  from entry, not down.
+- **Down 15%?** No.
+- **Position above 5% of equity?** No — SPY ~4.89%, MSFT ~1.12%, both under
+  the cap.
+
+No sell trigger fires on either position. No trim, no exit.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$510.83 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption).
+
+Watchlist remains empty — this routine's scope is risk reduction only, not
+origination, so no new candidate was sourced or added. No trades placed, no
+orders rejected, no memory drift found. Per this routine's own scope (may
+not open new positions; find nothing attractive to add), nothing to log
+here beyond this check.
+
+Per the scheduled task's own instruction, not notifying — no trade placed,
+no rejection, no thesis break, no data-source failure, nothing to report.
+
+---
+
 ## Market-open execution check — 2026-09-03
 
 Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
