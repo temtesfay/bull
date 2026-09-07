@@ -23,6 +23,48 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-09-07 (holiday, market closed)
+
+Research-only routine. `clock` checked first, per today's task scope: `is_open:
+false`, `next_open`/`next_close` both 2026-09-08T09:30/16:00-04:00,
+`timestamp` ~08:36:59 ET on 2026-09-07 — Labor Day (plus the preceding
+weekend), a normal calendar holiday, not a data anomaly. Per this routine's
+explicit instruction ("if the market is closed today for a holiday, note it
+and stop"), no further research, no thesis checks, no plan drafted — stopping
+here.
+
+`git fetch origin main` plus `git merge-base --is-ancestor HEAD origin/main`
+confirmed this branch's HEAD is already an ancestor of `origin/main` (both at
+`16453f8`, the sixth weekly review merge, PR #45) — no branch/main drift.
+
+**Ground truth (Alpaca), for continuity into the next routine:** equity
+$100,076.86, cash $94,100.00, day change $0.00/0.00% (market closed, no
+intraday movement), `trading_blocked: false`. Positions unchanged from the
+last daily-close entry (2026-09-04): SPY qty 6.339623293 @ $772.91 avg
+(current $770.19, -0.35% unrealized, market value $4,882.71 = ~4.88% of
+equity), MSFT qty 2.189599299 @ $456.70 avg (current $499.70, +9.41%
+unrealized, market value $1,094.14 = ~1.09% of equity). No discrepancy vs
+`portfolio.md` — nothing to log in `lessons.md` on the broker-vs-file front.
+`orders --status open` confirms the MSFT trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$499.70 remains below the hwm). SPY carries no stop by design (core
+index-ETF exemption).
+
+No trades placed (none permitted this run regardless). Next trading day is
+2026-09-08 (Tuesday). The standing core-sleeve multi-ticker question
+(open since 2026-08-07, escalated 2026-08-21, most recently reiterated in
+the 2026-09-04 sixth weekly review) remains outstanding — that review's own
+proposal was to treat continued silence through the *seventh* weekly review
+as an implicit "leave the core capped at ~5% in SPY alone," so no action on
+it here; re-raising it is the next weekly review's job, not this routine's.
+
+Not notifying — market closed for a routine holiday, no thesis to check, no
+position gapped, no data source failed. This is exactly the "note it and
+stop" case the task anticipates.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-04 ~13:09 ET
 
 This routine only reduces risk — no new positions permitted regardless of
