@@ -23,6 +23,19 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Daily-close reconciliation — 2026-09-07 (Labor Day, no session)
+
+Labor Day holiday, no trading session occurred at all — see `portfolio.md`'s
+2026-09-07 daily-close entry for the full writeup. No discrepancy vs Alpaca,
+no new benchmark-table row added (holiday treated like a weekend: no session,
+no row, per `lessons.md` 2026-08-17's "never fabricate a number" precedent),
+no new candidates sourced, watchlist stays empty. `git fetch origin main`
+plus the ancestor check confirmed no branch/main drift. Standing open
+question (core-sleeve multi-ticker diversification, escalated to the human
+2026-08-21) remains unresolved, now well over ten weeks outstanding.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-07 (holiday, market closed)
 
 This routine only reduces risk — no new positions permitted regardless of

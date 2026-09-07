@@ -1,7 +1,8 @@
 # Portfolio
 
-Last updated: 2026-09-04 daily-close reconciliation — markets closed, no
-discrepancy vs Alpaca, no trades placed by any routine today.
+Last updated: 2026-09-07 daily-close reconciliation — Labor Day holiday, no
+trading session occurred, no discrepancy vs Alpaca, no trades placed by any
+routine today.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -140,6 +141,87 @@ construction barely moved (-0.04%), the same mechanical cushioning effect
 seen on every red day, just narrowing the gap instead of widening it.
 Mechanical, not a new development: no thesis broke, no guardrail was
 tested, nothing needed a decision today.
+
+---
+
+## Daily-close entry — 2026-09-07
+
+Labor Day holiday — `clock`: `is_open: false`, `next_open`/`next_close` both
+2026-09-08T09:30/16:00-04:00, `timestamp` ~16:16 ET. No trading session
+occurred today at all (market never opened), the same as this morning's
+research routine and this afternoon's intraday risk-reduction check already
+found and logged in `watchlist.md`. Per this routine's scope ("place no
+orders"), no orders were placed or evaluated — reconciliation and
+record-keeping only.
+
+**Reconciliation:** `git fetch origin main` plus `git merge-base
+--is-ancestor HEAD origin/main` confirmed this branch's HEAD is an ancestor
+of `origin/main` (origin/main at `037a83a`, this afternoon's intraday-check
+commit, already contained on this branch) — no branch/main drift.
+`alpaca.py account` and `positions` checked against this file. Equity
+$100,076.86, cash $94,100.00, day change $0.00/0.00% (no session, no
+intraday movement possible), `trading_blocked: false`, two open positions —
+SPY (qty 6.339623293, avg entry $772.91, current $770.19, market value
+$4,882.71, -0.35% unrealized) and MSFT (qty 2.189599299, avg entry $456.70,
+current $499.70, market value $1,094.14, +9.41% unrealized). Both match
+this file's snapshot from 2026-09-04's daily-close exactly on quantity, avg
+entry, and position count — no price drift at all since Friday's close,
+because no session occurred in between. **No discrepancy found, nothing to
+log in `lessons.md` on the broker-vs-file front.** `orders --status open`
+confirms the MSFT trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) is
+still live: status `new`, hwm $517.78, stop price $466.002 — unchanged
+since 2026-08-28 (current price $499.70 remains below the hwm, so no new
+high to ratchet the stop up on). SPY carries no stop by design (core
+index-ETF exemption).
+
+**Benchmark:** `quote SPY` returns `prev_close` $773.115 -> `last` $770.18,
+identical to the figures already reconciled and recorded in the 2026-09-04
+daily-close entry — this is Friday's own close carried forward unchanged,
+not a new print, since no trading session happened over the weekend or on
+today's holiday. **No new benchmark-table row added for 2026-09-07.**
+Treating a holiday with no session the same way this table has always
+treated weekends (which are simply absent from the table, not logged as
+0.00%/0.00% rows) — adding a row implying a real trading day's return would
+misstate the record, the same "never fabricate a number" principle behind
+the deliberately-blank 2026-08-14 row (see that entry and `lessons.md`
+2026-08-17), just applied to a day that was never a trading day at all
+rather than a trading day the routine missed. Since-inception figures are
+therefore unchanged from 2026-09-04: portfolio +0.07% ($100,000 →
+$100,076.86, trivial equity drift from intraday marks, not a real return),
+SPY +5.57% (729.57 → 770.18), delta **-5.49%**. Next trading day is
+2026-09-08 (Tuesday), the first real close since Thursday 2026-09-03 will
+be Friday 2026-09-04's, already logged — the next new benchmark print will
+be 2026-09-08's close.
+
+**Trades:** none placed by this routine, none rejected. No trades placed by
+any routine today — the reconciliation above confirms the only order
+activity on this account remains the original MSFT buy, its trailing stop,
+and the three SPY core-sleeve tranches, all already logged.
+
+**Positions >5% underwater from entry:** none. SPY is -0.35% from blended
+entry; MSFT is up 9.41%.
+
+**Watching tomorrow:** nothing new on the MSFT thesis (Azure YoY growth
+trend, next checkpoint the FQ1 FY27 print; last primary-source check was
+this afternoon's intraday risk-reduction routine, unchanged). SPY's core
+sleeve sits at ~4.88% of equity with headroom to the 5%-per-symbol cap
+exhausted — no further SPY buy should be attempted until the human resolves
+the open multi-ticker question (see `lessons.md` 2026-08-07, 2026-08-10,
+escalated 2026-08-14, put directly to the human 2026-08-21), still
+unresolved for well over ten weeks now — including through the sixth
+weekly review's own proposal (2026-09-04) to treat continued silence
+through the *seventh* weekly review as an implicit "leave the core capped
+at ~5% in SPY alone." Per that same lesson, re-escalating this further is
+the weekly review's job, not this daily-close routine's. Next trading day
+is 2026-09-08 (Tuesday) — markets were closed 2026-09-05 through 2026-09-07
+(weekend plus Labor Day).
+
+**Uncertain about:** the same standing open question carried forward from
+every prior daily close — core sleeve concentration/diversification, now
+unresolved for well over ten weeks and still awaiting a direct human answer
+since the 2026-08-21 escalation. Nothing else uncertain this run —
+reconciliation was clean, no data call failed, no number in this entry is
+estimated or fabricated.
 
 ---
 
