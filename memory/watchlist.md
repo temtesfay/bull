@@ -23,6 +23,60 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-09-07 (holiday, market closed)
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. `clock` checked first: `is_open: false`,
+`next_open`/`next_close` both 2026-09-08T09:30/16:00-04:00, `timestamp`
+~13:10:08 ET on 2026-09-07 — Labor Day, same holiday already noted by
+today's earlier research routine (see entry below). `git fetch origin main`
+plus `git merge-base --is-ancestor HEAD origin/main` confirmed this branch's
+HEAD is already an ancestor of `origin/main` (both at `f6852a0`, today's
+earlier research-routine commit) — no branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,076.86, cash $94,100.00, day change
+$0.00/0.00% (market closed, no intraday movement since this morning's
+check), `trading_blocked: false`. Nowhere near the 3% circuit breaker — no
+halt. Positions unchanged from this morning: SPY qty 6.339623293 @ $772.91
+avg (current $770.19, -0.35% unrealized, market value $4,882.71 = ~4.88% of
+equity), MSFT qty 2.189599299 @ $456.70 avg (current $499.70, +9.41%
+unrealized, market value $1,094.14 = ~1.09% of equity). No discrepancy vs
+`portfolio.md`.
+
+**Sell-rule check, in order, on both positions:**
+- **Thesis broken?** MSFT is the only thesis-bearing position (SPY is a core
+  allocation buy, exempt). Ran an unrestricted `WebSearch` scoped to
+  `microsoft.com`/`news.microsoft.com`/`azure.microsoft.com` for
+  Azure/cloud news per this routine's own instruction to check the news
+  before concluding the thesis holds. Results surfaced only routine items —
+  a GPT-6 Astra announcement (2026-09-03) and HydraFusion/Copilot
+  orchestration cost item, Frontier Accelerate for Marketplace, Entra
+  Security Administrator role expansion, and a Partner Center Module-status
+  note — no new 8-K/10-Q/10-K, no guidance change, no executive departure,
+  no litigation item, nothing touching Azure/cloud revenue growth or
+  commercial RPO. **No genuinely new primary-source item. Thesis intact,
+  unchanged** — same conclusion as every recent check.
+- **Down 7% with no thesis-consistent explanation?** No — MSFT is up 9.41%
+  from entry, not down.
+- **Down 15%?** No.
+- **Position above 5% of equity?** No — SPY ~4.88%, MSFT ~1.09%, both under
+  the cap.
+
+No sell trigger fires on either position. No trim, no exit.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$499.70 remains below the hwm, so no new high to ratchet the stop up on).
+SPY carries no stop by design (core index-ETF exemption).
+
+No orders placed (none permitted this run regardless of what looked
+attractive — none did). Watchlist remains empty; sourcing is out of this
+routine's scope. Not notifying — market closed, no trade, no rejection, no
+thesis break, no data-source failure, nothing to report.
+
+---
+
 ## Research routine — 2026-09-07 (holiday, market closed)
 
 Research-only routine. `clock` checked first, per today's task scope: `is_open:
