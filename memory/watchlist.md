@@ -23,6 +23,19 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Daily-close reconciliation — 2026-09-09
+
+See `portfolio.md`'s 2026-09-09 daily-close entry for the full writeup. No
+discrepancy vs Alpaca (equity $100,011.82, day change -0.03%), new
+benchmark-table row added (SPY -0.47% today, delta +0.44%; since-inception
+delta -4.49%, narrowing from -4.97%), no new candidates sourced, watchlist
+stays empty. `git fetch origin main` confirmed no branch/main drift (HEAD
+matched `origin/main` exactly at `95cd832`). Standing open question
+(core-sleeve multi-ticker diversification, escalated to the human
+2026-08-21) remains unresolved, now well over twelve weeks outstanding.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-09 ~13:10 ET
 
 This routine only reduces risk — no new positions permitted regardless of
