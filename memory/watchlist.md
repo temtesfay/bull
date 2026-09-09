@@ -23,6 +23,105 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-09-09
+
+Research-only routine (no trades permitted this run, per this routine's own
+scope). First run since yesterday's 2026-09-08 daily-close. `clock` confirmed
+`is_open: false` pre-open (checked ~08:37 ET), `next_open`/`next_close` both
+today (2026-09-09, Wednesday) — not a holiday, normal session. `git fetch
+origin main` plus `git merge-base --is-ancestor HEAD origin/main` confirmed
+this branch's HEAD matches `origin/main` exactly at `bfd20db` (yesterday's
+daily-close commit) — no branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,020.46, cash $94,100.00, day change
+-0.02% (-$16.99), `trading_blocked: false`, `new_positions_this_week: 0`.
+Positions match `portfolio.md`'s last snapshot closely (normal overnight
+drift from yesterday's close): SPY qty 6.339623293 @ $772.91 avg (current
+$763.38, -1.23% unrealized, market value $4,839.54 = ~4.84% of equity), MSFT
+qty 2.189599299 @ $456.70 avg (current $493.66, +8.09% unrealized, market
+value $1,080.92 = ~1.08% of equity). No discrepancy — nothing to log in
+`lessons.md` on the broker-vs-file front.
+
+**Overnight gap check (both positions):** per the 2026-08-04 lesson, pulled
+raw `/v2/positions` directly (not the `quote` snapshot, which can lag
+pre-market) — MSFT current $493.66 vs `lastday_price` $493.95 (-0.06%), SPY
+current $763.26 vs `lastday_price` $765.96 (-0.35%). Both flat, nowhere near
+the 5% overnight-gap notification threshold.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity, restricted to SEC filings / official Microsoft IR, for anything
+new since the last check touching Azure/cloud growth, commercial RPO, AI
+capex, executive changes, or litigation. Found one genuinely new
+primary-source item, and fetched it directly from sec.gov rather than
+trusting Perplexity's summary alone: an **8-K filed 2026-09-02** (Item 7.01,
+Regulation FD, furnished not filed) announcing Microsoft's **FY27
+segment-reporting restructuring** — from three segments (Productivity &
+Business Processes / Intelligent Cloud / More Personal Computing) to two
+(Agents and Infra / Devices and Consumer), effective FY27. Read Exhibit 99.1
+(the investor presentation) directly, not just Perplexity's paraphrase:
+- Azure's revenue-growth metric narrows starting FY27: GitHub cloud/other
+  developer cloud services and Security Copilot move out of Azure into
+  Microsoft 365 cloud; Healthcare and Life Sciences cloud moves out of Azure
+  into the new Industry solutions cloud metric.
+- Under the new, narrower **restated** definition, FY26 Azure growth reads
+  Q1 40%, Q2 39%, Q3 40%, Q4 **42%** (FY 40%) — vs. the **as-reported**
+  figures already on file (Q4 **43%**, the number the thesis cites). The
+  ~1pt gap is a composition/definition effect on numbers already in the
+  books, not a new deceleration data point.
+- **FY27 Q1 outlook, restated:** Azure revenue growth guided at **44-45%
+  CC**, explicitly a "mechanical adjustment only" of the original
+  2026-07-29 guidance (~45% CC under the old, broader definition) —
+  guidance is effectively unchanged and still implies acceleration versus
+  FY26 Q4, not deceleration.
+- Commercial RPO remains a disclosed metric, unaffected by the
+  restructuring per the filing's own metric-changes slide.
+
+**Conclusion: thesis intact, unchanged — if anything mildly reinforced**
+(guidance still implies acceleration). No 10-Q/10-K, no guidance cut, no
+executive change, no litigation item found. **Note for future routines:**
+starting with the FQ1 FY27 print (expected ~2026-10-28), Azure growth will
+be reported under this narrower, restated definition (segment: Agents and
+Infra) — a headline number a point or two below what the old definition
+would have shown is a reporting-scope artifact, not by itself evidence of
+thesis invalidation. Check the FQ1 FY27 print against the 44-45% CC restated
+guidance above, not against the old 43% as-reported figure, when evaluating
+the ~35% invalidation floor. Also noted in `portfolio.md`'s MSFT
+invalidation section so it's visible without digging through this history.
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.84% of equity, headroom to the 5%-per-symbol cap remains exhausted — no
+further SPY buy should be attempted until the human resolves the open
+multi-ticker question (`lessons.md` 2026-08-07, 2026-08-10, escalated
+2026-08-14, put directly to the human 2026-08-21), still unresolved — now
+well over twelve weeks. Per that same lesson, re-evaluating that default is
+the weekly review's job, not this daily research routine's — flagging again
+here rather than re-raising it as a standalone notification today.
+
+**Watchlist candidates:** none open, so no trigger checks applied.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$493.66 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no headroom
+left to buy more of, MSFT's thesis is unchanged (mildly reinforced by the
+guidance data above) with no new catalyst, and no new satellite candidate
+cleared sourcing. **No action planned.** This is a completely normal
+outcome.
+
+**No trade to draft, no thesis broken, no gap >5%, no data-source failure on
+any required check — not notifying, per this routine's own instruction ("if
+you find nothing worth doing... most days should end this way").** The
+segment-reporting 8-K is a genuinely new primary-source item worth recording
+for continuity, but it doesn't meet any of the three notification triggers
+(thesis broken / >5% gap / data-source failure) — logging it here in full
+rather than pinging over it.
+
+---
+
 ## Daily-close reconciliation — 2026-09-08
 
 First real trading session since Thursday 2026-09-03 (weekend plus the

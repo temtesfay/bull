@@ -57,9 +57,26 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Invalidation:** Azure YoY growth decelerates back below ~35% in the
   FQ1 FY27 print, commercial RPO growth reverses meaningfully, or capex
   guidance is cut in a way that reads as AI-monetization doubt rather than
-  discipline.
+  discipline. **Definitional note (2026-09-09):** an 8-K/investor
+  presentation filed 2026-09-02 narrows Azure's revenue definition starting
+  FY27 (GitHub/dev-cloud, Security Copilot, and Healthcare/Life Sciences
+  cloud move out of Azure into other buckets) as part of a segment
+  restructuring (three segments -> two: Agents and Infra / Devices and
+  Consumer). Under the new definition, restated FY26 Q4 Azure growth reads
+  42% vs. the 43% as-reported figure the thesis cites — a ~1pt
+  composition artifact, not a new deceleration signal. FY27 Q1 guidance
+  under the new definition is 44-45% CC, a "mechanical adjustment only" of
+  the original 2026-07-29 guidance (~45% CC old definition) — guidance is
+  effectively unchanged. **When checking the FQ1 FY27 print against the
+  ~35% invalidation floor, compare it to this 44-45% CC restated guidance,
+  not to the old 43% as-reported figure** — a headline number a point or
+  two lower than 43% is expected from the redefinition alone and is not by
+  itself evidence of invalidation. Full detail in `watchlist.md`'s
+  2026-09-09 research-routine entry.
 - **Catalyst:** already happened (FY26 Q4 earnings, reported 2026-07-29);
-  next checkpoint is the FQ1 FY27 print.
+  next checkpoint is the FQ1 FY27 print, now expected to be reported under
+  the new Agents and Infra segment structure per the 2026-09-02 filing
+  above.
 - **Stop:** 10% trailing stop live, order id
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a`, covers 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
