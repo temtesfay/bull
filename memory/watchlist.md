@@ -23,6 +23,101 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-09-10
+
+Research-only routine (no trades permitted this run, per this routine's own
+scope). First run since yesterday's 2026-09-09 daily-close. `clock` confirmed
+`is_open: false` pre-open (checked ~08:36 ET), `next_open`/`next_close` both
+today (2026-09-10, Thursday) — not a holiday, normal session. `git fetch
+origin main` plus comparing `git log origin/main..HEAD` (empty) and `git log
+HEAD..origin/main` (empty) confirmed this branch's HEAD is identical to
+`origin/main` at `723bc68` (yesterday's daily-close commit) — no branch/main
+drift.
+
+**Ground truth (Alpaca):** equity $99,985.29, cash $94,100.00, day change
+-0.02% (-$24.56), `trading_blocked: false`, `new_positions_this_week: 0`.
+Positions match `portfolio.md`'s last snapshot exactly on quantity, avg
+entry, and position count — only normal overnight price drift since
+yesterday's close: SPY qty 6.339623293 @ $772.91 avg (current $759.20,
+-1.77% unrealized, market value $4,813.04 = ~4.81% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $489.70, +7.23% unrealized, market value
+$1,072.25 = ~1.07% of equity). No discrepancy — nothing to log in
+`lessons.md` on the broker-vs-file front.
+
+**Overnight gap check (both positions):** per the 2026-08-04 lesson, pulled
+raw `/v2/positions` directly (not the `quote` snapshot, which can lag
+pre-market) — MSFT current $489.84 vs `lastday_price` $491.65 (-0.37%), SPY
+current $759.01 vs `lastday_price` $762.40 (-0.44%). Both flat, nowhere near
+the 5% overnight-gap notification threshold.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity (`api.perplexity.ai`, model `sonar`) directly via `curl` — no
+dedicated script exists for this (`scripts/` has only `alpaca.py`,
+`guardrails.py`, `notify.py`), so the request was built by hand with the
+system prompt restricting the model to primary sources (SEC filings,
+official Microsoft IR/press releases) — asking specifically whether anything
+new since 2026-09-09 touches Azure/cloud revenue growth, commercial RPO, AI
+capex guidance, executive departures, or litigation. Found one genuinely new
+SEC filing: a **PX14A6G ("Notice of Exempt Solicitation submitted by
+non-management") filed 2026-09-09**. Per the 2026-08-13 lesson (never trust
+a single Perplexity response's claimed recency/content without a targeted
+follow-up), ran a second query asking specifically what this filing type is
+and who submitted it, rather than treating the first summary as fact. The
+follow-up confirmed: PX14A6G is the standard SEC form for non-management
+shareholder communications relating to proxy voting (exempt solicitation
+notices, typically ESG/governance shareholder proposals — e.g. the specific
+example Perplexity surfaced from Microsoft's filing history was a prior
+submission by Investor Advocates for Social Justice on human-rights due
+diligence). **It is not an operational/financial disclosure and does not
+touch Azure/cloud growth, RPO, capex, executive changes, or litigation** —
+could not fetch the filing itself directly (SEC EDGAR remains network-blocked
+per the 2026-07-30/08-17 lessons), but the filing *type* alone (PX14A6G) is
+definitionally a proxy-solicitation notice, not an 8-K/10-Q operational item,
+so no further verification was needed to rule it out as thesis-relevant. No
+other new primary-source item found (no new 8-K/10-Q/10-K, no guidance
+change, no executive departure, no litigation item). **Conclusion: thesis
+intact, unchanged.** Same conclusion as every recent check — nothing new on
+Azure/RPO/capex since the 2026-09-02 segment-restructuring 8-K already
+logged in `portfolio.md`'s invalidation note.
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.81% of equity, headroom to the 5%-per-symbol cap remains exhausted — no
+further SPY buy should be attempted until the human resolves the open
+multi-ticker question (`lessons.md` 2026-08-07, 2026-08-10, escalated
+2026-08-14, put directly to the human 2026-08-21), still unresolved — now
+well over thirteen weeks. Per that same lesson, re-evaluating that default
+(the sixth weekly review's 2026-09-04 proposal: treat continued silence
+through the *seventh* weekly review as an implicit "leave the core capped at
+~5% in SPY alone") is the weekly review's job, not this daily research
+routine's — flagging again here rather than re-raising it as a standalone
+notification today.
+
+**Watchlist candidates:** none open, so no trigger checks applied. The
+non-Microsoft primary-source network block remains considered settled
+(18/18 domains tested, `lessons.md` 2026-08-17) — no further probing planned
+unless the environment changes.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$489.70 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no headroom
+left to buy more of, MSFT's thesis is unchanged with no new catalyst, and no
+new satellite candidate cleared sourcing. **No action planned.** This is a
+completely normal outcome.
+
+**No trade to draft, no thesis broken, no gap >5%, no data-source failure on
+any required check — not notifying, per this routine's own instruction ("if
+you find nothing worth doing... most days should end this way").** The
+PX14A6G filing is logged here for continuity (it was genuinely new since the
+last check) but doesn't meet any of the three notification triggers (thesis
+broken / >5% gap / data-source failure).
+
+---
+
 ## Daily-close reconciliation — 2026-09-09
 
 See `portfolio.md`'s 2026-09-09 daily-close entry for the full writeup. No
