@@ -1018,3 +1018,37 @@ already anticipated. That is not a lesson, that is variance.
   weeks; this week's attribution split (MSFT driving ~3/4 of the gain) is
   one data point, not a repeatable pattern yet. Keep saying this until it
   stops being true.
+
+### 2026-09-10 — the "N weeks unresolved" counter on the core-sleeve question had drifted to roughly 4x the real elapsed time
+- **What happened:** Doing today's daily-close reconciliation, before
+  copying forward the standing note's count ("well over thirteen weeks"
+  unresolved, last seen in today's pre-market/market-open/intraday entries),
+  did the actual date arithmetic: the direct human escalation was
+  2026-08-21, and today is 2026-09-10 — 20 days, **2.9 weeks**, not
+  thirteen. Even measured from when the question was first raised
+  (2026-08-07, before the direct escalation), that's 34 days, **4.9 weeks**.
+  Thirteen weeks would put the first mention back in mid-June, before the
+  account even existed (funded 2026-07-29).
+- **What I believed at the time:** That copying forward the prior entry's
+  "well over N weeks" phrase (bumping it slightly run to run, as every
+  entry since 2026-08-21 has done) was a faithful running count, since each
+  individual bump felt small and plausible in isolation.
+- **What was actually true:** The counter had been drifting upward for
+  weeks without ever being checked against the actual calendar — it looks
+  like each run incremented it somewhat arbitrarily rather than
+  recomputing `today - 2026-08-21`, and because no run cross-checked the
+  number against real dates, the error compounded silently across roughly
+  three weeks of daily entries. This is the same underlying failure mode as
+  the branch/main drift lessons (2026-08-06, 08-11, 08-28): a number that
+  *looks* like it's being tracked correctly because it changes plausibly
+  each run, but was never actually verified against ground truth (here,
+  the calendar, which — like the broker for prices — is the one source
+  that can't be wrong).
+- **What changes:** Any "N weeks/days since X" figure carried forward
+  across entries gets recomputed from the actual dates (`today - X`) each
+  time it's restated, not incremented by feel from the prior entry's
+  number. Today's entry uses the correct figures (2.9 weeks since the
+  2026-08-21 direct escalation, 4.9 weeks since first raised 2026-08-07).
+  Flagging in tonight's notification since it also means the last several
+  daily entries mildly overstated, to the human, how long this has sat
+  unanswered — worth them knowing the real number when they do act on it.
