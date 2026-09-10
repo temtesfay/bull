@@ -23,6 +23,69 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-09-10 ~13:08 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. `clock` confirms `is_open: true` (`next_close` today
+16:00 ET, `next_open` 2026-09-11, `timestamp` ~13:08:53 ET). `git fetch
+origin main` confirmed this branch's HEAD matched `origin/main` exactly at
+`0a4bc34` (this morning's market-open commit) before this run made any
+changes — no branch/main drift.
+
+**Circuit breaker check:** `alpaca.py account` — equity $99,992.45, cash
+$94,100.00, day change -0.02% (-$17.40), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal.
+
+**Ground truth (Alpaca):** two open positions — SPY (qty 6.339623293, avg
+entry $772.91, current $758.94, market value $4,811.39, -1.81% unrealized =
+~4.81% of equity) and MSFT (qty 2.189599299, avg entry $456.70, current
+$493.73, market value $1,081.06, +8.11% unrealized = ~1.08% of equity). No
+discrepancy vs `portfolio.md`'s last snapshot — only normal intraday price
+drift.
+
+**Sell-rule check, in order, on both positions:**
+- **Thesis broken?** MSFT is the only thesis-bearing position (SPY is a core
+  allocation buy, exempt). Ran an unrestricted `WebSearch` scoped to
+  `microsoft.com`/`news.microsoft.com`/`azure.microsoft.com` for Azure/cloud
+  news. Results were routine product/partner announcements only —
+  "Building Africa's AI future" AI initiative, GitHub Copilot model
+  orchestration (HydraFusion), Fireworks AI preview on Microsoft Foundry,
+  Claude Fable 5 availability on Foundry, a new Frontier Accelerate for
+  Marketplace offering, and the previously-known Azure Virtual Desktop
+  (classic) end-of-support timeline. No new 8-K/10-Q/10-K, no guidance
+  change, no executive departure, no litigation item, nothing touching
+  Azure/cloud revenue growth or commercial RPO. **No genuinely new
+  primary-source item. Thesis intact, unchanged** — consistent with this
+  morning's pre-market Perplexity check (which also found nothing beyond the
+  already-logged PX14A6G proxy-solicitation filing, ruled non-thesis-relevant).
+- **Down 7% with no thesis-consistent explanation?** No — MSFT is up 8.11%
+  from entry, not down.
+- **Down 15%?** No.
+- **Position above 5% of equity?** No — SPY ~4.81%, MSFT ~1.08%, both under
+  the cap.
+
+No sell trigger fires on either position. No trim, no exit.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$493.73 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption).
+
+Watchlist remains empty — this routine's scope is risk reduction only, not
+origination, so no new candidate was sourced or added even though nothing
+attractive surfaced anyway. No trades placed, no orders rejected, no memory
+drift found. Standing open question (core-sleeve multi-ticker
+diversification, escalated to the human 2026-08-21) remains unresolved, now
+well over thirteen weeks — re-escalating it is the weekly review's job, not
+this intraday routine's.
+
+Per the scheduled task's own instruction, not notifying — no trade placed,
+no rejection, no thesis break, no data-source failure, nothing to report.
+
+---
+
 ## Plan for today — 2026-09-10
 
 Research-only routine (no trades permitted this run, per this routine's own
