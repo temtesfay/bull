@@ -1,7 +1,8 @@
 # Portfolio
 
-Last updated: 2026-09-09 daily-close reconciliation — no discrepancy vs
-Alpaca, no trades placed by any routine today.
+Last updated: 2026-09-10 ~13:08 ET intraday risk-reduction check — no
+discrepancy vs Alpaca, no sell trigger fired, no trades placed by any
+routine today.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -12,7 +13,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,011.82 |
+| Equity | $99,992.45 |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -35,10 +36,10 @@ trust Alpaca, fix this file, and log why they drifted.
 - **Stop:** none — `strategy.md` explicitly exempts core index-ETF
   holdings from trailing stops ("the whole point of ballast is that it
   doesn't get shaken out").
-- **Status:** on track. Market value $4,834.53 (current $762.59 vs $772.91
-  blended entry, -1.33% unrealized) as of 2026-09-09 daily-close.
-  **Headroom to the 5%-per-symbol cap remains exhausted**
-  (~4.88% of equity, under the cap so no trim triggered) — no further SPY
+- **Status:** on track. Market value $4,811.39 (current $758.94 vs $772.91
+  blended entry, -1.81% unrealized) as of 2026-09-10 ~13:08 ET intraday
+  check. **Headroom to the 5%-per-symbol cap remains exhausted**
+  (~4.81% of equity, under the cap so no trim triggered) — no further SPY
   buy should be attempted until the human resolves the open multi-ticker
   question (see `lessons.md` 2026-08-07, 2026-08-10, escalated 2026-08-14,
   put directly to the human 2026-08-21). Reaching the ~25% core target from
@@ -83,14 +84,16 @@ trust Alpaca, fix this file, and log why they drifted.
   open`: status `new`, hwm $517.78, stop price $466.002 — unchanged since
   2026-08-28 (current price $497.25 remains below the hwm, so no new high
   to ratchet the stop up on).
-- **Status:** on track — up 7.73% unrealized ($492.00 vs $456.70 entry, per
-  Alpaca `positions`) as of 2026-09-09 daily-close. Market value
-  $1,077.28 = ~1.08% of equity, well inside the 5%-of-equity trim
-  threshold. No sell trigger fires: not thesis-broken, not down 7%, not
+- **Status:** on track — up 8.11% unrealized ($493.73 vs $456.70 entry, per
+  Alpaca `positions`) as of 2026-09-10 ~13:08 ET intraday check. Market value
+  $1,081.06 = ~1.08% of equity, well inside the 5%-of-equity trim
+  threshold. No sell trigger fires: news-checked via `WebSearch` and thesis
+  intact (only routine Azure/Foundry product announcements found, nothing
+  touching cloud revenue growth or commercial RPO), not down 7%, not
   down 15%, not above 5% of equity. Trailing stop
   (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) reconfirmed live via
   `orders --status open`: status `new`, hwm $517.78, stop price $466.002
-  — unchanged since 2026-08-28 (current price $492.00 remains below the
+  — unchanged since 2026-08-28 (current price $493.73 remains below the
   hwm, so no new high to ratchet the stop up on).
 
 Format for each position, one block:
