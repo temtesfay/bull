@@ -1052,3 +1052,109 @@ already anticipated. That is not a lesson, that is variance.
   Flagging in tonight's notification since it also means the last several
   daily entries mildly overstated, to the human, how long this has sat
   unanswered — worth them knowing the real number when they do act on it.
+
+### 2026-09-11 — Seventh weekly review: cleanest operational week yet, but applying the self-committed core-sleeve default is a resolution to the nagging, not to the strategy gap it was covering for
+- **Performance this week (2026-09-04 close $100,074.07/SPY $770.18 ->
+  2026-09-11 close $100,029.88/SPY $764.14, re-verified fresh via
+  `alpaca.py account`/`positions`/`quote SPY` for this review — live equity
+  $100,031.24 at review time, within rounding of the committed daily-close
+  figure):** portfolio **-0.04%** vs SPY **-0.78%**, delta **+0.74pp** — a
+  losing week for both the portfolio and the index. Since inception
+  (2026-07-29, $100,000 / SPY $729.57), reported more prominently per this
+  routine's own instruction because one week is noise: portfolio **+0.03%**
+  ($100,000 -> $100,029.88) vs SPY **+4.74%** (729.57 -> 764.14), delta
+  **-4.71pp** — essentially unchanged from -5.50pp three weeks back, moving
+  only in a narrow band for six-plus weeks. The since-inception number is the
+  one that matters and it still hasn't moved meaningfully: this remains a
+  cash-drag story, not a verdict on stock-picking.
+- **Attribution:** by weight at the start of the week (SPY ~4.88% of equity,
+  MSFT ~1.09%, cash ~94.03%): SPY's own -0.78% weekly move contributed
+  roughly -0.038pp; MSFT's -0.88% weekly move (499.70 -> 495.30) contributed
+  roughly -0.010pp — those two sum to about -0.048pp, close to the actual
+  -0.04% observed, cash contributing nothing as always. Per this routine's own
+  test, applied in reverse this week: SPY fell 0.78% and the portfolio fell
+  only 0.04% — that is **not** evidence of good picking. It is a smaller book
+  of both positions declining, cushioned almost entirely by the ~94% that
+  isn't exposed to the market at all. If anything this week's one real
+  stock-specific data point cuts slightly against the pick: MSFT
+  underperformed SPY on its own weekly price move (-0.88% vs -0.78%), even
+  though it remains up +8.45% since its 2026-07-31 entry. Reporting this
+  plainly rather than folding it into "cash cushion" language, per the
+  09-04 review's own standard.
+- **Process audit:** Strategy was followed, not improvised — zero trades this
+  week (none since 2026-08-12, six weeks of no-op wakes with nothing forced),
+  zero guardrail rejections this week and zero in the account's entire life
+  (5 of 5 orders filled clean). No position held past invalidation — MSFT's
+  thesis was re-verified against Microsoft's own primary sources on every
+  pre-market and intraday wake this week (including a fresh check against the
+  2026-09-02 segment-restructuring 8-K) and stayed intact each time; SPY has
+  no thesis to break. Branch/main drift: checked explicitly for this review
+  (`git fetch origin main`, `git log origin/main..HEAD` / `HEAD..origin/main`
+  both empty) and confirmed clean — the **second** consecutive clean week
+  since the 2026-08-28 structural fix, real evidence the ancestor-check
+  discipline is holding under sustained use, not a one-time fluke.
+  Daily-close coverage: complete for every trading day this week (09-04,
+  09-08 through 09-11; 09-07 correctly treated as a holiday with no session,
+  not a coverage gap) — no repeat of the 2026-08-14 missed-routine failure.
+  **The one deliberate, and debatable, action this review took:** the 09-04
+  review proposed a concrete default — if the multi-ticker core-sleeve
+  question (open since 2026-08-07, escalated directly 2026-08-21) went
+  unanswered through this, the seventh, weekly review, treat that silence as
+  an implicit "leave the core capped at ~5% in SPY alone" and stop
+  re-raising it as an open question in daily/weekly routines. No human
+  answer appears anywhere in the repository since the last review. Per that
+  pre-committed plan, this review is now applying the default: `portfolio.md`
+  is being updated to state the core sleeve is settled at ~5% (SPY only)
+  by default rather than "awaiting human resolution," and future daily/
+  pre-market routines should stop carrying the open-question language
+  forward. This closes a loop that four consecutive prior reviews (08-14
+  through 09-04) criticized for staying open in prose without ever being
+  acted on — a genuine follow-through this time. **But it is worth being
+  honest about what this actually is:** it is not a resolution of the
+  underlying gap, it is a decision to stop asking about it. `strategy.md`
+  still calls for a 10-40% core (target ~25%); this review is locking the
+  core at ~5% by Bull's own unilateral default, not by a human decision,
+  because no human decision arrived. That is a materially different thing
+  from "the human decided 5% is fine," and the notification for this review
+  says so plainly rather than letting a closed lessons.md thread read as
+  closure of the actual question.
+- **Honest grade — B+:** graded on process, not P&L, held at the same letter
+  as last review rather than raised, for a specific reason: trading
+  discipline is again flawless (no violations, no unforced trades, correct
+  thesis re-verification), the branch-drift fix held for a second straight
+  week, and daily-close coverage was complete — all genuine, and closing the
+  self-correction loop on the core-sleeve question via actual follow-through
+  (rather than a fifth lessons.md entry that changes nothing) is real
+  progress on exactly the failure named in the 08-21 and 08-28 reviews. Not
+  raised to an A because six-plus weeks into a 12-month strategy, the account
+  is still ~94% cash with two positions, one of which (MSFT) is the only
+  satellite this strategy has ever sourced — the entire "large-cap tech/
+  growth circle of competence" the strategy is built around has been tested
+  exactly once, because every other primary-source domain has been
+  network-blocked since before the account's second trading day. Applying a
+  default that locks the core sleeve below its stated floor, on Bull's own
+  authority, in the absence of a human answer, resolves the symptom
+  (recurring nag) without resolving — or even squarely naming loudly enough
+  before now — the actual underlying question: is this still a meaningful
+  test of the strategy `strategy.md` describes, or a test of a much smaller,
+  accidental strategy (one stock, cash-heavy) that nobody actually chose.
+- **Proposed changes (not made — human decides):** (1) The default now being
+  applied is reversible at any time — if the human wants a second core
+  ticker (VTI, IVV, etc.) or a guardrail carve-out instead, say so and this
+  review's default is overridden immediately, no different from any other
+  strategy.md change. (2) Restating more bluntly than before: the paper-money
+  proving period in `strategy.md` ("1-3 months... across a complete
+  month-end close cycle") is accumulating calendar time without accumulating
+  much evidence about the strategy's actual thesis-driven satellite
+  stock-picking, because sourcing has been structurally blocked almost the
+  entire time. Worth the human deciding explicitly whether the network
+  policy itself should be revisited (even a narrow allowlist for a handful
+  of major IR domains) before too much of the proving-period clock passes
+  under conditions that don't really exercise what the strategy is supposed
+  to be tested on.
+- **Sample size:** 7 weekly reviews completed since inception (2026-07-29),
+  about 6.3 weeks. Nowhere near the 26-week bar for distinguishing process
+  from luck. MSFT's own since-entry figure (one name, six weeks, up ~8.45%)
+  remains one data point; this week's underperformance of SPY on its own
+  price move is another single data point in the other direction. Keep
+  saying this until it stops being true.

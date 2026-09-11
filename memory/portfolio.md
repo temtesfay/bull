@@ -1,8 +1,12 @@
 # Portfolio
 
-Last updated: 2026-09-11 ~16:16 ET daily-close (markets-closed reconciliation)
-— no discrepancy vs Alpaca, no trades placed by any routine today. See
-daily-close entry below for detail.
+Last updated: 2026-09-11 (seventh weekly review, following the ~16:16 ET
+daily-close). No discrepancy vs Alpaca, no trades placed by any routine
+today. Week: portfolio -0.04% vs SPY -0.78% (delta +0.74pp, a cash-cushion
+effect on a down week for both, not stock-picking). Since inception:
+portfolio +0.03% vs SPY +4.74% (delta -4.71%). Full review in
+`lessons.md` 2026-09-11 — includes applying the core-sleeve default (see
+SPY position note below). See daily-close entry below for other detail.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
@@ -38,17 +42,21 @@ trust Alpaca, fix this file, and log why they drifted.
   doesn't get shaken out").
 - **Status:** on track. Market value $4,845.37 (current $764.30 vs $772.91
   blended entry, -1.11% unrealized) as of 2026-09-11 ~16:16 ET daily-close.
-  **Headroom to the 5%-per-symbol cap remains exhausted**
-  (~4.84% of equity, under the cap so no trim triggered) — no further SPY
-  buy should be attempted until the human resolves the open multi-ticker
-  question (see `lessons.md` 2026-08-07, 2026-08-10, escalated 2026-08-14,
-  put directly to the human 2026-08-21). Reaching the ~25% core target from
-  here requires a distinct second index ticker (VTI, IVV, etc.) or explicit
-  human guidance to raise/carve out the per-symbol cap for core holdings —
-  still unanswered, now **3.0 weeks** unresolved since the direct
-  2026-08-21 escalation (**5.0 weeks** since first raised 2026-08-07),
-  recomputed from actual dates per the 2026-09-10 lesson rather than
-  incremented by feel.
+  **Headroom to the 5%-per-symbol cap remains exhausted** (~4.84% of
+  equity, under the cap so no trim triggered). **Core sleeve now settled at
+  ~5% (SPY only) by default, per the seventh weekly review
+  (`lessons.md` 2026-09-11):** the multi-ticker core-diversification
+  question sat unanswered from 2026-08-07 (escalated directly 2026-08-21)
+  through the seventh weekly review without a human response, and the sixth
+  review (2026-09-04) had pre-committed to treating continued silence
+  through the seventh as an implicit "leave the core capped at ~5% in SPY
+  alone." That default is now applied — **do not re-raise this as an open
+  blocking question in daily/pre-market routines going forward.** This is
+  a Bull-side default under continued silence, not a human decision — it
+  is reversible at any time the human says otherwise (a second core ticker,
+  or a guardrail carve-out, would override it immediately). Full reasoning
+  and the honest caveat that this resolves the nagging, not the underlying
+  ~25%-target-vs-5%-actual gap, is in the 2026-09-11 lessons.md entry.
 
 ### MSFT — 1.11% of equity
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
