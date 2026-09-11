@@ -23,6 +23,82 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-09-11
+
+Research-only routine (no trades permitted this run, per this routine's own
+scope). First run since yesterday's 2026-09-10 daily-close. `clock` confirmed
+`is_open: false` pre-open (checked ~08:36 ET), `next_open`/`next_close` both
+today (2026-09-11, Friday) — not a holiday, normal session. `git fetch origin
+main` confirmed this branch's HEAD is identical to `origin/main` at `85697ab`
+(yesterday's daily-close merge) — `git log origin/main..HEAD` and `git log
+HEAD..origin/main` both empty, no branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,024.00, cash $94,100.00, day change
++0.04% (+$41.40), `trading_blocked: false`, `new_positions_this_week: 0`.
+Positions match `portfolio.md`'s last snapshot exactly on quantity and avg
+entry — only normal overnight price drift since yesterday's close: SPY qty
+6.339623293 @ $772.91 avg (current $762.94, -1.29% unrealized, market value
+$4,836.75 = ~4.84% of equity), MSFT qty 2.189599299 @ $456.70 avg (current
+$496.55, +8.73% unrealized, market value $1,087.25 = ~1.09% of equity). No
+discrepancy — nothing to log in `lessons.md` on the broker-vs-file front.
+
+**Overnight gap check (both positions):** per the 2026-08-04 lesson, pulled
+raw `/v2/positions` directly (not the `quote` snapshot, which can lag
+pre-market) — MSFT current $496.11 vs `lastday_price` $492.44 (+0.75%), SPY
+current $763.03 vs `lastday_price` $757.83 (+0.69%). Both flat, nowhere near
+the 5% overnight-gap notification threshold.
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity (`api.perplexity.ai`, model `sonar`) directly via `curl`, system
+prompt restricted to primary sources (SEC filings, official Microsoft
+IR/press releases) — asked specifically whether anything new since
+2026-09-09 touches Azure/cloud revenue growth, commercial RPO growth, AI
+capex guidance, executive departures, or material litigation. Result: **no
+new SEC filing or IR/press release found** addressing any of those
+categories. The only new item since 09-09 in Microsoft's own newsroom is a
+September 9 "Source" post on a National AI Safety & Privacy Standard for
+schools (AFT/UFT partnership) — unrelated to the financial/operational
+thesis, not logged as a watchlist item. The 2026-09-02 segment-restructuring
+8-K (Azure revenue definition change, GitHub/dev-cloud moving to M365) is
+already fully accounted for in `portfolio.md`'s invalidation note; nothing
+new supersedes it. **Conclusion: thesis intact, unchanged.**
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.84% of equity, headroom to the 5%-per-symbol cap remains exhausted — no
+further SPY buy should be attempted until the human resolves the open
+multi-ticker question. Recomputing the elapsed time from actual dates per
+the 2026-09-10 `lessons.md` correction (do not carry forward a bumped
+counter): **3.0 weeks** since the direct escalation (2026-08-21 → 2026-09-11
+= 21 days), **5.0 weeks** since first raised (2026-08-07 → 2026-09-11 = 35
+days). Re-evaluating the sixth weekly review's proposed default (treat
+continued silence through the seventh weekly review as implicit "leave the
+core capped at ~5% in SPY alone") is that review's job, not this daily
+research routine's — flagging again here rather than re-raising it as a
+standalone notification today.
+
+**Watchlist candidates:** none open, so no trigger checks applied. The
+non-Microsoft primary-source network block remains considered settled
+(18/18 domains tested, `lessons.md` 2026-08-17) — no further probing planned
+unless the environment changes.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$496.55 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no headroom
+left to buy more of, MSFT's thesis is unchanged with no new catalyst, and no
+new satellite candidate cleared sourcing. **No action planned.** This is a
+completely normal outcome.
+
+**No trade to draft, no thesis broken, no gap >5%, no data-source failure on
+any required check — not notifying, per this routine's own instruction ("if
+you find nothing worth doing... most days should end this way").**
+
+---
+
 ## Intraday risk-reduction check — 2026-09-10 ~13:08 ET
 
 This routine only reduces risk — no new positions permitted regardless of
