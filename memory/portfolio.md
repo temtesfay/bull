@@ -1,8 +1,9 @@
 # Portfolio
 
-Last updated: 2026-09-10 ~16:16 ET daily-close reconciliation — no
+Last updated: 2026-09-11 ~13:09 ET intraday risk-reduction check — no
 discrepancy vs Alpaca, no sell trigger fired, no trades placed by any
-routine today.
+routine today. See `watchlist.md`'s 2026-09-11 intraday entry for detail;
+prior daily-close entries below are otherwise unchanged from 2026-09-10.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
