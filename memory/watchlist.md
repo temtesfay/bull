@@ -140,6 +140,67 @@ nothing"), not notifying — no trade placed, no rejection, nothing to report.
 
 ---
 
+## Intraday risk-reduction check — 2026-09-11 ~13:09 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. `clock` confirms `is_open: true` (`next_close` today
+16:00 ET, `next_open` 2026-09-14, `timestamp` ~13:09:48 ET). `git fetch
+origin main` plus `git merge-base --is-ancestor HEAD origin/main` found this
+branch's HEAD was an ancestor of, but behind, `origin/main` (origin at
+`9d3e017`, this morning's market-open commit) — fast-forwarded with `git
+merge origin/main --ff-only` before making any changes. No conflicting local
+work existed; this was a routine catch-up, not a drift.
+
+**Circuit breaker check:** `alpaca.py account` — equity $100,037.68, cash
+$94,100.00, day change +0.06% (+$55.08), `trading_blocked: false`. Nowhere
+near the 3% circuit breaker — no halt, sell rules proceed as normal.
+
+**Ground truth (Alpaca):** two open positions — SPY (qty 6.339623293, avg
+entry $772.91, current $765.72, market value $4,854.38, -0.93% unrealized =
+~4.85% of equity) and MSFT (qty 2.189599299, avg entry $456.70, current
+$494.75, market value $1,083.30, +8.33% unrealized = ~1.08% of equity). No
+discrepancy vs `portfolio.md`'s last snapshot on quantity, avg entry, or
+position count — only normal intraday price drift since this morning's
+market-open check. Nothing to log in `lessons.md` on the broker-vs-file
+front.
+
+**Sell-rule checks (`strategy.md`, in order):**
+1. *Thesis broken?* Re-queried Perplexity (`sonar` model, primary-sources-only
+   system prompt) for anything new since this morning's 08:40 ET pre-market
+   check touching Azure/cloud revenue growth, commercial RPO growth, AI
+   capex guidance, executive departures, or material litigation. Result: no
+   new SEC filing or official IR/press release found on any of those
+   categories since this morning. Thesis intact, unchanged — no exit
+   triggered. SPY has no thesis to break (core-sleeve exemption).
+2. *Down 7% with no thesis-consistent explanation?* No. MSFT is up 8.33%;
+   SPY is -0.93%. Neither near the threshold.
+3. *Down 15%?* No.
+4. *Above 5% of equity?* No. SPY ~4.85%, MSFT ~1.08%, both under the cap.
+
+No sell trigger fired. No trades placed, none rejected.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$494.75 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption).
+
+Same standing open question as every recent run remains outstanding: the
+multi-ticker-diversification question for the core sleeve (`lessons.md`
+2026-08-07, 2026-08-10, escalated 2026-08-14, put directly to the human
+2026-08-21), still unresolved. Re-escalating it is the weekly review's job,
+not this intraday routine's — not repeating the elapsed-time figure here
+since nothing has changed since this morning's recomputed numbers.
+
+Per this routine's own scope ("you may not open a new position here"), no
+new candidate was evaluated for a position even though none is open on the
+watchlist regardless. Per the scheduled task's own instruction, not
+notifying — no sell trigger, no rejection, no data-source failure, nothing
+to report.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-10 ~13:08 ET
 
 This routine only reduces risk — no new positions permitted regardless of
