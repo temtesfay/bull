@@ -96,6 +96,56 @@ you find nothing worth doing... most days should end this way").**
 
 ---
 
+## Market-open execution check — 2026-09-14
+
+Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
+today 16:00 ET, `next_open` 2026-09-15, `timestamp` ~09:47:03 ET, past the
+first-15-minute no-trade window — market opened 09:30 ET). Today's plan
+(above, dated 2026-09-14) is dated today, so it's not stale — and it
+explicitly says "No action planned": SPY has no headroom left under the
+5%-per-symbol cap, MSFT's thesis is unchanged with no new catalyst, and no
+new satellite candidate cleared sourcing. Steps 3-6 of the market-open
+routine were no-ops by design, not a skip — there was no planned entry to
+re-verify prices against, so the "moved >3%" check doesn't apply to anything.
+
+Before doing anything else, checked `origin/main` against this session's
+starting branch: a first `git fetch origin main claude/magical-rubin-1j7zsn`
+failed on the (nonexistent, not-yet-pushed) branch ref and left the local
+`origin/main` tracking ref stale at `ca352c6` (6 trading days / 23 commits
+behind) — this looked exactly like the recurring branch/main drift failure
+from `lessons.md` (2026-08-06, 08-11, 08-28). Pushing this branch and
+attempting a catch-up PR (`create_pull_request`) immediately returned "No
+commits between main and claude/magical-rubin-1j7zsn" — a plain `git fetch
+origin main` (without the failing second ref) confirmed `origin/main` was
+actually already at `3392b5f`, identical to local HEAD. False alarm caused
+by the combined fetch's stale ref, not a real drift; no PR was needed. Noted
+here rather than in `lessons.md` since it didn't reflect an actual process
+failure — worth remembering that a fetch command naming a second, possibly
+nonexistent ref can leave other refs in that same command stale on failure.
+
+Re-verified ground truth via Alpaca: equity $100,006.98, cash $94,100.00, day
+change -0.02% (-$23.56), `trading_blocked: false`, `new_positions_this_week: 0`.
+Positions: SPY qty 6.339623293 @ $772.91 avg (current $759.79, -1.70%
+unrealized, market value $4,816.81 = ~4.82% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $497.87, +9.01% unrealized, market value
+$1,090.14 = ~1.09% of equity). No discrepancy vs `portfolio.md`. `orders
+--status open` confirms the MSFT trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$497.87 remains below the hwm, so no new high to ratchet the stop up on).
+SPY carries no stop by design (core index-ETF exemption).
+
+No trades placed, no orders rejected. Same standing open question as every
+recent run: the multi-ticker-diversification question for the core sleeve is
+now resolved to a Bull-side default (core capped at ~5% in SPY alone under
+continued silence, applied at the seventh weekly review, `lessons.md`
+2026-09-11) — not re-raising it.
+
+Per the scheduled task's own instruction ("If nothing happened, send
+nothing"), not notifying — no trade placed, no rejection, nothing to report.
+
+---
+
 ## Plan for today — 2026-09-11
 
 Research-only routine (no trades permitted this run, per this routine's own
