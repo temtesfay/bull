@@ -23,6 +23,79 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Plan for today — 2026-09-14
+
+Research-only routine (no trades permitted this run, per this routine's own
+scope). First run since 2026-09-11's seventh weekly review/daily-close.
+`clock` confirmed `is_open: false` pre-open (checked ~08:36 ET),
+`next_open`/`next_close` both today (2026-09-14, Monday, 09:30/16:00 ET) —
+not a holiday, just pre-market. `git fetch origin main` confirmed this
+branch's HEAD is identical to `origin/main` at `7dd6cd0` (the 09-11 weekly
+review merge) — `git log origin/main..HEAD` and `git log HEAD..origin/main`
+both empty, no branch/main drift.
+
+**Ground truth (Alpaca):** equity $99,998.78, cash $94,100.00, day change
+-0.03% (-$31.76), `trading_blocked: false`, `new_positions_this_week: 0`.
+Positions match `portfolio.md`'s last snapshot exactly on quantity and avg
+entry — only normal weekend price drift since Friday's close: SPY qty
+6.339623293 @ $772.91 avg (current $758.32, -1.89% unrealized, market value
+$4,807.46 = ~4.81% of equity), MSFT qty 2.189599299 @ $456.70 avg (current
+$498.41, +9.13% unrealized, market value $1,091.32 = ~1.09% of equity). No
+discrepancy — nothing to log in `lessons.md` on the broker-vs-file front.
+
+**Overnight gap check (both positions):** comparing against Friday
+2026-09-11's logged close (SPY $764.30, MSFT $495.30): SPY $758.32 is
+-0.78%, MSFT $498.41 is +0.63% over the weekend. Both flat, nowhere near
+the 5% overnight-gap notification threshold. (`quote`'s snapshot feed was
+still showing Friday's own prev_close/last pair pre-market, per the
+2026-08-04 lesson — used `positions[].current` instead, which is fresher.)
+
+**Position thesis check (MSFT, the only satellite position):** queried
+Perplexity (`api.perplexity.ai`, model `sonar`) directly via `curl`, system
+prompt restricted to primary sources (SEC filings, official Microsoft
+IR/press releases) — asked specifically whether anything new between
+2026-09-11 and today touches Azure/cloud revenue growth, commercial RPO
+growth, AI capex guidance, executive departures, or material litigation.
+Result: **no new SEC filing or IR/press release found** in that window. The
+one citation that looked new on first pass (a SEC EDGAR exhibit,
+accession 0001193125-26-380280) was checked with a targeted follow-up query
+per the 2026-08-13 lesson (never trust a recency claim without verifying the
+actual filing date/Item) — it resolved to the same 2026-09-02 segment-
+restructuring 8-K (Item 7.01/9.01, "FY27 Segments and Investor Metrics"
+presentation) already fully accounted for in `portfolio.md`'s invalidation
+note. Nothing new supersedes it. **Conclusion: thesis intact, unchanged.**
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.81% of equity. Per the seventh weekly review's applied default
+(`lessons.md` 2026-09-11, `portfolio.md`), the core sleeve is now settled at
+~5% (SPY only) by default under continued human silence — not re-raising
+this as an open blocking question going forward, per that review's explicit
+instruction.
+
+**Watchlist candidates:** none open, so no trigger checks applied. The
+non-Microsoft primary-source network block remains considered settled
+(18/18 domains tested, `lessons.md` 2026-08-17) — no further probing planned
+unless the environment changes.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$498.41 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no headroom
+left to buy more of (and the core sleeve is now settled at ~5% by default,
+not awaiting further resolution), MSFT's thesis is unchanged with no new
+catalyst, and no new satellite candidate cleared sourcing. **No action
+planned.** This is a completely normal outcome.
+
+**No trade to draft, no thesis broken, no gap >5%, no data-source failure on
+any required check — not notifying, per this routine's own instruction ("if
+you find nothing worth doing... most days should end this way").**
+
+---
+
 ## Plan for today — 2026-09-11
 
 Research-only routine (no trades permitted this run, per this routine's own
