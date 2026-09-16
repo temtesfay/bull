@@ -23,6 +23,50 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Market-open execution check — 2026-09-16
+
+Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
+today 16:00 ET, `next_open` 2026-09-17, `timestamp` ~09:45:51 ET, past the
+first-15-minute no-trade window — market opened 09:30 ET). Today's plan
+(below, dated 2026-09-16) is dated today, so it's not stale — and it
+explicitly says "No action planned": SPY has no headroom left under the
+5%-per-symbol cap (and the core sleeve is settled at ~5% by default per the
+seventh weekly review), MSFT's thesis is unchanged with no new catalyst, and
+no new satellite candidate cleared sourcing (network block still
+settled/exhaustive). Steps 3-6 of the market-open routine were no-ops by
+design, not a skip — there was no planned entry to re-verify prices against,
+so the "moved >3%" check doesn't apply to anything.
+
+`git fetch origin main` confirmed this branch's HEAD was already identical to
+`origin/main` at `1938580` (2026-09-15's daily-close merge) — `git log
+origin/main..HEAD` and `HEAD..origin/main` both empty, no branch/main drift.
+
+Re-verified ground truth via Alpaca: equity $99,997.09, cash $94,100.00, day
+change +0.01% (+$7.03), `trading_blocked: false`, `new_positions_this_week: 0`.
+Positions: SPY qty 6.339623293 @ $772.91 avg (current $759.53, -1.73%
+unrealized, market value $4,815.17 = ~4.82% of equity), MSFT qty
+2.189599299 @ $456.70 avg (current $494.12, +8.19% unrealized, market value
+$1,081.92 = ~1.08% of equity). Both match `portfolio.md`'s last snapshot
+exactly on quantity and avg entry — only normal intraday price drift since
+this morning's pre-market check, nowhere near the 3% moved-since-plan
+threshold (there was no planned entry regardless). No discrepancy.
+`orders --status open` confirms the MSFT trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$494.12 remains below the hwm, so no new high to ratchet the stop up on).
+SPY carries no stop by design (core index-ETF exemption).
+
+No trades placed, no orders rejected. Same standing open question as every
+recent run: the multi-ticker-diversification question for the core sleeve
+remains resolved to a Bull-side default (core capped at ~5% in SPY alone
+under continued silence, applied at the seventh weekly review, `lessons.md`
+2026-09-11) — not re-raising it.
+
+Per the scheduled task's own instruction ("If nothing happened, send
+nothing"), not notifying — no trade placed, no rejection, nothing to report.
+
+---
+
 ## Plan for today — 2026-09-16
 
 Research-only routine (no trades permitted this run, per this scheduled
