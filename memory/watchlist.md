@@ -23,6 +23,56 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-09-16
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive. `clock` confirms `is_open: true` (`next_close` today
+16:00 ET, `timestamp` ~13:08:54 ET). Ground truth via Alpaca: equity
+$99,995.51, cash $94,100.00, day change +0.01% (+$5.45), `trading_blocked:
+false`. **Circuit breaker check: day change +0.01%, nowhere near the -3%
+threshold — no halt, sell rules proceed as normal.**
+
+**Sell-rule check, in order, on both open positions:**
+
+- **SPY** (core sleeve, exempt from thesis rules) — qty 6.339623293 @
+  $772.91 blended avg, current $759.52, market value $4,815.07 = **~4.82%
+  of equity**, -1.73% unrealized. No thesis to break. Not above the 5%
+  cap (rule 4) — no trim. Sell rules 1-3 don't apply (no thesis, and the
+  7%/15% down-from-entry rules aren't material here either — -1.73% is
+  nowhere close).
+- **MSFT** (satellite, has a thesis) — qty 2.189599299 @ $456.70 avg,
+  current $493.42, market value $1,080.40 = **~1.08% of equity**, **+8.04%
+  unrealized**. Not down at all, so rules 2/3 (down 7%/15%) don't apply by
+  definition, and rule 4 (above 5% of equity) doesn't apply either. Rule 1
+  (thesis broken) is the only one that needs a real check regardless of
+  price direction: this morning's dedicated research routine (see
+  "Research routine — 2026-09-16" below) already re-verified the Azure/
+  cloud growth thesis against primary sources today and found it intact,
+  with no new 8-K/IR item since the 2026-09-02 segment-restructuring
+  filing. No new price move (today's drift from the market-open check's
+  $494.12 to $493.42 is trivial, -0.14%) or news since that check would
+  change that conclusion. **Thesis intact — no exit, no trim.**
+
+No sell triggers fire on either position. No trades placed.
+
+**Trailing-stop check (step 4):** `orders --status open` confirms the MSFT
+trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status
+`new`, hwm $517.78, stop price $466.002 — unchanged since 2026-08-28
+(current price $493.42 remains below the hwm, so no new high to ratchet
+the stop up on), covers 2 of 2.19 whole shares as designed. SPY carries no
+stop by design (core index-ETF exemption, no satellite position to
+protect). Every satellite position has a live stop — nothing to fix.
+
+No new memory drift found — Alpaca and `portfolio.md`'s last snapshot
+agree (only normal intraday price movement since the market-open check).
+Nothing attractive enough to add to the watchlist for tomorrow's pre-market
+run either — no new candidate research was in scope for this routine
+regardless. Per the routine's own instructions and `CLAUDE.md`'s "default
+to doing nothing," not notifying — no trade, no rejection, no circuit
+breaker, nothing to report.
+
+---
+
 ## Market-open execution check — 2026-09-16
 
 Ran the market-open routine. `clock` confirmed `is_open: true` (`next_close`
