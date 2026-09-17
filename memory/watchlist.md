@@ -119,6 +119,42 @@ sourcing (non-Microsoft primary-source domains remain network-blocked, see
 
 ---
 
+## Market-open execution check — 2026-09-17
+
+`clock` confirms `is_open: true` (`timestamp` ~09:46 ET, `next_close` today
+16:00 ET) — market open, past the first-15-minutes window. Plan for today
+(above) is dated 2026-09-17, matching today, so it's live, not stale.
+Plan called for no action, so no entry price re-verification against a 3%
+move threshold was needed (there was no planned entry to re-verify).
+
+**Ground truth (Alpaca):** equity $100,009.37, cash $94,100.00, day change
++0.06% (+$55.42), `trading_blocked: false`. Positions match `portfolio.md`'s
+last snapshot exactly on quantity and avg entry — only normal overnight/
+intraday price drift: SPY qty 6.339623293 @ $772.91 avg (current $760.96,
+-1.55% unrealized, market value $4,824.20 = ~4.82% of equity) and MSFT qty
+2.189599299 @ $456.70 avg (current $495.60, +8.52% unrealized, market value
+$1,085.17 = ~1.09% of equity). `quote SPY`/`quote MSFT` (last $760.83 /
+$495.885) agree closely with `positions`' current marks. No discrepancy —
+nothing to log in `lessons.md` on the broker-vs-file front.
+
+**Branch/main check:** `git fetch origin main` plus `git log origin/main..HEAD`
+and `HEAD..origin/main` both empty at session start — no branch/main drift.
+
+Per the plan, executed nothing: no buy orders placed, none rejected.
+`orders --status open` confirms the MSFT trailing stop
+(`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$495.60 remains below the hwm, so no new high to ratchet the stop up on).
+SPY carries no stop by design (core index-ETF exemption). Every satellite
+position has a live stop — nothing to fix.
+
+No trades, no rejections, no discrepancy, no circuit-breaker trigger (day
+change +0.06%, nowhere near -3%). Per this scheduled task's own instruction
+("if nothing happened, send nothing") and `CLAUDE.md`'s "default to doing
+nothing," not sending a notification.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-16
 
 This routine only reduces risk — no new positions permitted regardless of
