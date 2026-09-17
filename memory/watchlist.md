@@ -155,6 +155,55 @@ nothing," not sending a notification.
 
 ---
 
+## Intraday risk-reduction check — 2026-09-17 ~13:47 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive.
+
+**Ground truth (Alpaca):** equity $100,019.09, cash $94,100.00, day change
++0.07% (+$65.14), `trading_blocked: false`. Nowhere near the -3% circuit
+breaker — no halt, sell rules proceed as normal.
+
+**Branch/main check:** `git fetch origin main` confirmed this branch's HEAD
+was already identical to `origin/main` at `ded58e0` (this morning's
+market-open commit) — `git log origin/main..HEAD` and `HEAD..origin/main`
+both empty, no branch/main drift.
+
+**Sell-rule check, both positions** (per `strategy.md`, in order —
+thesis-broken, down 7% unexplained, down 15%, above 5% of equity):
+
+- **SPY** (qty 6.339623293, avg entry $772.91, current $762.45, market
+  value $4,833.65, -1.35% unrealized = ~4.83% of equity): no thesis to
+  break (core sleeve, exempt per `strategy.md`); not down 7% or 15%; not
+  above 5% of equity. No trigger fires.
+- **MSFT** (qty 2.189599299, avg entry $456.70, current $495.73, market
+  value $1,085.44, +8.54% unrealized = ~1.09% of equity): thesis was
+  re-verified against primary sources by this morning's research routine
+  (no new 8-K/IR item since the 2026-09-02 segment-restructuring filing);
+  price has moved less than 0.1% intraday since that check, nothing new to
+  re-verify. Up 8.54%, not down at all — none of the down-7%/-15% triggers
+  are in play. Not above 5% of equity. No trigger fires.
+
+Both positions match `portfolio.md`'s last snapshot exactly on quantity and
+avg entry — no discrepancy, nothing to log in `lessons.md` on the
+broker-vs-file front.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$495.73 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption). Every satellite position has a live stop —
+nothing to fix.
+
+**No trades placed, none rejected, no positions trimmed or exited.** Per
+this routine's scope ("place no orders"), no new candidates were evaluated
+even though none were open anyway. Per `CLAUDE.md`'s "default to doing
+nothing" and this scheduled task's own instruction, not sending a
+notification.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-16
 
 This routine only reduces risk — no new positions permitted regardless of
