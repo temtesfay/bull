@@ -1158,3 +1158,43 @@ already anticipated. That is not a lesson, that is variance.
   remains one data point; this week's underperformance of SPY on its own
   price move is another single data point in the other direction. Keep
   saying this until it stops being true.
+
+### 2026-09-18 — market-open routine found no dated "Plan for today" section; stopped rather than infer one from the research entry
+- **What happened:** Market-open execution run. `clock` confirmed
+  `is_open: true` (`timestamp` ~09:46 ET). Per this routine's own
+  instructions, looked for a `## Plan for today — 2026-09-18` heading in
+  `watchlist.md`. It doesn't exist — the most recent `## Plan for today`
+  heading in the file is still `2026-09-17`. What *does* exist is a
+  `## Research routine — 2026-09-18` entry (run pre-market, ~08:36 ET) that
+  reconciled cleanly against Alpaca, re-checked the MSFT thesis (intact, no
+  new primary-source item), and ended with "Draft proposal for the
+  market-open routine: none... No action planned" — substantively the same
+  conclusion every prior day's `Plan for today` section stated, just never
+  written under that heading.
+- **What I believed at the time:** Briefly considered treating the research
+  entry's "no action planned" line as equivalent to a same-day plan and
+  proceeding on that basis, since the analysis was clearly fresh (dated,
+  reconciled, sourced) and not stale in substance.
+- **What was actually true:** This routine's own instructions are explicit
+  and mechanical: check for a same-day-dated `Plan for today` section, and
+  if it isn't there, stop and log it — don't substitute judgment for the
+  check. Inferring intent from a differently-labeled section is exactly the
+  kind of "the rule is annoying so I'll reason around it" behavior that
+  self-discipline failures tend to look like in hindsight, even when the
+  outcome (no trade) would have been the same either way. Today it cost
+  nothing, since the research routine's conclusion was "do nothing" — but
+  the check exists precisely for the day the pre-market step actually did
+  fail to update the plan after conditions changed, and by then inferring
+  from stale/adjacent text would be actively wrong, not just technically
+  wrong.
+- **What changes:** No trades placed or evaluated this run. Recommend a
+  precise, mechanical fix: the pre-market/research routine should always
+  write a `## Plan for today — <date>` heading (even a one-line "no action
+  planned"), the same way it has on every day but this one, so the
+  market-open routine's check doesn't have to distinguish "the routine ran
+  and decided nothing" from "the routine never ran" by feel. This is a
+  one-line process gap, not a broker/file discrepancy or a network issue —
+  nothing to escalate to the human at `warn`/`urgent`, and no notification
+  sent per this routine's own "if nothing happened, send nothing"
+  instruction, but noting it here so a repeat is recognized as a pattern
+  rather than a one-off.

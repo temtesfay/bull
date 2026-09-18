@@ -23,6 +23,33 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Market-open execution check — 2026-09-18
+
+`clock` confirms `is_open: true` (`timestamp` ~09:46 ET, `next_close` today
+16:00 ET) — market open, past the first-15-minutes window. Looked for a
+`## Plan for today — 2026-09-18` heading below, per this routine's
+instructions. **It does not exist** — the most recent `Plan for today`
+heading in this file is still 2026-09-17. This morning's
+`## Research routine — 2026-09-18` entry (below) did run, reconciled
+cleanly, re-checked the MSFT thesis, and concluded "no action planned" —
+but that conclusion was never written under a same-day-dated `Plan for
+today` heading, so per this routine's explicit instruction ("if the plan
+is not dated today, do not execute it... note that in lessons.md and
+stop"), **stopping without evaluating or placing any orders.** See
+`lessons.md` 2026-09-18 for the full reasoning, including why inferring a
+plan from the research entry's text instead of stopping would have been
+the wrong call even though it happens to reach the same "no action" outcome
+today.
+
+**Ground truth (Alpaca), for the record only — no orders evaluated
+against it:** equity and positions unchanged from this morning's research
+routine snapshot above (SPY ~4.82% of equity, MSFT ~1.09%, no discrepancy).
+
+No trades placed, none rejected. Per this routine's own notify criteria
+("if nothing happened, send nothing"), not sending a notification.
+
+---
+
 ## Research routine — 2026-09-18
 
 Research-only routine (no trades permitted this run, per this scheduled
