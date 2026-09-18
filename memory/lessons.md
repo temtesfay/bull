@@ -1198,3 +1198,125 @@ already anticipated. That is not a lesson, that is variance.
   sent per this routine's own "if nothing happened, send nothing"
   instruction, but noting it here so a repeat is recognized as a pattern
   rather than a one-off.
+
+### 2026-09-18 — Eighth weekly review: mechanics flawless for the third straight review, but two months of unanswered strategic questions is now the story, not a footnote
+- **Performance this week (2026-09-11 close $100,029.88/SPY $764.14 ->
+  2026-09-18 close $100,017.22/SPY $761.62, re-verified fresh via
+  `alpaca.py account`/`positions` for this review — live equity $100,019.89
+  at review time, within rounding of the committed daily-close figure, the
+  same intraday-tick-after-close pattern seen in every prior review):**
+  portfolio **-0.01%** vs SPY **-0.33%**, delta **+0.32pp** — the portfolio
+  "beat" the index this week only because the index fell and ~94% of the
+  book can't fall with it. Since inception (2026-07-29, $100,000 / SPY
+  $729.57), reported more prominently per this routine's own instruction
+  because one week is noise: portfolio **+0.02%** ($100,000 -> $100,017.22)
+  vs SPY **+4.39%** (729.57 -> 761.62), delta **-4.37pp** — essentially
+  unchanged from -4.71pp a week ago and -5.50pp four weeks ago. The
+  since-inception number is the one that matters, and for the fifth
+  straight review it has moved by less than half a point in either
+  direction: this is still entirely a cash-drag story, not a verdict on
+  stock-picking.
+- **Attribution:** by weight at the start of the week (SPY ~4.84% of
+  equity, MSFT ~1.08%, cash ~94.08%): SPY's own -0.33% weekly move
+  contributed roughly -0.016pp; MSFT's -0.28% weekly move (495.30 ->
+  493.89) contributed roughly -0.003pp — those two sum to about -0.019pp,
+  in the same direction as and roughly consistent with the actual -0.01%
+  observed (small gap is rounding/compounding noise), cash contributing
+  nothing as always. Per this routine's own test, applied in reverse
+  again this week: SPY fell 0.33% and the portfolio fell only 0.01% — that
+  is **not** evidence of good picking, it's a book that is 94% insulated
+  from the market by construction. Both positions moved down this week;
+  MSFT modestly underperformed even its own recent trend, though it
+  remains up +8.35% since its 2026-07-31 entry. No stock-specific
+  conviction to claim credit for this week either way.
+- **Process audit:** Strategy was followed, not improvised — zero trades
+  this week (none since 2026-08-12, seven weeks of no-op wakes with
+  nothing forced), zero guardrail rejections this week and zero in the
+  account's entire 5-order life. No position held past invalidation —
+  MSFT's thesis was re-verified against Microsoft's own primary sources on
+  every pre-market/intraday wake this week (2026-09-14 IR check included)
+  and stayed intact each time, including the 2026-09-02 segment-
+  restructuring 8-K's effect on the invalidation threshold; SPY has no
+  thesis to break. Branch/main drift: this session started already on
+  `claude/beautiful-thompson-f8pjak` matching a clean `git status`, and
+  `git log` shows every routine this week (pre-market, market-open,
+  intraday, daily-close, 2026-09-11 through 2026-09-18) merged into `main`
+  via PRs #57-#60 with no gap — third consecutive clean week since the
+  2026-08-28 structural fix. Daily-close coverage complete for every
+  trading day (09-11 through 09-18; weekend correctly un-logged, not a
+  gap). **One genuinely good moment worth naming plainly:** the 2026-09-18
+  market-open routine found a `Research routine` entry concluding "no
+  action" but no same-day-dated `Plan for today` heading, and **stopped
+  without trading** rather than inferring the plan from the differently-
+  labeled entry — exactly the kind of literal, mechanical rule-following
+  this system has previously lacked (see the 2026-07-31 and 2026-08-21
+  "intent isn't a control" / "documentation isn't escalation" lessons).
+  It cost nothing this time because the answer would have been "no action"
+  either way, but the discipline is the thing being graded, not the
+  outcome. That said, the underlying one-line process gap it exposed (the
+  research routine should always emit a `Plan for today` heading, even a
+  one-line one, so this ambiguity stops recurring) is still unfixed a week
+  later — a good catch that hasn't yet become a fix.
+- **The actual finding of this review, and it is not new but it is now
+  overdue for blunter treatment:** three consecutive reviews (09-04, 09-11,
+  and this one) have graded B/B+ on flawless small-scale mechanics while
+  the strategy `strategy.md` actually describes — a 10-40% core, a
+  50-75% satellite book diversified across a tech/growth circle of
+  competence — has never been run at all. What exists instead is one
+  satellite stock (MSFT, sourced in the four days before the network block
+  hit), one index-ETF position capped at ~5% by Bull's own unilateral
+  default (applied 2026-09-11, not a human decision), and 94% cash, for
+  eight straight weeks. As a fresh, not just copy-forwarded, check for this
+  review: re-probed four previously-blocked primary-source domains
+  (apple.com, investor.nvidia.com, ir.aboutamazon.com, sec.gov) — all four
+  still fail exactly as before (`000`/connect-rejected for three, `403`
+  for SEC), confirming the block is still fully in effect five weeks after
+  it was last tested, not something that quietly lapsed while unwatched.
+  Separately, and more importantly: the direct human escalation on this
+  exact question was made 2026-08-21 (**4.0 weeks ago**), first raised
+  2026-08-07 (**6.0 weeks ago**), and the 7th review's follow-up proposal
+  (reconsider the network policy itself) was made 2026-09-11 (**1.0 week
+  ago**) — none of the three have drawn any visible human response in the
+  repository. Two months of silence on a question this material (whether
+  the thing being paper-tested is the strategy at all) is itself the
+  process signal this review should stop softening.
+- **Honest grade — B:** graded on process, not P&L, one notch below the
+  last two reviews (both B+) despite identical trading discipline (no
+  guardrail violations, no unforced trades, correct thesis re-verification,
+  clean branch/main hygiene, complete daily-close coverage, and a genuine
+  good catch on the missing-plan-heading edge case). The downgrade is not
+  for anything this week's routines did wrong — it's because three straight
+  reviews rewarding flawless execution of a de facto one-stock,
+  mostly-cash portfolio, without escalating any harder or differently than
+  the week before, risks exactly the complacency this routine's own
+  instructions warn against ("a review that concludes everything is fine
+  every week is a review that isn't happening"). Nothing is "fine" about a
+  strategy whose defining feature — a diversified, thesis-driven satellite
+  book across a stated circle of competence — has been untestable for
+  37 of this account's 51 days, with the human questions that could unblock
+  it now averaging over a month of silence apiece.
+- **Proposed changes (not made — human decides):** (1) Same standing asks,
+  restated with the actual elapsed time attached so the scale is
+  unambiguous: the core-sleeve multi-ticker question has drawn no response
+  in 4.0 weeks since the direct ask (6.0 since first raised); the
+  network-policy reconsideration proposed in the 7th review has drawn no
+  response in 1.0 week. (2) Concrete, cheap, and new this review: since a
+  human answer may simply not be arriving on any predictable timeline,
+  proposing that future reviews stop treating "no response yet" as
+  reason to wait quietly — instead, each subsequent weekly review should
+  re-run the reachability probe (as this one did) and report the result
+  plainly regardless of outcome, so at minimum the *evidence* about
+  whether the environment constraint still holds stays current rather than
+  five-week-old and assumed. (3) Restating the 7th review's honest framing
+  because it still hasn't been resolved: is the paper-proving clock in
+  `strategy.md` ("1-3 months... across a complete month-end close cycle")
+  meant to keep running under conditions where the satellite sourcing half
+  of the strategy has been structurally untestable almost since inception?
+  This review does not answer that unilaterally; it is flagging, for the
+  third time, that continuing to let the clock run silently answers it by
+  default in one direction.
+- **Sample size:** 8 weekly reviews completed since inception (2026-07-29),
+  about 7.3 weeks. Nowhere near the 26-week bar for distinguishing process
+  from luck. MSFT's own since-entry figure (one name, seven weeks, up
+  ~8.35%) remains exactly one data point — the strategy has never had a
+  second one to compare it to. Keep saying this until it stops being true.

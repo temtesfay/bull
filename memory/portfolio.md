@@ -1,13 +1,21 @@
 # Portfolio
 
-Last updated: 2026-09-18 (daily-close reconciliation). No discrepancy vs
-Alpaca; per this routine's scope ("place no orders"), no orders were placed
-or evaluated this run. Today: portfolio -0.01% vs SPY -0.13% (delta +0.12pp,
-a quiet down day — both sides essentially flat, no cushioning story needed).
-Since inception: portfolio +0.02% vs SPY +4.39% (delta -4.37%). See
-daily-close entry below for detail; full seventh weekly review (including
-the applied core-sleeve default, see SPY position note below) remains in
-`lessons.md` 2026-09-11.
+Last updated: 2026-09-18 (eighth weekly review, same day as the daily-close
+reconciliation above it in history). No discrepancy vs Alpaca; no orders
+placed or evaluated by this review (research/grading scope only). This
+week (2026-09-11 close -> 2026-09-18 close): portfolio -0.01% vs SPY -0.33%
+(delta +0.32pp — a cash-cushion artifact on a down week for the index, not
+stock-picking). Since inception: portfolio +0.02% vs SPY +4.39% (delta
+-4.37%), reported more prominently than the weekly number per this
+routine's own instruction that one week is noise. Full eighth weekly review
+— honest grade B (down from the last two reviews' B+, not for anything
+this week's routines did wrong, but because three straight reviews of
+flawless small-scale execution around a de facto one-stock, 94%-cash book
+is not the same thing as the diversified strategy `strategy.md` describes,
+and two of the three standing human-decision questions now average over a
+month of silence) — is in `lessons.md` 2026-09-18. That entry also
+reconfirms, via a fresh reachability probe, that the non-Microsoft
+primary-source network block is still fully in effect.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
