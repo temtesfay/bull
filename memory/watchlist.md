@@ -34,6 +34,39 @@ tested per `lessons.md` 2026-08-17). **No action planned.**
 
 ---
 
+## Market-open execution check — 2026-09-21
+
+`clock` confirms `is_open: true` (`timestamp` ~09:46 ET, `next_close` today
+16:00 ET) — market open. Found `## Plan for today — 2026-09-21` heading
+above, correctly dated today, so it's eligible to execute. **The plan
+itself proposes no trade** ("No trade proposed" / "No action planned" —
+MSFT thesis intact with no new catalyst, SPY core sleeve has no headroom
+left under the 5%-per-symbol cap, no watchlist candidate cleared sourcing).
+No planned entry price to re-verify against a 3% move, since none was
+proposed.
+
+**Ground truth (Alpaca), re-checked before concluding no action:** equity
+$100,044.43, cash $94,100.00, day change +0.03% (+$34.42),
+`trading_blocked: false`. Positions match `portfolio.md`/this morning's
+research entry: SPY qty 6.339623293 @ $772.91 avg (current $767.04, -0.76%
+unrealized, market value $4,862.74 = ~4.86% of equity) and MSFT qty
+2.189599299 @ $456.70 avg (current $494.02, +8.17% unrealized, market
+value $1,081.72 = ~1.08% of equity). No discrepancy — nothing to log in
+`lessons.md` on the broker-vs-file front. `quote SPY MSFT`: SPY $767.04
+(+0.71% vs prev close $761.62), MSFT $493.59 (+0.10% vs prev close
+$493.10) — both trivial moves, consistent with the research routine's
+numbers a couple hours earlier.
+
+**Branch/main check:** `git fetch origin main` confirmed local HEAD was
+already identical to `origin/main` at `638c81f` before this run made any
+changes — no drift.
+
+No orders placed, none rejected, no guardrail invoked — there was nothing
+to execute. Per this routine's own notify criteria ("if nothing happened,
+send nothing"), not sending a notification.
+
+---
+
 ## Research routine — 2026-09-21
 
 Research-only routine (no trades permitted this run, per this scheduled
