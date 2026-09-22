@@ -35,6 +35,55 @@ per that lesson's own guidance). **No action planned.**
 
 ---
 
+## Market-open execution check — 2026-09-22
+
+`clock` confirms `is_open: true` (`timestamp` ~09:46 ET, `next_close` today
+16:00 ET) — market open, past the first-15-minutes window. Found
+`## Plan for today — 2026-09-22` heading above, correctly dated today, so
+it's eligible to execute. **The plan itself proposes no trade** ("No trade
+proposed" / "No action planned" — MSFT thesis intact with no new catalyst,
+SPY core sleeve has no headroom left under the 5%-per-symbol cap, no
+watchlist candidate cleared sourcing). No planned entry price to
+re-verify against the 3% move threshold, since none was proposed.
+
+**Ground truth (Alpaca), re-checked before concluding no action:** equity
+$100,100.27, cash $94,100.00, day change ~flat (-$1.75, -0.00%),
+`trading_blocked: false`, `new_positions_this_week: 0`. Positions match
+this morning's research entry and `portfolio.md`'s last snapshot on
+quantity/avg entry — only normal intraday price drift: SPY qty
+6.339623293 @ $772.91 avg (current $774.34, +0.18% unrealized, market
+value $4,909.02 = ~4.91% of equity) and MSFT qty 2.189599299 @ $456.70 avg
+(current $498.38, +9.12% unrealized, market value $1,091.24 = ~1.09% of
+equity — down from this morning's $507.31 mark, a -1.76% intraday pullback,
+still well under the 5% notification threshold and nowhere near the 7%
+trim / 15% exit sell triggers). No discrepancy — nothing to log in
+`lessons.md` on the broker-vs-file front.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$498.38 remains below the hwm, so no new high to ratchet the stop up on).
+SPY carries no stop by design (core index-ETF exemption).
+
+**`main`-sync check:** `git fetch origin main` plus `git rev-parse
+origin/main HEAD` confirmed both point to the same commit (`bf25aff`, this
+morning's research-routine commit) — no branch/main drift, nothing to
+catch up. (An earlier `git fetch` in this run that also tried to fetch a
+nonexistent second ref failed outright and left a stale local
+`origin/main` pointer showing a large apparent gap back to 2026-09-15; a
+clean single-ref fetch immediately resolved it as a local-tooling artifact,
+not a real drift — noting this only so a future run isn't alarmed by the
+same red herring.)
+
+**Orders placed:** none. **Orders rejected:** none — no order was
+attempted, so no guardrail was invoked. No new full-share satellite
+position was opened, so no new trailing stop was required.
+
+Per this routine's own notify criteria ("if nothing happened, send
+nothing"), no notification sent.
+
+---
+
 ## Research routine — 2026-09-22
 
 Research-only routine (no trades permitted this run, per this scheduled
