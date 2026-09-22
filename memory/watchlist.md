@@ -151,6 +151,67 @@ routine's own notify criteria, not sending a notification.
 
 ---
 
+## Intraday risk-reduction check — 2026-09-22 ~13:19 ET
+
+Risk-reduction-only routine — no new positions permitted this run regardless
+of what's found (per this scheduled task's explicit scope); an attractive
+candidate would go to the watchlist for tomorrow's pre-market run, not into
+an order today. `clock` confirms `is_open: true` (`timestamp` ~13:19:33 ET,
+`next_close` today 16:00 ET) — well past the first-15-minutes window.
+
+**Ground truth (Alpaca):** equity $100,089.88, cash $94,100.00 (unchanged),
+day change -0.01% (-$12.14), `trading_blocked: false`. Positions match this
+morning's research/market-open entries and `portfolio.md`'s last snapshot
+exactly on quantity and avg entry — only normal intraday price drift: SPY
+qty 6.339623293 @ $772.91 avg (current $773.19, +0.04% unrealized, market
+value $4,901.73 = ~4.90% of equity) and MSFT qty 2.189599299 @ $456.70 avg
+(current $496.96, +8.82% unrealized, market value $1,088.14 = ~1.09% of
+equity). No discrepancy — nothing to log in `lessons.md` on the
+broker-vs-file front.
+
+**Step 2 — circuit breaker:** account day change is -0.01% (-$12.14), nowhere
+near the -3% intraday-halt threshold. Not triggered — proceeding to the sell
+rules.
+
+**Step 3 — sell rules, applied in order, to each position:**
+- **SPY (core, ~4.90% of equity, +0.04% unrealized):** no thesis to break
+  (exempt per `strategy.md`'s core-sleeve carve-out). Not down 7% or 15% from
+  entry (it's up). Not above the 5%-per-symbol cap. No sell rule fires.
+- **MSFT (satellite, ~1.09% of equity, +8.82% unrealized):** thesis was
+  checked against primary sources by this morning's research routine
+  (`## Research routine — 2026-09-22` above) and found intact/unchanged, with
+  no new 8-K, IR release, or corporate statement since. The position is up,
+  not down, so the 7%-trim and 15%-exit triggers are moot by construction —
+  not manufacturing a reason to trim a winner. Well under the 5%-of-equity
+  cap. No sell rule fires.
+
+No position is down from entry, above its cap, or thesis-broken. **No trim,
+no exit — this is a real "do nothing," not reluctance to act.**
+
+**Step 4 — trailing-stop check:** `orders --status open` confirms the MSFT
+trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status
+`new`, hwm $517.78, stop price $466.002 — unchanged since 2026-08-28 (current
+price $496.96 remains below the hwm, so no new high to ratchet the stop up
+on). Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption, per `strategy.md`'s "Overnight protection"
+section) — nothing to check there.
+
+**`main`-sync check:** `git fetch origin main` confirmed local HEAD was
+already identical to `origin/main` before this run made any changes (`git
+log origin/main..HEAD` and `HEAD..origin/main` both empty) — no branch/main
+drift to catch up before writing this entry.
+
+**Orders placed:** none. **Orders rejected:** none — no order was attempted,
+so no guardrail was invoked. No watchlist candidate surfaced this run (this
+routine did not run a sourcing pass; that's the research routine's job).
+
+Per this routine's own notify criteria and `CLAUDE.md`'s "state your
+uncertainty honestly," there is genuinely nothing new to report: no
+discrepancy, no trigger, no stop gap, no circuit-breaker event. Not sending a
+notification.
+
+---
+
 ## Plan for today — 2026-09-21
 
 Drafted after the research routine below. **No trade proposed.** MSFT
