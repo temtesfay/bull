@@ -23,6 +23,58 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-09-23 ~13:18 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive; anything attractive gets added to the watchlist for
+tomorrow's pre-market run instead (nothing surfaced today that would
+qualify anyway).
+
+**`main`-sync check:** `git fetch origin main` confirmed local HEAD already
+matched `origin/main` exactly at `7d811d6` (this morning's market-open
+commit) before this run made any changes — no branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,059.91, cash $94,100.00, day change
+-0.03% (-$33.45), `trading_blocked: false`. `clock` confirms `is_open:
+true` (`timestamp` ~13:18 ET, `next_close` today 16:00 ET).
+
+**Circuit breaker:** day change -0.03%, nowhere near the -3% halt
+threshold. No halt; sell rules proceed as normal.
+
+**Sell-rule check, in order, both positions:**
+- **Thesis broken?** MSFT is the only position with a thesis (SPY is core,
+  exempt). Already checked twice today against Microsoft's own primary
+  sources — this morning's research routine and the market-open check both
+  found no new 8-K/IR release/official statement since the 2026-09-02
+  segment-restructuring 8-K, thesis intact. MSFT is up on the day, not
+  down, so there is no fresh price move here that would call for a third
+  re-check; not repeating a primary-source query that would only
+  re-confirm what was already confirmed twice this morning. Thesis intact.
+- **Down 7% with no thesis-consistent explanation?** SPY -0.70% unrealized
+  ($767.46 vs $772.91 blended entry), MSFT +9.46% unrealized ($499.91 vs
+  $456.70 entry). Neither down at all, let alone 7%. No trigger.
+- **Down 15%?** No — same figures as above. No trigger.
+- **Position above 5% of equity?** SPY market value $4,865.41 = 4.86% of
+  equity; MSFT market value $1,094.60 = 1.09% of equity. Both under the 5%
+  cap. No trigger.
+
+No sell rule fires on either position. No trim, no exit.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$499.91 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption) — this is the only satellite position, so the
+stop check is complete.
+
+No trades placed, no orders rejected, no memory drift found. Per this
+routine's own scope, no new position was opened or evaluated. Per
+`CLAUDE.md`'s "default to doing nothing" and this routine's own notify
+criteria, nothing broke and nothing triggered, so no notification sent.
+
+---
+
 ## Plan for today — 2026-09-23
 
 Drafted after the research routine below. **No trade proposed.** MSFT
