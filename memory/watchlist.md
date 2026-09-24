@@ -111,6 +111,49 @@ network block remains settled, 18/18 domains tested per `lessons.md`
 
 ---
 
+## Market-open execution check — 2026-09-24
+
+`clock` confirms `is_open: true` (`timestamp` ~09:45 ET, `next_close` today
+16:00 ET) — market open, past the first-15-minutes window. Found
+`## Plan for today — 2026-09-24` heading above, correctly dated today, so
+it's eligible to execute. **The plan itself proposes no trade** ("No trade
+proposed" / "No action planned" — MSFT thesis intact with no new catalyst,
+SPY core sleeve has no headroom left under the 5%-per-symbol cap, no
+watchlist candidate cleared sourcing). No planned entry price to re-verify
+against the 3% move threshold, since none was proposed.
+
+**Ground truth (Alpaca), re-checked before concluding no action:** equity
+$100,027.68, cash $94,100.00, day change -0.04% (-$36.04),
+`trading_blocked: false`, `new_positions_this_week: 0`. Positions match
+this morning's research entry and `portfolio.md`'s last snapshot on
+quantity/avg entry — only normal intraday price drift: SPY qty
+6.339623293 @ $772.91 avg (current $764.83, -1.05% unrealized, market
+value $4,848.73 = ~4.85% of equity) and MSFT qty 2.189599299 @ $456.70 avg
+(current $492.76, +7.90% unrealized, market value $1,078.95 = ~1.08% of
+equity). No discrepancy — nothing to log in `lessons.md` on the
+broker-vs-file front.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$492.76 remains below the hwm, so no new high to ratchet the stop up on).
+Covers 2 of 2.19 whole shares, as before. SPY carries no stop by design
+(core index-ETF exemption).
+
+**`main`-sync check:** `git fetch origin main` plus `git merge-base
+--is-ancestor HEAD origin/main` confirmed this branch's HEAD already
+matched `origin/main` exactly at `2b3516b` before this run made any
+changes — no branch/main drift, nothing to catch up.
+
+**Orders placed:** none. **Orders rejected:** none — no order was
+attempted, so no guardrail was invoked. No new full-share satellite
+position was opened, so no new trailing stop was required.
+
+Per this routine's own notify criteria ("if nothing happened, send
+nothing"), no notification sent.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-23 ~13:18 ET
 
 This routine only reduces risk — no new positions permitted regardless of
