@@ -1320,3 +1320,135 @@ already anticipated. That is not a lesson, that is variance.
   from luck. MSFT's own since-entry figure (one name, seven weeks, up
   ~8.35%) remains exactly one data point — the strategy has never had a
   second one to compare it to. Keep saying this until it stops being true.
+
+### 2026-09-25 — Ninth weekly review: mechanics still flawless, but this week is the first clean, quantified look at what the unresolved core-sleeve question actually costs
+- **Performance this week (2026-09-18 close $100,017.22/SPY $761.62 ->
+  2026-09-25 close $100,119.35/SPY $771.35, re-verified fresh via
+  `alpaca.py account`/`positions`/`quote SPY` for this review — live equity
+  $100,123.17 at review time, within rounding of the committed daily-close
+  figure, the same intraday-tick-after-close pattern seen in every prior
+  review):** portfolio **+0.10%** vs SPY **+1.28%**, delta **-1.18pp** — a
+  clearly losing week for the portfolio against the index. Since inception
+  (2026-07-29, $100,000 / SPY $729.57), reported more prominently per this
+  routine's own instruction because one week is noise: portfolio **+0.12%**
+  ($100,000 -> $100,119.35) vs SPY **+5.73%** (729.57 -> 771.35), delta
+  **-5.61pp** — essentially unchanged from -4.37pp a week ago in direction
+  (widening, but by an amount fully explained by this week's SPY rally
+  against a ~95%-undeployed book, not a new signal). The since-inception
+  number is the one that matters and remains a cash-drag story, not a
+  verdict on stock-picking.
+- **Attribution:** by weight at the start of the week (SPY ~4.84% of
+  equity, MSFT ~1.08%, cash ~94.08%): SPY's own +1.28% weekly move
+  contributed roughly +0.062pp; MSFT's own weekly move ($493.89 ->
+  $516.30, **+4.54%**) contributed roughly +0.049pp — those two sum to
+  about +0.111pp, close to the actual +0.10% observed, cash contributing
+  nothing as always. Per this routine's own test ("if SPY rose 2% and you
+  rose 2.2%, you did not pick well, you were long"), the useful split this
+  week runs the other way: **MSFT's own price move (+4.54%) beat SPY's
+  (+1.28%) by about 3.3pp** — that specific data point is real
+  stock-specific outperformance, not beta, and the news behind it (a
+  2026-09-25 Copilot product-expansion announcement and a 2026-09-23
+  Stifel upgrade, both thesis-reinforcing and both checked against
+  Alpaca's own price action per the 2026-08-13 lesson on not trusting
+  headline claims at face value) was investigated and logged same-day by
+  the intraday routine, not invented after the fact for this review. And
+  yet the whole portfolio still underperformed SPY by 1.18pp this week,
+  because the one name that outperformed is only ~1.1% of equity. This is
+  the cleanest single-week illustration yet of the account's actual
+  structure: the picking is (so far, one name) fine; the capture is the
+  problem. A rough, honest quantification: had the core sleeve actually
+  sat at its stated ~25% target instead of the ~5% Bull-side default,
+  roughly 20 additional points of equity would have captured most of
+  SPY's +1.28% move this week alone — call it **+0.20 to +0.25pp** of
+  additional weekly return from the core gap alone, before even counting
+  what a diversified, multi-name satellite book (the sourcing half that's
+  been network-blocked since 2026-08-05) might have added or cost. That is
+  not a hypothetical abstraction anymore; it is what this specific week
+  actually forwent.
+- **Process audit:** Strategy was followed, not improvised — zero trades
+  this week (none since 2026-08-12, eight weeks of no-op wakes with
+  nothing forced), zero guardrail rejections this week and zero in the
+  account's entire 5-order life. No position held past invalidation —
+  MSFT's thesis was re-verified against Microsoft's own primary sources on
+  every pre-market/research and intraday wake this week and stayed intact
+  each time, including today's intraday check correctly explaining an
+  unusually large intraday move with dated, sourced news rather than
+  waving it through or over-reacting to it. SPY has no thesis to break.
+  Branch/main drift: `git fetch origin main` at the start of this review
+  confirmed local HEAD already matched `origin/main` exactly, and `git log`
+  shows every routine this week (research, market-open, intraday,
+  daily-close, 2026-09-21 through 2026-09-25) merged into `main` via PRs
+  #61-#63 with no gap — fourth consecutive clean week since the 2026-08-28
+  structural fix. Daily-close coverage complete for every trading day this
+  week. The MSFT trailing stop ratcheted up today for the first time since
+  2026-08-28 (hwm $517.78 -> $519.40, stop $466.002 -> $467.46) and this
+  was verified directly via `orders --status open`, not assumed from the
+  price move — correct per `CLAUDE.md`'s explicit instruction not to
+  assume a `protect` call or its effects. One process note, not a failure:
+  this week's research routines correctly declined to re-run the
+  network-domain reachability probe daily, deferring it to this weekly
+  review per the 2026-09-18 lesson's own proposal that re-probing is a
+  weekly-review job — that division of labor held as designed. This
+  review re-ran it fresh rather than copying forward the 2026-09-18
+  result: probed `apple.com`, `investor.nvidia.com`, `ir.aboutamazon.com`,
+  `sec.gov`, `data.sec.gov`, and `microsoft.com` directly via `curl` — the
+  first five all still fail (`000` connect-rejected for four, `403` for
+  `data.sec.gov`), `microsoft.com` still the only one reachable (`301`).
+  No change in six weeks of testing this exact set.
+- **The two standing questions, restated with exact elapsed time rather
+  than a carried-forward phrase (per the 2026-09-10 lesson on not
+  incrementing these by feel):** the core-sleeve multi-ticker question was
+  first raised 2026-08-07 (**7.0 weeks ago**) and escalated directly to the
+  human 2026-08-21 (**5.0 weeks ago**); the network-policy reconsideration
+  was proposed 2026-09-11 (**2.0 weeks ago**). The only human git activity
+  in that entire window is routine PR-merge clicks (`temtesfay` merging
+  PRs #52 through #63, one per routine, exactly as expected of the normal
+  workflow) — there is no comment, no `strategy.md` edit, no file
+  anywhere in the repository that answers either question. The human is
+  visibly present and engaged with the mechanical side of this system
+  (merging every PR promptly); the two specific decisions asked for have
+  simply not been made yet. Worth naming that distinction plainly rather
+  than reading "no PR left unmerged" as "no response to the actual asks."
+- **Honest grade — B-:** graded on process, not P&L, one notch below last
+  review's B despite identical trading discipline (no guardrail
+  violations, no unforced trades, correct thesis re-verification, correct
+  stop-ratchet verification, clean branch/main hygiene, complete
+  daily-close coverage, and the network-probe division of labor working
+  as designed). The downgrade is not for anything this week's routines did
+  wrong — it is because this is now the fourth consecutive review flagging
+  the same two unanswered questions, and this week supplied the clearest,
+  most concrete evidence yet of their cost (the ~0.20-0.25pp this week's
+  SPY rally alone was not captured because of the core-sleeve cap), and
+  the response from this review is still the same one the last three
+  gave: restate it, ask again. Per this routine's own instruction to be
+  hard on itself here — repeating a request the same way for the fourth
+  time, even correctly and even backed with better evidence each time, is
+  not obviously different behavior from the passivity the 2026-08-14 and
+  2026-08-21 reviews already criticized. It has not degenerated into
+  silence or excuse-making (the standing default stays applied, trading
+  discipline stays clean, the probe stays current), which is why this
+  isn't graded lower still.
+- **Proposed changes (not made — human decides):** (1) Same two standing
+  asks, now with a concrete number attached to make the cost legible
+  rather than abstract: this week alone, the core-sleeve gap (target ~25%,
+  actual ~5%) cost roughly 0.20-0.25pp of return on a single strong index
+  week — annualized across weeks like this one, that is a material, not
+  cosmetic, drag, separate from whatever the satellite-sourcing block is
+  separately costing. Either "add a second core-sleeve ticker" or "leave
+  it capped at ~5%, accept the drag" resolves this cleanly; either answer
+  is fine, the silence is the only bad outcome. (2) Given 5.0-7.0 weeks of
+  silence on a decision inside Bull's own authority to ask for but not to
+  make, and given `strategy.md`'s explicit framing that the paper period
+  exists to "prove the process" before the human "considers" real money —
+  worth the human weighing whether continuing to run this exact
+  under-deployed configuration for more weeks adds meaningfully to that
+  proof, versus whether the proving period's clock should be considered
+  paused, in spirit, until either question is answered. Not a change this
+  review makes unilaterally; flagging it because nobody else has.
+- **Sample size:** 9 weekly reviews completed since inception (2026-07-29),
+  about 8.3 weeks. Nowhere near the 26-week bar for distinguishing process
+  from luck. MSFT's own since-entry figure (one name, eight weeks, up
+  ~13.3%) and this week's +4.54%/-beat-SPY-by-3.3pp figure are each one
+  data point from the strategy's only satellite position — still not
+  evidence of repeatable stock-picking skill, just the same one bet
+  continuing to work so far. Keep saying this until it stops being true.

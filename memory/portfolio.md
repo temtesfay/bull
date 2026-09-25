@@ -1,21 +1,24 @@
 # Portfolio
 
-Last updated: 2026-09-18 (eighth weekly review, same day as the daily-close
+Last updated: 2026-09-25 (ninth weekly review, same day as the daily-close
 reconciliation above it in history). No discrepancy vs Alpaca; no orders
 placed or evaluated by this review (research/grading scope only). This
-week (2026-09-11 close -> 2026-09-18 close): portfolio -0.01% vs SPY -0.33%
-(delta +0.32pp — a cash-cushion artifact on a down week for the index, not
-stock-picking). Since inception: portfolio +0.02% vs SPY +4.39% (delta
--4.37%), reported more prominently than the weekly number per this
-routine's own instruction that one week is noise. Full eighth weekly review
-— honest grade B (down from the last two reviews' B+, not for anything
-this week's routines did wrong, but because three straight reviews of
-flawless small-scale execution around a de facto one-stock, 94%-cash book
-is not the same thing as the diversified strategy `strategy.md` describes,
-and two of the three standing human-decision questions now average over a
-month of silence) — is in `lessons.md` 2026-09-18. That entry also
-reconfirms, via a fresh reachability probe, that the non-Microsoft
-primary-source network block is still fully in effect.
+week (2026-09-18 close -> 2026-09-25 close): portfolio +0.10% vs SPY
++1.28% (delta **-1.18pp** — the first week in over a month where the
+cash-heavy construction clearly cost real return rather than cushioning
+it, because SPY rallied hard; MSFT itself beat SPY's weekly move by
+~3.3pp on its own price action, so the stock-picking was fine, the
+capture was the problem). Since inception: portfolio +0.12% vs SPY
++5.73% (delta -5.61%), reported more prominently than the weekly number
+per this routine's own instruction that one week is noise. Full ninth
+weekly review — honest grade B- (down from last review's B; mechanics
+remain flawless, but this is the fourth straight review flagging the
+same two unanswered human-decision questions, now 5.0 and 2.0 weeks
+since their asks and 7.0 weeks since the core-sleeve question was first
+raised, with no visible response beyond routine PR merges) — is in
+`lessons.md` 2026-09-25. That entry also reconfirms, via a fresh
+reachability probe, that the non-Microsoft primary-source network block
+is still fully in effect.
 
 **Alpaca is the source of truth.** This file is a human-readable mirror with
 the reasoning attached, which the broker does not store. If they disagree,
