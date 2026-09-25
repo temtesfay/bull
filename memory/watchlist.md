@@ -23,6 +23,83 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Intraday risk-reduction check — 2026-09-25 ~13:03 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive; anything attractive gets added to the watchlist for
+tomorrow's pre-market run instead (nothing surfaced today that would
+qualify anyway).
+
+**`main`-sync check:** `git fetch origin main` confirmed local HEAD already
+matched `origin/main` exactly at `664e7cb` (this morning's market-open
+commit) before this run made any changes (`git log origin/main..HEAD` and
+`HEAD..origin/main` both empty) — no branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,121.34, cash $94,100.00, day change
++0.07% (+$67.44), `trading_blocked: false`. `clock` confirms `is_open: true`
+(`timestamp` ~13:03 ET, `next_close` today 16:00 ET).
+
+**Circuit breaker:** day change +0.07%, nowhere near the -3% halt threshold.
+No halt; sell rules proceed as normal.
+
+**MSFT's unusual move, flagged by this morning's market-open check as
+unexplained (+3.35% intraday as of ~09:46 ET, cause unknown at that time):**
+current price is now $517.59 (vs $456.70 entry, +13.33% unrealized), up
+further from the $514.38 the market-open check logged. Per the 2026-07-31
+lesson (broker price moves get a plain, unrestricted news search, not a
+primary-source-restricted one — this morning's already-completed
+primary-source check found no new 8-K/IR item, so the explanation has to
+come from general market coverage), ran an unrestricted Perplexity search.
+Result, cross-checked against multiple citations dated today
+(2026-09-25) and consistent with Alpaca's own move: two concrete,
+thesis-consistent catalysts, not a single unexplained anomaly —
+(1) Microsoft unveiled a Copilot product expansion (a coding tool and an
+"always-on" AI agent, per Reuters/wire coverage), read by the market as
+reinforcing Azure/AI monetization; (2) Stifel upgraded MSFT to Buy from
+Hold on 2026-09-23, with market commentary tying Friday's strength partly
+to that upgrade. No index-inclusion or options-expiration story found, and
+no macro event. Both catalysts point the same direction as the existing
+thesis (Azure/AI monetization acceleration) rather than contradicting it —
+this is a positive, thesis-reinforcing move with a real news source, not an
+unexplained gap requiring escalation (nowhere near the >15%-on-unexplained-
+news `CLAUDE.md` threshold, which in any case requires the news to be
+*unfindable*, and it wasn't).
+
+**Sell-rule check, in order, both positions:**
+- **Thesis broken?** No — see above; today's news reinforces the thesis
+  rather than breaking it. MSFT is up, not down, so no downside trigger to
+  evaluate here either.
+- **Down 7% with no thesis-consistent explanation?** SPY -0.24% unrealized
+  ($771.03 vs $772.91 blended entry), MSFT +13.33% unrealized. Neither
+  down at all, let alone 7%. No trigger.
+- **Down 15%?** No — same figures as above. No trigger.
+- **Position above 5% of equity?** SPY market value $4,888.04 = ~4.88% of
+  equity; MSFT market value $1,133.30 = ~1.13% of equity (up from ~1.09%
+  purely from today's price move, still well under the cap). Both under 5%.
+  No trigger.
+
+No sell rule fires on either position. No trim, no exit.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+**$519.40**, stop price **$467.46** — both ratcheted up from the
+2026-08-28 values ($517.78 / $466.002) for the first time since then,
+confirming MSFT set a new high sometime today before the current $517.59
+mark (which sits just below the hwm). Covers 2 of 2.19 whole shares, as
+before. SPY carries no stop by design (core index-ETF exemption) — this is
+the only satellite position, so the stop check is complete.
+
+No trades placed, no orders rejected, no memory drift found. Per this
+routine's scope, no new position was opened or evaluated (nothing sourced
+today would have qualified regardless — the non-Microsoft primary-source
+network block remains settled). Today's unusually large MSFT move now has
+a documented, thesis-consistent explanation with real citations, so this is
+not an unexplained-gap escalation; per `CLAUDE.md`'s "default to doing
+nothing" and this routine's own notify criteria, nothing broke and no sell
+trigger fired, so no notification sent.
+
+---
+
 ## Research routine — 2026-09-25
 
 Research-only routine (no trades permitted this run, per this scheduled
