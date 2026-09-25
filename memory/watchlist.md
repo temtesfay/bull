@@ -110,6 +110,70 @@ network block remains settled, 18/18 domains tested per `lessons.md`
 
 ---
 
+## Market-open execution check — 2026-09-25 ~09:46 ET
+
+Plan for today (`## Plan for today — 2026-09-25` above, drafted this morning
+pre-open) proposed no trade — confirmed the plan's date matches today before
+proceeding, per this routine's explicit stop-if-stale instruction.
+
+**`main`-sync check:** `git fetch origin main` confirmed local HEAD already
+matched `origin/main` exactly at `a72939d` (this morning's research-routine
+merge) before this run made any changes (`git log origin/main..HEAD` and
+`HEAD..origin/main` both empty) — no branch/main drift.
+
+**`clock`:** `is_open: true`, `timestamp` ~09:46 ET, `next_close` today
+16:00 ET — a normal trading day.
+
+**Re-verified ground truth (Alpaca):** equity $100,103.33, cash $94,100.00,
+day change +0.05% (+$49.43), `trading_blocked: false`. Positions: SPY qty
+6.339623293 @ $772.91 avg (current $769.32, -0.46% unrealized, market value
+$4,877.20 = ~4.87% of equity) and MSFT qty 2.189599299 @ $456.70 avg
+(current $514.38, +12.63% unrealized, market value $1,126.30 = ~1.13% of
+equity). Matches `portfolio.md`'s prior snapshot on quantity/avg entry —
+only price drift since yesterday's close. No discrepancy.
+
+**Price re-verification vs plan (the required <3%-move check):** plan
+proposed no entries, so there is nothing to re-verify against a planned
+entry price — the check is moot by construction this run.
+
+**Worth noting (not a plan change, not a sell trigger):** MSFT jumped
+sharply since this morning's ~08:45 ET research check — `quote MSFT` now
+shows `prev_close` $497.585 -> `last` $514.23, **+3.35% intraday**, driving
+today's unrealized gain from +9.03% (this morning) to +12.63%. This is
+larger than MSFT's typical daily move logged in this file. Sell rules only
+fire on downside (7%/15% down, or thesis break), so no action is called for
+by a position running up — but per `CLAUDE.md`'s honesty requirement, I do
+not know the cause: this morning's primary-source check (research routine,
+~08:45 ET) found no new 8-K/IR release, and the only path available in this
+environment for a general market-reaction search (Perplexity, unrestricted,
+per the 2026-07-31 lesson) was not run this execution-only check since the
+task scope for this routine is limited to re-verifying the dated plan and
+executing it, not open-ended research. Flagging for the next research
+routine (or intraday check) to explain if it re-checks primary sources or a
+news search — this is not a >15%-gap-on-unexplained-news escalation
+threshold (`CLAUDE.md`), so not escalating urgently, just noting the
+uncertainty honestly rather than fabricating a cause.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$517.78, stop price $466.002 — unchanged since 2026-08-28 (current price
+$514.38 remains below the hwm $517.78, so no new high to ratchet the stop
+up on yet, though it's now the closest MSFT has come to that high since
+that date). SPY carries no stop by design (core index-ETF exemption).
+
+No orders placed, none rejected — plan called for none. No sell trigger
+fires (MSFT is up, not down; SPY is -0.46%, nowhere near a sell threshold).
+No branch/main drift, no data call failure, no number in this entry
+estimated or fabricated. Per this scheduled task's own notify instruction
+("if nothing happened, send nothing"), no `notify.py` call was made this
+run — no trade was placed or rejected. The unusually large MSFT move is
+logged here for the next routine to pick up and explain (research routine
+or intraday check), not escalated now since it hits none of `CLAUDE.md`'s
+escalation thresholds (no >15% gap, no `trading_blocked`, no broker/file
+discrepancy).
+
+---
+
 ## Intraday risk-reduction check — 2026-09-24 ~13:03 ET
 
 This routine only reduces risk — no new positions permitted regardless of
