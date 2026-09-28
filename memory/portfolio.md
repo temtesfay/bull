@@ -1,6 +1,6 @@
 # Portfolio
 
-Last updated: 2026-09-25 (ninth weekly review, same day as the daily-close
+Last updated: 2026-09-28 daily-close (see entry below; prior header: 2026-09-25 ninth weekly review, same day as the daily-close
 reconciliation above it in history). No discrepancy vs Alpaca; no orders
 placed or evaluated by this review (research/grading scope only). This
 week (2026-09-18 close -> 2026-09-25 close): portfolio +0.10% vs SPY
@@ -29,7 +29,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,119.35 |
+| Equity | $100,066.57 |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -176,6 +176,7 @@ Format for each position, one block:
 | 2026-09-23 | -0.03% | -0.71% | +0.68% |
 | 2026-09-24 | -0.02% | -0.08% | +0.06% |
 | 2026-09-25 | +0.07% | +0.53% | -0.46% |
+| 2026-09-28 | -0.05% | -0.76% | +0.71% |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
@@ -189,7 +190,12 @@ intraday-check $100,106.09, neither of which is a close), this row is left
 explicitly blank. See `lessons.md` for the process note — this is a gap in
 schedule coverage, not a broker/file discrepancy.
 
-Since-inception delta (2026-07-29 close baseline, when the account was first
+Since-inception as of 2026-09-28 close: portfolio +0.07% ($100,000 ->
+$100,066.57), SPY +4.92% (729.57 -> 765.49), delta **-4.86%**, narrowing from
+-5.61% on 2026-09-25 because SPY fell 0.76% and the ~94%-cash book cushioned
+it. Mechanical, not skill.
+
+Prior (2026-09-25) since-inception delta (2026-07-29 close baseline, when the account was first
 funded at $100,000 with 0 positions, SPY `prev_close` 729.57): portfolio
 +0.12% ($100,000 → $100,119.35), SPY +5.73% (729.57 → 771.35 per
 `alpaca.py quote SPY` at 2026-09-25 close), delta **-5.61%**, widening from
@@ -198,6 +204,33 @@ than the portfolio (+0.07%) given the ~94%-cash construction, the same
 cushioning effect that narrows the delta on SPY's down days widens it on
 SPY's up days. Not evidence of a stock-picking change either way; MSFT
 alone remains up 13.05% since its own entry, a new best mark.
+
+---
+
+## Daily-close entry — 2026-09-28
+
+Markets closed (`clock` 16:15 ET). No orders placed or evaluated (routine
+scope). Reconciliation: HEAD == origin/main (8fb2276). Alpaca equity
+$100,066.57, cash $94,100.00, day change -$53.70 (-0.05%),
+`trading_blocked: false`. SPY 6.339623293 sh @ $772.91, now $765.22
+(-1.00%, ~4.85% of equity); MSFT 2.189599299 sh @ $456.70, now $509.39
+(+11.54%, ~1.11% of equity). Quantities/entries match this file; no
+discrepancy. MSFT trailing stop `cee441de-...` still live (status `new`,
+hwm $519.40, stop $467.46, unchanged today). SPY has no stop by design.
+
+**Benchmark:** portfolio -0.05% vs SPY -0.76% (`quote SPY` prev_close
+$771.35 -> last $765.49), delta +0.71%. Since inception portfolio +0.07% vs
+SPY +4.92%, delta -4.86%.
+
+**Trades:** none placed, none rejected. **Positions >5% underwater:** none
+(SPY -1.00%, MSFT +11.54%).
+
+**Watching:** MSFT gave back ~1.9% from its 09-25 mark ($516.30 -> $509.39),
+still ~9.7% above the stop; FQ1 FY27 print vs 44-45% CC restated guidance.
+
+**Uncertainty:** I did not investigate MSFT's pullback today (markets closed,
+no news search in scope); cause unknown. SPY last price is the quote at
+~16:15 ET, not an official close.
 
 ---
 
