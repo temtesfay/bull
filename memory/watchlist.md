@@ -172,6 +172,71 @@ notification sent this run.
 
 ---
 
+## Intraday risk-reduction check — 2026-09-28 ~13:04 ET
+
+This routine only reduces risk — no new positions permitted regardless of
+what looks attractive; any attractive candidate goes to the watchlist for
+tomorrow's pre-market run, not into an order today.
+
+**`main`-sync check:** `git fetch origin main` confirmed local HEAD
+(`55870fc`, this morning's market-open-check merge) already matched
+`origin/main` exactly (`git log origin/main..HEAD` and `HEAD..origin/main`
+both empty) — no branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,081.72, cash $94,100.00, day change
+-0.04% (-$38.55), `trading_blocked: false`, `clock` shows `is_open: true`.
+Positions match `portfolio.md`'s last snapshot exactly on quantity and avg
+entry — only normal intraday price drift since this morning's market-open
+check: SPY qty 6.339623293 @ $772.91 avg (current $766.72, -0.80%
+unrealized, market value $4,860.68 = **~4.858% of equity**) and MSFT qty
+2.189599299 @ $456.70 avg (current $511.93, +12.09% unrealized, market
+value $1,120.91 = **~1.12% of equity**). No discrepancy — nothing to log on
+the broker-vs-file front.
+
+**Circuit breaker (step 2):** day change -0.04%, nowhere near the -3% halt
+threshold. No halt; sell-rule checks proceed normally.
+
+**Sell-rule check, in order (step 3):**
+1. *Thesis broken?* MSFT is the only position with a thesis (SPY is a core
+   allocation buy, exempt). Ran an unrestricted news search for MSFT
+   covering the weekend/today (2026-09-26 through 2026-09-28) rather than
+   relying on Friday's check alone, per this routine's explicit instruction
+   to check news before concluding a price move means anything. Result: no
+   negative or thesis-breaking item. Coverage found a Copilot product
+   redesign, a signal that Microsoft plans to start disclosing standalone
+   Azure revenue, refreshed Surface hardware, custom AI chip progress, and
+   a quantum-computing research milestone — all thesis-reinforcing or
+   neutral (the standalone-Azure-disclosure signal in particular bears
+   directly on the thesis's Azure-growth metric and is worth watching for
+   when it's actually implemented, not evidence of anything today). No
+   8-K, guidance cut, or executive/litigation item surfaced. **Thesis
+   intact.**
+2. *Down 7% from entry with no thesis-consistent explanation?* MSFT is up
+   12.09% from its $456.70 entry — not down at all. Does not apply.
+3. *Down 15% from entry?* Does not apply, same reason.
+4. *Position above 5% of equity?* SPY ~4.858%, MSFT ~1.12% — both well
+   under the 5% cap. No trim triggered.
+
+None of the four sell rules fire on either position. No trim, no exit.
+
+**Trailing-stop check (step 4):** `orders --status open` confirms the MSFT
+trailing stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status
+`new`, hwm **$519.40**, stop price **$467.46** — unchanged since Friday's
+ratchet (current price $511.93 remains below the hwm, so no new high to
+ratchet the stop up on today). Covers 2 of 2.19 whole shares, as before.
+SPY carries no stop by design (core index-ETF exemption) and needs none.
+
+**Watchlist candidates:** none open — this routine may not open new
+positions regardless, and no new attractive candidate surfaced from the
+news check above worth adding for tomorrow's pre-market run either.
+
+No trades placed, no orders rejected, no memory drift found, no sell
+trigger fired, trailing stop confirmed live and unchanged. Per this
+routine's own instruction ("If nothing happened, send nothing" /
+`CLAUDE.md`'s "default to doing nothing"), no notification sent this run.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-25 ~13:03 ET
 
 This routine only reduces risk — no new positions permitted regardless of
