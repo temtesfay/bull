@@ -126,6 +126,52 @@ sourcing (the non-Microsoft primary-source network block remains settled,
 
 ---
 
+## Market-open execution check — 2026-09-28 ~09:45 ET
+
+Plan for today (`## Plan for today — 2026-09-28` above, drafted this morning
+pre-open) proposed no trade — confirmed the plan's date matches today before
+proceeding, per this routine's explicit stop-if-stale instruction.
+
+**`main`-sync check:** `git fetch origin main` confirmed local HEAD already
+matched `origin/main` exactly at `cd1f03b` (this morning's research-routine
+commit) before this run made any changes (`git log origin/main..HEAD` and
+`HEAD..origin/main` both empty) — no branch/main drift.
+
+**`clock`:** `is_open: true`, `timestamp` ~09:45 ET, `next_close` today
+16:00 ET — a normal trading day.
+
+**Re-verified ground truth (Alpaca):** equity $100,070.78, cash $94,100.00,
+day change -0.05% (-$49.49), `trading_blocked: false`. Positions: SPY qty
+6.339623293 @ $772.91 avg (current $767.62, -0.69% unrealized, market value
+$4,866.42 = ~4.86% of equity) and MSFT qty 2.189599299 @ $456.70 avg
+(current $504.28, +10.42% unrealized, market value $1,104.17 = ~1.10% of
+equity). Matches `portfolio.md`'s prior snapshot on quantity/avg entry —
+only normal price drift since this morning's research check. No
+discrepancy.
+
+**Price re-verification vs plan (the required <3%-move check):** plan
+proposed no entries, so there is nothing to re-verify against a planned
+entry price — the check is moot by construction this run.
+
+**Circuit breaker:** day change -0.05%, nowhere near the -3% halt
+threshold. No halt.
+
+**Execution:** no orders placed, per the dated plan's own "no action
+planned." Nothing to submit to `guardrails.py`, so no rejection either.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$519.40, stop price $467.46 — unchanged since Friday's ratchet (current
+price $504.28 remains below the hwm, so no new high to ratchet the stop up
+on). Covers 2 of 2.19 whole shares, as before. SPY carries no stop by
+design (core index-ETF exemption).
+
+No trades placed, no orders rejected, no memory drift found. Per this
+scheduled task's own instruction ("If nothing happened, send nothing"), no
+notification sent this run.
+
+---
+
 ## Intraday risk-reduction check — 2026-09-25 ~13:03 ET
 
 This routine only reduces risk — no new positions permitted regardless of
