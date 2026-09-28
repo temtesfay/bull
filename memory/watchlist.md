@@ -23,6 +23,109 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-09-28
+
+Research-only routine (no trades permitted this run, per this scheduled
+task's explicit scope). First run since 2026-09-25's daily-close (weekend
+gap, no session 09-26/09-27). `clock` confirms `is_open: false` pre-open
+(checked ~08:44 ET), `next_open`/`next_close` both 2026-09-28 — a normal
+trading day (Monday), not a holiday.
+
+**`main`-sync check:** `git fetch origin main` confirmed local HEAD already
+matched `origin/main` exactly (`git log origin/main..HEAD` and
+`HEAD..origin/main` both empty) — no branch/main drift.
+
+**Ground truth (Alpaca):** equity $100,089.00, cash $94,100.00, day change
+-0.03% (-$31.27), `trading_blocked: false`. Positions match `portfolio.md`'s
+last snapshot exactly on quantity and avg entry — only normal weekend price
+drift: SPY qty 6.339623293 @ $772.91 avg (current $768.72, -0.54%
+unrealized, market value $4,873.40 = ~4.87% of equity) and MSFT qty
+2.189599299 @ $456.70 avg (current $509.50, +11.56% unrealized, market
+value $1,115.60 = ~1.11% of equity). No discrepancy — nothing to log on the
+broker-vs-file front.
+
+**Overnight gap check (both positions, vs Friday's logged daily-close: SPY
+$771.16, MSFT $516.30):** SPY $768.72 is -0.32% since Friday's close, MSFT
+$509.50 is -1.32% since Friday's close. Both trivial moves over a
+weekend gap, well under the 5% overnight-gap notification threshold.
+
+**Data source failure — Perplexity API:** the `PERPLEXITY_API_KEY` call for
+the MSFT primary-source thesis check returned HTTP 402: `"Your API Project
+has insufficient API credits."` This is a new failure mode, distinct from
+every prior Perplexity issue logged in `lessons.md` (those were synthesis-
+quality or metadata-misattribution problems, not an outright API failure) —
+worth flagging to the human directly since it needs a billing action, not a
+research-process fix. Per `CLAUDE.md`'s honesty rule, saying plainly: this
+routine's normal MSFT thesis-check path failed and no Perplexity query
+succeeded this run. Full detail in `lessons.md` 2026-09-28.
+
+**Position thesis check (MSFT, the only satellite position) — worked
+around via direct primary source:** since Microsoft's own IR domain is the
+one confirmed-reachable primary source in this environment (per
+`lessons.md` 2026-08-06/08-17), fetched `microsoft.com/en-us/investor/`
+directly (not via Perplexity) and asked for any announcements dated
+2026-09-25 through 2026-09-28 touching Azure/cloud revenue, AI capex,
+executive changes, litigation, or an FQ1 FY27 earnings date. Result: **no
+new item** in that window — the most recent items shown remain the
+2026-09-15 quarterly dividend increase and the 2026-09-02 FY27 segment
+restructuring presentation, both already logged. No FQ1 FY27 earnings date
+has been announced yet (checked the FY26 Q1 earnings-release page directly;
+it names no future date). **No genuinely new primary-source item today.
+Thesis intact, unchanged** — verified independently of the failed
+Perplexity call, so this is not an unverified rollover of Friday's check.
+
+**SPY core sleeve:** no thesis to break (exempt per `strategy.md`). Sits at
+~4.87% of equity. Per the seventh weekly review's applied default
+(`lessons.md` 2026-09-11, `portfolio.md`), the core sleeve is settled at
+~5% (SPY only) by default under continued human silence — not re-raising
+this as an open blocking question here; re-escalating the standing
+core-sleeve and network-policy questions is the weekly review's job, not
+this daily research routine's, per `lessons.md` 2026-09-18.
+
+**Watchlist candidates:** none open, so no trigger checks applied. The
+non-Microsoft primary-source network block remains considered settled
+(18/18 domains tested, `lessons.md` 2026-08-17) — no further probing
+planned unless the environment changes. Today's Perplexity outage doesn't
+change this: candidate sourcing was already blocked at the network layer
+for every non-Microsoft domain regardless of which research tool is used.
+
+**Trailing-stop check:** `orders --status open` confirms the MSFT trailing
+stop (`cee441de-48ae-4e48-9cc2-d6482a4c3b0a`) still live: status `new`, hwm
+$519.40, stop price $467.46 — unchanged since Friday's ratchet (current
+price $509.50 remains below the hwm, so no new high to ratchet the stop up
+on). Covers 2 of 2.19 whole shares, as before. SPY carries no stop by
+design (core index-ETF exemption).
+
+**Draft proposal for the market-open routine:** none. SPY has no headroom
+left under the 5%-per-symbol cap (~4.87%, core sleeve settled at ~5% by
+default), MSFT's thesis is unchanged with no new catalyst or invalidation
+signal (confirmed via direct IR-site check despite the Perplexity outage),
+and no new satellite candidate cleared sourcing (network block still
+settled/exhaustive). **No action planned.** (See `## Plan for today —
+2026-09-28` below, drafted from this research.)
+
+No thesis broken, no >5% overnight gap — but the Perplexity data source did
+fail, which this routine's own notify criteria calls out explicitly.
+Sending a `normal`-urgency notification: the thesis check itself succeeded
+via a workaround and nothing is broken in the portfolio, but the human
+should know the standard research path is down and needs a billing fix.
+
+---
+
+## Plan for today — 2026-09-28
+
+Drafted after the research routine above. **No trade proposed.** MSFT
+thesis is intact (verified directly against Microsoft's IR site after the
+Perplexity API failed on insufficient credits) with no new primary-source
+catalyst since the 2026-09-02 8-K/segment restructuring; SPY core sleeve
+has no headroom left under the 5%-per-symbol cap (settled at ~5%/SPY-only
+by default per the seventh weekly review); no watchlist candidate cleared
+sourcing (the non-Microsoft primary-source network block remains settled,
+18/18 domains tested per `lessons.md` 2026-08-17, not re-probed this run).
+**No action planned.**
+
+---
+
 ## Intraday risk-reduction check — 2026-09-25 ~13:03 ET
 
 This routine only reduces risk — no new positions permitted regardless of

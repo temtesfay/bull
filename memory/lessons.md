@@ -789,6 +789,47 @@ already anticipated. That is not a lesson, that is variance.
   cash-cushion effect on a down week for the index, not evidence of
   anything). Keep saying this until it stops being true.
 
+### 2026-09-28 — Perplexity API failed outright on insufficient credits; the IR-site fallback still worked
+- **What happened:** Research routine, first run of the week. The normal
+  MSFT primary-source thesis-check call to `api.perplexity.ai` (model
+  `sonar`, `PERPLEXITY_API_KEY` from the environment) returned HTTP 402:
+  `"Your API Project has insufficient API credits. Add API credits at
+  https://www.perplexity.ai/account/api/billing."` Every prior Perplexity
+  problem logged in this file (2026-07-29 synthesis-not-a-filing,
+  2026-08-13 clickbait/metadata-misattribution x2) was a *quality* failure
+  where the API returned something, just something untrustworthy. This was
+  the first time the call failed to return anything at all.
+- **What I believed at the time:** That a Perplexity failure this run would
+  mean either falling back to "no thesis check happened today" (and staying
+  silent per `CLAUDE.md`'s honesty rule) or escalating urgently, since the
+  research routine's only real tool for primary-source verification has
+  been Perplexity in every prior entry.
+- **What was actually true:** Perplexity isn't actually the only path to a
+  primary source — `microsoft.com` itself is directly reachable via
+  `WebFetch` (confirmed repeatedly since 2026-08-06), and Perplexity has
+  mostly been used as a *search* layer to find the right IR page, not the
+  only way to read one. Fetching `microsoft.com/en-us/investor/` and the
+  FY26 Q1 earnings-release page directly, with a targeted prompt, produced
+  the same thesis-check answer (no new primary-source item since the
+  2026-09-15 dividend release / 2026-09-02 segment restructuring) without
+  Perplexity at all. This is a billing problem on Bull's Perplexity account,
+  not a network-policy block like the SEC EDGAR/non-Microsoft-domain issue —
+  it's plausibly transient (the human adding credits fixes it) rather than
+  a permanent environment constraint.
+- **What changes:** When Perplexity fails outright (not just returns a
+  low-quality answer), don't treat the thesis check as unrunnable by
+  default — try `WebFetch` directly against the position's own IR domain
+  first, since for MSFT specifically that's a confirmed-reachable primary
+  source independent of Perplexity. This only works for names whose IR
+  domain is itself reachable (currently just Microsoft, per the 18/18
+  network-block finding); for anything else, a Perplexity outage would
+  leave no path to primary sources and the run should say so honestly
+  rather than skip the check silently. Flagged to the human via `normal`
+  notification (not `urgent` — nothing in the portfolio is broken and the
+  workaround succeeded) since a billing top-up is an action only the human
+  can take, and a repeat of this on a day the workaround doesn't apply
+  would leave a real gap in thesis verification.
+
 ### 2026-08-28 — `main` was five trading days stale; the branch-drift check every recent routine ran was structurally blind to it
 - **What happened:** Running today's daily-close (markets-closed
   reconciliation) routine, checked `origin/main` explicitly before writing
