@@ -23,6 +23,39 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-09-29
+
+Research-only (no trades). `clock`: `is_open: false` pre-open (~08:44 ET),
+`next_open` 2026-09-29 09:30 — normal trading day, not a holiday.
+
+**Ground truth (Alpaca):** equity $100,074.62, cash $94,100.00,
+`trading_blocked: false`. SPY 6.339623293 sh @ $772.91 (current $766.69,
+-0.80% unrealized, ~4.86% of equity); MSFT 2.189599299 sh @ $456.70
+(current $508.81, +11.41%, ~1.11%). Matches `portfolio.md`; no discrepancy.
+Moves vs 09-28 log: SPY -0.26%, MSFT -0.14% — no gap near the 5% threshold.
+
+**Data source failure — Perplexity:** still HTTP 402 (insufficient API
+credits), same as 2026-09-28. Needs a human billing top-up. No Perplexity
+query succeeded this run.
+
+**MSFT thesis check:** fetched `microsoft.com/en-us/investor/` directly. Front
+page still leads with FY26 Q4 earnings (2026-07-29); no new item, no FQ1 FY27
+earnings date. Limits: this was a homepage read only, not an SEC filings
+search (sec.gov is blocked per `lessons.md`), so an 8-K filed in the last
+day could be missed. Thesis intact as far as I can verify.
+
+**Stop:** MSFT trailing stop `cee441de-...` live, 2 sh, 10% trail, hwm
+$519.40, stop $467.46. SPY exempt by design.
+
+**Watchlist:** no open candidates; nothing to check.
+
+## Plan for today — 2026-09-29
+
+No action planned. SPY has no headroom under the 5% cap; MSFT thesis
+unchanged; no candidate exists.
+
+---
+
 ## Research routine — 2026-09-28
 
 Research-only routine (no trades permitted this run, per this scheduled
