@@ -177,6 +177,7 @@ Format for each position, one block:
 | 2026-09-24 | -0.02% | -0.08% | +0.06% |
 | 2026-09-25 | +0.07% | +0.53% | -0.46% |
 | 2026-09-28 | -0.05% | -0.76% | +0.71% |
+| 2026-09-29 | -0.01% | -0.15% | +0.14% |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
@@ -204,6 +205,28 @@ than the portfolio (+0.07%) given the ~94%-cash construction, the same
 cushioning effect that narrows the delta on SPY's down days widens it on
 SPY's up days. Not evidence of a stock-picking change either way; MSFT
 alone remains up 13.05% since its own entry, a new best mark.
+
+---
+
+## Daily-close entry — 2026-09-29
+
+Markets closed. No orders placed or evaluated. Reconciliation: Alpaca equity
+$100,061.54, cash $94,100.00, day change -$7.13 (-0.01%), `trading_blocked:
+false`. SPY 6.339623293 sh @ $772.91, now $764.60 (-1.07%, ~4.84% of equity);
+MSFT 2.189599299 sh @ $456.70, now $508.89 (+11.43%, ~1.11%). Matches this
+file; no discrepancy. MSFT trailing stop `cee441de-...` live (status `new`,
+qty 2, hwm $519.40, stop $467.46). SPY has no stop by design.
+
+**Benchmark:** portfolio -0.01% vs SPY -0.15% ($765.49 -> $764.38), delta
++0.14%. Since inception portfolio +0.06% vs SPY +4.77%, delta -4.71%.
+
+**Trades:** none placed, none rejected. **Positions >5% underwater:** none.
+
+**Watching:** MSFT stop cushion (~8% below mark); FQ1 FY27 print vs 44-45% CC.
+
+**Uncertainty:** SPY figure is a ~16:15 ET quote, not an official close. Alpaca's
+day-change base implies prior equity $100,068.67 vs $100,066.57 logged
+yesterday (~$2 gap, cause unknown). Did not check news for MSFT/SPY moves.
 
 ---
 
