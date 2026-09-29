@@ -151,3 +151,6 @@ rejections is a signal the strategy and the limits are out of sync.
   (VTI, IVV, etc.) or explicit human guidance — not something this run
   decides unilaterally. No further SPY core buy should be attempted until
   that's resolved.
+
+## 2026-09-29 risk-only check
+- No trades. Day -0.02%, no sell rule triggered (SPY -1.34%, MSFT +11.22%), MSFT trailing stop confirmed live (qty 2, 10%, stop $467.46). Broker matches portfolio.md.

@@ -1,6 +1,6 @@
 # Portfolio
 
-Last updated: 2026-09-28 daily-close (see entry below; prior header: 2026-09-25 ninth weekly review, same day as the daily-close
+Last updated: 2026-09-29 risk-only daily check — no orders. Equity $100,046.58 (day -0.02%), cash $94,100.00; SPY 6.3396 sh $762.56 (-1.34% vs entry, core, no sell rule hit); MSFT 2.1896 sh $507.96 (+11.22%, ~1.1% of equity, 10% trailing stop live on 2 sh, stop $467.46, hwm $519.40; 0.19 sh fractional remainder unstoppable). Circuit breaker not tripped; no thesis-break evidence checked beyond price (none indicated); no positions >5%. Prior header follows:  2026-09-28 daily-close (see entry below; prior header: 2026-09-25 ninth weekly review, same day as the daily-close
 reconciliation above it in history). No discrepancy vs Alpaca; no orders
 placed or evaluated by this review (research/grading scope only). This
 week (2026-09-18 close -> 2026-09-25 close): portfolio +0.10% vs SPY
@@ -29,7 +29,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,074.62 (2026-09-29 pre-open research) |
+| Equity | $100,046.58 (2026-09-29 risk check) |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
