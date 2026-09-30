@@ -1,6 +1,6 @@
 # Portfolio
 
-Last updated: 2026-09-30 risk-only close check — no orders. Equity $100,104.97 (day +0.05%), cash $94,100.00; SPY 6.3396 sh $768.24 (-0.60%, ~4.87%, core); MSFT 2.1896 sh $518.19 (+13.46%, ~1.13%, 10% trailing stop live on 2 sh, stop $467.85, hwm $519.83). No sell rule hit, breaker not tripped, no thesis-break evidence seen (no news re-check beyond price). Prior header follows: 2026-09-30 research routine — no orders; Alpaca matches (equity $100,080.26, MSFT stop still open). Prior: 2026-09-29 risk-only daily check — no orders. Equity $100,046.58 (day -0.02%), cash $94,100.00; SPY 6.3396 sh $762.56 (-1.34% vs entry, core, no sell rule hit); MSFT 2.1896 sh $507.96 (+11.22%, ~1.1% of equity, 10% trailing stop live on 2 sh, stop $467.46, hwm $519.40; 0.19 sh fractional remainder unstoppable). Circuit breaker not tripped; no thesis-break evidence checked beyond price (none indicated); no positions >5%. Prior header follows:  2026-09-28 daily-close (see entry below; prior header: 2026-09-25 ninth weekly review, same day as the daily-close
+Last updated: 2026-09-30 daily-close (final): equity $100,062.97 (+$3.81, +0.00%), cash $94,100.00, SPY 6.3396 sh @ $763.35 (-1.24%), MSFT 2.1896 sh @ $513.16 (+12.36%, stop $467.847 live on 2 sh). Reconciled clean, no orders. SPY -0.27% (762.34 vs 764.38 prev close); delta today +0.27pp; since inception portfolio +0.06% vs SPY +4.49% (729.57 -> 762.34), delta -4.43pp. Note: equity fell from the earlier risk-check figure ($100,104.97) as prices moved into the close. Prior header: 2026-09-30 risk-only close check — no orders. Equity $100,104.97 (day +0.05%), cash $94,100.00; SPY 6.3396 sh $768.24 (-0.60%, ~4.87%, core); MSFT 2.1896 sh $518.19 (+13.46%, ~1.13%, 10% trailing stop live on 2 sh, stop $467.85, hwm $519.83). No sell rule hit, breaker not tripped, no thesis-break evidence seen (no news re-check beyond price). Prior header follows: 2026-09-30 research routine — no orders; Alpaca matches (equity $100,080.26, MSFT stop still open). Prior: 2026-09-29 risk-only daily check — no orders. Equity $100,046.58 (day -0.02%), cash $94,100.00; SPY 6.3396 sh $762.56 (-1.34% vs entry, core, no sell rule hit); MSFT 2.1896 sh $507.96 (+11.22%, ~1.1% of equity, 10% trailing stop live on 2 sh, stop $467.46, hwm $519.40; 0.19 sh fractional remainder unstoppable). Circuit breaker not tripped; no thesis-break evidence checked beyond price (none indicated); no positions >5%. Prior header follows:  2026-09-28 daily-close (see entry below; prior header: 2026-09-25 ninth weekly review, same day as the daily-close
 reconciliation above it in history). No discrepancy vs Alpaca; no orders
 placed or evaluated by this review (research/grading scope only). This
 week (2026-09-18 close -> 2026-09-25 close): portfolio +0.10% vs SPY
@@ -178,6 +178,7 @@ Format for each position, one block:
 | 2026-09-25 | +0.07% | +0.53% | -0.46% |
 | 2026-09-28 | -0.05% | -0.76% | +0.71% |
 | 2026-09-29 | -0.01% | -0.15% | +0.14% |
+| 2026-09-30 | +0.00% | -0.27% | +0.27% |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
@@ -2929,3 +2930,12 @@ every prior daily close — core sleeve concentration/diversification, now
 unresolved for well over two weeks. Nothing else uncertain this run —
 reconciliation was clean, no data call failed, no number in this entry is
 estimated or fabricated.
+
+## Daily-close entry — 2026-09-30
+
+**Reconciliation:** Alpaca matches this file: SPY 6.339623293 sh, MSFT 2.189599299 sh, cash $94,100.00, no other positions; MSFT trailing stop (2 sh, stop $467.847) still open. No discrepancy.
+**Benchmark:** portfolio +$3.81 (+0.00%) vs SPY -0.27% (`quote SPY` prev $764.38 -> last $762.34), delta +0.27pp. Since inception (SPY $729.57): portfolio +0.06% vs SPY +4.49%, delta -4.43pp.
+**Trades:** none placed, none rejected.
+**>5% underwater:** none (SPY -1.24%, MSFT +12.36%).
+**Watching tomorrow:** nothing new; MSFT thesis checkpoint remains the FQ1 FY27 print.
+**Uncertain about:** SPY price differs between `positions` ($763.35) and `quote` ($762.34) by ~$1; I used `quote` for the benchmark as instructed. The same unanswered human questions remain open per prior reviews.
