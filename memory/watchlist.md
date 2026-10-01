@@ -23,6 +23,26 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-10-01
+
+Research-only (no trades). `clock`: `is_open: false` pre-open (~08:44 ET), `next_open` 2026-10-01 09:30 — normal trading day.
+
+**Ground truth (Alpaca):** equity $100,090.72, cash $94,100.00, `trading_blocked: false`. SPY 6.339623293 sh (current $765.69, ~4.85% of equity); MSFT 2.189599299 sh (current $519.06, +13.65%, ~1.14%). Matches `portfolio.md`; no discrepancy. MSFT ~+1.2% vs 09-30 close ($513.16), SPY +0.3% — no gap near 5%.
+
+**Data source failure — Perplexity:** still failing (API returns insufficient_quota "add credits"), fourth consecutive run. Needs a human billing top-up. No query succeeded.
+
+**MSFT thesis check:** a direct fetch of the microsoft.com investor page returned only page-chrome markup, nothing usable; sec.gov blocked per `lessons.md`. No news verified either way. Thesis intact as far as I can tell, but unverified this run.
+
+**Stop:** MSFT trailing stop `cee441de-...` open (status new, 2 sh, stop $467.847). SPY exempt.
+
+**Watchlist:** no open candidates.
+
+## Plan for today — 2026-10-01
+
+No action planned.
+
+---
+
 ## Research routine — 2026-09-30
 
 Research-only (no trades). `clock`: `is_open: false` pre-open (~08:44 ET), `next_open` 2026-09-30 09:30 — normal trading day.
