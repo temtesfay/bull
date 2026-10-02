@@ -2944,3 +2944,6 @@ estimated or fabricated.
 ## Daily-close entry — 2026-10-01
 
 No orders placed or rejected. Alpaca ground truth: equity $100,072.97 (+$15.14, +0.02%), cash $94,100.00, SPY 6.339623293 sh, MSFT 2.189599299 sh — matches this file, no discrepancy. MSFT 10% trailing stop (id cee441de…) confirmed open: qty 2, stop $470.565, hwm $522.85, expires 2026-10-29. Day: portfolio +0.02% vs SPY +0.23% (delta -0.21pp). Since inception: portfolio +0.07% vs SPY +4.73%, delta -4.66pp. Positions >5% underwater: none (SPY -1.06%, MSFT +12.52%). Watching tomorrow: MSFT stop ratchet/expiry (10-29) and whether the standing human-decision questions get answered. Uncertainty: SPY figure is from the quote endpoint (low volume, possibly not the official close).
+
+## 2026-10-02 risk-only check
+- No trades. Equity $100,106.87 (day +0.04%), cash $94,100.00. SPY 6.3396 sh $769.83 (-0.40% vs entry, ~4.88% of equity, core, <5% cap); MSFT 2.1896 sh $514.45 (+12.65%, ~1.13%). MSFT 10% trailing stop live on 2 sh (stop $470.565, hwm $522.85, expires 2026-10-29). Breaker not tripped; no sell rule hit; price-only check, no news pull (no trigger required one). Broker matches portfolio.md.
