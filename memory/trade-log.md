@@ -157,3 +157,6 @@ rejections is a signal the strategy and the limits are out of sync.
 
 ## 2026-09-30 risk-only check
 - No trades. Day +0.05%, no sell rule triggered (SPY -0.60%, MSFT +13.46%, SPY ~4.87% <5%). MSFT trailing stop live (qty 2, 10%, stop $467.85). Broker matches portfolio.md.
+
+## 2026-10-02 execution check
+- No trades. Plan dated 2026-10-02 reads "No action planned"; nothing to execute.
