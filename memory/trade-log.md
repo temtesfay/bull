@@ -163,3 +163,6 @@ rejections is a signal the strategy and the limits are out of sync.
 
 ## 2026-10-05 risk-only check
 - No trades. Day +0.04%, no sell rule triggered (SPY +0.13% vs entry at 4.90% of equity, under 5% cap; MSFT +15.02%, ~1.15%). MSFT trailing stop live (qty 2, 10%, stop $479.115). Broker matches portfolio.md. Sleeve is ~94% cash; no new positions allowed in this routine.
+
+## 2026-10-06 risk-only check
+- No trades. Day +0.05%, no sell rule triggered (SPY +0.90% vs entry at 4.93% of equity, under 5% cap; MSFT +16.56%, ~1.16%). MSFT trailing stop live (qty 2, 10%, stop $482.121). Broker matches portfolio.md. No new positions allowed in this routine.
