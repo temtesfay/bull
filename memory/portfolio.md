@@ -2958,3 +2958,13 @@ No orders placed or rejected. Alpaca ground truth: equity $100,072.97 (+$15.14, 
 **>5% underwater:** none (SPY +0.23%, MSFT +14.95%).
 **Watching tomorrow:** nothing new; MSFT FQ1 FY27 print remains the thesis checkpoint.
 **Uncertain about:** SPY quote ($774.97) differs from `positions` ($774.71); used `quote` for the benchmark. Perplexity credits and the core-sleeve/network questions remain unanswered per prior reviews.
+
+## Daily-close entry — 2026-10-06
+
+**Reconciliation:** Alpaca matches this file: SPY 6.339623293 sh, MSFT 2.189599299 sh, cash $94,100.00, no other positions; MSFT trailing stop (2 sh, stop $482.121, hwm $535.69, expires 2026-10-29) open via `orders --status open`. No discrepancy.
+**Equity:** $100,200.23 (+$38.17, +0.04%).
+**Benchmark:** portfolio +0.04% vs SPY +0.53% (`quote SPY` prev $774.97 -> last $779.10), delta -0.49pp. Since inception (SPY $729.57): portfolio +0.20% vs SPY +6.79%, delta -6.59pp. (Inception equity assumed $100,000.)
+**Trades:** none placed, none rejected.
+**>5% underwater:** none (SPY +0.85%, MSFT +15.86%).
+**Watching tomorrow:** nothing new; MSFT FQ1 FY27 print remains the thesis checkpoint; stop expires 2026-10-29.
+**Uncertain about:** SPY quote ($779.10) differs from `positions` ($779.48); used `quote` for the benchmark. Perplexity credits and the core-sleeve/network questions remain unanswered per prior reviews.
