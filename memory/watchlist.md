@@ -24,6 +24,24 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-10-08
+
+Research-only (no trades). `clock`: `is_open: false` pre-open (~08:44 ET), `next_open` 2026-10-08 09:30 — normal trading day.
+
+**Ground truth (Alpaca):** equity $100,160.09, cash $94,100.00, `trading_blocked: false`. SPY 6.339623293 sh ($774.13, ~4.90%); MSFT 2.189599299 sh ($526.51, +15.29%, ~1.15%). Matches `portfolio.md`; no discrepancy. No gap near 5% (MSFT -0.1%, SPY -0.2% vs 10-07). Did not re-pull the stop order this run (research-only); last verified live 10-07.
+
+**Data source failure — Perplexity:** still insufficient_quota (HTTP 401), ninth consecutive run. No news checked. Needs a human billing top-up. Notified.
+
+**MSFT thesis check:** unverified (no working research source); no evidence of a break.
+
+**Watchlist:** no open candidates.
+
+## Plan for today — 2026-10-08
+
+No action planned.
+
+---
+
 ## Research routine — 2026-10-07
 
 Research-only (no trades). `clock`: `is_open: false` pre-open (~08:44 ET), `next_open` 2026-10-07 09:30 — normal trading day.
