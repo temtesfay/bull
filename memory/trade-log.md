@@ -175,3 +175,6 @@ rejections is a signal the strategy and the limits are out of sync.
 
 ## 2026-10-09 risk-only check
 - No trades. Day +0.05% (equity $100,205.05), no sell rule triggered (SPY +0.70% vs entry at 4.92% of equity, under 5% cap; MSFT +17.07%, ~1.17%). MSFT trailing stop live (qty 2, 10%, stop $482.121, hwm $535.69, expires 2026-10-29, verified via orders --status open). Broker matches portfolio.md. Price-only check, no news pull (Perplexity out of credits); no thesis-break evidence. No new positions allowed in this routine.
+
+## 2026-10-12 risk-only check
+No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62% vs entry, 4.92% of equity (under 5% cap). MSFT +18.15%, 1.18% of equity, trailing stop 10% live on 2 sh (stop $488.45). No position down 7%+, no thesis break evidence. Research tool (Perplexity) unavailable, so no fresh news check; uncertain only in that respect.
