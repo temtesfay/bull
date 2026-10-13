@@ -181,3 +181,6 @@ No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62
 
 ## 2026-10-13 execution check
 - No trades. Plan dated 2026-10-13 reads "No action planned"; nothing to execute.
+
+## 2026-10-13 risk-only check
+- No orders. Equity $100,221.52 (day +$3.76, 0.00%), breaker not tripped. SPY +0.55% vs entry, 4.92% of equity (under 5% cap). MSFT +19.47%, ~1.19% of equity; trailing stop 10% live on 2 sh (stop $496.035, hwm $551.15, expires 2026-10-29, verified via orders --status open). No position down 7%+; no thesis-break evidence in price. Price-only check, no news pull (Perplexity out of credits). No new positions allowed in this routine.
