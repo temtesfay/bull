@@ -190,3 +190,6 @@ No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62
 
 ## 2026-10-14 risk-only check
 - No orders. Equity $100,155.90 (day -$66.33, -0.07%), breaker not tripped. SPY -0.37% vs entry, 4.87% of equity (under 5% cap). MSFT +17.42%, ~1.17% of equity; trailing stop 10% live on 2 sh (stop $496.035, hwm $551.15, expires 2026-10-29, verified via orders --status open). No position down 7%+; no thesis-break evidence (price-only check, no news pull — Perplexity previously out of credits, not re-tested). No new positions allowed in this routine.
+
+## 2026-10-15 risk-only check
+- No orders. Equity $100,160.26 (day +$12.72, +0.01%), breaker not tripped. SPY -0.43% vs entry, 4.87% of equity (under 5% cap). MSFT +18.14%, ~1.18% of equity; trailing stop 10% live on 2 sh (stop $496.035, hwm $551.15, expires 2026-10-29, verified via orders --status open). No position down 7%+; no thesis-break evidence in price. Price-only check, no news pull. Note: stop GTC expires 2026-10-29 — renew before then.
