@@ -186,6 +186,8 @@ Format for each position, one block:
 | 2026-10-09 | +0.06% | +0.60% | -0.54% |
 | 2026-10-12 | +0.01% | -0.06% | +0.07% |
 | 2026-10-13 | +0.00% | +0.00% (quote stale?) | 0.00% |
+| 2026-10-14 | -0.08% | -1.08% | +1.00% |
+| 2026-10-15 | +0.02% | +0.28% | -0.26% |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
@@ -215,6 +217,17 @@ SPY's up days. Not evidence of a stock-picking change either way; MSFT
 alone remains up 13.05% since its own entry, a new best mark.
 
 ---
+
+## Daily-close entry — 2026-10-15
+
+**Reconciliation:** Alpaca matches this file: SPY 6.339623293 sh, MSFT 2.189599299 sh, cash $94,100.00, no other positions; MSFT trailing stop (2 sh, stop $496.035, hwm $551.15, expires 2026-10-29) open via `orders --status open`. No discrepancy.
+**Equity:** $100,172.16 (+$24.62, +0.02%).
+**Benchmark:** portfolio +0.02% vs SPY +0.28% (quote last $771.77 vs prev_close $769.65; IEX-style, may not be the official close). Delta today -0.26pp. Since inception (SPY $729.57): portfolio +0.17% vs SPY +5.78%, delta -5.61pp. (Inception equity assumed $100,000.)
+**Trades:** none placed, none rejected.
+**>5% underwater:** none (SPY -0.15%, MSFT +17.95%).
+**Watching tomorrow:** MSFT vs its $496.035 stop; stop expires 2026-10-29; FQ1 FY27 print remains the thesis checkpoint.
+**Uncertain about:** SPY figure is a quote, not an official close. No news check (Perplexity out of credits since ~2026-09-29). Standing human asks (second core ticker, research credits, network allowlist) remain unanswered.
+
 
 ## Daily-close entry — 2026-10-14
 
