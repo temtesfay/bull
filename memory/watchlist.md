@@ -7377,3 +7377,15 @@ index-ETF exemption).
 No trades placed, no orders rejected, no memory drift found. Per the
 scheduled task's own instruction ("If nothing happened, send nothing"), no
 notification sent.
+
+---
+
+## Plan for today — 2026-10-21
+
+**Ground truth (08:36 ET, pre-open):** equity $100,149.85, cash $94,100.00, trading_blocked false, 0 new positions this week. SPY 6.3396 sh @ $771.01 (-0.24%), MSFT 2.1896 sh @ $530.65 (+16.19%) — both match portfolio.md. Market opens 09:30 ET today (no holiday).
+
+**Thesis check:** Perplexity returned HTTP 401 `insufficient_quota` again — overnight news NOT checked; MSFT thesis status is unverified (not confirmed broken). No gap >5% (MSFT ~-0.4% vs prior close). MSFT FQ1 FY27 earnings expected late Oct (date not verified) — no trading within 24h before it.
+
+**Watchlist:** no open candidates, no triggers to check.
+
+**No action planned.**
