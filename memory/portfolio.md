@@ -191,6 +191,7 @@ Format for each position, one block:
 | 2026-10-16 | +0.09% (since-inception; day -0.08%) | -1.09% (quote; since inception +4.63%) | day +1.01pp; since inception -4.54pp |
 | 2026-10-19 | +0.13% (since-inception; day +0.03%) | +0.43% day (quote; since inception +5.08%) | day -0.40pp; since inception -4.95pp |
 | 2026-10-20 | +0.02% | +0.32% | -0.30% |
+| 2026-10-22 | -0.09% day (since inception +0.08%) | -1.18% day (quote; since inception +4.72%) | day +1.09pp; since inception -4.64pp |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
@@ -3066,3 +3067,8 @@ No orders placed or rejected. Alpaca ground truth: equity $100,072.97 (+$15.14, 
 - No orders placed or rejected. Reconciled clean: Alpaca equity $100,169.46 (day +$29.39, +0.03%), cash $94,100.00, SPY 6.339623293 sh @ $773.40 (+0.06% vs entry, ~4.89%), MSFT 2.189599299 sh @ $532.68 (+16.64%, ~1.17%) — matches this file. No position >5% underwater. MSFT trailing stop live (qty 2, 10%, stop $496.035, hwm $551.15, expires 2026-10-29, verified via orders --status open).
 - **Benchmark:** day portfolio +0.03% vs SPY +0.53% (quote 773.13 vs prev close 769.09; may not be official close), delta -0.50pp. Since inception (SPY $729.57): portfolio +0.17% vs SPY +5.97%, delta -5.80pp.
 - Watching tomorrow: MSFT stop GTC expires 2026-10-29, needs renewal; Perplexity still unverified/out of credits, no fresh news check.
+
+## 2026-10-22 daily close
+- No orders placed or rejected. Reconciled clean: Alpaca equity $100,081.82 (day -$86.23, -0.09%), cash $94,100.00, SPY 6.339623293 sh @ $763.80 (-1.18% vs entry, ~4.83%), MSFT 2.189599299 sh @ $520.47 (+13.96%, ~1.14%) — matches this file. No position >5% underwater. MSFT trailing stop live (qty 2, 10%, stop $496.035, hwm $551.15, expires 2026-10-29, verified via orders --status open).
+- **Benchmark:** day portfolio -0.09% vs SPY -1.18% (quote 764.03 vs prev close 773.13; may not be official close), delta +1.09pp. Since inception (SPY $729.57): portfolio +0.08% vs SPY +4.72%, delta -4.64pp.
+- Watching tomorrow: MSFT is ~5% off its $551.15 high-water mark, stop at $496.035 (~4.7% below current); stop GTC expires 2026-10-29, needs renewal. Perplexity still out of credits, so no news check on why the market fell.
