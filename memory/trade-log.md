@@ -217,3 +217,6 @@ No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62
 
 ## 2026-10-23 premarket research
 - No trades (research-only). Equity $100,057.46, broker matches portfolio.md, MSFT stop live (stop $496.035, expires 2026-10-29). Perplexity still HTTP 401 quota; no news check done, thesis unverified. Plan: No action planned.
+
+## 2026-10-23 risk-only check
+- No orders. Equity $100,070.56 (day -$13.62, -0.01%), cash $94,100.00, breaker not tripped. SPY 6.3396 sh $760.54, -1.60% vs entry, ~4.82% of equity (under 5% cap). MSFT 2.1896 sh $524.75, +14.9%, ~1.15% of equity; trailing stop 10% live on 2 sh (stop $496.035, hwm $551.15, expires 2026-10-29, verified via orders --status open). No position down 7%+; no sell rule triggered. Price-only check, no news pull (Perplexity out of quota); thesis unverified. Broker matches portfolio.md. Stop GTC expiry 2026-10-29 still needs renewal.
