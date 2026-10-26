@@ -3078,3 +3078,6 @@ No orders placed or rejected. Alpaca ground truth: equity $100,072.97 (+$15.14, 
 - No orders placed or rejected. Reconciled clean: Alpaca equity $100,070.75 (day -$13.43, -0.01%), cash $94,100.00, SPY 6.339623293 sh @ $760.52 (-1.60% vs entry, ~4.82%), MSFT 2.189599299 sh @ $524.91 (+14.94%, ~1.15%) — matches this file. No position >5% underwater. MSFT trailing stop live (qty 2, 10%, stop $496.035, hwm $551.15, expires 2026-10-29, verified via orders --status open).
 - **Benchmark:** day portfolio -0.01% vs SPY -0.55% (quote 759.83 vs prev close 764.03; may not be official close), delta +0.54pp. Since inception (SPY $729.57): portfolio +0.07% vs SPY +4.15%, delta -4.08pp.
 - Watching tomorrow/next session: MSFT stop GTC expires 2026-10-29, needs renewal. Perplexity still out of credits, so no news check.
+
+## 2026-10-26 risk-only check
+- No orders. Broker matches file: equity $100,120.18, cash $94,100.00, SPY 6.3396 sh @ $766.21 (-0.87%, ~4.85%), MSFT 2.1896 sh @ $531.01 (+16.27%, ~1.16%). MSFT trailing stop live (qty 2, stop $496.035, hwm $551.15, expires 2026-10-29 — renew before then).
