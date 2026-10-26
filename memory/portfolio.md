@@ -193,6 +193,7 @@ Format for each position, one block:
 | 2026-10-20 | +0.02% | +0.32% | -0.30% |
 | 2026-10-22 | -0.09% day (since inception +0.08%) | -1.18% day (quote; since inception +4.72%) | day +1.09pp; since inception -4.64pp |
 | 2026-10-23 | -0.01% day (since inception +0.07%) | -0.55% day (quote; since inception +4.15%) | day +0.54pp; since inception -4.08pp |
+| 2026-10-26 | +0.05% day (since inception +0.12%) | +0.71% day (quote; since inception +4.89%) | day -0.66pp; since inception -4.77pp |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
@@ -3081,3 +3082,6 @@ No orders placed or rejected. Alpaca ground truth: equity $100,072.97 (+$15.14, 
 
 ## 2026-10-26 risk-only check
 - No orders. Broker matches file: equity $100,120.18, cash $94,100.00, SPY 6.3396 sh @ $766.21 (-0.87%, ~4.85%), MSFT 2.1896 sh @ $531.01 (+16.27%, ~1.16%). MSFT trailing stop live (qty 2, stop $496.035, hwm $551.15, expires 2026-10-29 — renew before then).
+
+## 2026-10-26 daily close
+- No orders. Equity $100,116.51 (day +$50.12, +0.05%), cash $94,100.00. SPY 6.3396 sh @ $765.15 (-1.0% vs entry, 4.85%), MSFT 2.1896 sh @ $532.40 (+16.57%, ~1.16%). Broker matches file; no discrepancy. MSFT stop live (qty 2, $496.035, hwm $551.15, expires 2026-10-29 — renew before then). vs SPY: day +0.05% vs +0.71% (-0.66pp); since inception +0.12% vs +4.89% (-4.77pp). No position >5% underwater. Uncertain: no news check (Perplexity out of credits), SPY quote may not be official close.
