@@ -229,3 +229,6 @@ No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62
 
 ## 2026-10-26 daily close
 - No trades, no rejections. Equity $100,116.51; broker matches portfolio.md. MSFT stop live, expires 2026-10-29.
+
+## 2026-10-27 risk-only check
+- No orders. Equity $100,144.01 (day +$25.67, +0.03%), cash $94,100.00, breaker not tripped. SPY 6.3396 sh $769.55, -0.43% vs entry, ~4.87% of equity (under 5% cap). MSFT 2.1896 sh $532.22, +16.54%, ~1.16%; trailing stop 10% live on 2 sh (stop $496.035, hwm $551.15, expires 2026-10-29, verified via orders --status open). No sell rule triggered. Price-only check, no news pull (Perplexity out of quota); thesis unverified. Broker matches portfolio.md. **Stop expires in 2 days; `alpaca.py` cannot cancel/replace, so a plain `protect` would be rejected while the old order holds the shares. Needs human action or a script change.**
