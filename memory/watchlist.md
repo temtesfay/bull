@@ -24,6 +24,24 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-10-27
+
+Research-only (no trades). `clock`: pre-open (~08:40 ET), next_open 2026-10-27 09:30 — normal trading day.
+
+**Ground truth (Alpaca):** equity $100,128.55 (day +$10.21), cash $94,100.00, `trading_blocked: false`. SPY 6.339623293 sh ($768.10, ~4.86%, -0.62% vs entry); MSFT 2.189599299 sh ($529.36, +15.9%, ~1.16%). Matches `portfolio.md`. No 5% gap. MSFT 10% trailing stop live on 2 sh (stop $496.035, hwm $551.15) — verified via `orders --status open`. **GTC expires 2026-10-29 (2 days) — renewal needed.**
+
+**Data source failure — Perplexity:** HTTP 401, re-tested today. No news checked. Needs a human billing top-up. Notified.
+
+**MSFT thesis check:** unverified (no research source); no price evidence of a break.
+
+**Watchlist:** no open candidates.
+
+## Plan for today — 2026-10-27
+
+No action planned.
+
+---
+
 ## Research routine — 2026-10-26
 
 Research-only (no trades). `clock`: pre-open (~08:36 ET), next_open 2026-10-26 09:30 — normal trading day.
