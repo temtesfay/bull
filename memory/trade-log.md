@@ -238,3 +238,6 @@ No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62
 
 ## 2026-10-28 execution check
 - No trades. Plan dated 2026-10-28 reads "No action planned"; nothing to execute. Broker equity $100,143.39, cash $94,100.00, SPY 6.3396 sh $770.32 (-0.34% vs entry), MSFT 2.1896 sh $529.62 (+15.97%) match portfolio.md; trading_blocked false. MSFT stop GTC expires 2026-10-29 (tomorrow) — alpaca.py cannot cancel/replace; needs human action or script change.
+
+## 2026-10-28 risk-only check
+- No orders. Equity $100,143.64 (day +$0.89, 0.00%), cash $94,100.00, breaker not tripped. SPY 6.3396 sh $771.27 (-0.21% vs entry, ~4.88%, under cap). MSFT 2.1896 sh $527.08 (+15.41%, ~1.15%); trailing stop live on 2 sh (stop $496.035, hwm $551.15, verified via orders --status open). No sell rule triggered; no news pull (Perplexity out of credits), thesis unverified but no price evidence of break. Broker matches portfolio.md. **MSFT stop expires 2026-10-29 20:00Z (tomorrow); no cancel/replace in alpaca.py — human action needed. Warn notification sent.**
