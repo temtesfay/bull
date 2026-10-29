@@ -7475,3 +7475,20 @@ notification sent.
 **Watchlist:** no open candidates, no triggers to check.
 
 **No action planned.**
+
+
+---
+
+## Research routine — 2026-10-29
+
+Research-only (no trades). `clock`: pre-open (~08:44 ET), next_open 09:30 — normal trading day.
+
+**Ground truth (Alpaca):** equity $100,158.25, cash $94,100.00, `trading_blocked: false`. SPY 6.3396 sh ($769.11); MSFT 2.1896 sh ($540.00, +18.2%; ~2.4% below yesterday's $553.45 close, under the 5% gap bar). Matches `portfolio.md`.
+
+**MSFT stop:** trailing stop (qty 2, stop $496.035, hwm $551.15) still live, **expires today 2026-10-29 20:00Z**. alpaca.py has no cancel/replace; human action needed.
+
+**Data source failure — Perplexity:** HTTP 401 insufficient_quota, re-tested. No news checked; MSFT thesis unverified. Watchlist: no open candidates.
+
+## Plan for today — 2026-10-29
+
+No action planned.

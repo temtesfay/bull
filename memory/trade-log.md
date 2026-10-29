@@ -244,3 +244,6 @@ No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62
 
 ## 2026-10-28 daily close
 - No trades, no rejections. Equity $100,204.44 (day +$61.69, +0.06%) vs SPY +0.34% (quote, intraday); since inception +0.20% vs +5.85% (-5.65pp). Broker matches portfolio.md (SPY 6.3396 sh, MSFT 2.1896 sh, cash $94,100). No position >5% underwater. MSFT stop GTC (stop $496.035) expires 2026-10-29 20:00Z — unrenewed, MSFT goes unprotected tomorrow unless a human/process renews it (alpaca.py has no cancel/replace). Perplexity still 401; thesis unverified.
+
+## 2026-10-29 premarket research
+- No trades (research-only). Equity $100,158.25, broker matches portfolio.md. MSFT $540.00 (-2.4% vs prior close), stop live but expires today 20:00Z. Perplexity still 401 quota; thesis unverified. Plan: No action planned.
