@@ -3095,3 +3095,7 @@ No orders placed or rejected. Alpaca ground truth: equity $100,072.97 (+$15.14, 
 
 ## 2026-10-26 daily close
 - No orders. Equity $100,116.51 (day +$50.12, +0.05%), cash $94,100.00. SPY 6.3396 sh @ $765.15 (-1.0% vs entry, 4.85%), MSFT 2.1896 sh @ $532.40 (+16.57%, ~1.16%). Broker matches file; no discrepancy. MSFT stop live (qty 2, $496.035, hwm $551.15, expires 2026-10-29 — renew before then). vs SPY: day +0.05% vs +0.71% (-0.66pp); since inception +0.12% vs +4.89% (-4.77pp). No position >5% underwater. Uncertain: no news check (Perplexity out of credits), SPY quote may not be official close.
+
+## 2026-10-29 risk-only check (17:15Z)
+- No orders placed. Circuit breaker clear (day -0.04%). Broker matches file: equity $100,118.00, cash $94,100.00, SPY 6.3396 sh @ $768.27 (-0.60%, ~4.87%), MSFT 2.1896 sh @ $524.02 (+14.74%, ~1.15%). No sell rule triggered; no thesis break evidence (no news check: Perplexity out of credits).
+- MSFT trailing stop still live (qty 2, 10%, stop $496.035, hwm $551.15) but **EXPIRES 2026-10-29 20:00Z**. Tried `protect MSFT` to pre-place a renewal: Alpaca 403 (insufficient qty available, 2 shares held by existing stop). alpaca.py has no cancel; renewal can only be placed after expiry. Next run (2026-10-30 premarket, before open) must run `protect MSFT --trail-percent 10` and verify via `orders --status open`; MSFT is unprotected from expiry until then.
