@@ -247,3 +247,6 @@ No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62
 
 ## 2026-10-29 premarket research
 - No trades (research-only). Equity $100,158.25, broker matches portfolio.md. MSFT $540.00 (-2.4% vs prior close), stop live but expires today 20:00Z. Perplexity still 401 quota; thesis unverified. Plan: No action planned.
+
+### 2026-10-29 — Execution check (no orders)
+Market open (10:02 ET). Plan dated 2026-10-29 says "No action planned." Nothing placed, nothing rejected. MSFT 10% trailing stop (qty 2, stop $496.035) still live but its GTC expires today 20:00Z; alpaca.py has no cancel/replace, so renewal is a human action. Not attempted: a second protect order is not covered by strategy.md.
