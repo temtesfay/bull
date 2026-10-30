@@ -24,6 +24,22 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-10-30
+
+Research-only (no trades). `clock`: pre-open (~09:06 ET), next_open 09:30 — normal trading day.
+
+**Ground truth (Alpaca):** equity $100,083.58 (day -$54.67 / -0.05%), cash $94,100.00, `trading_blocked: false`. SPY 6.339623293 sh ($761.39, -1.49% vs entry); MSFT 2.189599299 sh ($528.25, +15.67%, ~1.16%). Matches `portfolio.md`. No 5% gap.
+
+**MSFT is UNPROTECTED:** `orders --status open` returns `[]` (the GTC trailing stop lapsed 2026-10-29 20:06Z). Needs the execution routine or a human to re-place `alpaca.py protect MSFT --trail-percent 10` (2 whole shares). Not done here: no orders in this routine.
+
+**Data source failure — Perplexity:** HTTP 401, body `insufficient_quota` (billing credits exhausted, not a bad key). No news checked; MSFT thesis (Azure growth) unverified, no price evidence of a break. Watchlist: no open candidates.
+
+## Plan for today — 2026-10-30
+
+No new buys. For the execution routine: re-place the 10% trailing stop on MSFT (2 shares) if it is still unprotected — this restores an existing protection, it is not a new position. Otherwise no action planned.
+
+---
+
 ## Research routine — 2026-10-28
 
 Research-only (no trades). `clock`: pre-open (~08:38 ET), next_open 09:30 — normal trading day.
