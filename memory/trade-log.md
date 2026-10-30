@@ -250,3 +250,6 @@ No orders. Equity $100,211.64 (day 0.00%), well inside the 3% breaker. SPY +0.62
 
 ### 2026-10-29 — Execution check (no orders)
 Market open (10:02 ET). Plan dated 2026-10-29 says "No action planned." Nothing placed, nothing rejected. MSFT 10% trailing stop (qty 2, stop $496.035) still live but its GTC expires today 20:00Z; alpaca.py has no cancel/replace, so renewal is a human action. Not attempted: a second protect order is not covered by strategy.md.
+
+### 2026-10-30 — Execution (stop restored, no new positions)
+Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% trailing stop if unprotected. `orders --status open` was `[]` (prior GTC stop lapsed 2026-10-29). Ran `alpaca.py protect MSFT --trail-percent 10` -> PROTECTED, order 27274a69-f0d3-4f19-91b5-29d8c50121e5, qty 2, stop $471.1365, hwm $523.485, expires 2027-01-28. Verified live via `orders --status open`. This restores existing protection (MSFT +14.6% vs $456.70 entry; thesis unverified, Perplexity 401), not a new position. No rejections. Equity $100,066.64, cash $94,100.00. Note: new stop is looser in dollars than the old one ($496.035) because the 10% trail restarted from today's price. Remember: GTC stops lapse after ~90 days; renew before 2027-01-28.
