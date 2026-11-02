@@ -265,3 +265,5 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-02 risk-only check
 - No orders. Equity $100,043.14 (day +0.01
+## 2026-11-02 risk-only check
+- No orders. Equity $100,043.14 (day +0.01%), cash $94,100.00, breaker not tripped. SPY -1.98% vs entry, ~4.80% (core, under cap); MSFT +13.99%, ~1.14%, trailing stop 27274a69 live (stop $476.667, verified). No sell rule triggered. Broker matches portfolio.md.
