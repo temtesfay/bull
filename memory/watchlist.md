@@ -24,6 +24,20 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-11-03
+
+Research-only (no trades). `clock`: pre-open (~07:36 ET), next_open 09:30 — normal trading day.
+
+**Ground truth (Alpaca):** equity $99,971.86 (day -$6.56 / -0.01%), cash $94,100.00, `trading_blocked: false`. SPY 6.339623293 sh ($751.97, -2.71% vs entry); MSFT 2.189599299 sh ($504.50, +10.47%). Matches `portfolio.md`. MSFT 10% trailing stop live on 2 sh (order 27274a69, stop $476.667, hwm $529.63, verified). MSFT is ~-4.7% from hwm (~-2.1% vs the 11/02 close of $512.82) — below the 5% overnight-gap threshold, but no news to explain it.
+
+**Data source failure — Perplexity:** HTTP 401 `insufficient_quota` (credits exhausted, 4th+ routine in a row). No news checked; MSFT thesis (Azure growth) unverified. Watchlist: no open candidates.
+
+## Plan for today — 2026-11-03
+
+No action planned.
+
+---
+
 ## Research routine — 2026-11-02
 
 Research-only (no trades). `clock`: pre-open (~07:44 ET), next_open 09:30 — normal trading day.

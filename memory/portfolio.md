@@ -1,5 +1,6 @@
 # Portfolio
 
+2026-11-03 premarket research — no orders; equity $99,971.86, cash $94,100.00, SPY 6.3396 sh $751.97 (-2.71% vs entry), MSFT 2.1896 sh $504.50 (+10.47%), stop 27274a69 live (stop $476.667, verified); broker matches; Perplexity out of credits (no news). Prior:
 2026-11-02 daily close — no orders placed or rejected; equity $100,007.83 (day -$25.92 / -0.03%), cash $94,100.00. SPY 6.3396 sh $754.77 (-2.35% vs entry, ~4.78%, core), MSFT 2.1896 sh $512.82 (+12.29%, ~1.12%); MSFT 10% trailing stop live on 2 sh (order 27274a69, stop $476.667, hwm $529.63, expires 2027-01-28, verified). Broker matches file; no position >5% underwater. vs SPY: day -0.03% vs -0.18% (+0.15pp, cash weight, not skill); since inception +0.01% vs +3.40% (-3.39pp). Uncertain: SPY quote may not be official close; no news check (Perplexity out of credits). Prior:
 2026-11-02 risk-only check — no orders; equity $100,043.14 (day +0.01%), cash $94,100.00, breaker not tripped. SPY 6.3396 sh $757.62 (-1.98% vs entry, ~4.80%, core), MSFT 2.1896 sh $520.60 (+13.99%, ~1.14%), stop 27274a69 live on 2 sh (stop $476.667, hwm $529.63, verified); broker matches. Prior:
 2026-11-02 execution check — no orders; equity $100,072.57, cash $94,100.00, SPY 6.3396 sh $760.14, MSFT 2.1896 sh $526.79, stop 27274a69 live (verified); broker matches. Prior:
