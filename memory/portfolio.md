@@ -1,5 +1,6 @@
 # Portfolio
 
+2026-11-05 daily close — no orders placed or rejected; equity $99,936.44 (day -$241.83 / -0.24%), cash $94,100.00. SPY 6.3396 sh $735.58 (-4.83% vs entry, ~4.67%, core, no stop by design; under the 5% underwater flag but close, above -7% trim line), MSFT 2.1896 sh $535.88 (+17.34%, ~1.17%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, verified via orders --status open). Broker matches file; no discrepancy. **Benchmark:** day -0.24% vs SPY -4.02% (quote 735.89 vs prev close 766.73, may not be official close) = +3.78pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) -0.06% vs +0.87% = -0.93pp. Uncertain: cause of SPY's ~4% drop unknown (no news source; Perplexity out of credits); SPY quote may be intraday. Prior:
 2026-11-05 risk-only check — no orders; equity $99,977.93 (day -$200.34 / -0.20%), cash $94,100.00, breaker not tripped. SPY 6.3396 sh $740.07 (-4.25% vs entry, ~4.69%, core, no stop by design; above -7% trim line), MSFT 2.1896 sh $541.74 (+18.62%, ~1.19%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, verified via orders --status open). Broker matches. No sell rule triggered; news not checked (Perplexity out of credits). Prior:
 2026-11-05 premarket research — no orders; equity $100,178.35, cash $94,100.00, SPY 6.3396 sh $767.01 (-0.76%), MSFT 2.1896 sh $555.26 (+21.58%); broker matches; Perplexity still 401 (no news). Prior:
 2026-11-04 daily close — no orders placed or rejected; equity $100,186.85 (day +$163.80 / +0.16%), cash $94,100.00. SPY 6.3396 sh $767.38 (-0.72% vs entry, ~4.86%, core), MSFT 2.1896 sh $558.07 (+22.2%, ~1.22%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $502.596, hwm $558.44, expires 2027-01-28, verified via orders --status open). Broker matches file; no position >5% underwater. **Benchmark:** day +0.16% vs SPY +1.72% (quote 754.38 -> 767.36, may not be official close) = -1.56pp (cash weight, not skill); since inception (SPY $729.57, equity base $100,000) +0.19% vs +5.18% = -4.99pp. Uncertain: SPY quote is intraday-style; no news check (Perplexity out of credits). Prior:
@@ -218,6 +219,7 @@ Format for each position, one block:
 | 2026-10-30 | -0.10% day (since inception +0.04%) | -1.79% day (quote 755.72 vs prev 769.49; since inception +3.58%) | day +1.69pp; since inception -3.54pp |
 | 2026-11-02 | -0.03% day (since inception +0.01%) | -0.18% day (quote 754.39 vs prev 755.72; since inception +3.40%) | day +0.15pp; since inception -3.39pp |
 | 2026-11-03 | +0.05% day (since inception +0.02%) | +0.25% day (quote 753.915 vs prev 752.04; since inception +3.34%) | day -0.20pp; since inception -3.32pp |
+| 2026-11-05 | -0.24% | -4.02% | +3.78% |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
