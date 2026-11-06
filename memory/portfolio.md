@@ -1,3 +1,4 @@
+2026-11-06 risk-only check — no orders; equity $99,958.05 (day +0.04%), cash $94,100.00, SPY 6.3396 sh $739.33 (-4.35%), MSFT 2.1896 sh $534.79 (+17.10%); MSFT stop 27274a69 live (stop $503.235). Broker matches; no sell rule triggered. Prior:
 # Portfolio
 
 2026-11-06 premarket research — no orders; equity $99,927.49, cash $94,100.00, SPY 6.3396 sh $735.36 (-4.86%), MSFT 2.1896 sh $532.33 (+16.56%); MSFT stop 27274a69 live (stop $503.235). Broker matches; Perplexity still 401 (no news). Prior:
