@@ -1,3 +1,4 @@
+2026-11-06 daily close — no orders placed or rejected; equity $99,943.57 (day +$23.15 / +0.02%), cash $94,100.00. SPY 6.339623293 sh $738.00 (-4.52% vs entry, ~4.68%, core, no stop by design; under the 5% underwater flag, above -7% trim line), MSFT 2.189599299 sh $532.03 (+16.49%, ~1.17%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, verified via orders --status open). Broker matches file; no discrepancy. **Benchmark:** day +0.02% vs SPY +0.64% (quote 738.12 vs prev close 733.43, may not be official close) = -0.62pp; since inception (SPY $729.57, base $100,000) -0.06% vs +1.17% = -1.23pp. Uncertain: Alpaca day_change (+$23.15) is not consistent with equity change vs yesterday's logged close ($99,936.44, +$7); SPY prev_close 733.43 differs from yesterday's logged quote 735.89; no news check (Perplexity out of credits). Prior:
 2026-11-06 risk-only check — no orders; equity $99,958.05 (day +0.04%), cash $94,100.00, SPY 6.3396 sh $739.33 (-4.35%), MSFT 2.1896 sh $534.79 (+17.10%); MSFT stop 27274a69 live (stop $503.235). Broker matches; no sell rule triggered. Prior:
 # Portfolio
 
@@ -222,6 +223,7 @@ Format for each position, one block:
 | 2026-11-02 | -0.03% day (since inception +0.01%) | -0.18% day (quote 754.39 vs prev 755.72; since inception +3.40%) | day +0.15pp; since inception -3.39pp |
 | 2026-11-03 | +0.05% day (since inception +0.02%) | +0.25% day (quote 753.915 vs prev 752.04; since inception +3.34%) | day -0.20pp; since inception -3.32pp |
 | 2026-11-05 | -0.24% | -4.02% | +3.78% |
+| 2026-11-06 | +0.02% day (since inception -0.06%) | +0.64% day (quote 738.12 vs prev 733.43; since inception +1.17%) | day -0.62pp; since inception -1.23pp |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
