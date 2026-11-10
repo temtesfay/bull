@@ -1,3 +1,4 @@
+2026-11-10 daily close — no orders placed or rejected; equity $100,013.19 (day -$52.31 / -0.05%), cash $94,100.00. NOTE: run fired 15:16 ET with clock is_open=true, so all figures are ~44 min before the bell, not closing values. SPY 6.339623293 sh $748.77 (-3.12% vs entry, ~4.75%, core, no stop by design; above -7% trim line), MSFT 2.189599299 sh $532.64 (+16.63%, ~1.17%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day -0.05% vs SPY -0.51% (quote 748.845 vs prev close 752.72) = +0.46pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) +0.01% vs +2.64% = -2.63pp. Uncertain: SPY prev_close 752.72 != 11-09 logged quote 755.22, and Alpaca implied prior equity ($100,065.50) != logged 11-09 close ($100,087.11) — same recurring quote-timing mismatch. Prior:
 2026-11-10 risk-only check — no orders; equity $100,026.46 (day -$39.04 / -0.04%), cash $94,100.00, breaker not tripped. SPY 6.3396 sh $747.35 (-3.31% vs entry, ~4.74%, core, no stop by design; above -7% trim line), MSFT 2.1896 sh $542.76 (+18.84%, ~1.19%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches; no sell rule triggered; Perplexity still 401 (no news). Prior:
 2026-11-10 premarket research — no orders; equity $100,067.76, cash $94,100.00, SPY 6.3396 sh $753.13 (-2.56%), MSFT 2.1896 sh $544.94 (+19.32%); MSFT stop 27274a69 live (stop $503.235). Broker matches; Perplexity still 401 (no news). Prior:
 2026-11-09 daily close — no orders placed or rejected; equity $100,087.11 (day +$163.83 / +0.16%), cash $94,100.00. SPY 6.339623293 sh $755.16 (-2.30% vs entry, ~4.78%, core, no stop by design), MSFT 2.189599299 sh $547.89 (+19.97%, ~1.2%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, verified via orders --status open). Broker matches file; no position >5% underwater. **Benchmark:** day +0.16% vs SPY +2.70% (quote 755.22 vs prev close 735.40, may not be official close) = -2.54pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) +0.09% vs +3.52% = -3.43pp. Uncertain: SPY prev_close 735.40 differs from 11-06 logged quote 738.12 and Alpaca implied prior equity ($99,923.28) differs from logged close ($99,943.57), so day figures are unreliable; cause of SPY's ~2.7% jump unknown (no news source; Perplexity 401). Prior:
@@ -57,7 +58,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,046.58 (2026-09-29 risk check) |
+| Equity | $100,013.19 (2026-11-10 daily close, 15:16 ET) |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -230,6 +231,8 @@ Format for each position, one block:
 | 2026-11-03 | +0.05% day (since inception +0.02%) | +0.25% day (quote 753.915 vs prev 752.04; since inception +3.34%) | day -0.20pp; since inception -3.32pp |
 | 2026-11-05 | -0.24% | -4.02% | +3.78% |
 | 2026-11-06 | +0.02% day (since inception -0.06%) | +0.64% day (quote 738.12 vs prev 733.43; since inception +1.17%) | day -0.62pp; since inception -1.23pp |
+| 2026-11-09 | +0.16% day (since inception +0.09%) — backfilled 11-10 from the 11-09 daily-close entry | +2.70% day (quote 755.22 vs prev 735.40; since inception +3.52%) | day -2.54pp; since inception -3.43pp |
+| 2026-11-10 | -0.05% day (since inception +0.01%) — 15:16 ET, pre-bell | -0.51% day (quote 748.845 vs prev 752.72; since inception +2.64%) | day +0.46pp; since inception -2.63pp |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
