@@ -288,3 +288,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-10 daily close
 - No orders placed or rejected (markets-closed routine; clock actually showed is_open=true at 15:16 ET — no orders regardless). Equity $100,013.19 (day -$52.31, -0.05%), cash $94,100.00. SPY -3.12% vs entry, ~4.75% (core). MSFT +16.63%, ~1.17%, trailing stop 27274a69 live on 2 sh (stop $503.235, verified). Broker matches portfolio.md. Day vs SPY: -0.05% vs -0.51% (+0.46pp); since inception +0.01% vs +2.64% (-2.63pp).
+
+## 2026-11-11 research routine
+- No orders (research-only). Equity $100,067.48, cash $94,100.00; broker matches portfolio.md; MSFT stop 27274a69 verified live. Perplexity 401 insufficient_quota — news not checked. Plan: no action.
