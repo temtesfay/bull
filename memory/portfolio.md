@@ -1,3 +1,4 @@
+2026-11-12 daily close — no orders placed or rejected; equity $100,041.53 (day -$16.43 / -0.02%), cash $94,100.00. NOTE: fired 15:16 ET with clock is_open=true again — figures are ~44 min pre-bell marks, not closes. SPY 6.339623293 sh $757.22 (-2.03% vs entry, ~4.80%, core, no stop by design), MSFT 2.189599299 sh $521.03 (+14.09%, ~1.14%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day -0.02% vs SPY -0.35% (quote 757.15 vs prev close 759.80) = +0.33pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) +0.04% vs +3.78% = -3.74pp. Uncertain: SPY prev_close 759.80 != 11-11 logged pre-bell quote 760.31 (same timing issue); MSFT gave back ~1.4% from the 12:12 ET mark with no news checked; stop is $17.80 (~3.4%) below the mark. Prior:
 2026-11-12 risk-only check — no orders; equity $100,081.52 (day +$23.56 / +0.02%), cash $94,100.00, breaker not tripped, trading_blocked false (12:12 ET). SPY 6.339623293 sh $760.98 (-1.54% vs entry, ~4.82%, core, no stop by design; under 5% cap), MSFT 2.189599299 sh $528.50 (+15.72%, ~1.16%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no sell rule triggered; MSFT thesis verified intact this morning via IR (Azure +48%). Prior:
 2026-11-12 premarket research — no orders; equity $100,036.94, cash $94,100.00, SPY 6.3396 sh $756.64 (-2.10%), MSFT 2.1896 sh $520.70 (+14.01%); MSFT stop 27274a69 live (stop $503.235). Broker matches. Perplexity 401, but MSFT FQ1 FY27 thesis VERIFIED via Microsoft IR release: Azure +48%, RPO +73% — intact. Prior:
 2026-11-11 daily close — no orders placed or rejected; equity $100,058.19 (day +$36.57 / +0.04%), cash $94,100.00. NOTE: fired 15:16 ET with clock is_open=true again — figures are ~44 min pre-bell marks, not closes. SPY 6.339623293 sh $760.35 (-1.62% vs entry, ~4.82%, core, no stop by design), MSFT 2.189599299 sh $519.68 (+13.79%, ~1.14%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day +0.04% vs SPY +1.38% (quote 760.31 vs prev close 749.93) = -1.34pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) +0.06% vs +4.21% = -4.15pp. Uncertain: SPY prev_close 749.93 != 11-10 logged pre-bell quote 748.845 (expected, same timing issue); MSFT stop is $16.45 (~3.2%) below the current mark; Perplexity still 401, no news checked. Prior:
@@ -62,7 +63,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,036.94 (2026-11-12 premarket research, 07:37 ET) |
+| Equity | $100,041.53 (2026-11-12 daily close, 15:16 ET pre-bell) |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -240,6 +241,7 @@ Format for each position, one block:
 | 2026-11-09 | +0.16% day (since inception +0.09%) — backfilled 11-10 from the 11-09 daily-close entry | +2.70% day (quote 755.22 vs prev 735.40; since inception +3.52%) | day -2.54pp; since inception -3.43pp |
 | 2026-11-10 | -0.05% day (since inception +0.01%) — 15:16 ET, pre-bell | -0.51% day (quote 748.845 vs prev 752.72; since inception +2.64%) | day +0.46pp; since inception -2.63pp |
 | 2026-11-11 | +0.04% day (since inception +0.06%) — 15:16 ET, pre-bell | +1.38% day (quote 760.31 vs prev 749.93; since inception +4.21%) | day -1.34pp; since inception -4.15pp |
+| 2026-11-12 | -0.02% day (since inception +0.04%) — 15:16 ET, pre-bell | -0.35% day (quote 757.15 vs prev 759.80; since inception +3.78%) | day +0.33pp; since inception -3.74pp |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via

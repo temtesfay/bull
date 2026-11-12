@@ -303,3 +303,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-12 risk-only check
 - No orders. Equity $100,081.52 (day +$23.56, +0.02%), cash $94,100.00, breaker not tripped, trading_blocked false (12:12 ET). SPY -1.54% vs entry ($760.98 vs $772.91), ~4.82% (core, no stop by design; not at -7%, under 5% cap). MSFT +15.72% ($528.50 vs $456.70), ~1.16%, trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open). Sell rules checked in order: no thesis break (MSFT FQ1 verified via IR this morning), nothing down 7% or 15%, nothing above 5%. Nothing to do; did nothing.
+
+## 2026-11-12 daily close
+- No orders placed or rejected (markets-closed routine; clock showed is_open=true at 15:16 ET — no orders regardless). Equity $100,041.53 (day -$16.43, -0.02%), cash $94,100.00. SPY -2.03% vs entry, ~4.80% (core). MSFT +14.09%, ~1.14%, trailing stop 27274a69 live on 2 sh (stop $503.235, verified). Broker matches portfolio.md. Day vs SPY: -0.02% vs -0.35% (+0.33pp); since inception +0.04% vs +3.78% (-3.74pp).
