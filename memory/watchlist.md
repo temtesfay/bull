@@ -24,6 +24,24 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-11-12
+
+Research-only (no trades). `clock`: pre-open (07:37 ET), next_open 2026-11-12 09:30 — normal trading day.
+
+**Ground truth (Alpaca):** equity $100,036.94 (day -$21.02 / -0.02%), cash $94,100.00, `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh ($756.64, -2.10% vs entry; vs $760.35 11/11 15:16 ET mark ~-0.5%, no gap); MSFT 2.189599299 sh ($520.70, +14.01%; vs $519.68 ~+0.2%, no gap). Matches `portfolio.md`. MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, GTC expires 2027-01-28, verified via orders --status open).
+
+**Data source failure — Perplexity:** HTTP 401 `insufficient_quota` (one call). **Fallback that worked:** fetched Microsoft IR directly (`https://www.microsoft.com/en-us/investor/earnings/fy-2027-q1/press-release-webcast`, HTTP 200) — primary source.
+
+**MSFT thesis check — INTACT, strengthened (FQ1 FY27 checkpoint, quarter ended 2026-09-30, first verified today ~2 weeks late):** per the IR release, Azure revenue +48% Y/Y (+48% CC; $33,165M vs $22,384M, new FY27 definition) vs 44-45% CC restated guidance and the ~35% invalidation floor. Commercial RPO +73% to $677B (no reversal). Microsoft Cloud $63.9B, +30% (+31% CC). Diluted EPS $4.92 GAAP (+32%), $4.89 non-GAAP ex-OpenAI (+18%). Additions to PP&E $39,367M vs $19,394M a year ago (capex not cut). **Not verified:** forward capex guidance (on the earnings call, not in the release) and the exact release date. Next checkpoint: FQ2 FY27 print (~late Jan 2027).
+
+**Watchlist:** no open candidates — no triggers to check.
+
+## Plan for today — 2026-11-12
+
+No action planned.
+
+---
+
 ## Research routine — 2026-11-11
 
 Research-only (no trades). `clock`: pre-open (~07:36 ET), next_open 09:30 — normal trading day (Veterans Day; NYSE open, confirmed by clock).

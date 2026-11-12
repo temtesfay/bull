@@ -1,3 +1,4 @@
+2026-11-12 premarket research — no orders; equity $100,036.94, cash $94,100.00, SPY 6.3396 sh $756.64 (-2.10%), MSFT 2.1896 sh $520.70 (+14.01%); MSFT stop 27274a69 live (stop $503.235). Broker matches. Perplexity 401, but MSFT FQ1 FY27 thesis VERIFIED via Microsoft IR release: Azure +48%, RPO +73% — intact. Prior:
 2026-11-11 daily close — no orders placed or rejected; equity $100,058.19 (day +$36.57 / +0.04%), cash $94,100.00. NOTE: fired 15:16 ET with clock is_open=true again — figures are ~44 min pre-bell marks, not closes. SPY 6.339623293 sh $760.35 (-1.62% vs entry, ~4.82%, core, no stop by design), MSFT 2.189599299 sh $519.68 (+13.79%, ~1.14%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day +0.04% vs SPY +1.38% (quote 760.31 vs prev close 749.93) = -1.34pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) +0.06% vs +4.21% = -4.15pp. Uncertain: SPY prev_close 749.93 != 11-10 logged pre-bell quote 748.845 (expected, same timing issue); MSFT stop is $16.45 (~3.2%) below the current mark; Perplexity still 401, no news checked. Prior:
 2026-11-11 risk-only check — no orders; equity $100,060.28 (day +$38.66 / +0.04%), cash $94,100.00, breaker not tripped, trading_blocked false. SPY 6.339623293 sh $760.12 (-1.65% vs entry, ~4.82%, core, no stop by design; under 5% cap), MSFT 2.189599299 sh $521.28 (+14.14%, ~1.14%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no sell rule triggered; Perplexity still 401 (no news). MSFT ~-4% from 11-10 premarket mark with no news checked — price move alone is not a thesis break. Prior:
 2026-11-10 daily close — no orders placed or rejected; equity $100,013.19 (day -$52.31 / -0.05%), cash $94,100.00. NOTE: run fired 15:16 ET with clock is_open=true, so all figures are ~44 min before the bell, not closing values. SPY 6.339623293 sh $748.77 (-3.12% vs entry, ~4.75%, core, no stop by design; above -7% trim line), MSFT 2.189599299 sh $532.64 (+16.63%, ~1.17%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day -0.05% vs SPY -0.51% (quote 748.845 vs prev close 752.72) = +0.46pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) +0.01% vs +2.64% = -2.63pp. Uncertain: SPY prev_close 752.72 != 11-09 logged quote 755.22, and Alpaca implied prior equity ($100,065.50) != logged 11-09 close ($100,087.11) — same recurring quote-timing mismatch. Prior:
@@ -60,7 +61,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,058.19 (2026-11-11 daily close, 15:16 ET pre-bell) |
+| Equity | $100,036.94 (2026-11-12 premarket research, 07:37 ET) |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -131,7 +132,8 @@ trust Alpaca, fix this file, and log why they drifted.
   next checkpoint is the FQ1 FY27 print, now expected to be reported under
   the new Agents and Infra segment structure per the 2026-09-02 filing
   above.
-- **Stop:** **CURRENT (verified 2026-11-11): order `27274a69-f0d3-4f19-91b5-29d8c50121e5`, 2 sh, stop $503.235, hwm $559.15, expires 2027-01-28.** Text below is historical — the original order
+- **FQ1 FY27 checkpoint (verified 2026-11-12 from Microsoft IR release):** Azure +48% Y/Y (+48% CC, new definition) vs 44-45% CC guidance and ~35% floor; commercial RPO +73% to $677B; PP&E additions $39.4B vs $19.4B (capex not cut; forward capex guidance not checked). **Thesis intact.** Next checkpoint: FQ2 FY27 print (~late Jan 2027).
+- **Stop:** **CURRENT (verified 2026-11-12): order `27274a69-f0d3-4f19-91b5-29d8c50121e5`, 2 sh, stop $503.235, hwm $559.15, expires 2027-01-28.** Text below is historical — the original order
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a` expired 2026-10-29; it covered 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-09-25 daily-close via `orders --status

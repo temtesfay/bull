@@ -297,3 +297,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-11 daily close
 - No orders placed or rejected (markets-closed routine; clock showed is_open=true at 15:16 ET — no orders regardless). Equity $100,058.19 (day +$36.57, +0.04%), cash $94,100.00. SPY -1.62% vs entry, ~4.82% (core). MSFT +13.79%, ~1.14%, trailing stop 27274a69 live on 2 sh (stop $503.235, verified). Broker matches portfolio.md. Day vs SPY: +0.04% vs +1.38% (-1.34pp); since inception +0.06% vs +4.21% (-4.15pp).
+
+## 2026-11-12 research routine
+- No orders (research-only). Equity $100,036.94, cash $94,100.00; broker matches portfolio.md; MSFT stop 27274a69 verified live. Perplexity 401 insufficient_quota; MSFT FQ1 FY27 thesis checkpoint verified from Microsoft IR release directly: Azure +48% (vs 44-45% guide, ~35% floor), commercial RPO +73% to $677B — thesis intact. Plan: no action.
