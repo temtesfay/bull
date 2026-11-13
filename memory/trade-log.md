@@ -306,3 +306,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-12 daily close
 - No orders placed or rejected (markets-closed routine; clock showed is_open=true at 15:16 ET — no orders regardless). Equity $100,041.53 (day -$16.43, -0.02%), cash $94,100.00. SPY -2.03% vs entry, ~4.80% (core). MSFT +14.09%, ~1.14%, trailing stop 27274a69 live on 2 sh (stop $503.235, verified). Broker matches portfolio.md. Day vs SPY: -0.02% vs -0.35% (+0.33pp); since inception +0.04% vs +3.78% (-3.74pp).
+
+## 2026-11-13 research routine
+- No orders (research-only). Equity $100,040.22, cash $94,100.00; broker matches portfolio.md; MSFT stop 27274a69 verified live. Perplexity 401 insufficient_quota; Microsoft IR checked directly — no new release since FQ1 results dated 2026-10-28; MSFT thesis intact. No gap >5%. Plan: no action.

@@ -24,6 +24,24 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-11-13
+
+Research-only (no trades). `clock`: pre-open (07:36 ET), next_open 2026-11-13 09:30 — normal trading day.
+
+**Ground truth (Alpaca):** equity $100,040.22 (day -$4.80 / -0.00%), cash $94,100.00, `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh ($758.97, -1.80% vs entry; vs $757.22 11/12 15:16 ET mark ~+0.2%, no gap); MSFT 2.189599299 sh ($515.45, +12.86%; vs $521.03 ~-1.1%, no gap). Matches `portfolio.md`. MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, GTC expires 2027-01-28, verified via orders --status open). MSFT mark is ~$12 (~2.4%) above the stop.
+
+**Data source failure — Perplexity:** HTTP 401 `insufficient_quota` (one call). **Fallback:** Microsoft IR landing page (`microsoft.com/en-us/investor`, HTTP 200) and SEC-filings page (HTTP 200). `news.microsoft.com` is blocked by the proxy (CONNECT 403) — do not count on it.
+
+**MSFT thesis check — INTACT (no new primary-source event).** The most recent IR announcement is "Microsoft Announces First Quarter Results", dated **2026-10-28** (this answers yesterday's open question about the release date); before that, a blog post on 10-27 and the dividend on 09-15. Nothing has been posted since 10-28, so there is no new official statement to test against the thesis. The FQ1 FY27 figures verified on 11-12 still apply (Azure +48% vs ~35% floor, RPO +73%). **Not checked:** general overnight news (Perplexity down, newsroom blocked). The ~1.1% overnight dip has no explanation I could find, and it is well inside noise.
+
+**Watchlist:** no open candidates, so no triggers to check.
+
+## Plan for today — 2026-11-13
+
+No action planned.
+
+---
+
 ## Research routine — 2026-11-12
 
 Research-only (no trades). `clock`: pre-open (07:37 ET), next_open 2026-11-12 09:30 — normal trading day.
