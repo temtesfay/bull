@@ -315,3 +315,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-13 daily close
 - No orders placed or rejected (markets-closed routine; clock showed is_open=true at 15:16 ET — no orders regardless). Equity $100,024.73 (day -$20.29, -0.02%), cash $94,100.00. SPY -2.52% vs entry, ~4.78% (core). MSFT +14.85%, ~1.15%, trailing stop 27274a69 live on 2 sh (stop $503.235, verified). Broker matches portfolio.md. Day vs SPY: -0.02% vs -0.49% (+0.47pp); since inception +0.02% vs +3.28% (-3.25pp).
+
+## 2026-11-13 weekly review
+- No trades, no rejections. Review #16 written to lessons.md. Equity $100,018.15 (15:43 ET, market open); broker matches portfolio.md; MSFT stop 27274a69 verified live. Since inception +0.02% vs SPY +3.17% (-3.15pp); week +0.08% vs +2.12% (-2.03pp). Grade D+. Recommends the human decide whether to fix the research and core-sleeve blockers or pause the routines.
