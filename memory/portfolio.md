@@ -1,3 +1,4 @@
+2026-11-13 daily close — no orders placed or rejected; equity $100,024.73 (day -$20.29 / -0.02%), cash $94,100.00. NOTE: fired 15:16 ET with clock is_open=true again — figures are ~44 min pre-bell marks, not closes. SPY 6.339623293 sh $753.40 (-2.52% vs entry, ~4.78%, core, no stop by design), MSFT 2.189599299 sh $524.50 (+14.85%, ~1.15%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day -0.02% vs SPY -0.49% (quote 753.48 vs prev close 757.16) = +0.47pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) +0.02% vs +3.28% = -3.25pp. Uncertain: SPY prev_close 757.16 matched the 11-12 logged quote (757.15) this time; MSFT stop is $21.27 (~4.1%) below the mark; Perplexity still 401, no news checked. Prior:
 2026-11-13 premarket research — no orders; equity $100,040.22, cash $94,100.00, SPY 6.3396 sh $758.97 (-1.80%), MSFT 2.1896 sh $515.45 (+12.86%); MSFT stop 27274a69 live (stop $503.235, ~2.4% below mark). Broker matches. Perplexity 401; Microsoft IR shows no release since FQ1 results (2026-10-28) — MSFT thesis intact, no new event. Prior:
 2026-11-12 daily close — no orders placed or rejected; equity $100,041.53 (day -$16.43 / -0.02%), cash $94,100.00. NOTE: fired 15:16 ET with clock is_open=true again — figures are ~44 min pre-bell marks, not closes. SPY 6.339623293 sh $757.22 (-2.03% vs entry, ~4.80%, core, no stop by design), MSFT 2.189599299 sh $521.03 (+14.09%, ~1.14%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day -0.02% vs SPY -0.35% (quote 757.15 vs prev close 759.80) = +0.33pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) +0.04% vs +3.78% = -3.74pp. Uncertain: SPY prev_close 759.80 != 11-11 logged pre-bell quote 760.31 (same timing issue); MSFT gave back ~1.4% from the 12:12 ET mark with no news checked; stop is $17.80 (~3.4%) below the mark. Prior:
 2026-11-12 risk-only check — no orders; equity $100,081.52 (day +$23.56 / +0.02%), cash $94,100.00, breaker not tripped, trading_blocked false (12:12 ET). SPY 6.339623293 sh $760.98 (-1.54% vs entry, ~4.82%, core, no stop by design; under 5% cap), MSFT 2.189599299 sh $528.50 (+15.72%, ~1.16%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no sell rule triggered; MSFT thesis verified intact this morning via IR (Azure +48%). Prior:
@@ -64,7 +65,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,012.00 (2026-11-13 risk-only check, 12:13 ET) |
+| Equity | $100,024.73 (2026-11-13 daily close, 15:16 ET pre-bell) |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -243,6 +244,7 @@ Format for each position, one block:
 | 2026-11-10 | -0.05% day (since inception +0.01%) — 15:16 ET, pre-bell | -0.51% day (quote 748.845 vs prev 752.72; since inception +2.64%) | day +0.46pp; since inception -2.63pp |
 | 2026-11-11 | +0.04% day (since inception +0.06%) — 15:16 ET, pre-bell | +1.38% day (quote 760.31 vs prev 749.93; since inception +4.21%) | day -1.34pp; since inception -4.15pp |
 | 2026-11-12 | -0.02% day (since inception +0.04%) — 15:16 ET, pre-bell | -0.35% day (quote 757.15 vs prev 759.80; since inception +3.78%) | day +0.33pp; since inception -3.74pp |
+| 2026-11-13 | -0.02% day (since inception +0.02%) — 15:16 ET, pre-bell | -0.49% day (quote 753.48 vs prev 757.16; since inception +3.28%) | day +0.47pp; since inception -3.25pp |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
