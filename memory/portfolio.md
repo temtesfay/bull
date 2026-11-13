@@ -64,7 +64,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,040.22 (2026-11-13 premarket research, 07:36 ET) |
+| Equity | $100,012.00 (2026-11-13 risk-only check, 12:13 ET) |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
