@@ -318,3 +318,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-13 weekly review
 - No trades, no rejections. Review #16 written to lessons.md. Equity $100,018.15 (15:43 ET, market open); broker matches portfolio.md; MSFT stop 27274a69 verified live. Since inception +0.02% vs SPY +3.17% (-3.15pp); week +0.08% vs +2.12% (-2.03pp). Grade D+. Recommends the human decide whether to fix the research and core-sleeve blockers or pause the routines.
+
+## 2026-11-16 research routine
+- No orders (research-only). Equity $99,994.49, cash $94,100.00; broker matches portfolio.md; MSFT stop 27274a69 verified live. Perplexity 401 insufficient_quota; Microsoft IR checked directly — no new release since FQ1 results 2026-10-28; MSFT thesis intact. No gap >5% (SPY ~-0.6%, MSFT ~-0.2% vs Friday marks). Plan: no action.

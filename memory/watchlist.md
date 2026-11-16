@@ -24,6 +24,24 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-11-16
+
+Research-only (no trades). `clock`: pre-open (07:36 ET Mon), next_open 2026-11-16 09:30 — normal trading day, no holiday.
+
+**Ground truth (Alpaca):** equity $99,994.49 (day -$35.02 / -0.04%), cash $94,100.00, `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh ($749.03, -3.09% vs entry; vs $753.40 11/13 15:16 ET mark ~-0.6%, no gap); MSFT 2.189599299 sh ($523.35, +14.59%; vs $524.50 ~-0.2%, no gap). Matches `portfolio.md`. MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, GTC expires 2027-01-28, verified via orders --status open); mark ~$20 (~3.8%) above stop.
+
+**Data source failure — Perplexity:** HTTP 401 `insufficient_quota` (one call; ~7 weeks running). **Fallback:** Microsoft IR landing page (`microsoft.com/en-us/investor`, HTTP 200).
+
+**MSFT thesis check — INTACT (no new primary-source event).** IR announcements list unchanged: latest is "Microsoft Announces First Quarter Results" (2026-10-28); next earnings date "will be announced soon." FQ1 FY27 figures (Azure +48%, RPO +73%) remain the operative evidence. **Not checked:** general weekend news (Perplexity down). SPY: core sleeve, no thesis to check.
+
+**Watchlist:** no open candidates — no triggers to check.
+
+## Plan for today — 2026-11-16
+
+No action planned.
+
+---
+
 ## Research routine — 2026-11-13
 
 Research-only (no trades). `clock`: pre-open (07:36 ET), next_open 2026-11-13 09:30 — normal trading day.
