@@ -24,6 +24,24 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-11-17
+
+Research-only (no trades). `clock`: pre-open (07:36 ET Tue), next_open 2026-11-17 09:30. Normal trading day, no holiday.
+
+**Ground truth (Alpaca):** equity $99,919.70 (day -$5.49 / -0.01%), cash $94,100.00, `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh ($739.79, -4.29% vs entry; vs the $738.66 11/16 daily-close mark that is ~+0.15%, no gap). MSFT 2.189599299 sh ($515.94, +12.97%; vs $518.24 that is ~-0.44%, no gap). Matches `portfolio.md`. MSFT 10% trailing stop 27274a69 is live on 2 sh (stop $503.235, hwm $559.15, GTC, expires 2027-01-28; verified with orders --status open). The mark is ~$12.7 (~2.5%) above the stop.
+
+**Data source failure, Perplexity:** HTTP 401 `insufficient_quota` ("add credits"), one call. **Fallback:** Microsoft IR landing page (`microsoft.com/en-us/investor` -> `/default`, HTTP 200).
+
+**MSFT thesis: INTACT, no new primary-source event.** The IR announcements list is unchanged. The latest item is still "Microsoft Announces First Quarter Results" (October 28, 2026). The FQ1 FY27 figures (Azure +48% vs the ~35% floor, RPO +73%) remain the operative evidence. **New from the IR events calendar:** "Microsoft Ignite: Investor Q&A with Satya Nadella" is **today, 2026-11-17, 13:10 PT (16:10 ET, after the close)**. Upcoming: UBS Global Tech Conference 12-01, Annual Shareholders Meeting 12-08, Barclays and Wells Fargo conferences 12-09. These are not earnings releases, so the 24h pre-earnings rule does not apply. Tomorrow's research run should look for anything said at the Ignite Q&A that bears on Azure growth or capex. **Not checked:** general overnight news (Perplexity down). SPY is the core sleeve, so there is no thesis to check. SPY is now -4.29% vs entry; the -7% trim rule's applicability to the core is still the open question from the weekly review.
+
+**Watchlist:** no open candidates, so no triggers to check.
+
+## Plan for today — 2026-11-17
+
+No action planned.
+
+---
+
 ## Research routine — 2026-11-16
 
 Research-only (no trades). `clock`: pre-open (07:36 ET Mon), next_open 2026-11-16 09:30 — normal trading day, no holiday.

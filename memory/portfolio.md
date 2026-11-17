@@ -69,7 +69,7 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $100,024.73 (2026-11-13 daily close, 15:16 ET pre-bell) |
+| Equity | $99,919.70 (2026-11-17 research routine, 07:36 ET pre-open) |
 | Cash | $94,100.00 |
 | Open positions | 2 |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
@@ -141,7 +141,8 @@ trust Alpaca, fix this file, and log why they drifted.
   the new Agents and Infra segment structure per the 2026-09-02 filing
   above.
 - **FQ1 FY27 checkpoint (verified 2026-11-12 from Microsoft IR release):** Azure +48% Y/Y (+48% CC, new definition) vs 44-45% CC guidance and ~35% floor; commercial RPO +73% to $677B; PP&E additions $39.4B vs $19.4B (capex not cut; forward capex guidance not checked). **Thesis intact.** Next checkpoint: FQ2 FY27 print (~late Jan 2027).
-- **Stop:** **CURRENT (verified 2026-11-12): order `27274a69-f0d3-4f19-91b5-29d8c50121e5`, 2 sh, stop $503.235, hwm $559.15, expires 2027-01-28.** Text below is historical — the original order
+- **Next IR event (added 2026-11-17):** Ignite Investor Q&A with Satya Nadella 2026-11-17 13:10 PT, after the close. Not an earnings release.
+- **Stop:** **CURRENT (verified 2026-11-17): order `27274a69-f0d3-4f19-91b5-29d8c50121e5`, 2 sh, stop $503.235, hwm $559.15, expires 2027-01-28.** Text below is historical — the original order
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a` expired 2026-10-29; it covered 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-09-25 daily-close via `orders --status

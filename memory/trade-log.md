@@ -327,3 +327,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-16 daily close
 - No orders placed or rejected. Equity $99,917.56 (day -$111.95, -0.11%), cash $94,100.00. Broker matches portfolio.md. SPY $738.66 (-4.43% vs entry, core), MSFT $518.24 (+13.48%); MSFT stop 27274a69 live (stop $503.235, ~2.9% below mark). Day vs SPY -2.02% = +1.91pp (cash weight); since inception -0.08% vs +1.29% = -1.37pp. SPY drop cause unknown (no news source). Figures are 15:16 ET pre-bell marks.
+
+## 2026-11-17 research routine
+- No orders (research-only). Equity $99,919.70, cash $94,100.00. Broker matches portfolio.md. MSFT stop 27274a69 verified live (stop $503.235, mark ~2.5% above). Perplexity returned 401 insufficient_quota. Checked Microsoft IR directly: no release since the 2026-10-28 FQ1 results, so the MSFT thesis is intact. The IR calendar shows an Ignite investor Q&A with Nadella today after the close. No gap >5% (SPY +0.15%, MSFT -0.44% vs the 11-16 close marks). Plan: no action.
