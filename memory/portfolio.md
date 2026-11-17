@@ -1,3 +1,4 @@
+2026-11-17 daily close — no orders placed or rejected; equity $99,824.76 (day -$100.43 / -0.10%), cash $95,106.06. NOTE: fired 15:16 ET with clock is_open=true again — figures are ~44 min pre-bell marks, not closes. SPY 6.339623293 sh $729.19 (-5.66% vs entry, ~4.63%, core, no stop by design; NOW >5% UNDERWATER, ~1.4% above the -7% trim line at ~$718.81 — whether that rule applies to the core is still an open human question), MSFT residual 0.189599299 sh $505.71 (+10.73%, ~0.10%, fractional, no stop possible). Open orders: none (correct — 2 MSFT sh stopped out 10:40 ET at $503.03, logged by the risk-only check). Broker matches file. **Benchmark:** day -0.10% vs SPY -1.51% (quote 728.86 vs prev close 740.04) = +1.41pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) -0.18% vs -0.10% = -0.08pp. Uncertain: SPY prev_close 740.04 != 11-16 logged pre-bell quote 739.00 (same timing issue); cause of SPY's 2-day ~3.4% fall and MSFT's drop unknown (Perplexity 401, no news checked). Prior:
 2026-11-17 risk-only check — **MSFT 10% TRAILING STOP FILLED** (broker-side, not placed by this run): order 27274a69 sold 2 sh @ $503.03 at 10:40:48 ET (stop $503.235, hwm $559.15); realized ~+$92.66 vs $456.70 entry. No orders placed by this run. Equity $99,844.08 (day -$81.11 / -0.08%), cash $95,106.06 (+$1,006.06 = fill proceeds), breaker not tripped, trading_blocked false (12:12 ET). SPY 6.339623293 sh $732.37 (-5.24% vs entry, ~4.65%, core, no stop by design; now past the 5%-underwater flag, above -7% trim line), MSFT residual 0.189599299 sh $501.44 (+9.79%, ~0.10%, fractional, cannot carry a stop). Open orders: none. Microsoft IR checked: no new release since FQ1 (10-28) — stop-out is a price event, NOT a thesis break. MSFT -3.23% and SPY -1.07% today; cause unknown (Perplexity 401). Broker matches this file after the update. Prior:
 2026-11-16 daily close — no orders placed or rejected; equity $99,917.56 (day -$111.95 / -0.11%), cash $94,100.00. NOTE: fired 15:16 ET with clock is_open=true again — figures are ~44 min pre-bell marks, not closes. SPY 6.339623293 sh $738.66 (-4.43% vs entry, ~4.69%, core, no stop by design; close to the 5% underwater flag, above -7% trim line), MSFT 2.189599299 sh $518.24 (+13.48%, ~1.14%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day -0.11% vs SPY -2.02% (quote 739.00 vs prev close 754.27) = +1.91pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) -0.08% vs +1.29% = -1.37pp. Uncertain: cause of SPY's ~2% drop unknown (Perplexity 401, no news checked); SPY prev_close 754.27 != 11-13 logged pre-bell quote 753.48 (same timing issue); MSFT stop is now $15.00 (~2.9%) below the mark. Prior:
 2026-11-16 risk-only check — no orders; equity $99,965.99 (day -$63.52 / -0.06%), cash $94,100.00, breaker not tripped, trading_blocked false (12:12 ET). SPY 6.339623293 sh $744.41 (-3.69% vs entry, ~4.72%, core, no stop by design; under 5% cap), MSFT 2.189599299 sh $523.71 (+14.67%, ~1.15%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no sell rule triggered; MSFT thesis intact per this morning's IR check (no release since FQ1 10-28). Prior:
@@ -70,14 +71,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $99,844.08 (2026-11-17 risk-only check, 12:12 ET) |
+| Equity | $99,824.76 (2026-11-17 daily close, 15:16 ET pre-bell) |
 | Cash | $95,106.06 |
 | Open positions | 2 (SPY core; MSFT 0.19 sh fractional residual only) |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
 
 ## Holdings
 
-### SPY — ~4.86% of equity
+### SPY — ~4.63% of equity (2026-11-17: -5.66% vs entry, past the 5%-underwater flag)
 - **Entry:** three tranches — 2026-08-10 $773.10 avg (2.586974518 sh,
   $2,000 notional), 2026-08-11 $772.92 avg (2.58757698 sh, $2,000
   notional), and 2026-08-12 $772.476 avg (1.165071795 sh, $900 notional).
@@ -253,6 +254,7 @@ Format for each position, one block:
 | 2026-11-12 | -0.02% day (since inception +0.04%) — 15:16 ET, pre-bell | -0.35% day (quote 757.15 vs prev 759.80; since inception +3.78%) | day +0.33pp; since inception -3.74pp |
 | 2026-11-13 | -0.02% day (since inception +0.02%) — 15:16 ET, pre-bell | -0.49% day (quote 753.48 vs prev 757.16; since inception +3.28%) | day +0.47pp; since inception -3.25pp |
 | 2026-11-16 | -0.11% day (since inception -0.08%) — 15:16 ET, pre-bell | -2.02% day (quote 739.00 vs prev 754.27; since inception +1.29%) | day +1.91pp; since inception -1.37pp |
+| 2026-11-17 | -0.10% day (since inception -0.18%) — 15:16 ET, pre-bell | -1.51% day (quote 728.86 vs prev 740.04; since inception -0.10%) | day +1.41pp; since inception -0.08pp |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
