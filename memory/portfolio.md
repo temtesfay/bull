@@ -1,3 +1,4 @@
+2026-11-17 risk-only check — **MSFT 10% TRAILING STOP FILLED** (broker-side, not placed by this run): order 27274a69 sold 2 sh @ $503.03 at 10:40:48 ET (stop $503.235, hwm $559.15); realized ~+$92.66 vs $456.70 entry. No orders placed by this run. Equity $99,844.08 (day -$81.11 / -0.08%), cash $95,106.06 (+$1,006.06 = fill proceeds), breaker not tripped, trading_blocked false (12:12 ET). SPY 6.339623293 sh $732.37 (-5.24% vs entry, ~4.65%, core, no stop by design; now past the 5%-underwater flag, above -7% trim line), MSFT residual 0.189599299 sh $501.44 (+9.79%, ~0.10%, fractional, cannot carry a stop). Open orders: none. Microsoft IR checked: no new release since FQ1 (10-28) — stop-out is a price event, NOT a thesis break. MSFT -3.23% and SPY -1.07% today; cause unknown (Perplexity 401). Broker matches this file after the update. Prior:
 2026-11-16 daily close — no orders placed or rejected; equity $99,917.56 (day -$111.95 / -0.11%), cash $94,100.00. NOTE: fired 15:16 ET with clock is_open=true again — figures are ~44 min pre-bell marks, not closes. SPY 6.339623293 sh $738.66 (-4.43% vs entry, ~4.69%, core, no stop by design; close to the 5% underwater flag, above -7% trim line), MSFT 2.189599299 sh $518.24 (+13.48%, ~1.14%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no position >5% underwater. **Benchmark:** day -0.11% vs SPY -2.02% (quote 739.00 vs prev close 754.27) = +1.91pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) -0.08% vs +1.29% = -1.37pp. Uncertain: cause of SPY's ~2% drop unknown (Perplexity 401, no news checked); SPY prev_close 754.27 != 11-13 logged pre-bell quote 753.48 (same timing issue); MSFT stop is now $15.00 (~2.9%) below the mark. Prior:
 2026-11-16 risk-only check — no orders; equity $99,965.99 (day -$63.52 / -0.06%), cash $94,100.00, breaker not tripped, trading_blocked false (12:12 ET). SPY 6.339623293 sh $744.41 (-3.69% vs entry, ~4.72%, core, no stop by design; under 5% cap), MSFT 2.189599299 sh $523.71 (+14.67%, ~1.15%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, expires 2027-01-28, verified via orders --status open; 0.19 sh fractional unprotected). Broker matches file; no sell rule triggered; MSFT thesis intact per this morning's IR check (no release since FQ1 10-28). Prior:
 2026-11-16 premarket research — no orders; equity $99,994.49, cash $94,100.00, SPY 6.3396 sh $749.03 (-3.09%), MSFT 2.1896 sh $523.35 (+14.59%); MSFT stop 27274a69 live (stop $503.235, ~3.8% below mark). Broker matches. Perplexity 401; Microsoft IR shows no release since FQ1 results (2026-10-28) — MSFT thesis intact. No gap >5%. Prior:
@@ -69,9 +70,9 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $99,919.70 (2026-11-17 research routine, 07:36 ET pre-open) |
-| Cash | $94,100.00 |
-| Open positions | 2 |
+| Equity | $99,844.08 (2026-11-17 risk-only check, 12:12 ET) |
+| Cash | $95,106.06 |
+| Open positions | 2 (SPY core; MSFT 0.19 sh fractional residual only) |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
 
 ## Holdings
@@ -110,7 +111,8 @@ trust Alpaca, fix this file, and log why they drifted.
   and the honest caveat that this resolves the nagging, not the underlying
   ~25%-target-vs-5%-actual gap, is in the 2026-09-11 lessons.md entry.
 
-### MSFT — 1.09% of equity
+### MSFT — ~0.10% of equity (0.189599299 sh residual; 2 sh STOPPED OUT 2026-11-17)
+- **2026-11-17 STOP-OUT:** trailing stop 27274a69 filled 2 sh @ $503.03 at 10:40:48 ET (hwm $559.15). Realized ~+$92.66 (+10.1% on those shares). Thesis was NOT invalidated by any primary source (IR: nothing new since FQ1 10-28). The stop did its job mechanically. The 0.19 sh fractional remainder (~$95) is unprotected (Alpaca won't stop fractions) and no sell rule fires on it (+9.79% vs entry, thesis intact); left in place — selling it is a judgment call for the next execution run or the human, not a risk-reduction trigger. Any re-entry is a NEW position under full buy criteria (see watchlist.md), decided in pre-market, not here. Everything below is the thesis as held before the stop-out.
 - **Entry:** 2026-07-31, $456.70 avg, $1,000 notional (2.189599299 sh)
 - **Thesis:** Azure/cloud revenue growth is accelerating (40% -> 43% YoY,
   FQ3 -> FQ4 FY26) on real reported numbers, not capex narrative; EPS
@@ -142,7 +144,7 @@ trust Alpaca, fix this file, and log why they drifted.
   above.
 - **FQ1 FY27 checkpoint (verified 2026-11-12 from Microsoft IR release):** Azure +48% Y/Y (+48% CC, new definition) vs 44-45% CC guidance and ~35% floor; commercial RPO +73% to $677B; PP&E additions $39.4B vs $19.4B (capex not cut; forward capex guidance not checked). **Thesis intact.** Next checkpoint: FQ2 FY27 print (~late Jan 2027).
 - **Next IR event (added 2026-11-17):** Ignite Investor Q&A with Satya Nadella 2026-11-17 13:10 PT, after the close. Not an earnings release.
-- **Stop:** **CURRENT (verified 2026-11-17): order `27274a69-f0d3-4f19-91b5-29d8c50121e5`, 2 sh, stop $503.235, hwm $559.15, expires 2027-01-28.** Text below is historical — the original order
+- **Stop:** **NONE — order `27274a69-f0d3-4f19-91b5-29d8c50121e5` FILLED 2026-11-17 10:40 ET (2 sh @ $503.03). Open orders empty.** Text below is historical — the original order
   `cee441de-48ae-4e48-9cc2-d6482a4c3b0a` expired 2026-10-29; it covered 2 of 2.19 whole shares
   (Alpaca does not accept trailing stops on the fractional remainder).
   Confirmed still open as of 2026-09-25 daily-close via `orders --status

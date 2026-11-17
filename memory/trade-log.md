@@ -330,3 +330,10 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-17 research routine
 - No orders (research-only). Equity $99,919.70, cash $94,100.00. Broker matches portfolio.md. MSFT stop 27274a69 verified live (stop $503.235, mark ~2.5% above). Perplexity returned 401 insufficient_quota. Checked Microsoft IR directly: no release since the 2026-10-28 FQ1 results, so the MSFT thesis is intact. The IR calendar shows an Ignite investor Q&A with Nadella today after the close. No gap >5% (SPY +0.15%, MSFT -0.44% vs the 11-16 close marks). Plan: no action.
+
+## 2026-11-17 risk-only check — MSFT trailing stop FILLED
+- **Fill (broker-side, not placed by Bull):** MSFT 10% trailing stop `27274a69` sold 2 sh @ $503.03, 2026-11-17 10:40:48 ET (stop $503.235, hwm $559.15). Entry was $456.70 (2026-07-31) → realized ~+$92.66 / +10.1% on 2 sh. Cash $94,100.00 → $95,106.06.
+- **Reasoning held:** The stop exists as overnight/intraday protection, not a thesis judgment. The thesis (Azure growth ≥35%, FQ1 FY27 Azure +48%, RPO +73%) was not contradicted by any primary source: Microsoft IR shows no release since 10-28. MSFT was -3.23% on the day (prev close $518.23, last $501.51) vs SPY -1.07%; I do not know why — Perplexity 401, no news source. The Ignite investor Q&A is after today's close, so it can't explain the move.
+- **Residual:** 0.189599299 sh (~$95, ~0.10%) left. It is fractional so it can't be stopped, and no sell rule triggers (+9.79%, thesis intact). I did not sell it; selling to tidy up isn't a risk-reduction rule.
+- **Other sell rules, in order:** no thesis break found; nothing down 7%+ (SPY core -5.24%, MSFT residual +9.79%); nothing above 5% (SPY ~4.65%). Day -0.08%, breaker not tripped, trading_blocked false. Open orders: none (correct; SPY core has no stop by design, and the MSFT fraction can't carry one).
+- **No orders placed by this run.** Re-entry is not allowed here; MSFT is added to watchlist.md for pre-market review.

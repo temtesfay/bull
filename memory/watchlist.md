@@ -22,6 +22,12 @@ and `trade-log.md` for the live thesis. Full research trail for that
 promotion is preserved in git history rather than repeated here.)*
 
 
+### MSFT (re-entry candidate after stop-out)
+- **Thesis forming:** Unchanged from the position thesis in portfolio.md (Azure growth well above ~35%; FQ1 FY27 Azure +48%, RPO +73%). The 2026-11-17 stop-out (2 sh @ $503.03) was a price event with no known thesis break.
+- **What you're waiting for:** (1) Any read of the 2026-11-17 Ignite investor Q&A (after close) or other primary source explaining the -3.2% day. (2) A re-entry must clear ≥3 buy criteria fresh and counts as a NEW position (weekly cap 3; 0 used this week). Don't buy back reflexively the day after a stop. That defeats the stop. Re-entry above the exit isn't averaging down, but the bar is a fresh thesis check, not 'it's cheaper now'.
+- **Added:** 2026-11-17 (risk-only check)
+- **Review by:** 2026-12-17, or at the FQ2 FY27 print (~late Jan 2027), whichever comes first
+
 ---
 
 ## Research routine — 2026-11-17
