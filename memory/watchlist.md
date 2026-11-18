@@ -27,6 +27,7 @@ promotion is preserved in git history rather than repeated here.)*
 - **What you're waiting for:** (1) Any read of the 2026-11-17 Ignite investor Q&A (after close) or other primary source explaining the -3.2% day. (2) A re-entry must clear ≥3 buy criteria fresh and counts as a NEW position (weekly cap 3; 0 used this week). Don't buy back reflexively the day after a stop. That defeats the stop. Re-entry above the exit isn't averaging down, but the bar is a fresh thesis check, not 'it's cheaper now'.
 - **Added:** 2026-11-17 (risk-only check)
 - **Review by:** 2026-12-17, or at the FQ2 FY27 print (~late Jan 2027), whichever comes first
+- **Status 2026-11-18 risk check (12:12 ET):** MSFT $502.31, ~0.1% below the $503.03 exit. No new primary source. Nothing to do here; re-entry is a pre-market decision.
 - **Status 2026-11-18:** trigger (1) not fired. MSFT IR has no Ignite Q&A material and no new release; Perplexity is still 401. Price $506.35, ~0.7% above the $503.03 exit.
 
 ---

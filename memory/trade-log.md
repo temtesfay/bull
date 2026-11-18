@@ -340,3 +340,8 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-18 research routine
 - No orders (research-only). Equity $99,856.89, cash $95,106.02 (-$0.04 vs file; likely regulatory fees on the 11-17 MSFT sale). Holdings match portfolio.md; open orders none (correct). Perplexity 401 insufficient_quota. Microsoft IR: no release since FQ1 (10-28), and no Ignite Q&A material found, so the MSFT thesis is intact and the re-entry trigger has not fired. No gap >5% (SPY +0.7%, MSFT +0.1% vs 11-17 marks). Plan: no action.
+
+## 2026-11-18 risk-only check (12:12 ET)
+- **No orders placed.** Circuit breaker clear (day -$15.41 / -0.02%); trading_blocked false. Broker matches file: equity $99,829.99, cash $95,106.02, SPY 6.339623293 sh @ $730.26 (-5.52% vs entry, ~4.64%), MSFT residual 0.189599299 sh @ $502.31 (+9.99%, ~0.10%).
+- **Sell rules, in order:** (1) Thesis break: none. MSFT IR showed nothing new this morning and I didn't re-check news (Perplexity 401). SPY is core with no thesis. (2) Down 7%: nothing. SPY -5.52% is closest; it's ~1.6% above the -7% line, and whether that rule applies to the core is still an open human question. (3) Down 15%: nothing. (4) Above 5%: nothing (SPY ~4.64%).
+- **Stops:** open orders empty. That's correct: there's no full-share satellite (MSFT is a 0.19 sh fraction, and Alpaca won't stop fractions), and SPY core has no stop by design.
