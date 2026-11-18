@@ -345,3 +345,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 - **No orders placed.** Circuit breaker clear (day -$15.41 / -0.02%); trading_blocked false. Broker matches file: equity $99,829.99, cash $95,106.02, SPY 6.339623293 sh @ $730.26 (-5.52% vs entry, ~4.64%), MSFT residual 0.189599299 sh @ $502.31 (+9.99%, ~0.10%).
 - **Sell rules, in order:** (1) Thesis break: none. MSFT IR showed nothing new this morning and I didn't re-check news (Perplexity 401). SPY is core with no thesis. (2) Down 7%: nothing. SPY -5.52% is closest; it's ~1.6% above the -7% line, and whether that rule applies to the core is still an open human question. (3) Down 15%: nothing. (4) Above 5%: nothing (SPY ~4.64%).
 - **Stops:** open orders empty. That's correct: there's no full-share satellite (MSFT is a 0.19 sh fraction, and Alpaca won't stop fractions), and SPY core has no stop by design.
+
+## 2026-11-18 daily close
+- No orders placed or rejected. Equity $99,835.44 (day -$9.96, -0.01%), cash $95,106.02. Broker matches portfolio.md. SPY $730.83 (-5.45% vs entry, core, no stop by design), MSFT residual 0.19 sh $507.54 (+11.13%, fractional, no stop possible). Open orders: none (correct). Day vs SPY -0.21% = +0.20pp (cash weight); since inception -0.16% vs +0.18% = -0.34pp. Figures are 15:16 ET pre-bell marks.
