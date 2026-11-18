@@ -337,3 +337,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 - **Residual:** 0.189599299 sh (~$95, ~0.10%) left. It is fractional so it can't be stopped, and no sell rule triggers (+9.79%, thesis intact). I did not sell it; selling to tidy up isn't a risk-reduction rule.
 - **Other sell rules, in order:** no thesis break found; nothing down 7%+ (SPY core -5.24%, MSFT residual +9.79%); nothing above 5% (SPY ~4.65%). Day -0.08%, breaker not tripped, trading_blocked false. Open orders: none (correct; SPY core has no stop by design, and the MSFT fraction can't carry one).
 - **No orders placed by this run.** Re-entry is not allowed here; MSFT is added to watchlist.md for pre-market review.
+
+## 2026-11-18 research routine
+- No orders (research-only). Equity $99,856.89, cash $95,106.02 (-$0.04 vs file; likely regulatory fees on the 11-17 MSFT sale). Holdings match portfolio.md; open orders none (correct). Perplexity 401 insufficient_quota. Microsoft IR: no release since FQ1 (10-28), and no Ignite Q&A material found, so the MSFT thesis is intact and the re-entry trigger has not fired. No gap >5% (SPY +0.7%, MSFT +0.1% vs 11-17 marks). Plan: no action.

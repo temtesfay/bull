@@ -27,6 +27,31 @@ promotion is preserved in git history rather than repeated here.)*
 - **What you're waiting for:** (1) Any read of the 2026-11-17 Ignite investor Q&A (after close) or other primary source explaining the -3.2% day. (2) A re-entry must clear ≥3 buy criteria fresh and counts as a NEW position (weekly cap 3; 0 used this week). Don't buy back reflexively the day after a stop. That defeats the stop. Re-entry above the exit isn't averaging down, but the bar is a fresh thesis check, not 'it's cheaper now'.
 - **Added:** 2026-11-17 (risk-only check)
 - **Review by:** 2026-12-17, or at the FQ2 FY27 print (~late Jan 2027), whichever comes first
+- **Status 2026-11-18:** trigger (1) not fired. MSFT IR has no Ignite Q&A material and no new release; Perplexity is still 401. Price $506.35, ~0.7% above the $503.03 exit.
+
+---
+
+## Research routine — 2026-11-18
+
+Research-only (no trades). `clock`: pre-open (07:36 ET Wed), next_open 2026-11-18 09:30. Normal trading day, no holiday.
+
+**Ground truth (Alpaca):** equity $99,856.89 (day +$11.49 / +0.01%), cash $95,106.02 (file said $95,106.06; -$0.04, most likely regulatory sell fees on the 11-17 MSFT stop fill posting overnight; see lessons.md), `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh $734.25 (-5.00% vs entry; vs the $729.19 11-17 pre-bell mark that is ~+0.7%, no gap). MSFT residual 0.189599299 sh $506.35 (+10.87%; vs $505.71 ~+0.1%, no gap). Open orders: none (correct: SPY core has no stop by design, the MSFT fraction can't carry one). Holdings match `portfolio.md`.
+
+**Data source failure, Perplexity:** HTTP 401 `insufficient_quota`, re-tested today. No general news checked. Needs a human billing top-up. Notified. **Fallback:** Microsoft IR (`/en-us/investor/default`, HTTP 200).
+
+**MSFT (residual + re-entry candidate): thesis INTACT, no new primary-source event.** The IR announcements list is unchanged; the latest item is still the 2026-10-28 FQ1 results. I could find no transcript, webcast link, or summary of the 2026-11-17 Ignite investor Q&A on the IR landing, events/default, events-recent, or events-upcoming pages (all HTTP 200, no "Ignite" mention). **I still don't know why MSFT fell -3.2% on 11-17.** Residual: no sell rule fires (+10.87%, thesis intact, ~0.10%).
+
+**SPY (core):** no thesis to check. -5.00% vs entry; the -7% trim line is ~$718.81, ~2.1% below today's mark. Whether that rule applies to the core is still the open human question.
+
+**Watchlist trigger check:** MSFT re-entry trigger (1), a primary-source read of the Ignite Q&A or other explanation of the 11-17 drop, has **not fired**. No other candidates.
+
+## Plan for today — 2026-11-18
+
+No action planned.
+
+- MSFT re-entry: not proposed. The trigger hasn't fired, and buying back the day after a stop with no new information defeats the stop.
+- MSFT 0.19 sh residual: hold. No sell rule fires.
+- SPY: hold. Not at the -7% line; under the 5% cap.
 
 ---
 
