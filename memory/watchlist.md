@@ -6,6 +6,9 @@ requires the buy criteria in `strategy.md`.
 Retire anything that has sat here more than 60 days without a catalyst. A
 stale watchlist is worse than an empty one because it invites lazy buying.
 
+## 2026-11-19 daily close — note for tomorrow
+**SPY (core):** -7.21% vs entry at 15:16 ET ($717.21; line ~$718.81) — the -7% trim line is CROSSED at the pre-bell mark. Human escalated (urgent) on whether rule 2 applies to the core. Default if no reply: hold, do not trim (see trade-log 2026-11-19 daily close). Check pre-market whether SPY closed above/below $718.81. **MSFT:** residual 0.19 sh only; re-entry still requires full buy criteria; thesis intact per 11-19 IR check, Perplexity still 401.
+
 ## Format
 
 ### TICKER
