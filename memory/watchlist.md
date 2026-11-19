@@ -29,6 +29,31 @@ promotion is preserved in git history rather than repeated here.)*
 - **Review by:** 2026-12-17, or at the FQ2 FY27 print (~late Jan 2027), whichever comes first
 - **Status 2026-11-18 risk check (12:12 ET):** MSFT $502.31, ~0.1% below the $503.03 exit. No new primary source. Nothing to do here; re-entry is a pre-market decision.
 - **Status 2026-11-18:** trigger (1) not fired. MSFT IR has no Ignite Q&A material and no new release; Perplexity is still 401. Price $506.35, ~0.7% above the $503.03 exit.
+- **Status 2026-11-19:** trigger (1) not fired. MSFT IR announcements list unchanged (latest still 10-28 FQ1); events page has no Ignite Q&A material; Perplexity still 401. Price $514.47 pre-market, ~2.3% above the $503.03 exit.
+
+---
+
+## Research routine — 2026-11-19
+
+Research-only (no trades). `clock`: pre-open (07:36 ET Thu), next_open 2026-11-19 09:30. Normal trading day, no holiday.
+
+**Ground truth (Alpaca):** equity $99,886.48 (day +$54.90 / +0.05%), cash $95,106.02 (matches file), `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh $738.67 (-4.43% vs entry; vs the $730.83 11-18 pre-bell mark that is ~+1.1%, no gap). MSFT residual 0.189599299 sh $514.47 (+12.65%; vs $507.54 ~+1.4%, no gap). Open orders: none (correct: SPY core has no stop by design, the MSFT fraction can't carry one). Holdings match `portfolio.md`.
+
+**Data source failure, Perplexity:** HTTP 401 `insufficient_quota` again today. No general news checked. It needs a human billing top-up. Notified. **Fallback:** Microsoft IR. The first curl got a 403 with no browser User-Agent; the retry with a UA returned HTTP 200 for `/en-us/investor/default` and `/events/default`. `events-recent` is 404 and news.microsoft.com is proxy-blocked.
+
+**MSFT (residual + re-entry candidate): thesis INTACT, no new primary-source event.** The latest IR item is still the 2026-10-28 FQ1 results (Azure +48%, RPO +73%), and there's no Ignite Q&A material on the IR or events pages. I still don't know why MSFT fell 3.2% on 11-17. Residual: no sell rule fires (+12.65%, thesis intact, ~0.10%).
+
+**SPY (core):** no thesis to check. -4.43% vs entry, ~3.9% above the -7% line (~$718.81). Under the 5% cap (~4.69%).
+
+**Watchlist trigger check:** MSFT re-entry trigger (1), a primary-source explanation of the 11-17 drop, has **not fired**. No other candidates.
+
+## Plan for today — 2026-11-19
+
+No action planned.
+
+- MSFT re-entry: not proposed. The trigger hasn't fired, and a price recovery alone isn't new information.
+- MSFT 0.19 sh residual: hold. No sell rule fires.
+- SPY: hold. Not at the -7% line; under the 5% cap.
 
 ---
 
