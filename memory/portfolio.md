@@ -1,3 +1,4 @@
+2026-11-20 research routine — no orders (research-only). Pre-open 07:36 ET Fri, normal trading day. Equity $99,700.84 (day -$38.00 / -0.04%, pre-market marks), cash $95,106.02 (matches file), trading_blocked false. SPY 6.339623293 sh $710.16 pre-market (**-8.12% vs entry $772.91**; ~4.52%, core, no stop by design). Quote last $715.84 vs prev_close $730.33 (feed has not rolled; $715.84 is most likely the 11-19 last trade, I could not confirm it is the official close) — **either way SPY finished 11-19 BELOW the -7% line ~$718.81**. Rule-2 applicability to the core is still the unanswered human question; no trim planned; re-escalated urgent. MSFT residual 0.189599299 sh $488.77 (+7.02%, ~0.09%, fractional, no stop possible). Thesis intact: Microsoft IR latest item still 10-28 FQ1 results. Overnight moves vs 11-19 marks: SPY -1.0%, MSFT -2.4% (no >5% gap). Open orders: none (correct). Broker matches file. Perplexity 401 insufficient_quota. Prior:
 2026-11-19 daily close — no orders placed or rejected; equity $99,747.81 (day -$83.77 / -0.08%), cash $95,106.02 (matches file). NOTE: fired 15:16 ET with clock is_open=true again — pre-bell marks, not closes. SPY 6.339623293 sh $717.21 (**-7.21% vs entry $772.91 — BELOW the -7% trim line ~$718.81**; ~4.56%, core, no stop by design). Quote $716.70 (-1.87% vs prev close $730.33). Whether sell rule 2 applies to the core is the unresolved human question; no order placed (routine forbids orders); human escalated urgent. MSFT residual 0.189599299 sh $500.81 (+9.66%, ~0.10%, fractional, no stop possible). Open orders: none (correct). Broker matches file; no unexplained discrepancy. **Benchmark:** day -0.08% vs SPY -1.87% = +1.79pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) -0.25% vs -1.76% = +1.51pp. Uncertain: cause of SPY's ~1.9% drop today (and ~5% over 4 sessions) unknown — Perplexity 401, no news checked; close may land on either side of $718.81. Prior:
 2026-11-19 risk-only check — no orders; equity $99,762.33 (day -$69.25 / -0.07%), cash $95,106.02 (matches file), breaker not tripped, trading_blocked false (12:12 ET). SPY 6.339623293 sh $719.36 (-6.93% vs entry $772.91, ~4.57%, core, no stop by design; **$0.55 / ~0.08% above the -7% trim line ~$718.81** — SPY -1.42% on day, quote 719.95 vs prev close 730.33; rule NOT triggered; whether it applies to the core is still the open human question, human notified). MSFT residual 0.189599299 sh $505.48 (+10.68%, ~0.10%, fractional, no stop possible). Open orders: none (correct). Broker matches file; no sell rule triggered; MSFT thesis intact per this morning's IR check. Prior:
 2026-11-19 research routine — no orders. Equity $99,886.48 (day +$54.90), cash $95,106.02 (matches file). SPY 6.339623293 sh $738.67 (-4.43% vs entry, ~4.69%, core, no stop by design, ~3.9% above the -7% line). MSFT residual 0.189599299 sh $514.47 (+12.65%, ~0.10%, fractional, no stop possible). Open orders: none. Broker matches file. MSFT thesis intact: no IR release since 10-28, no Ignite Q&A material. Perplexity 401. Prior:
@@ -77,14 +78,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $99,747.81 (2026-11-19 daily close, 15:16 ET pre-bell) |
+| Equity | $99,700.84 (2026-11-20 research, 07:36 ET pre-market) |
 | Cash | $95,106.02 |
 | Open positions | 2 (SPY core; MSFT 0.19 sh fractional residual only) |
 | New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
 
 ## Holdings
 
-### SPY — ~4.56% of equity (2026-11-19 daily close 15:16 ET: -7.21% vs entry, BELOW -7% trim line; core applicability of rule 2 unresolved — human escalated)
+### SPY — ~4.52% of equity (2026-11-20 pre-market $710.16: -8.12% vs entry; closed 11-19 BELOW -7% trim line; core applicability of rule 2 unresolved — human re-escalated)
 - **Entry:** three tranches — 2026-08-10 $773.10 avg (2.586974518 sh,
   $2,000 notional), 2026-08-11 $772.92 avg (2.58757698 sh, $2,000
   notional), and 2026-08-12 $772.476 avg (1.165071795 sh, $900 notional).
