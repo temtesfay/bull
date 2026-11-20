@@ -365,3 +365,8 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-20 research routine
 - No orders (research-only). Equity $99,700.84, cash $95,106.02 (matches file). Broker matches portfolio.md; open orders none (correct). Perplexity 401 insufficient_quota. Microsoft IR: no release since FQ1 (10-28), so the MSFT thesis is intact and the re-entry trigger has not fired. No gap >5% (SPY -1.0%, MSFT -2.4% vs 11-19 marks). **SPY core closed 11-19 below the -7% trim line** (last $715.84; pre-market $710.16, -8.12% vs entry). Core applicability of rule 2 is still unanswered. I re-escalated urgent and planned no trim. Plan: no action.
+
+## 2026-11-20 risk-only check
+- No orders (12:12 ET). Equity $99,651.35 (day -0.09%), cash $95,106.02 (matches file). Breaker not tripped. Broker matches portfolio.md. Open orders: none, which is correct because no satellite holds a full share.
+- **SPY core is -9.13% vs entry** ($702.35 vs $772.91), below the -7% trim line for a second session. I did not trim. Whether sell rule 2 applies to the index core is still an open human question, and acting on an uncovered case is an escalation trigger, not something I decide alone. I did not invent a thesis-break story either: SPY has no thesis, and a broad market decline is exactly what ballast is supposed to sit through. Rule 3's -15% line is about $656.97. I re-notified the human.
+- MSFT residual 0.19 sh (+7.05%). Thesis intact, no rule triggered. Nothing new for the watchlist.
