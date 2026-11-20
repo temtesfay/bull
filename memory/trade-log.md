@@ -370,3 +370,8 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 - No orders (12:12 ET). Equity $99,651.35 (day -0.09%), cash $95,106.02 (matches file). Breaker not tripped. Broker matches portfolio.md. Open orders: none, which is correct because no satellite holds a full share.
 - **SPY core is -9.13% vs entry** ($702.35 vs $772.91), below the -7% trim line for a second session. I did not trim. Whether sell rule 2 applies to the index core is still an open human question, and acting on an uncovered case is an escalation trigger, not something I decide alone. I did not invent a thesis-break story either: SPY has no thesis, and a broad market decline is exactly what ballast is supposed to sit through. Rule 3's -15% line is about $656.97. I re-notified the human.
 - MSFT residual 0.19 sh (+7.05%). Thesis intact, no rule triggered. Nothing new for the watchlist.
+
+## 2026-11-20 daily close
+- No orders placed or rejected (routine forbids orders). Equity $99,598.48 (day -$140.36, -0.14%), cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). Figures are 15:16 ET pre-bell marks.
+- **SPY core -10.19% vs entry** ($694.15 vs $772.91; quote -3.04% on the day). Below the -7% line for a third session. No trim — rule-2 applicability to the core is still unanswered. The -15% line (rule 3, ~$656.97) is now ~5.4% away; if a later run sees SPY there, escalate urgent before acting — do not exit the core unilaterally, and do not ignore it either.
+- MSFT residual 0.19 sh $486.56 (+6.54%). Benchmark: day +2.90pp vs SPY (cash weight); since inception -0.40% vs SPY -4.87% = +4.47pp — cash cushion in a falling market, not skill.
