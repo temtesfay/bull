@@ -382,3 +382,9 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 ## 2026-11-23 research routine
 - No orders (research-only). Equity $99,681.40, cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). Pre-market marks.
 - SPY core $706.79 (-8.55% vs entry). Still below the -7% line; no human ruling on whether rules 2/3 apply to the core, so no trim is planned. MSFT residual $498.96 (+9.25%); thesis intact per Microsoft IR (nothing new since 10-28). No >5% overnight gap. Perplexity is still 401, so no news was checked.
+
+## 2026-11-23 risk-only check (12:12 ET)
+- **No orders placed.** Circuit breaker clear (day +$214.03 / +0.21%); trading_blocked false. Broker matches file: equity $99,785.05, cash $95,106.02, SPY 6.339623293 sh @ $723.14, MSFT residual 0.189599299 sh @ $498.93.
+- **Sell rules, in order:** (1) Thesis break: none. MSFT IR showed nothing new since 10-28 as of this morning, and MSFT is roughly flat on the day. SPY is the core and has no thesis. (2) Down 7%: **not triggered now.** SPY is -6.44% vs entry, back above the ~$718.81 line after a +4.68% day (prev close $690.68). I don't know why it rallied: Perplexity is 401 and I checked no news. The core-applicability question is still unanswered, but it is moot at today's mark. A next run that finds SPY back below the line should keep treating it as escalate-don't-trim. (3) Down 15%: no (~$656.97 line, ~9% below mark). (4) Above 5%: no (SPY ~4.59%, MSFT ~0.09%).
+- **Stops:** open orders empty. That's correct: there's no full-share satellite (MSFT is 0.19 sh, fractional), and the SPY core has no stop by design.
+- Nothing new for the watchlist. No notification sent: nothing triggered, and the open core question was already escalated (weekly review #17).
