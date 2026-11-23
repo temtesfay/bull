@@ -1,3 +1,4 @@
+2026-11-23 research routine — no orders (research-only). Pre-open 07:36 ET Mon, normal trading day. Equity $99,681.40 (day +$110.38 / +0.11%, pre-market marks), cash $95,106.02 (matches file), trading_blocked false. SPY 6.339623293 sh $706.79 pre-market (**-8.55% vs entry $772.91**, ~4.50%, core, no stop by design; below -7% line ~$718.81, ~7.6% above -15% line ~$656.97; core applicability of rules 2/3 still unanswered). MSFT residual 0.189599299 sh $498.96 (+9.25%, ~0.09%, fractional, no stop possible); thesis intact (IR latest still 10-28 FQ1). Overnight vs Fri last trade (unconfirmed close): SPY +2.3%, MSFT +2.8%, no >5% gap. Open orders: none (correct). Broker matches file. Perplexity 401 insufficient_quota. Prior:
 2026-11-20 weekly review (15:44 ET, market open) — no orders; equity $99,572.70 (day -$166.14 / -0.17%), cash $95,106.02 (matches file). SPY 6.339623293 sh $690.12 (**-10.71% vs entry $772.91**, ~4.39%, core, no stop by design; below -7% line; -15% line ~$656.97 is ~4.8% below mark; core applicability of rules 2/3 unresolved — human asked again). MSFT residual 0.189599299 sh $483.04 (+5.77%, ~0.09%, fractional, no stop possible). Open orders: none (correct). Since inception -0.43% vs SPY -5.41% (+4.98pp, cash weight, not skill). Prior:
 2026-11-20 daily close — no orders placed or rejected; equity $99,598.48 (day -$140.36 / -0.14%), cash $95,106.02 (matches file). NOTE: fired 15:16 ET with clock is_open=true again — pre-bell marks, not closes. SPY 6.339623293 sh $694.15 (**-10.19% vs entry $772.91**, ~4.42%, core, no stop by design; quote 694.05, -3.04% vs prev close 715.84). Below the -7% trim line for a third session; rule-2 applicability to the core still unanswered by the human, no trim. -15% exit line ~$656.97 is ~5.4% below the mark. MSFT residual 0.189599299 sh $486.56 (+6.54%, ~0.09%, fractional, no stop possible). Open orders: none (correct). Broker matches file; no unexplained discrepancy. **Benchmark:** day -0.14% vs SPY -3.04% = +2.90pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) -0.40% vs -4.87% = +4.47pp. Uncertain: cause of SPY's -3% day / ~-8% week unknown (Perplexity 401, no news checked). Prior:
 2026-11-20 risk-only check — no orders; equity $99,651.35 (day -$87.49 / -0.09%), cash $95,106.02 (matches file), breaker not tripped, trading_blocked false (12:12 ET). SPY 6.339623293 sh $702.35 (**-9.13% vs entry $772.91**, ~4.47%, core, no stop by design; quote 703.13, -1.78% vs prev close 715.84). Below the -7% trim line (~$718.81) for a second session; whether rule 2 applies to the core is still the unanswered human question, so no trim (consistent with every prior run). The -15% exit line (rule 3, 'regardless of explanation') is ~$656.97, ~6.5% below today's mark — if SPY reaches it, that is the same open question in sharper form. MSFT residual 0.189599299 sh $488.90 (+7.05%, ~0.09%, fractional, no stop possible); thesis intact per this morning's IR check (no release since 10-28). Open orders: none (correct — no full-share satellite). Broker matches file. Cause of the SPY decline (~-9% from entry, ~-5% this week) unknown — Perplexity 401, no news checked. Prior:
@@ -81,14 +82,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $99,598.48 (2026-11-20 daily close, 15:16 ET pre-bell) |
+| Equity | $99,681.40 (2026-11-23 research, pre-market marks) |
 | Cash | $95,106.02 |
 | Open positions | 2 (SPY core; MSFT 0.19 sh fractional residual only) |
-| New positions this week | 0 (per Alpaca `new_positions_this_week` — week reset) |
+| New positions this week | 0 (per Alpaca `new_positions_this_week`, week of 2026-11-23) |
 
 ## Holdings
 
-### SPY — ~4.42% of equity (2026-11-20 15:16 ET $694.15: -10.19% vs entry; below -7% trim line 3 sessions; -15% line ~$656.97; core applicability of rules 2/3 unresolved — human escalated)
+### SPY — ~4.50% of equity (2026-11-23 pre-market $706.79: -8.55% vs entry; below -7% trim line 4 sessions; -15% line ~$656.97; core applicability of rules 2/3 unresolved — human escalated)
 - **Entry:** three tranches — 2026-08-10 $773.10 avg (2.586974518 sh,
   $2,000 notional), 2026-08-11 $772.92 avg (2.58757698 sh, $2,000
   notional), and 2026-08-12 $772.476 avg (1.165071795 sh, $900 notional).

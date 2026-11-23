@@ -378,3 +378,7 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-20 weekly review
 - No orders placed or rejected by this run (review-only). Equity $99,572.70 (15:44 ET, market still open), cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). SPY $690.12 (-10.71% vs entry; below the -7% line, ~4.8% above the -15% line ~$656.97). MSFT residual 0.19 sh $483.04 (+5.77%). Week -0.45% vs SPY -8.31% (+7.87pp, cash). Since inception -0.43% vs SPY -5.41% (+4.98pp, cash, not skill). Grade D+. Review #17 is in lessons.md. Top ask: explicitly rule whether sell rules 2/3 apply to the core before SPY reaches ~$657.
+
+## 2026-11-23 research routine
+- No orders (research-only). Equity $99,681.40, cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). Pre-market marks.
+- SPY core $706.79 (-8.55% vs entry). Still below the -7% line; no human ruling on whether rules 2/3 apply to the core, so no trim is planned. MSFT residual $498.96 (+9.25%); thesis intact per Microsoft IR (nothing new since 10-28). No >5% overnight gap. Perplexity is still 401, so no news was checked.
