@@ -393,3 +393,7 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 - **No orders placed or rejected** (routine forbids orders). Equity $99,790.51 (day +$219.49 / +0.22%), cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). trading_blocked false.
 - SPY core $724.02 (-6.33% vs entry $772.91), above the -7% line (~$718.81) by only ~0.7% after a +4.75% day (quote 723.455 vs prev close 690.68). I don't know what drove the rally: Perplexity is still 401 and no news was checked. A dip of under 1% puts it back below the line; core-applicability of rules 2/3 is still unanswered, so keep treating that as escalate-don't-trim.
 - MSFT residual 0.19 sh $498.30 (+9.11%). Benchmark: day -4.53pp vs SPY (cash weight on an up day); since inception -0.21% vs SPY -0.84% = +0.63pp, down from +4.47pp on Friday. Cash cushion, not skill.
+
+## 2026-11-24 research routine
+- No orders (research-only). Equity $99,728.66, cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). Pre-market marks.
+- SPY core $714.52 (-7.56% vs entry), back below the -7% line after closing just above it Monday; no human ruling on rules 2/3 for the core, so no trim planned. MSFT residual $489.75 (+7.24%); thesis intact per Microsoft IR (nothing new since 10-28). No >5% overnight gap (SPY -1.1%, MSFT -0.6% vs 11-23 last trade). Perplexity still 401; no news checked.

@@ -34,6 +34,7 @@
 2026-11-06 risk-only check — no orders; equity $99,958.05 (day +0.04%), cash $94,100.00, SPY 6.3396 sh $739.33 (-4.35%), MSFT 2.1896 sh $534.79 (+17.10%); MSFT stop 27274a69 live (stop $503.235). Broker matches; no sell rule triggered. Prior:
 # Portfolio
 
+2026-11-24 research routine — no orders (research-only). Pre-open 07:36 ET Tue, normal trading day. Equity $99,728.66 (day -$49.78 / -0.05%, pre-market marks), cash $95,106.02 (matches file), trading_blocked false. SPY 6.339623293 sh $714.52 pre-market (**-7.56% vs entry $772.91 — back BELOW the -7% line ~$718.81**, ~4.54%, core, no stop by design; ~8.8% above the -15% line ~$656.97; core applicability of rules 2/3 still unanswered). MSFT residual 0.189599299 sh $489.75 (+7.24%, ~0.09%, fractional, no stop possible); thesis intact (IR latest still 10-28 FQ1). Overnight vs 11-23 last trade (feed not rolled, unconfirmed close): SPY -1.1%, MSFT -0.6%, no >5% gap. Open orders: none (correct). Broker matches file. Perplexity 401 insufficient_quota. Prior:
 2026-11-13 weekly review #16 — no orders; equity $100,018.15 (15:43 ET), cash $94,100.00, SPY 6.3396 sh $752.61 (-2.63%), MSFT 2.1896 sh $523.79 (+14.69%); MSFT stop 27274a69 live (stop $503.235). Broker matches. Since inception +0.02% vs SPY +3.17% (-3.15pp); see lessons.md. Prior:
 2026-11-06 premarket research — no orders; equity $99,927.49, cash $94,100.00, SPY 6.3396 sh $735.36 (-4.86%), MSFT 2.1896 sh $532.33 (+16.56%); MSFT stop 27274a69 live (stop $503.235). Broker matches; Perplexity still 401 (no news). Prior:
 2026-11-05 daily close — no orders placed or rejected; equity $99,936.44 (day -$241.83 / -0.24%), cash $94,100.00. SPY 6.3396 sh $735.58 (-4.83% vs entry, ~4.67%, core, no stop by design; under the 5% underwater flag but close, above -7% trim line), MSFT 2.1896 sh $535.88 (+17.34%, ~1.17%); MSFT 10% trailing stop 27274a69 live on 2 sh (stop $503.235, hwm $559.15, verified via orders --status open). Broker matches file; no discrepancy. **Benchmark:** day -0.24% vs SPY -4.02% (quote 735.89 vs prev close 766.73, may not be official close) = +3.78pp (cash weight, not skill); since inception (SPY $729.57, base $100,000) -0.06% vs +0.87% = -0.93pp. Uncertain: cause of SPY's ~4% drop unknown (no news source; Perplexity out of credits); SPY quote may be intraday. Prior:
@@ -84,14 +85,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $99,790.51 (2026-11-23 daily close, 15:16 ET pre-bell marks) |
+| Equity | $99,728.66 (2026-11-24 research routine, pre-market marks) |
 | Cash | $95,106.02 |
 | Open positions | 2 (SPY core; MSFT 0.19 sh fractional residual only) |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`, week of 2026-11-23) |
 
 ## Holdings
 
-### SPY — ~4.60% of equity (2026-11-23 close $724.02: -6.33% vs entry; back above -7% trim line ~$718.81 by ~0.7%; -15% line ~$656.97; core applicability of rules 2/3 unresolved — human escalated)
+### SPY — ~4.54% of equity (2026-11-24 pre-market $714.52: -7.56% vs entry; BELOW -7% trim line ~$718.81; -15% line ~$656.97; core applicability of rules 2/3 unresolved — human escalated)
 - **Entry:** three tranches — 2026-08-10 $773.10 avg (2.586974518 sh,
   $2,000 notional), 2026-08-11 $772.92 avg (2.58757698 sh, $2,000
   notional), and 2026-08-12 $772.476 avg (1.165071795 sh, $900 notional).
