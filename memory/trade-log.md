@@ -411,3 +411,9 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 - No orders (research-only). Equity $99,669.70, cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). Pre-market marks.
 - SPY core $705.52 (-8.72% vs entry), below the -7% line pre-market. The 11-24 last trade, $718.91 (unconfirmed as close), was ~$0.10 above it. No human ruling on rules 2/3 for the core, so no trim planned. MSFT residual $479.70 (+5.04%). Thesis intact per Microsoft IR (nothing new since 10-28). No >5% overnight gap (SPY -1.9%, MSFT -3.3% vs 11-24 last trade). Cause unknown: Perplexity still 401, no news checked.
 - No notification sent. Perplexity has been 401 for ~9 weeks and is already escalated in the weekly reviews. No thesis broke and nothing gapped >5%.
+
+## 2026-11-25 risk-only check (12:11 ET)
+- **No orders placed.** Circuit breaker clear (day -$80.85 / -0.08%); trading_blocked false. Broker matches file: equity $99,676.03, cash $95,106.02, SPY 6.339623293 sh @ $706.34, MSFT residual 0.189599299 sh @ $485.66.
+- **Sell rules, in order:** (1) Thesis break: none. MSFT is +6.34% vs entry. Microsoft IR has nothing new since 10-28 (per this morning's research run). No news pulled: Perplexity is still 401. SPY is the core and has no thesis. (2) Down 7%: **SPY -8.61% vs entry**, below the ~$718.81 line. Not trimmed: whether rule 2 applies to the core is still unanswered by the human (escalated urgent 11-19, re-asked in weekly review #17). Same treatment as every prior run. Trimming an index sleeve into a broad decline is the macro call strategy.md says Bull shouldn't make. (3) Down 15%: no. The line is ~$656.97, ~7.0% below the mark. (4) Above 5%: no (SPY ~4.49%, MSFT ~0.09%).
+- **Stops:** open orders empty. That's correct: there's no full-share satellite, and the core has no stop by design.
+- Nothing new for the watchlist. No notification sent: nothing new triggered, and the core question is already escalated.
