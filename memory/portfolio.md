@@ -1,3 +1,4 @@
+2026-11-25 daily close (15:16 ET, pre-bell — clock is_open=true, so these are pre-close marks) — no orders (routine forbids). Equity $99,739.43 (day -$17.45 / -0.02%), cash $95,106.02 (matches file), trading_blocked false. SPY 6.339623293 sh $716.25 (**-7.33% vs entry $772.91, ~$2.56 below the -7% line ~$718.81**, ~4.55%, core, no stop by design; quote 716.09, -0.39% vs prev close 718.91). MSFT residual 0.189599299 sh $489.69 (+7.22%, ~0.09%, fractional, no stop possible). Open orders: none (correct). Broker matches file. Benchmark: day -0.02% vs SPY -0.39% (+0.37pp, cash weight); since inception -0.26% vs SPY -1.85% (+1.59pp). Uncertain: SPY prev_close 718.91 != 11-24 logged pre-bell quote 717.19 and Alpaca-implied prior equity ($99,756.88) != logged $99,745.20 — same known pre-bell timing issue. Core-vs-rules-2/3 question still unanswered by human. Prior:
 2026-11-25 risk-only check (12:11 ET) — no orders. Equity $99,676.03 (day -$80.85 / -0.08%), cash $95,106.02 (matches file), breaker clear, trading_blocked false. SPY 6.339623293 sh $706.34 (**-8.61% vs entry $772.91, below the -7% line ~$718.81**, ~4.49%, core, no stop by design; -15% line ~$656.97 is ~7.0% below mark; rules 2/3 core applicability still unanswered by human — escalated, not trimmed). MSFT residual 0.189599299 sh $485.66 (+6.34%, ~0.09%, fractional, no stop possible). Open orders: none (correct). Broker matches file. Prior:
 2026-11-24 daily close (15:15 ET, pre-bell — clock is_open=true) — no orders (routine forbids). Equity $99,745.20 (day -$33.24 / -0.03%), cash $95,106.02 (matches file), trading_blocked false. SPY 6.339623293 sh $717.01 (**-7.23% vs entry $772.91, ~$1.80 below the -7% line ~$718.81**, ~4.56%, core, no stop by design; quote 717.19, -0.74% vs prev close 722.56). MSFT residual 0.189599299 sh $493.71 (+8.11%, ~0.09%, fractional, no stop possible). Open orders: none (correct). Broker matches file. Benchmark: day -0.03% vs SPY -0.74% (+0.71pp, cash weight); since inception -0.25% vs SPY -1.70% (+1.45pp). Uncertain: SPY prev_close 722.56 != 11-23 logged pre-bell quote 723.455 and Alpaca-implied prior equity ($99,778.44) != logged $99,790.51 — same known pre-bell timing issue. Core-vs-rules-2/3 question still unanswered by human. Prior:
 2026-11-24 risk-only check (12:12 ET) — no orders. Equity $99,756.61 (day -$21.83 / -0.02%), cash $95,106.02 (matches file), trading_blocked false. SPY 6.339623293 sh $718.56 (**-7.03% vs entry $772.91, ~$0.25 below the -7% line ~$718.81**, ~4.57%, core, no stop by design; rules 2/3 core applicability still unanswered — escalate, don't trim). MSFT residual 0.189599299 sh $499.85 (+9.45%, ~0.10%, fractional, no stop possible). Open orders: none (correct). Broker matches file. Prior:
@@ -89,14 +90,14 @@ trust Alpaca, fix this file, and log why they drifted.
 | Field | Value |
 |-------|-------|
 | Mode | PAPER |
-| Equity | $99,669.70 (2026-11-25 research routine, pre-market marks) |
+| Equity | $99,739.43 (2026-11-25 daily close, 15:16 ET pre-bell marks) |
 | Cash | $95,106.02 |
 | Open positions | 2 (SPY core; MSFT 0.19 sh fractional residual only) |
 | New positions this week | 0 (per Alpaca `new_positions_this_week`, week of 2026-11-23) |
 
 ## Holdings
 
-### SPY — ~4.49% of equity (2026-11-25 pre-market $705.52: -8.72% vs entry; BELOW -7% trim line ~$718.81 (11-24 last trade $718.91 was ~$0.10 above it); -15% line ~$656.97; core applicability of rules 2/3 unresolved — human escalated)
+### SPY — ~4.55% of equity (2026-11-25 15:16 ET $716.25: -7.33% vs entry; BELOW -7% trim line ~$718.81; -15% line ~$656.97; core applicability of rules 2/3 unresolved — human escalated)
 - **Entry:** three tranches — 2026-08-10 $773.10 avg (2.586974518 sh,
   $2,000 notional), 2026-08-11 $772.92 avg (2.58757698 sh, $2,000
   notional), and 2026-08-12 $772.476 avg (1.165071795 sh, $900 notional).
@@ -278,6 +279,7 @@ Format for each position, one block:
 | 2026-11-20 | -0.14% day (since inception -0.40%) — 15:16 ET, pre-bell | -3.04% day (quote 694.05 vs prev 715.84; since inception -4.87%) | day +2.90pp; since inception +4.47pp |
 | 2026-11-23 | +0.22% day (since inception -0.21%) — 15:16 ET, pre-bell | +4.75% day (quote 723.455 vs prev 690.68; since inception -0.84%) | day -4.53pp; since inception +0.63pp |
 | 2026-11-24 | -0.03% day (since inception -0.25%) — 15:15 ET, pre-bell | -0.74% day (quote 717.19 vs prev 722.56; since inception -1.70%) | day +0.71pp; since inception +1.45pp |
+| 2026-11-25 | -0.02% day (since inception -0.26%) — 15:16 ET, pre-bell | -0.39% day (quote 716.09 vs prev 718.91; since inception -1.85%) | day +0.37pp; since inception +1.59pp |
 
 **2026-08-14 row is intentionally blank.** No daily-close (markets-closed
 reconciliation) routine ran or committed on 2026-08-14 — confirmed via
