@@ -32,10 +32,37 @@ promotion is preserved in git history rather than repeated here.)*
 - **Review by:** 2026-12-17, or at the FQ2 FY27 print (~late Jan 2027), whichever comes first
 - **Status 2026-11-18 risk check (12:12 ET):** MSFT $502.31, ~0.1% below the $503.03 exit. No new primary source. Nothing to do here; re-entry is a pre-market decision.
 - **Status 2026-11-18:** trigger (1) not fired. MSFT IR has no Ignite Q&A material and no new release; Perplexity is still 401. Price $506.35, ~0.7% above the $503.03 exit.
+- **Status 2026-11-25:** trigger (1) not fired. IR announcements list unchanged (latest still 10-28 FQ1); Perplexity 401. Price $479.70 pre-market, ~4.6% below the $503.03 exit.
 - **Status 2026-11-24:** trigger (1) not fired. IR announcements list unchanged (latest still 10-28 FQ1); Perplexity 401. Price $489.75 pre-market, ~2.6% below the $503.03 exit.
 - **Status 2026-11-23:** trigger (1) not fired. IR announcements list unchanged (latest still 10-28 FQ1); Perplexity 401. Price $498.96 pre-market, ~0.8% below the $503.03 exit.
 - **Status 2026-11-20:** trigger (1) not fired. IR latest still 10-28 FQ1; Perplexity 401. Price $488.77 pre-market, ~2.8% BELOW the $503.03 exit.
 - **Status 2026-11-19:** trigger (1) not fired. MSFT IR announcements list unchanged (latest still 10-28 FQ1); events page has no Ignite Q&A material; Perplexity still 401. Price $514.47 pre-market, ~2.3% above the $503.03 exit.
+
+---
+
+## Research routine — 2026-11-25
+
+Research-only (no trades). `clock`: pre-open (07:36 ET Wed), next_open 2026-11-25 09:30, next_close 16:00. Normal trading day. Thanksgiving Thu 11-26 closed; Fri 11-27 is expected to be an early close, so check `clock`.
+
+**Ground truth (Alpaca):** equity $99,669.70 (day -$87.18 / -0.09%, pre-market marks), cash $95,106.02 (matches file), `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh $705.52 pre-market (-8.72% vs entry). MSFT residual 0.189599299 sh $479.70 (+5.04%). Open orders: none (correct). Holdings match `portfolio.md`.
+
+**Overnight move:** the `quote` feed hasn't rolled (SPY last $718.91 / prev_close $722.56; MSFT last $496.15 / prev_close $492.95). I read `last` as Tuesday 11-24's final trade, but I can't confirm it's the official close. Against it, pre-market: SPY -1.9%, MSFT -3.3%. No >5% gap. If $718.91 is the close, SPY finished 11-24 about $0.10 above the -7% line (-6.99%) and is back below it pre-market.
+
+**Data source failure, Perplexity:** still HTTP 401 `insufficient_quota`. No general news checked. I don't know what is moving SPY or MSFT pre-market. Fallback: Microsoft IR `/en-us/investor/default` returned HTTP 200 with a Chrome UA.
+
+**MSFT (residual + re-entry candidate): thesis INTACT.** The only dates on the IR page are 10-28 (FQ1 results), 10-27, 9-15 and 9-2, so there's no new primary-source event. A -3.3% pre-market move with no source isn't a thesis break. Residual: no sell rule fires.
+
+**SPY (core):** -8.72% pre-market, below the -7% line and ~7.4% above the -15% line (~$656.97). The human hasn't ruled on rules 2/3 for the core: `strategy.md` is unchanged since 2026-08-08. The default stands: hold, escalate, no unilateral trim.
+
+**Watchlist trigger check:** the MSFT re-entry trigger (1) has **not fired**. There are no other candidates.
+
+## Plan for today — 2026-11-25
+
+No action planned.
+
+- SPY core: **hold, no trim proposed.** It's below the -7% line pre-market, but whether rule 2 applies to the core is still an unanswered human question. If the human rules before execution that it applies, the trim would be a SELL of about half, ~$2,236 at the $705.52 mark. If SPY reaches ~$656.97 (-15%), escalate urgent before acting.
+- MSFT re-entry: not proposed, because the trigger hasn't fired.
+- MSFT 0.19 sh residual: hold. No sell rule fires.
 
 ---
 

@@ -406,3 +406,8 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-24 daily close (15:15 ET, pre-bell)
 - **No orders placed or rejected** (routine forbids orders). Broker matches file: equity $99,745.20, cash $95,106.02, SPY 6.339623293 sh @ $717.01 (-7.23% vs entry, below the -7% line; core applicability of rule 2 still unanswered, not trimmed), MSFT residual 0.189599299 sh @ $493.71 (+8.11%). Open orders empty (correct). No new lesson.
+
+## 2026-11-25 research routine
+- No orders (research-only). Equity $99,669.70, cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). Pre-market marks.
+- SPY core $705.52 (-8.72% vs entry), below the -7% line pre-market. The 11-24 last trade, $718.91 (unconfirmed as close), was ~$0.10 above it. No human ruling on rules 2/3 for the core, so no trim planned. MSFT residual $479.70 (+5.04%). Thesis intact per Microsoft IR (nothing new since 10-28). No >5% overnight gap (SPY -1.9%, MSFT -3.3% vs 11-24 last trade). Cause unknown: Perplexity still 401, no news checked.
+- No notification sent. Perplexity has been 401 for ~9 weeks and is already escalated in the weekly reviews. No thesis broke and nothing gapped >5%.
