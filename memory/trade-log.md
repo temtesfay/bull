@@ -429,3 +429,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 - **Sell rules:** (1) Thesis break: none; no new information on a holiday, MSFT +7.28%. SPY is core and has no thesis. (2) SPY -7.27% is below the -7% line. Not trimmed: core applicability is still unanswered by the human, same as every prior run (and no order could be placed today regardless). (3) -15%: no. (4) >5%: no.
 - **Stops:** open orders empty. Correct, because there is no full-share satellite.
 - No watchlist changes. No notification: nothing new triggered, and the core question is already escalated.
+
+## 2026-11-26 daily close (15:16 ET, Thanksgiving, market closed)
+- **No orders placed or rejected.** No session today. Broker matches file: equity $99,742.52 (day $0.00), cash $95,106.02, SPY 6.339623293 sh @ $716.70 (-7.27%, core, below the -7% line; core applicability of rules 2/3 still unanswered, not trimmed), MSFT residual 0.189599299 sh @ $489.93 (+7.28%). Open orders: none (correct). Benchmark since inception -0.26% vs SPY -1.76% (+1.50pp). Fri 11-27 is an early close at 13:00 ET. No new lesson.
