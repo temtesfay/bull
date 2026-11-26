@@ -420,3 +420,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-25 daily close (15:16 ET, pre-bell)
 - **No orders placed or rejected** (routine forbids orders). Broker matches file: equity $99,739.43, cash $95,106.02, SPY 6.339623293 sh @ $716.25 (-7.33% vs entry, below the -7% line; core applicability of rule 2 still unanswered, not trimmed), MSFT residual 0.189599299 sh @ $489.69 (+7.22%). Open orders empty (correct). Market closed Thu 11-26 (Thanksgiving); next open Fri 11-27 09:30 ET (expected half-day). No new lesson.
+
+## 2026-11-26 research routine (Thanksgiving, market closed)
+- **No orders.** The market was closed for the holiday, so the routine stopped after ground truth. Broker matches file: equity $99,742.52, cash $95,106.02, SPY 6.339623293 sh @ $716.70 (-7.27%, core), MSFT residual 0.189599299 sh @ $489.93. Open orders: none. Fri 11-27 is an early close at 13:00 ET.

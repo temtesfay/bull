@@ -40,6 +40,18 @@ promotion is preserved in git history rather than repeated here.)*
 
 ---
 
+## Research routine — 2026-11-26
+
+**Market closed: Thanksgiving.** `clock` at 07:36 ET Thu: is_open false, next_open 2026-11-27 09:30, next_close 2026-11-27 13:00 (early close). Per the routine, I noted it and stopped. No news research and no trigger re-check today; nothing could be executed anyway.
+
+**Ground truth (Alpaca):** equity $99,742.52, cash $95,106.02 (matches file), `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh $716.70 (-7.27% vs entry, below the -7% line, core). MSFT residual 0.189599299 sh $489.93 (+7.28%). Open orders: none (correct). Holdings match `portfolio.md`.
+
+## Plan for today — 2026-11-26
+
+No action planned (market closed). Friday 11-27's research routine should write its own plan. This one is stale for execution. SPY core is still held, with no trim, pending the human ruling on rules 2/3. The MSFT re-entry trigger is unchanged and not fired.
+
+---
+
 ## Research routine — 2026-11-25
 
 Research-only (no trades). `clock`: pre-open (07:36 ET Wed), next_open 2026-11-25 09:30, next_close 16:00. Normal trading day. Thanksgiving Thu 11-26 closed; Fri 11-27 is expected to be an early close, so check `clock`.
