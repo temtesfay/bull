@@ -423,3 +423,9 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-26 research routine (Thanksgiving, market closed)
 - **No orders.** The market was closed for the holiday, so the routine stopped after ground truth. Broker matches file: equity $99,742.52, cash $95,106.02, SPY 6.339623293 sh @ $716.70 (-7.27%, core), MSFT residual 0.189599299 sh @ $489.93. Open orders: none. Fri 11-27 is an early close at 13:00 ET.
+
+## 2026-11-26 risk-only check (12:11 ET, Thanksgiving, market closed)
+- **No orders.** Clock is_open=false; marks are stale Wednesday prints (day change $0.00). Broker matches file: equity $99,742.52, cash $95,106.02, SPY 6.339623293 sh @ $716.70, MSFT residual 0.189599299 sh @ $489.93. Breaker clear; trading_blocked false.
+- **Sell rules:** (1) Thesis break: none; no new information on a holiday, MSFT +7.28%. SPY is core and has no thesis. (2) SPY -7.27% is below the -7% line. Not trimmed: core applicability is still unanswered by the human, same as every prior run (and no order could be placed today regardless). (3) -15%: no. (4) >5%: no.
+- **Stops:** open orders empty. Correct, because there is no full-share satellite.
+- No watchlist changes. No notification: nothing new triggered, and the core question is already escalated.
