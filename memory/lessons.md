@@ -1595,3 +1595,7 @@ already anticipated. That is not a lesson, that is variance.
   3. **Do not count these ~95%-cash weeks toward the paper-period gate.** The account did survive a ~8% down week, which strategy.md names as a milestone. But it survived by holding almost nothing, which proves nothing about the process.
   4. Carried over: move the daily close after 16:00 ET; compact `portfolio.md`/`watchlist.md`; cancel/replace for stops in alpaca.py.
 - **Sample size:** 17 weekly reviews, **~16.4 weeks since inception (2026-07-29). Under the 26-week bar: nothing here is distinguishable from luck.** With one satellite, now stopped out, and a 95%-cash book, there is almost no strategy to evaluate. Keep saying this until it stops being true.
+
+## 2026-11-27 — SEC EDGAR is reachable; use it as the primary-source fallback
+- **What happened:** Weekly reviews have been asking the human to "allowlist sec.gov" as if it were blocked. This run, `curl -A '<name> <email>' https://data.sec.gov/submissions/CIK<10-digit>.json` returned HTTP 200 through the proxy. It lists every recent filing (form, date) for any issuer.
+- **What changes:** When Perplexity fails, check EDGAR submissions JSON for each held/candidate ticker (8-K = material event) in addition to issuer IR. Drop "allowlist sec.gov" from the human asks; the remaining ask is a general news source (Perplexity refill). EDGAR shows filings, not why a price moved.

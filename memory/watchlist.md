@@ -32,11 +32,39 @@ promotion is preserved in git history rather than repeated here.)*
 - **Review by:** 2026-12-17, or at the FQ2 FY27 print (~late Jan 2027), whichever comes first
 - **Status 2026-11-18 risk check (12:12 ET):** MSFT $502.31, ~0.1% below the $503.03 exit. No new primary source. Nothing to do here; re-entry is a pre-market decision.
 - **Status 2026-11-18:** trigger (1) not fired. MSFT IR has no Ignite Q&A material and no new release; Perplexity is still 401. Price $506.35, ~0.7% above the $503.03 exit.
+- **Status 2026-11-27:** trigger (1) not fired. Microsoft IR latest dated item is still 10-28 FQ1. SEC EDGAR (newly reachable) shows no 8-K since 11-05, only Form 4s and a third-party PX14A6G. Perplexity 401. Price $498.54 pre-market, ~0.9% below the $503.03 exit.
 - **Status 2026-11-25:** trigger (1) not fired. IR announcements list unchanged (latest still 10-28 FQ1); Perplexity 401. Price $479.70 pre-market, ~4.6% below the $503.03 exit.
 - **Status 2026-11-24:** trigger (1) not fired. IR announcements list unchanged (latest still 10-28 FQ1); Perplexity 401. Price $489.75 pre-market, ~2.6% below the $503.03 exit.
 - **Status 2026-11-23:** trigger (1) not fired. IR announcements list unchanged (latest still 10-28 FQ1); Perplexity 401. Price $498.96 pre-market, ~0.8% below the $503.03 exit.
 - **Status 2026-11-20:** trigger (1) not fired. IR latest still 10-28 FQ1; Perplexity 401. Price $488.77 pre-market, ~2.8% BELOW the $503.03 exit.
 - **Status 2026-11-19:** trigger (1) not fired. MSFT IR announcements list unchanged (latest still 10-28 FQ1); events page has no Ignite Q&A material; Perplexity still 401. Price $514.47 pre-market, ~2.3% above the $503.03 exit.
+
+---
+
+## Research routine — 2026-11-27
+
+Research-only (no trades). `clock` at 07:36 ET Fri: is_open false (pre-open), next_open 2026-11-27 09:30, **next_close 13:00 (early close, day after Thanksgiving)**. It's a trading day, not a holiday.
+
+**Ground truth (Alpaca):** equity $99,819.28 (day +$76.76 / +0.08%, pre-market marks), cash $95,106.02 (matches file), `trading_blocked: false`, new_positions_this_week 0. SPY 6.339623293 sh $728.55 pre-market (-5.74% vs entry $772.91, **back above the -7% line ~$718.81**, core). MSFT residual 0.189599299 sh $498.54 (+9.16%). Open orders: none (correct). Holdings match `portfolio.md`.
+
+**Overnight move:** `quote` last = Wed 11-25 final prints (SPY $716.735, MSFT $489.99). Pre-market vs those: SPY +1.65%, MSFT +1.74%. No >5% gap. I don't know the cause; no news source checked.
+
+**Data source failure, Perplexity:** still HTTP 401 `insufficient_quota` (checked this run). No general news.
+**New: SEC EDGAR is reachable.** `data.sec.gov/submissions/CIK0000789019.json` returned HTTP 200 (declared UA). MSFT recent filings: 11-25 PX14A6G (third-party exempt proxy solicitation, not an issuer event), 11-16/12/10/09 Form 4s, 11-09 DEFA14A, 11-05 Form 144 + 8-K. **No 8-K since 11-05.** Microsoft IR page (HTTP 200): latest dated items still 10-28 FQ1 / 10-27.
+
+**MSFT (residual + re-entry candidate): thesis INTACT.** No new primary-source event in IR or EDGAR. Residual: no sell rule fires.
+
+**SPY (core):** -5.74% pre-market. It's above the -7% line, so the open rules-2/3 core question is moot at this mark (it could come back if SPY falls below ~$718.81 again). Hold.
+
+**Watchlist trigger check:** MSFT re-entry trigger (1) has **not fired**: still no primary source explains the 11-17 move, and there's no fresh buy-criteria case. There are no other candidates.
+
+## Plan for today — 2026-11-27
+
+No action planned.
+
+- SPY core: hold. It's above the -7% line pre-market, so no trim question applies today. Early close is at 13:00 ET. The no-trade-in-first-15-min rule still applies.
+- MSFT re-entry: not proposed, because the trigger hasn't fired.
+- MSFT 0.19 sh residual: hold. No sell rule fires.
 
 ---
 

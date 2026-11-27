@@ -432,3 +432,6 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-26 daily close (15:16 ET, Thanksgiving, market closed)
 - **No orders placed or rejected.** No session today. Broker matches file: equity $99,742.52 (day $0.00), cash $95,106.02, SPY 6.339623293 sh @ $716.70 (-7.27%, core, below the -7% line; core applicability of rules 2/3 still unanswered, not trimmed), MSFT residual 0.189599299 sh @ $489.93 (+7.28%). Open orders: none (correct). Benchmark since inception -0.26% vs SPY -1.76% (+1.50pp). Fri 11-27 is an early close at 13:00 ET. No new lesson.
+
+## 2026-11-27 research routine (pre-open, early close 13:00)
+- **No orders** (research-only routine). Broker matches file: equity $99,819.28, cash $95,106.02, SPY 6.339623293 sh @ $728.55 pre-market (-5.74%, core, above the -7% line), MSFT 0.189599299 sh @ $498.54 (+9.16%). Pre-market vs Wed final: SPY +1.65%, MSFT +1.74%. Cause unknown. Perplexity 401. SEC EDGAR reachable (new): MSFT has no 8-K since 11-05. Theses intact; no watchlist trigger fired. Plan: no action.
