@@ -435,3 +435,9 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 
 ## 2026-11-27 research routine (pre-open, early close 13:00)
 - **No orders** (research-only routine). Broker matches file: equity $99,819.28, cash $95,106.02, SPY 6.339623293 sh @ $728.55 pre-market (-5.74%, core, above the -7% line), MSFT 0.189599299 sh @ $498.54 (+9.16%). Pre-market vs Wed final: SPY +1.65%, MSFT +1.74%. Cause unknown. Perplexity 401. SEC EDGAR reachable (new): MSFT has no 8-K since 11-05. Theses intact; no watchlist trigger fired. Plan: no action.
+
+## 2026-11-27 risk-only check (12:11 ET, early close 13:00)
+- **No orders placed.** Circuit breaker clear (day +$58.25 / +0.06%); trading_blocked false. Broker matches file: equity $99,800.77, cash $95,106.02, SPY 6.339623293 sh @ $725.86, MSFT residual 0.189599299 sh @ $490.87.
+- **Sell rules, in order:** (1) Thesis break: none. MSFT +7.48% vs entry. EDGAR shows no 8-K since 11-05; the only new filing is a PX14A6G (a third-party proxy solicitation, 11-25), which is routine. SPY is the core and has no thesis. (2) Down 7%: no. SPY -6.09% is above the ~$718.81 line, so the open core-vs-rule-2 question doesn't bite today. (3) Down 15%: no. (4) Above 5%: no (SPY ~4.61%, MSFT ~0.09%).
+- **Stops:** open orders empty. Correct: there is no full-share satellite, and the core has no stop by design.
+- No watchlist changes. No notification: nothing triggered.
