@@ -441,3 +441,7 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 - **Sell rules, in order:** (1) Thesis break: none. MSFT +7.48% vs entry. EDGAR shows no 8-K since 11-05; the only new filing is a PX14A6G (a third-party proxy solicitation, 11-25), which is routine. SPY is the core and has no thesis. (2) Down 7%: no. SPY -6.09% is above the ~$718.81 line, so the open core-vs-rule-2 question doesn't bite today. (3) Down 15%: no. (4) Above 5%: no (SPY ~4.61%, MSFT ~0.09%).
 - **Stops:** open orders empty. Correct: there is no full-share satellite, and the core has no stop by design.
 - No watchlist changes. No notification: nothing triggered.
+
+## 2026-11-27 daily close (15:15 ET, after the 13:00 early close)
+- **No orders placed or rejected** (routine forbids orders). Clock is_open=false, so for once these are post-close marks, not pre-bell. Broker matches file: equity $99,822.57 (day +$80.05 / +0.08%), cash $95,106.02, SPY 6.339623293 sh @ $729.20 (-5.66%, core, back above the -7% line, still >5% underwater), MSFT residual 0.189599299 sh @ $494.20 (+8.21%). Open orders: none (correct).
+- Benchmark: day +0.08% vs SPY +1.69% (-1.61pp); since inception -0.18% vs SPY -0.10% (-0.08pp). The since-inception lead from the selloff is gone now that SPY has recovered. That's what a 95%-cash book does; it isn't skill either way.
