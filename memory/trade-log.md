@@ -445,3 +445,7 @@ Market open (09:46 ET). Plan dated 2026-10-30: no new buys; re-place MSFT 10% tr
 ## 2026-11-27 daily close (15:15 ET, after the 13:00 early close)
 - **No orders placed or rejected** (routine forbids orders). Clock is_open=false, so for once these are post-close marks, not pre-bell. Broker matches file: equity $99,822.57 (day +$80.05 / +0.08%), cash $95,106.02, SPY 6.339623293 sh @ $729.20 (-5.66%, core, back above the -7% line, still >5% underwater), MSFT residual 0.189599299 sh @ $494.20 (+8.21%). Open orders: none (correct).
 - Benchmark: day +0.08% vs SPY +1.69% (-1.61pp); since inception -0.18% vs SPY -0.10% (-0.08pp). The since-inception lead from the selloff is gone now that SPY has recovered. That's what a 95%-cash book does; it isn't skill either way.
+
+## 2026-11-27 weekly review
+- No orders placed or rejected (review-only). Equity $99,831.31 (15:43 ET, after the 13:00 early close), cash $95,106.02. Broker matches portfolio.md. Open orders: none (correct). SPY 6.339623293 sh, quote last $728.86 (-5.48% vs entry by position mark $730.54). MSFT residual 0.189599299 sh $495.50.
+- Week +0.26% vs SPY +5.61% (-5.35pp, cash). Since inception -0.17% vs SPY -0.10% (-0.07pp, price-only benchmark; total-return gap probably slightly wider). Grade D. Review #18 is in lessons.md. Perplexity re-probed: still 401. MSFT re-entry trigger replaced with an EDGAR-checkable one (watchlist).
